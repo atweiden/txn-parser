@@ -7,6 +7,9 @@ unit class TXN::Parser::Actions;
 # not passed as a parameter during instantiation, use UTC
 has Int $.date-local-offset = 0;
 
+# increments on each entry (0+)
+has Int $!entry-number = 0;
+
 subset Quantity of FatRat where * >= 0;
 
 # string grammar-actions {{{
@@ -660,10 +663,6 @@ method entry($/)
 {
     my Str $text = $/.Str;
 
-    # header container
-    my %header = $<header>.made;
-
-    # posting containers
     my @postings = $<postings>.made;
 
     # verify entry is limited to one entity
@@ -686,8 +685,25 @@ method entry($/)
     # xxHash of transaction journal entry text
     my Int $xxhash = xxHash32($text);
 
-    # make entry container
-    make %(:%header, :@postings, :$text, :$xxhash);
+    my %entry-id = :number($!entry-number++), :$xxhash, :$text;
+
+    # insert PostingID derived from EntryID into postings
+    my Int $posting-number = 0;
+    @postings .= map({
+        %(
+            :account($_<account>),
+            :amount($_<amount>),
+            :decinc($_<decinc>),
+            :id(%(
+                :%entry-id,
+                :number($posting-number++),
+                :xxhash($_<xxhash>),
+                :text($_<text>);
+            ))
+        )
+    });
+
+    make %(:id(%entry-id), :header($<header>.made), :@postings);
 }
 
 method segment:entry ($/)
@@ -697,52 +713,7 @@ method segment:entry ($/)
 
 method journal($/)
 {
-    my @entry-containers = @<segment>».made.grep(Hash);
-
-    # increments on each entry (0+)
-    my Int $entry-number = 0;
-
-    # build entry containers
-    my @entries;
-    for @entry-containers -> %entry
-    {
-        # EntryID
-        my %entry-id =
-            :number($entry-number++),
-            :xxhash(%entry<xxhash>),
-            :text(%entry<text>);
-
-        # header
-        my %header = %entry<header>;
-
-        # increments on each posting (0+), resets after each entry
-        my Int $posting-number = 0;
-
-        # postings
-        my @postings;
-        for %entry<postings> -> @posting-containers
-        {
-            for @posting-containers -> %posting
-            {
-                # PostingID
-                my %posting-id =
-                    :%entry-id,
-                    :number($posting-number++),
-                    :xxhash(%posting<xxhash>),
-                    :text(%posting<text>);
-
-                push @postings, %(
-                    :account(%posting<account>),
-                    :amount(%posting<amount>),
-                    :decinc(%posting<decinc>),
-                    :id(%posting-id)
-                );
-            }
-        }
-
-        push @entries, %(:id(%entry-id), :%header, :@postings);
-    }
-
+    my @entries = @<segment>».made.grep(Hash);
     make @entries;
 }
 
