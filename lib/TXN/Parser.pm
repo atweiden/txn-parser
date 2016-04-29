@@ -7,7 +7,7 @@ method parse(Str:D $content, Int :$date-local-offset) returns Match
 {
     my %a; %a<date-local-offset> = $date-local-offset if $date-local-offset;
     my TXN::Parser::Actions $actions .= new(|%a);
-    my Str:D $journal = self.preprocess($content);
+    my Str:D $journal = preprocess($content);
     TXN::Parser::Grammar.parse($journal, :$actions);
 }
 
@@ -15,21 +15,21 @@ method parsefile(Str:D $file, Int :$date-local-offset) returns Match
 {
     my %a; %a<date-local-offset> = $date-local-offset if $date-local-offset;
     my TXN::Parser::Actions $actions .= new(|%a);
-    my Str:D $journal = self.preprocess(:$file);
+    my Str:D $journal = preprocess(:$file);
     TXN::Parser::Grammar.parse($journal, :$actions);
 }
 
-multi method preprocess(Str:D $content) returns Str:D
+multi sub preprocess(Str:D $content) returns Str:D
 {
-    self!resolve-includes($content);
+    resolve-includes($content);
 }
 
-multi method preprocess(Str:D :$file!) returns Str:D
+multi sub preprocess(Str:D :$file!) returns Str:D
 {
-    self!resolve-includes(slurp($file), :$file);
+    resolve-includes(slurp($file), :$file);
 }
 
-method !resolve-includes(Str:D $journal-orig, Str:D :$file = '.') returns Str:D
+sub resolve-includes(Str:D $journal-orig, Str:D :$file = '.') returns Str:D
 {
     my Str:D $journal = "";
 
@@ -49,7 +49,7 @@ method !resolve-includes(Str:D $journal-orig, Str:D :$file = '.') returns Str:D
                 die X::TXN::Parser::Include.new(:$filename);
             }
 
-            $journal ~= self.preprocess(:file($filename));
+            $journal ~= preprocess(:file($filename));
         }
         else
         {
