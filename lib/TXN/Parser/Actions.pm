@@ -609,20 +609,8 @@ method filename($/)
 
 method include($/)
 {
-    # transaction journal to include with .txn extension appended
-    my Str $filename = $<filename>.made ~ ".txn";
-
-    # is include directive's transaction journal readable?
-    if $filename.IO.e && $filename.IO.r
-    {
-        # schedule included transaction journal for parsing
-        make $filename;
-    }
-    else
-    {
-        # exit with an error
-        die X::TXN::Parser::Include.new(:$filename);
-    }
+    # relative path to transaction journal with .txn extension appended
+    make $<filename>.made ~ ".txn";
 }
 
 method include-line($/)
