@@ -8,7 +8,7 @@ unit class TXN::Parser::Actions;
 has Int $.date-local-offset = 0;
 
 # increments on each entry (0+)
-has Int $!entry-number = 0;
+has UInt $!entry-number = 0;
 
 subset Quantity of FatRat where * >= 0;
 
@@ -402,14 +402,14 @@ method description($/)
 method header($/)
 {
     # entry date
-    my $date = $<date>.made;
+    my DateTime $date = $<date>.made;
 
     # entry description
     my Str $description = '';
     $description = $<description>.made if $<description>;
 
     # entry importance
-    my Int $important = 0;
+    my UInt $important = 0;
 
     # entry tags
     my Str @tags;
@@ -583,7 +583,7 @@ method posting($/)
     my Str $decinc = mkdecinc(%amount<plus-or-minus>);
 
     # xxHash of transaction journal posting text
-    my Int $xxhash = xxHash32($text);
+    my UInt $xxhash = xxHash32($text);
 
     # make posting container
     make %(:%account, :%amount, :$decinc, :$text, :$xxhash);
@@ -623,20 +623,12 @@ method include-line($/)
 
 method extends($/)
 {
-    # transaction journal to extend from
-    my Str $journalname = $<journalname>.made;
-
-    # can we find it?
-    if $journalname.IO.e && $journalname.IO.r
+    my Str $filename = $<filename>.made;
+    unless $filename.IO.e && $filename.IO.r
     {
-        # extend it
-        make $journalname;
+        die X::TXN::Parser::Extends.new(:$filename);
     }
-    else
-    {
-        # exit with an error
-        die X::TXN::Parser::Extends.new(:$journalname);
-    }
+    make $filename;
 }
 
 method extends-line($/)
@@ -671,12 +663,12 @@ method entry($/)
     }
 
     # xxHash of transaction journal entry text
-    my Int $xxhash = xxHash32($text);
+    my UInt $xxhash = xxHash32($text);
 
     my %entry-id = :number($!entry-number++), :$xxhash, :$text;
 
     # insert PostingID derived from EntryID into postings
-    my Int $posting-number = 0;
+    my UInt $posting-number = 0;
     @postings .= map({
         %(
             :account($_<account>),

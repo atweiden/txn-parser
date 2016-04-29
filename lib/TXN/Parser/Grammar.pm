@@ -66,8 +66,7 @@ token string-basic-char:escape-sequence
 
         .
         {
-            say "Sorry, found bad string escape sequence 「$/」";
-            exit;
+            die X::TXN::Parser::String::EscapeSequence.new(:esc(~$/));
         }
     ]
 }
@@ -157,8 +156,7 @@ token string-basic-multiline-char:escape-sequence
 
         .
         {
-            say "Sorry, found bad string escape sequence 「$/」";
-            exit;
+            die X::TXN::Parser::String::EscapeSequence.new(:esc(~$/));
         }
     ]
 }
@@ -612,7 +610,7 @@ token extends-line
 
 token extends
 {
-    extends \h+ <journalname=filename>
+    extends \h+ <filename>
 }
 
 # end extends grammar }}}

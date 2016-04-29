@@ -5,12 +5,12 @@ unit class X::TXN::Parser;
 
 class Entry::MultipleEntities is Exception
 {
-    has Str $.entry-text;
-    has Int $.number-entities;
+    has Str $.entry-text is required;
+    has UInt $.number-entities is required;
 
-    method message()
+    method message() returns Str
     {
-        say qq:to/EOF/;
+        my Str $message = qq:to/EOF/;
         Sorry, only one entity per journal entry allowed, but found
         $.number-entities entities.
 
@@ -18,6 +18,7 @@ class Entry::MultipleEntities is Exception
 
         「$.entry-text」
         EOF
+        $message.trim;
     }
 }
 
@@ -27,15 +28,16 @@ class Entry::MultipleEntities is Exception
 
 class Extends is Exception
 {
-    has Str $.journalname;
+    has Str $.filename is required;
 
-    method message()
+    method message() returns Str
     {
-        say qq:to/EOF/;
+        my Str $message = qq:to/EOF/;
         Sorry, could not locate transaction journal to extend
 
-            「$.journalname」
+            「$.filename」
         EOF
+        $message.trim;
     }
 }
 
@@ -45,20 +47,35 @@ class Extends is Exception
 
 class Include is Exception
 {
-    has Str $.filename;
+    has Str $.filename is required;
 
-    method message()
+    method message() returns Str
     {
-        say qq:to/EOF/;
+        my Str $message = qq:to/EOF/;
         Sorry, could not load transaction journal to include at
 
             「$.filename」
 
         Transaction journal not found or not readable.
         EOF
+        $message.trim;
     }
 }
 
 # end X::TXN::Parser::Include }}}
+
+# X::TXN::Parser::String::EscapeSequence {{{
+
+class String::EscapeSequence is Exception
+{
+    has Str $.esc is required;
+
+    method message() returns Str
+    {
+        my Str $message = "Sorry, found bad string escape sequence 「$.esc」";
+    }
+}
+
+# end X::TXN::Parser::String::EscapeSequence }}}
 
 # vim: ft=perl6 fdm=marker fdl=0
