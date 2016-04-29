@@ -3,7 +3,7 @@
     "version"     : "*",
     "author"      : "Andy Weidenbaum",
     "description" : "Double-entry bookkeeping transaction journal parser",
-    "depends"     : ["Config::TOML", "Digest::xxHash"],
+    "depends"     : ["Digest::xxHash"],
     "license"     : "http://unlicense.org/UNLICENSE",
     "source-type" : "git",
     "source-url"  : "git://github.com/atweiden/txn-parser.git",

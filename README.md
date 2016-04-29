@@ -30,7 +30,6 @@ Installation
 #### Dependencies
 
 - Rakudo Perl6
-- [Config::TOML](https://github.com/atweiden/config-toml)
 - [Digest::xxHash](https://github.com/atweiden/digest-xxhash)
 
 
