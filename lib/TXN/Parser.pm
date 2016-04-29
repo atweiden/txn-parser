@@ -45,7 +45,7 @@ sub resolve-includes(Str:D $journal-orig, Str:D :$file = '.') returns Str:D
             my Str $filename = join('/', $file.IO.dirname, $/.made);
             unless $filename.IO.e && $filename.IO.r
             {
-                use TXN::Parser::Exceptions;
+                use X::TXN::Parser;
                 die X::TXN::Parser::Include.new(:$filename);
             }
 

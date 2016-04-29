@@ -1,6 +1,6 @@
 use v6;
 use Digest::xxHash;
-use TXN::Parser::Exceptions;
+use X::TXN::Parser;
 unit class TXN::Parser::Actions;
 
 # DateTime offset for when the local offset is omitted in dates. if
