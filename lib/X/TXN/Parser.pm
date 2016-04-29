@@ -1,7 +1,9 @@
 use v6;
+unit class X::TXN::Parser;
 
-# for Actions.entry verify entry is limited to one entity
-class X::TXN::Parser::Entry::MultipleEntities is Exception
+# X::TXN::Parser::Entry::MultipleEntities {{{
+
+class Entry::MultipleEntities is Exception
 {
     has Str $.entry-text;
     has Int $.number-entities;
@@ -19,7 +21,29 @@ class X::TXN::Parser::Entry::MultipleEntities is Exception
     }
 }
 
-class X::TXN::Parser::Include is Exception
+# end X::TXN::Parser::Entry::MultipleEntities }}}
+
+# X::TXN::Parser::Extends {{{
+
+class Extends is Exception
+{
+    has Str $.journalname;
+
+    method message()
+    {
+        say qq:to/EOF/;
+        Sorry, could not locate transaction journal to extend
+
+            「$.journalname」
+        EOF
+    }
+}
+
+# end X::TXN::Parser::Extends }}}
+
+# X::TXN::Parser::Include {{{
+
+class Include is Exception
 {
     has Str $.filename;
 
@@ -35,18 +59,6 @@ class X::TXN::Parser::Include is Exception
     }
 }
 
-class X::TXN::Parser::Extends is Exception
-{
-    has Str $.journalname;
+# end X::TXN::Parser::Include }}}
 
-    method message()
-    {
-        say qq:to/EOF/;
-        Sorry, could not locate transaction journal to extend
-
-            「$.journalname」
-        EOF
-    }
-}
-
-# vim: ft=perl6
+# vim: ft=perl6 fdm=marker fdl=0
