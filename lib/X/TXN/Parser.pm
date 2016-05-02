@@ -64,6 +64,30 @@ class Include is Exception
 
 # end X::TXN::Parser::Include }}}
 
+# X::TXN::Parser::ParseFailed {{{
+
+class ParseFailed is Exception
+{
+    method message() returns Str
+    {
+        my Str $message = 'Sorry, parse failed';
+    }
+}
+
+# end X::TXN::Parser::ParseFailed }}}
+
+# X::TXN::Parser::ParsefileFailed {{{
+
+class ParsefileFailed is Exception
+{
+    method message() returns Str
+    {
+        my Str $message = 'Sorry, parsefile failed';
+    }
+}
+
+# end X::TXN::Parser::ParsefileFailed }}}
+
 # X::TXN::Parser::String::EscapeSequence {{{
 
 class String::EscapeSequence is Exception
