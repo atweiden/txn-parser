@@ -1,0 +1,63 @@
+# ------------------------------------------------------------------------
+
+2011-04-01 '''
+Wigwam LLC bought one wigwam for $1.04 USD in early April 2011
+FILE:  「includes/2011/Q2.txn」
+BEFORE:「include 'Q2/April'」
+'''
+Assets:WigwamLLC:Inventory:Wigwams     1 Wigwam @ 1.04 USD
+Assets:WigwamLLC:KoopaTroopaBank      -1.04 USD
+
+include 'Q2/April'
+
+2011-04-30 '''
+Wigwam LLC sold one wigwam for $1.04 USD in late April 2011
+FILE:  「includes/2011/Q2.txn」
+AFTER: 「include 'Q2/April'」
+'''
+Assets:WigwamLLC:KoopaTroopaBank       1.04 USD
+Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam @ 1.04 USD
+
+# ------------------------------------------------------------------------
+
+2011-05-01 '''
+Wigwam LLC bought one wigwam for $1.05 USD in early May 2011
+FILE:  「includes/2011/Q2.txn」
+BEFORE:「include 'Q2/May'」
+'''
+Assets:WigwamLLC:Inventory:Wigwams     1 Wigwam @ 1.05 USD
+Assets:WigwamLLC:KoopaTroopaBank      -1.05 USD
+
+include 'Q2/May'
+
+2011-05-31 '''
+Wigwam LLC sold one wigwam for $1.05 USD in late May 2011
+FILE:  「includes/2011/Q2.txn」
+AFTER: 「include 'Q2/May'」
+'''
+Assets:WigwamLLC:KoopaTroopaBank       1.05 USD
+Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam @ 1.05 USD
+
+# ------------------------------------------------------------------------
+
+2011-06-01 '''
+Wigwam LLC bought one wigwam for $1.06 USD in early June 2011
+FILE:  「includes/2011/Q2.txn」
+BEFORE:「include 'Q2/June'」
+'''
+Assets:WigwamLLC:Inventory:Wigwams     1 Wigwam @ 1.06 USD
+Assets:WigwamLLC:KoopaTroopaBank      -1.06 USD
+
+include 'Q2/June'
+
+2011-06-30 '''
+Wigwam LLC sold one wigwam for $1.06 USD in late June 2011
+FILE:  「includes/2011/Q2.txn」
+AFTER: 「include 'Q2/June'」
+'''
+Assets:WigwamLLC:KoopaTroopaBank       1.06 USD
+Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam @ 1.06 USD
+
+# ------------------------------------------------------------------------
+
+# vim: ft=txn

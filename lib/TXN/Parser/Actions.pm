@@ -1,14 +1,25 @@
 use v6;
 use Digest::xxHash;
+use TXN::Parser::Grammar;
 use X::TXN::Parser;
 unit class TXN::Parser::Actions;
+
+# public attributes {{{
 
 # DateTime offset for when the local offset is omitted in dates. if
 # not passed as a parameter during instantiation, use UTC
 has Int $.date-local-offset = 0;
 
 # increments on each entry (0+)
-has UInt $!entry-number = 0;
+# each element in list represents an include level deep (0+)
+has UInt @.entry-number = 0;
+
+# the file currently being parsed
+has Str $.file = '.';
+
+has @.entries;
+
+# end public attributes }}}
 
 subset Quantity of FatRat where * >= 0;
 
@@ -571,7 +582,7 @@ method amount($/)
 
 method posting($/)
 {
-    my Str $text = $/.Str;
+    my Str $text = ~$/;
 
     # account
     my %account = $<account>.made;
@@ -607,15 +618,18 @@ method filename($/)
     make $<var-name-string>.made;
 }
 
-method include($/)
+method include($/ is copy)
 {
-    # relative path to transaction journal with .txn extension appended
-    make $<filename>.made ~ ".txn";
-}
-
-method include-line($/)
-{
-    make $<include>.made;
+    my Str $filename = join('/', $.file.IO.dirname, $<filename>.made) ~ '.txn';
+    unless $filename.IO.e && $filename.IO.f && $filename.IO.r
+    {
+        die X::TXN::Parser::Include.new(:$filename);
+    }
+    my UInt @entry-number = |@.entry-number.deepmap(*.clone), 0;
+    my TXN::Parser::Actions $actions .= new(:@entry-number, :file($filename));
+    TXN::Parser::Grammar.parsefile($filename, :$actions);
+    push @!entries, |$actions.entries;
+    @!entry-number[*-1]++;
 }
 
 # end include grammar-actions }}}
@@ -624,7 +638,7 @@ method include-line($/)
 method extends($/)
 {
     my Str $filename = $<filename>.made;
-    unless $filename.IO.e && $filename.IO.r
+    unless $filename.IO.e && $filename.IO.f && $filename.IO.r
     {
         die X::TXN::Parser::Extends.new(:$filename);
     }
@@ -641,7 +655,7 @@ method extends-line($/)
 
 method entry($/)
 {
-    my Str $text = $/.Str;
+    my Str $text = ~$/;
 
     my @postings = $<postings>.made;
 
@@ -665,7 +679,8 @@ method entry($/)
     # xxHash of transaction journal entry text
     my UInt $xxhash = xxHash32($text);
 
-    my %entry-id = :number($!entry-number++), :$xxhash, :$text;
+    my %entry-id = :number(@.entry-number.deepmap(*.clone)), :$xxhash, :$text;
+    @!entry-number[*-1]++;
 
     # insert PostingID derived from EntryID into postings
     my UInt $posting-number = 0;
@@ -683,23 +698,12 @@ method entry($/)
         )
     });
 
-    make %(:id(%entry-id), :header($<header>.made), :@postings);
-}
-
-method segment:entry ($/)
-{
-    make $<entry>.made;
-}
-
-method journal($/)
-{
-    my @entries = @<segment>».made.grep(Hash);
-    make @entries;
+    push @!entries, %(:id(%entry-id), :header($<header>.made), :@postings);
 }
 
 method TOP($/)
 {
-    make $<journal>.made;
+    make @.entries;
 }
 
 # end journal grammar-actions }}}

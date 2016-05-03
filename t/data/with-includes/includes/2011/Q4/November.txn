@@ -1,0 +1,5 @@
+2011-11-16 'Wigwam LLC received a dividend of $2011.1116 USD'
+  Assets:WigwamLLC:KoopaTroopaBank    $2011.1116 USD
+  Income:WigwamLLC:Dividends          $2011.1116 USD
+
+# vim: ft=txn
