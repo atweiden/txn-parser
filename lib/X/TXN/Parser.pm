@@ -1,5 +1,5 @@
 use v6;
-unit class X::TXN::Parser;
+unit module X::TXN::Parser;
 
 # X::TXN::Parser::Entry::MultipleEntities {{{
 
