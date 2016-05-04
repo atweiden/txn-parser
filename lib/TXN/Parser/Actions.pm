@@ -7,7 +7,7 @@ unit class TXN::Parser::Actions;
 # public attributes {{{
 
 # DateTime offset for when the local offset is omitted in dates. if
-# not passed as a parameter during instantiation, use UTC
+# not passed as a parameter during instantiation, use UTC (0)
 has Int $.date-local-offset = 0;
 
 # increments on each entry (0+)
@@ -17,6 +17,7 @@ has UInt @.entry-number = 0;
 # the file currently being parsed
 has Str $.file = '.';
 
+# for storing parsed entries
 has @.entries;
 
 # end public attributes }}}
@@ -267,7 +268,7 @@ method time-secfrac($/)
 
 method time-numoffset($/)
 {
-    my Int $multiplier = $<plus-or-minus> ~~ '+' ?? 1 !! -1;
+    my Int $multiplier = $<plus-or-minus> eq '+' ?? 1 !! -1;
     make Int(
         (
             ($multiplier * $<time-hour>.made * 60) + $<time-minute>.made
@@ -392,12 +393,12 @@ method tag($/)
 
 method meta:important ($/)
 {
-    make %(important => $<important>.made);
+    make %(:important($<important>.made));
 }
 
 method meta:tag ($/)
 {
-    make %(tag => $<tag>.made);
+    make %(:tag($<tag>.made));
 }
 
 method metainfo($/)
@@ -416,8 +417,7 @@ method header($/)
     my DateTime $date = $<date>.made;
 
     # entry description
-    my Str $description = '';
-    $description = $<description>.made if $<description>;
+    my Str $description = $<description> ?? $<description>.made !! '';
 
     # entry importance
     my UInt $important = 0;
@@ -427,8 +427,8 @@ method header($/)
 
     for @<metainfo>».made -> @metainfo
     {
-        $important += [+] @metainfo.grep({ .keys ~~ 'important' })».values.flat;
-        push @tags, |@metainfo.grep({ .keys ~~ 'tag' })».values.flat.unique;
+        $important += [+] @metainfo.grep({ .keys eq 'important' })».values.flat;
+        push @tags, |@metainfo.grep({ .keys eq 'tag' })».values.flat.unique;
     }
 
     # make entry header container
@@ -524,8 +524,7 @@ method xe-main($/)
     my Quantity $asset-quantity = $<asset-quantity>.made;
 
     # asset symbol
-    my Str $asset-symbol = '';
-    $asset-symbol = $<asset-symbol>.made if $<asset-symbol>;
+    my Str $asset-symbol = $<asset-symbol> ?? $<asset-symbol>.made !! '';
 
     # make exchange rate
     make %(:$asset-code, :$asset-quantity, :$asset-symbol);
@@ -557,12 +556,10 @@ method amount($/)
     my Quantity $asset-quantity = $<asset-quantity>.made;
 
     # asset symbol
-    my Str $asset-symbol = '';
-    $asset-symbol = $<asset-symbol>.made if $<asset-symbol>;
+    my Str $asset-symbol = $<asset-symbol> ?? $<asset-symbol>.made !! '';
 
     # minus sign
-    my Str $plus-or-minus = '';
-    $plus-or-minus = $<plus-or-minus>.made if $<plus-or-minus>;
+    my Str $plus-or-minus = $<plus-or-minus> ?? $<plus-or-minus>.made !! '';
 
     # exchange rate
     my %exchange-rate;
@@ -591,7 +588,7 @@ method posting($/)
     my %amount = $<amount>.made;
 
     # dec / inc
-    my Str $decinc = mkdecinc(%amount<plus-or-minus>);
+    my Str $decinc = %amount<plus-or-minus> eq '-' ?? 'DEC' !! 'INC';
 
     # xxHash of transaction journal posting text
     my UInt $xxhash = xxHash32($text);
@@ -656,19 +653,14 @@ method extends-line($/)
 method entry($/)
 {
     my Str $text = ~$/;
-
     my @postings = $<postings>.made;
 
     # verify entry is limited to one entity
     {
         my Str @entities;
         push @entities, $_<account><entity> for @postings;
-
-        # is the number of elements sharing the same entity name not equal
-        # to the total number of entity names seen?
         unless @entities.grep(@entities[0]).elems == @entities.elems
         {
-            # error: invalid use of more than one entity per journal entry
             die X::TXN::Parser::Entry::MultipleEntities.new(
                 :number-entities(@entities.elems),
                 :entry-text($text)
@@ -676,13 +668,9 @@ method entry($/)
         }
     }
 
-    # xxHash of transaction journal entry text
-    my UInt $xxhash = xxHash32($text);
-
-    my %entry-id = :number(@.entry-number.deepmap(*.clone)), :$xxhash, :$text;
-    @!entry-number[*-1]++;
-
     # insert PostingID derived from EntryID into postings
+    my UInt $xxhash = xxHash32($text);
+    my %entry-id = :number(@.entry-number.deepmap(*.clone)), :$xxhash, :$text;
     my UInt $posting-number = 0;
     @postings .= map({
         %(
@@ -699,6 +687,7 @@ method entry($/)
     });
 
     push @!entries, %(:id(%entry-id), :header($<header>.made), :@postings);
+    @!entry-number[*-1]++;
 }
 
 method TOP($/)
@@ -707,30 +696,5 @@ method TOP($/)
 }
 
 # end journal grammar-actions }}}
-
-# helper functions {{{
-
-sub mkasset-flow(FatRat:D $d) returns Str:D
-{
-    if $d > 0
-    {
-        'ACQUIRE';
-    }
-    elsif $d < 0
-    {
-        'EXPEND';
-    }
-    else
-    {
-        'STABLE';
-    }
-}
-
-sub mkdecinc(Str $plus-or-minus) returns Str:D
-{
-    $plus-or-minus ~~ '-' ?? 'DEC' !! 'INC';
-}
-
-# end helper functions }}}
 
 # vim: ft=perl6 fdm=marker fdl=0
