@@ -6,4 +6,4 @@ include 'includes/2013'
   Assets:Personal:Bankwest:Cheque      $1000.00 USD
   Equity:Personal                      $1000.00 USD
 
-# vim: ft=txn
+-- vim: ft=txn

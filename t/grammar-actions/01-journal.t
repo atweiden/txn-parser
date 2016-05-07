@@ -111,7 +111,7 @@ subtest
     );
     is(
         $match-journal.made[0]<id><text>,
-        "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\" \@TAG1 \@TAG2 # EODESC COMMENT\n  # this is a comment line\n  Assets:Personal:Bankwest:Cheque    \$1000.00 USD\n  # this is a second comment line\n  Equity:Personal                    \$1000.00 USD # EOL COMMENT\n  # this is a third comment line\n# this is a stray comment\n# another\n",
+        "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\" #TAG1 #TAG2 -- EODESC COMMENT\n  -- this is a comment line\n  Assets:Personal:Bankwest:Cheque    \$1000.00 USD\n  -- this is a second comment line\n  Equity:Personal                    \$1000.00 USD -- EOL COMMENT\n  -- this is a third comment line\n-- this is a stray comment\n-- another\n",
         q:to/EOF/
         ♪ [Is expected value?] - 9 of 4063
         ┏━━━━━━━━━━━━━┓
@@ -123,7 +123,7 @@ subtest
     );
     is(
         $match-journal.made[0]<id><xxhash>,
-        3251202721,
+        3900955553,
         q:to/EOF/
         ♪ [Is expected value?] - 10 of 4063
         ┏━━━━━━━━━━━━━┓
@@ -303,7 +303,7 @@ subtest
     );
     is(
         $match-journal.made[0]<postings>[0]<id><entry-id><text>,
-        "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\" \@TAG1 \@TAG2 # EODESC COMMENT\n  # this is a comment line\n  Assets:Personal:Bankwest:Cheque    \$1000.00 USD\n  # this is a second comment line\n  Equity:Personal                    \$1000.00 USD # EOL COMMENT\n  # this is a third comment line\n# this is a stray comment\n# another\n",
+        "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\" #TAG1 #TAG2 -- EODESC COMMENT\n  -- this is a comment line\n  Assets:Personal:Bankwest:Cheque    \$1000.00 USD\n  -- this is a second comment line\n  Equity:Personal                    \$1000.00 USD -- EOL COMMENT\n  -- this is a third comment line\n-- this is a stray comment\n-- another\n",
         q:to/EOF/
         ♪ [Is expected value?] - 25 of 4063
         ┏━━━━━━━━━━━━━┓
@@ -315,7 +315,7 @@ subtest
     );
     is(
         $match-journal.made[0]<postings>[0]<id><entry-id><xxhash>,
-        3251202721,
+        3900955553,
         q:to/EOF/
         ♪ [Is expected value?] - 26 of 4063
         ┏━━━━━━━━━━━━━┓
@@ -337,7 +337,7 @@ subtest
     - market price is $466/BTC
     - donor's basis was $0.04/BTC
     '''
-    Assets:Personal:ColdStorage    ฿5 BTC @ $466 USD ==> $0.04 USD
+    Assets:Personal:ColdStorage    ฿5 BTC @ $466 USD « $0.04 USD
     Income:Personal:Gifts          ฿5 BTC @ $466 USD
     EOF
 

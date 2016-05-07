@@ -1,4 +1,4 @@
-# ------------------------------------------------------------------------
+--------------------------------------------------------------------------
 
 2013-10-01 '''
 Wigwam LLC bought one wigwam for $3.10 USD in early October 2013
@@ -18,7 +18,7 @@ AFTER: 「include 'Q4/October'」
 Assets:WigwamLLC:KoopaTroopaBank       3.10 USD
 Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam @ 3.10 USD
 
-# ------------------------------------------------------------------------
+--------------------------------------------------------------------------
 
 2013-11-01 '''
 Wigwam LLC bought one wigwam for $3.11 USD in early November 2013
@@ -38,7 +38,7 @@ AFTER: 「include 'Q4/November'」
 Assets:WigwamLLC:KoopaTroopaBank       3.11 USD
 Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam @ 3.11 USD
 
-# ------------------------------------------------------------------------
+--------------------------------------------------------------------------
 
 2013-12-01 '''
 Wigwam LLC bought one wigwam for $3.12 USD in early December 2013
@@ -58,6 +58,6 @@ AFTER: 「include 'Q4/December'」
 Assets:WigwamLLC:KoopaTroopaBank       3.12 USD
 Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam @ 3.12 USD
 
-# ------------------------------------------------------------------------
+--------------------------------------------------------------------------
 
-# vim: ft=txn
+-- vim: ft=txn

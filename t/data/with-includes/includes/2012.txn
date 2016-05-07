@@ -7,4 +7,4 @@ include '2012/Q2'
 include '2012/Q3'
 include '2012/Q4'
 
-# vim: ft=txn
+-- vim: ft=txn

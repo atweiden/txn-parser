@@ -387,7 +387,7 @@ method important($/)
 
 method tag($/)
 {
-    # make tag (with leading @ stripped)
+    # make tag (with leading # stripped)
     make $<var-name>.made;
 }
 

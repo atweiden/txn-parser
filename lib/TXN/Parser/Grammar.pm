@@ -13,7 +13,7 @@ token gap:comment { <.comment> \n }
 
 token comment
 {
-    '#' <comment-text>
+    '--' <comment-text>
 }
 
 token comment-text
@@ -440,7 +440,7 @@ token exclamation-mark
 
 token tag
 {
-    '@' <var-name>
+    '#' <var-name>
 }
 
 # end header grammar }}}
@@ -579,7 +579,8 @@ token xe-secondary
 }
 
 proto token xe-secondary-symbol {*}
-token xe-secondary-symbol:texas { '==>' }
+token xe-secondary-symbol:hyper { '«' }
+token xe-secondary-symbol:texas { '<<' }
 
 # --- end posting amount grammar }}}
 
