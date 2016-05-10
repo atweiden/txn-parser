@@ -1,0 +1,6 @@
+imports:
+    txn-examples: t/data/
+
+git module txn-examples:
+    url: git://github.com/atweiden/txn-examples.git
+    rev: 0e0d5d653d88da5e60bc741c2f020f33ab81d832
