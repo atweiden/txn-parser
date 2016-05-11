@@ -24,25 +24,6 @@ class Entry::MultipleEntities is Exception
 
 # end X::TXN::Parser::Entry::MultipleEntities }}}
 
-# X::TXN::Parser::Extends {{{
-
-class Extends is Exception
-{
-    has Str $.filename is required;
-
-    method message() returns Str
-    {
-        my Str $message = qq:to/EOF/;
-        Sorry, could not locate transaction journal to extend
-
-            「$.filename」
-        EOF
-        $message.trim;
-    }
-}
-
-# end X::TXN::Parser::Extends }}}
-
 # X::TXN::Parser::Include {{{
 
 class Include is Exception

@@ -27,6 +27,22 @@ subtest
     include "journal includes/file with whitespace"
     EOF
 
+    push @include-lines, Q:to/EOF/;
+    include <basic>
+    EOF
+
+    push @include-lines, Q:to/EOF/;
+    include <FY/2011/Q1>
+    EOF
+
+    push @include-lines, Q:to/EOF/;
+    include <journal\ includes/lib\ with\ whitespace>
+    EOF
+
+    push @include-lines, Q:to/EOF/;
+    include <includes\\/\>・ï\/©ㄦﬁ>
+    EOF
+
     sub is-valid-include-line(Str:D $include-line) returns Bool:D
     {
         TXN::Parser::Grammar.parse($include-line, :rule<include-line>).so;

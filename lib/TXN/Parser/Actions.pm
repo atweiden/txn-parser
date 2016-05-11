@@ -6,6 +6,9 @@ unit class TXN::Parser::Actions;
 
 # public attributes {{{
 
+# base path for <include> directives
+has Str $.txndir = "%*ENV<HOME>/.mktxn/txn";
+
 # DateTime offset for when the local offset is omitted in dates. if
 # not passed as a parameter during instantiation, use UTC (0)
 has Int $.date-local-offset = 0;
@@ -183,6 +186,77 @@ method string-literal-multiline($/)
 }
 
 # --- end string literal grammar-actions }}}
+# --- var-name string grammar-actions {{{
+
+method var-name-string:basic ($/)
+{
+    make $<string-basic-text>.made;
+}
+
+method var-name-string:literal ($/)
+{
+    make $<string-literal-text>.made;
+}
+
+# --- end var-name string grammar-actions }}}
+# --- txnlib string grammar-actions {{{
+
+method txnlib-string-delimiter-right($/)
+{
+    make ~$/;
+}
+
+method txnlib-string-path-divisor($/)
+{
+    make ~$/;
+}
+
+method txnlib-escape:sym<backslash>($/)
+{
+    make '\\';
+}
+
+method txnlib-escape:sym<delimiter-right>($/)
+{
+    make $<txnlib-string-delimiter-right>.made;
+}
+
+method txnlib-escape:sym<horizontal-ws>($/)
+{
+    make ~$/;
+}
+
+method txnlib-escape:sym<path-divisor>($/)
+{
+    make $<txnlib-string-path-divisor>.made;
+}
+
+method txnlib-string-char:common ($/)
+{
+    make ~$/;
+}
+
+method txnlib-string-char:escape-sequence ($/)
+{
+    make $<txnlib-escape>.made;
+}
+
+method txnlib-string-char:path-divisor ($/)
+{
+    make $<txnlib-string-path-divisor>.made;
+}
+
+method txnlib-string-text($/)
+{
+    make @<txnlib-string-char>».made.join;
+}
+
+method txnlib-string($/)
+{
+    make $<txnlib-string-text>.made;
+}
+
+# --- end txnlib string grammar-actions }}}
 
 method string:basic ($/)
 {
@@ -359,16 +433,6 @@ method date:date-time ($/)
 method var-name:bare ($/)
 {
     make ~$/;
-}
-
-method var-name-string:basic ($/)
-{
-    make $<string-basic-text>.made;
-}
-
-method var-name-string:literal ($/)
-{
-    make $<string-literal-text>.made;
 }
 
 method var-name:quoted ($/)
@@ -615,39 +679,42 @@ method filename($/)
     make $<var-name-string>.made;
 }
 
-method include($/ is copy)
+method txnlib($/)
+{
+    make $<txnlib-string>.made;
+}
+
+method include:filename ($/ is copy)
 {
     my Str $filename = join('/', $.file.IO.dirname, $<filename>.made) ~ '.txn';
-    unless $filename.IO.e && $filename.IO.f && $filename.IO.r
+    unless $filename.IO.e && $filename.IO.r && $filename.IO.f
     {
         die X::TXN::Parser::Include.new(:$filename);
     }
     my UInt @entry-number = |@.entry-number.deepmap(*.clone), 0;
-    my TXN::Parser::Actions $actions .= new(:@entry-number, :file($filename));
+    my TXN::Parser::Actions $actions .=
+        new(:@entry-number, :$.date-local-offset, :file($filename), :$.txndir);
+    TXN::Parser::Grammar.parsefile($filename, :$actions);
+    push @!entries, |$actions.entries;
+    @!entry-number[*-1]++;
+}
+
+method include:txnlib ($/ is copy)
+{
+    my Str $filename = join('/', $.txndir, $<txnlib>.made) ~ '.txn';
+    unless $filename.IO.e && $filename.IO.r && $filename.IO.f
+    {
+        die X::TXN::Parser::Include.new(:$filename);
+    }
+    my UInt @entry-number = |@.entry-number.deepmap(*.clone), 0;
+    my TXN::Parser::Actions $actions .=
+        new(:@entry-number, :$.date-local-offset, :file($filename), :$.txndir);
     TXN::Parser::Grammar.parsefile($filename, :$actions);
     push @!entries, |$actions.entries;
     @!entry-number[*-1]++;
 }
 
 # end include grammar-actions }}}
-# extends grammar-actions {{{
-
-method extends($/)
-{
-    my Str $filename = $<filename>.made;
-    unless $filename.IO.e && $filename.IO.f && $filename.IO.r
-    {
-        die X::TXN::Parser::Extends.new(:$filename);
-    }
-    make $filename;
-}
-
-method extends-line($/)
-{
-    make $<extends>.made;
-}
-
-# end extends grammar-actions }}}
 # journal grammar-actions {{{
 
 method entry($/)
