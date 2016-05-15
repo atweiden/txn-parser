@@ -3,4 +3,4 @@ imports:
 
 git module txn-examples:
     url: git://github.com/atweiden/txn-examples.git
-    rev: 3cd469bdb7bcdd8978eb8a854d1aaf32a5d32434
+    rev: 24e6afb09314559d3c686e137e429f681ddcb024
