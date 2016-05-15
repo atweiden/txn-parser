@@ -7,7 +7,7 @@ unit class TXN::Parser::Actions;
 # public attributes {{{
 
 # base path for <include> directives
-has Str $.txndir = "%*ENV<HOME>/config/.mktxn/txn";
+has Str $.txndir = "%*ENV<HOME>/.config/mktxn/txn";
 
 # DateTime offset for when the local offset is omitted in dates. if
 # not passed as a parameter during instantiation, use UTC (0)
