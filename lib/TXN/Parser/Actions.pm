@@ -686,11 +686,18 @@ method txnlib($/)
 
 method include:filename ($/ is copy)
 {
-    my Str $filename = join('/', $.file.IO.dirname, $<filename>.made) ~ '.txn';
+    my Str $filename = $<filename>.made.IO.is-relative
+        # if relative path given, resolve path relative to current txn
+        # file being parsed and append '.txn' extension
+        ?? join('/', $.file.IO.dirname, $<filename>.made) ~ '.txn'
+        # if absolute path given, use it directly (don't append extension)
+        !! $<filename>.made;
+
     unless $filename.IO.e && $filename.IO.r && $filename.IO.f
     {
         die X::TXN::Parser::Include.new(:$filename);
     }
+
     my UInt @entry-number = |@.entry-number.deepmap(*.clone), 0;
     my TXN::Parser::Actions $actions .=
         new(:@entry-number, :$.date-local-offset, :file($filename), :$.txndir);
@@ -701,11 +708,18 @@ method include:filename ($/ is copy)
 
 method include:txnlib ($/ is copy)
 {
+    unless $<txnlib>.made.IO.is-relative
+    {
+        die X::TXN::Parser::TXNLibAbsolute(:lib($<txnlib>.made));
+    }
+
     my Str $filename = join('/', $.txndir, $<txnlib>.made) ~ '.txn';
+
     unless $filename.IO.e && $filename.IO.r && $filename.IO.f
     {
         die X::TXN::Parser::Include.new(:$filename);
     }
+
     my UInt @entry-number = |@.entry-number.deepmap(*.clone), 0;
     my TXN::Parser::Actions $actions .=
         new(:@entry-number, :$.date-local-offset, :file($filename), :$.txndir);

@@ -83,4 +83,18 @@ class String::EscapeSequence is Exception
 
 # end X::TXN::Parser::String::EscapeSequence }}}
 
+# X::TXN::Parser::TXNLibAbsolute {{{
+
+class TXNLibAbsolute is Exception
+{
+    has Str $.lib is required;
+
+    method message() returns Str
+    {
+        my Str $message = "Sorry, txnlib path can't be absolute. Got:「$.lib」";
+    }
+}
+
+# end X::TXN::Parser::TXNLibAbsolute }}}
+
 # vim: ft=perl6 fdm=marker fdl=0
