@@ -38,13 +38,13 @@ subtest
     );
 
     is(
-        $match-journal.made[0]<header><date>.Date,
-        "2014-01-01",
+        $match-journal.made[0]<header><date>,
+        '2014-01-01',
         q:to/EOF/
         ♪ [Is expected value?] - 3 of 8099
         ┏━━━━━━━━━━━━━┓
-        ┃             ┃  ∙ $match-journal.made[0]<header><date>.Date
-        ┃   Success   ┃        ~~ "2014-01-01"
+        ┃             ┃  ∙ $match-journal.made[0]<header><date>
+        ┃   Success   ┃        ~~ '2014-01-01'
         ┃             ┃
         ┗━━━━━━━━━━━━━┛
         EOF
@@ -570,7 +570,7 @@ subtest
 {
     my Str $file = 't/data/with-includes/with-includes.txn';
     my @txn = TXN::Parser.parsefile($file).made;
-    ok @txn[0]<header><date> eqv DateTime.new(2011,1,1,0,0,0);
+    ok @txn[0]<header><date> eqv Date.new('2011-01-01');
     ok @txn[0]<header><description> eqv "FooCorp started the year with \$1000 in Bankwest cheque account";
     ok @txn[0]<header><important> == 0;
     ok @txn[0]<id><number> eqv Array[UInt].new(0, 0);
@@ -605,7 +605,7 @@ subtest
     ok @txn[0]<postings>[1]<id><number> == 1;
     ok @txn[0]<postings>[1]<id><text> eqv "Equity:FooCorp                      \$1000.00 USD";
     ok @txn[0]<postings>[1]<id><xxhash> == 1025058054;
-    ok @txn[1]<header><date> eqv DateTime.new(2011,1,1,0,0,0);
+    ok @txn[1]<header><date> eqv Date.new('2011-01-01');
     ok @txn[1]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.01 USD in early January 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/January'」\n";
     ok @txn[1]<header><important> == 0;
     ok @txn[1]<id><number> eqv Array[UInt].new(0, 1, 0);
@@ -641,7 +641,7 @@ subtest
     ok @txn[1]<postings>[1]<id><number> == 1;
     ok @txn[1]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.01 USD";
     ok @txn[1]<postings>[1]<id><xxhash> == 1442732716;
-    ok @txn[2]<header><date> eqv DateTime.new(2011,1,16,0,0,0);
+    ok @txn[2]<header><date> eqv Date.new('2011-01-16');
     ok @txn[2]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0116 USD";
     ok @txn[2]<header><important> == 0;
     ok @txn[2]<id><number> eqv Array[UInt].new(0, 1, 1, 0);
@@ -677,7 +677,7 @@ subtest
     ok @txn[2]<postings>[1]<id><number> == 1;
     ok @txn[2]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0116 USD";
     ok @txn[2]<postings>[1]<id><xxhash> == 3822606469;
-    ok @txn[3]<header><date> eqv DateTime.new(2011,1,31,0,0,0);
+    ok @txn[3]<header><date> eqv Date.new('2011-01-31');
     ok @txn[3]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.01 USD in late January 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/January'」\n";
     ok @txn[3]<header><important> == 0;
     ok @txn[3]<id><number> eqv Array[UInt].new(0, 1, 2);
@@ -713,7 +713,7 @@ subtest
     ok @txn[3]<postings>[1]<id><number> == 1;
     ok @txn[3]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.01 USD";
     ok @txn[3]<postings>[1]<id><xxhash> == 3589948839;
-    ok @txn[4]<header><date> eqv DateTime.new(2011,2,1,0,0,0);
+    ok @txn[4]<header><date> eqv Date.new('2011-02-01');
     ok @txn[4]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.02 USD in early February 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/February'」\n";
     ok @txn[4]<header><important> == 0;
     ok @txn[4]<id><number> eqv Array[UInt].new(0, 1, 3);
@@ -749,7 +749,7 @@ subtest
     ok @txn[4]<postings>[1]<id><number> == 1;
     ok @txn[4]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.02 USD";
     ok @txn[4]<postings>[1]<id><xxhash> == 2965421556;
-    ok @txn[5]<header><date> eqv DateTime.new(2011,2,16,0,0,0);
+    ok @txn[5]<header><date> eqv Date.new('2011-02-16');
     ok @txn[5]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0216 USD";
     ok @txn[5]<header><important> == 0;
     ok @txn[5]<id><number> eqv Array[UInt].new(0, 1, 4, 0);
@@ -785,7 +785,7 @@ subtest
     ok @txn[5]<postings>[1]<id><number> == 1;
     ok @txn[5]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0216 USD";
     ok @txn[5]<postings>[1]<id><xxhash> == 1447769892;
-    ok @txn[6]<header><date> eqv DateTime.new(2011,2,28,0,0,0);
+    ok @txn[6]<header><date> eqv Date.new('2011-02-28');
     ok @txn[6]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.02 USD in late February 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/February'」\n";
     ok @txn[6]<header><important> == 0;
     ok @txn[6]<id><number> eqv Array[UInt].new(0, 1, 5);
@@ -821,7 +821,7 @@ subtest
     ok @txn[6]<postings>[1]<id><number> == 1;
     ok @txn[6]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.02 USD";
     ok @txn[6]<postings>[1]<id><xxhash> == 991307650;
-    ok @txn[7]<header><date> eqv DateTime.new(2011,3,1,0,0,0);
+    ok @txn[7]<header><date> eqv Date.new('2011-03-01');
     ok @txn[7]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.03 USD in early March 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/March'」\n";
     ok @txn[7]<header><important> == 0;
     ok @txn[7]<id><number> eqv Array[UInt].new(0, 1, 6);
@@ -857,7 +857,7 @@ subtest
     ok @txn[7]<postings>[1]<id><number> == 1;
     ok @txn[7]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.03 USD";
     ok @txn[7]<postings>[1]<id><xxhash> == 1721285682;
-    ok @txn[8]<header><date> eqv DateTime.new(2011,3,16,0,0,0);
+    ok @txn[8]<header><date> eqv Date.new('2011-03-16');
     ok @txn[8]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0316 USD";
     ok @txn[8]<header><important> == 0;
     ok @txn[8]<id><number> eqv Array[UInt].new(0, 1, 7, 0);
@@ -893,7 +893,7 @@ subtest
     ok @txn[8]<postings>[1]<id><number> == 1;
     ok @txn[8]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0316 USD";
     ok @txn[8]<postings>[1]<id><xxhash> == 1632975976;
-    ok @txn[9]<header><date> eqv DateTime.new(2011,3,31,0,0,0);
+    ok @txn[9]<header><date> eqv Date.new('2011-03-31');
     ok @txn[9]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.03 USD in late March 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/March'」\n";
     ok @txn[9]<header><important> == 0;
     ok @txn[9]<id><number> eqv Array[UInt].new(0, 1, 8);
@@ -929,7 +929,7 @@ subtest
     ok @txn[9]<postings>[1]<id><number> == 1;
     ok @txn[9]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.03 USD";
     ok @txn[9]<postings>[1]<id><xxhash> == 2676696051;
-    ok @txn[10]<header><date> eqv DateTime.new(2011,4,1,0,0,0);
+    ok @txn[10]<header><date> eqv Date.new('2011-04-01');
     ok @txn[10]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.04 USD in early April 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/April'」\n";
     ok @txn[10]<header><important> == 0;
     ok @txn[10]<id><number> eqv Array[UInt].new(0, 2, 0);
@@ -965,7 +965,7 @@ subtest
     ok @txn[10]<postings>[1]<id><number> == 1;
     ok @txn[10]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.04 USD";
     ok @txn[10]<postings>[1]<id><xxhash> == 3179024211;
-    ok @txn[11]<header><date> eqv DateTime.new(2011,4,16,0,0,0);
+    ok @txn[11]<header><date> eqv Date.new('2011-04-16');
     ok @txn[11]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0416 USD";
     ok @txn[11]<header><important> == 0;
     ok @txn[11]<id><number> eqv Array[UInt].new(0, 2, 1, 0);
@@ -1001,7 +1001,7 @@ subtest
     ok @txn[11]<postings>[1]<id><number> == 1;
     ok @txn[11]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0416 USD";
     ok @txn[11]<postings>[1]<id><xxhash> == 1601475876;
-    ok @txn[12]<header><date> eqv DateTime.new(2011,4,30,0,0,0);
+    ok @txn[12]<header><date> eqv Date.new('2011-04-30');
     ok @txn[12]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.04 USD in late April 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/April'」\n";
     ok @txn[12]<header><important> == 0;
     ok @txn[12]<id><number> eqv Array[UInt].new(0, 2, 2);
@@ -1037,7 +1037,7 @@ subtest
     ok @txn[12]<postings>[1]<id><number> == 1;
     ok @txn[12]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.04 USD";
     ok @txn[12]<postings>[1]<id><xxhash> == 701076721;
-    ok @txn[13]<header><date> eqv DateTime.new(2011,5,1,0,0,0);
+    ok @txn[13]<header><date> eqv Date.new('2011-05-01');
     ok @txn[13]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.05 USD in early May 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/May'」\n";
     ok @txn[13]<header><important> == 0;
     ok @txn[13]<id><number> eqv Array[UInt].new(0, 2, 3);
@@ -1073,7 +1073,7 @@ subtest
     ok @txn[13]<postings>[1]<id><number> == 1;
     ok @txn[13]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.05 USD";
     ok @txn[13]<postings>[1]<id><xxhash> == 3177866826;
-    ok @txn[14]<header><date> eqv DateTime.new(2011,5,16,0,0,0);
+    ok @txn[14]<header><date> eqv Date.new('2011-05-16');
     ok @txn[14]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0516 USD";
     ok @txn[14]<header><important> == 0;
     ok @txn[14]<id><number> eqv Array[UInt].new(0, 2, 4, 0);
@@ -1109,7 +1109,7 @@ subtest
     ok @txn[14]<postings>[1]<id><number> == 1;
     ok @txn[14]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0516 USD";
     ok @txn[14]<postings>[1]<id><xxhash> == 2731775541;
-    ok @txn[15]<header><date> eqv DateTime.new(2011,5,31,0,0,0);
+    ok @txn[15]<header><date> eqv Date.new('2011-05-31');
     ok @txn[15]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.05 USD in late May 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/May'」\n";
     ok @txn[15]<header><important> == 0;
     ok @txn[15]<id><number> eqv Array[UInt].new(0, 2, 5);
@@ -1145,7 +1145,7 @@ subtest
     ok @txn[15]<postings>[1]<id><number> == 1;
     ok @txn[15]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.05 USD";
     ok @txn[15]<postings>[1]<id><xxhash> == 1957446417;
-    ok @txn[16]<header><date> eqv DateTime.new(2011,6,1,0,0,0);
+    ok @txn[16]<header><date> eqv Date.new('2011-06-01');
     ok @txn[16]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.06 USD in early June 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/June'」\n";
     ok @txn[16]<header><important> == 0;
     ok @txn[16]<id><number> eqv Array[UInt].new(0, 2, 6);
@@ -1181,7 +1181,7 @@ subtest
     ok @txn[16]<postings>[1]<id><number> == 1;
     ok @txn[16]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.06 USD";
     ok @txn[16]<postings>[1]<id><xxhash> == 1066001694;
-    ok @txn[17]<header><date> eqv DateTime.new(2011,6,16,0,0,0);
+    ok @txn[17]<header><date> eqv Date.new('2011-06-16');
     ok @txn[17]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0616 USD";
     ok @txn[17]<header><important> == 0;
     ok @txn[17]<id><number> eqv Array[UInt].new(0, 2, 7, 0);
@@ -1217,7 +1217,7 @@ subtest
     ok @txn[17]<postings>[1]<id><number> == 1;
     ok @txn[17]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0616 USD";
     ok @txn[17]<postings>[1]<id><xxhash> == 2894491481;
-    ok @txn[18]<header><date> eqv DateTime.new(2011,6,30,0,0,0);
+    ok @txn[18]<header><date> eqv Date.new('2011-06-30');
     ok @txn[18]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.06 USD in late June 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/June'」\n";
     ok @txn[18]<header><important> == 0;
     ok @txn[18]<id><number> eqv Array[UInt].new(0, 2, 8);
@@ -1253,7 +1253,7 @@ subtest
     ok @txn[18]<postings>[1]<id><number> == 1;
     ok @txn[18]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.06 USD";
     ok @txn[18]<postings>[1]<id><xxhash> == 1322105725;
-    ok @txn[19]<header><date> eqv DateTime.new(2011,7,1,0,0,0);
+    ok @txn[19]<header><date> eqv Date.new('2011-07-01');
     ok @txn[19]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.07 USD in early July 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/July'」\n";
     ok @txn[19]<header><important> == 0;
     ok @txn[19]<id><number> eqv Array[UInt].new(0, 3, 0);
@@ -1289,7 +1289,7 @@ subtest
     ok @txn[19]<postings>[1]<id><number> == 1;
     ok @txn[19]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.07 USD";
     ok @txn[19]<postings>[1]<id><xxhash> == 879230496;
-    ok @txn[20]<header><date> eqv DateTime.new(2011,7,16,0,0,0);
+    ok @txn[20]<header><date> eqv Date.new('2011-07-16');
     ok @txn[20]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0716 USD";
     ok @txn[20]<header><important> == 0;
     ok @txn[20]<id><number> eqv Array[UInt].new(0, 3, 1, 0);
@@ -1325,7 +1325,7 @@ subtest
     ok @txn[20]<postings>[1]<id><number> == 1;
     ok @txn[20]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0716 USD";
     ok @txn[20]<postings>[1]<id><xxhash> == 1354653370;
-    ok @txn[21]<header><date> eqv DateTime.new(2011,7,31,0,0,0);
+    ok @txn[21]<header><date> eqv Date.new('2011-07-31');
     ok @txn[21]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.07 USD in late July 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/July'」\n";
     ok @txn[21]<header><important> == 0;
     ok @txn[21]<id><number> eqv Array[UInt].new(0, 3, 2);
@@ -1361,7 +1361,7 @@ subtest
     ok @txn[21]<postings>[1]<id><number> == 1;
     ok @txn[21]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.07 USD";
     ok @txn[21]<postings>[1]<id><xxhash> == 1406482422;
-    ok @txn[22]<header><date> eqv DateTime.new(2011,8,1,0,0,0);
+    ok @txn[22]<header><date> eqv Date.new('2011-08-01');
     ok @txn[22]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.08 USD in early August 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/August'」\n";
     ok @txn[22]<header><important> == 0;
     ok @txn[22]<id><number> eqv Array[UInt].new(0, 3, 3);
@@ -1397,7 +1397,7 @@ subtest
     ok @txn[22]<postings>[1]<id><number> == 1;
     ok @txn[22]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.08 USD";
     ok @txn[22]<postings>[1]<id><xxhash> == 1923859345;
-    ok @txn[23]<header><date> eqv DateTime.new(2011,8,16,0,0,0);
+    ok @txn[23]<header><date> eqv Date.new('2011-08-16');
     ok @txn[23]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0816 USD";
     ok @txn[23]<header><important> == 0;
     ok @txn[23]<id><number> eqv Array[UInt].new(0, 3, 4, 0);
@@ -1433,7 +1433,7 @@ subtest
     ok @txn[23]<postings>[1]<id><number> == 1;
     ok @txn[23]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0816 USD";
     ok @txn[23]<postings>[1]<id><xxhash> == 4267062116;
-    ok @txn[24]<header><date> eqv DateTime.new(2011,8,31,0,0,0);
+    ok @txn[24]<header><date> eqv Date.new('2011-08-31');
     ok @txn[24]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.08 USD in late August 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/August'」\n";
     ok @txn[24]<header><important> == 0;
     ok @txn[24]<id><number> eqv Array[UInt].new(0, 3, 5);
@@ -1469,7 +1469,7 @@ subtest
     ok @txn[24]<postings>[1]<id><number> == 1;
     ok @txn[24]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.08 USD";
     ok @txn[24]<postings>[1]<id><xxhash> == 1142673963;
-    ok @txn[25]<header><date> eqv DateTime.new(2011,9,1,0,0,0);
+    ok @txn[25]<header><date> eqv Date.new('2011-09-01');
     ok @txn[25]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.09 USD in early September 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/September'」\n";
     ok @txn[25]<header><important> == 0;
     ok @txn[25]<id><number> eqv Array[UInt].new(0, 3, 6);
@@ -1505,7 +1505,7 @@ subtest
     ok @txn[25]<postings>[1]<id><number> == 1;
     ok @txn[25]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.09 USD";
     ok @txn[25]<postings>[1]<id><xxhash> == 1895357630;
-    ok @txn[26]<header><date> eqv DateTime.new(2011,9,16,0,0,0);
+    ok @txn[26]<header><date> eqv Date.new('2011-09-16');
     ok @txn[26]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0916 USD";
     ok @txn[26]<header><important> == 0;
     ok @txn[26]<id><number> eqv Array[UInt].new(0, 3, 7, 0);
@@ -1541,7 +1541,7 @@ subtest
     ok @txn[26]<postings>[1]<id><number> == 1;
     ok @txn[26]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0916 USD";
     ok @txn[26]<postings>[1]<id><xxhash> == 3486713981;
-    ok @txn[27]<header><date> eqv DateTime.new(2011,9,30,0,0,0);
+    ok @txn[27]<header><date> eqv Date.new('2011-09-30');
     ok @txn[27]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.09 USD in late September 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/September'」\n";
     ok @txn[27]<header><important> == 0;
     ok @txn[27]<id><number> eqv Array[UInt].new(0, 3, 8);
@@ -1577,7 +1577,7 @@ subtest
     ok @txn[27]<postings>[1]<id><number> == 1;
     ok @txn[27]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.09 USD";
     ok @txn[27]<postings>[1]<id><xxhash> == 223171015;
-    ok @txn[28]<header><date> eqv DateTime.new(2011,10,1,0,0,0);
+    ok @txn[28]<header><date> eqv Date.new('2011-10-01');
     ok @txn[28]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.10 USD in early October 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/October'」\n";
     ok @txn[28]<header><important> == 0;
     ok @txn[28]<id><number> eqv Array[UInt].new(0, 4, 0);
@@ -1613,7 +1613,7 @@ subtest
     ok @txn[28]<postings>[1]<id><number> == 1;
     ok @txn[28]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.10 USD";
     ok @txn[28]<postings>[1]<id><xxhash> == 39322455;
-    ok @txn[29]<header><date> eqv DateTime.new(2011,10,16,0,0,0);
+    ok @txn[29]<header><date> eqv Date.new('2011-10-16');
     ok @txn[29]<header><description> eqv "Wigwam LLC received a dividend of \$2011.1016 USD";
     ok @txn[29]<header><important> == 0;
     ok @txn[29]<id><number> eqv Array[UInt].new(0, 4, 1, 0);
@@ -1649,7 +1649,7 @@ subtest
     ok @txn[29]<postings>[1]<id><number> == 1;
     ok @txn[29]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.1016 USD";
     ok @txn[29]<postings>[1]<id><xxhash> == 1286546360;
-    ok @txn[30]<header><date> eqv DateTime.new(2011,10,31,0,0,0);
+    ok @txn[30]<header><date> eqv Date.new('2011-10-31');
     ok @txn[30]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.10 USD in late October 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/October'」\n";
     ok @txn[30]<header><important> == 0;
     ok @txn[30]<id><number> eqv Array[UInt].new(0, 4, 2);
@@ -1685,7 +1685,7 @@ subtest
     ok @txn[30]<postings>[1]<id><number> == 1;
     ok @txn[30]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.10 USD";
     ok @txn[30]<postings>[1]<id><xxhash> == 532507333;
-    ok @txn[31]<header><date> eqv DateTime.new(2011,11,1,0,0,0);
+    ok @txn[31]<header><date> eqv Date.new('2011-11-01');
     ok @txn[31]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.11 USD in early November 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/November'」\n";
     ok @txn[31]<header><important> == 0;
     ok @txn[31]<id><number> eqv Array[UInt].new(0, 4, 3);
@@ -1721,7 +1721,7 @@ subtest
     ok @txn[31]<postings>[1]<id><number> == 1;
     ok @txn[31]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.11 USD";
     ok @txn[31]<postings>[1]<id><xxhash> == 4143645507;
-    ok @txn[32]<header><date> eqv DateTime.new(2011,11,16,0,0,0);
+    ok @txn[32]<header><date> eqv Date.new('2011-11-16');
     ok @txn[32]<header><description> eqv "Wigwam LLC received a dividend of \$2011.1116 USD";
     ok @txn[32]<header><important> == 0;
     ok @txn[32]<id><number> eqv Array[UInt].new(0, 4, 4, 0);
@@ -1757,7 +1757,7 @@ subtest
     ok @txn[32]<postings>[1]<id><number> == 1;
     ok @txn[32]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.1116 USD";
     ok @txn[32]<postings>[1]<id><xxhash> == 3507307506;
-    ok @txn[33]<header><date> eqv DateTime.new(2011,11,30,0,0,0);
+    ok @txn[33]<header><date> eqv Date.new('2011-11-30');
     ok @txn[33]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.11 USD in late November 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/November'」\n";
     ok @txn[33]<header><important> == 0;
     ok @txn[33]<id><number> eqv Array[UInt].new(0, 4, 5);
@@ -1793,7 +1793,7 @@ subtest
     ok @txn[33]<postings>[1]<id><number> == 1;
     ok @txn[33]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.11 USD";
     ok @txn[33]<postings>[1]<id><xxhash> == 942077384;
-    ok @txn[34]<header><date> eqv DateTime.new(2011,12,1,0,0,0);
+    ok @txn[34]<header><date> eqv Date.new('2011-12-01');
     ok @txn[34]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.12 USD in early December 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/December'」\n";
     ok @txn[34]<header><important> == 0;
     ok @txn[34]<id><number> eqv Array[UInt].new(0, 4, 6);
@@ -1829,7 +1829,7 @@ subtest
     ok @txn[34]<postings>[1]<id><number> == 1;
     ok @txn[34]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.12 USD";
     ok @txn[34]<postings>[1]<id><xxhash> == 1505204997;
-    ok @txn[35]<header><date> eqv DateTime.new(2011,12,16,0,0,0);
+    ok @txn[35]<header><date> eqv Date.new('2011-12-16');
     ok @txn[35]<header><description> eqv "Wigwam LLC received a dividend of \$2011.1216 USD";
     ok @txn[35]<header><important> == 0;
     ok @txn[35]<id><number> eqv Array[UInt].new(0, 4, 7, 0);
@@ -1865,7 +1865,7 @@ subtest
     ok @txn[35]<postings>[1]<id><number> == 1;
     ok @txn[35]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.1216 USD";
     ok @txn[35]<postings>[1]<id><xxhash> == 1858587862;
-    ok @txn[36]<header><date> eqv DateTime.new(2011,12,31,0,0,0);
+    ok @txn[36]<header><date> eqv Date.new('2011-12-31');
     ok @txn[36]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.12 USD in late December 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/December'」\n";
     ok @txn[36]<header><important> == 0;
     ok @txn[36]<id><number> eqv Array[UInt].new(0, 4, 8);
@@ -1901,7 +1901,7 @@ subtest
     ok @txn[36]<postings>[1]<id><number> == 1;
     ok @txn[36]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.12 USD";
     ok @txn[36]<postings>[1]<id><xxhash> == 1323199045;
-    ok @txn[37]<header><date> eqv DateTime.new(2012,1,1,0,0,0);
+    ok @txn[37]<header><date> eqv Date.new('2012-01-01');
     ok @txn[37]<header><description> eqv "FooCorp started the year with \$1000 in Bankwest cheque account";
     ok @txn[37]<header><important> == 0;
     ok @txn[37]<id><number> eqv Array[UInt].new(1, 0);
@@ -1936,7 +1936,7 @@ subtest
     ok @txn[37]<postings>[1]<id><number> == 1;
     ok @txn[37]<postings>[1]<id><text> eqv "Equity:FooCorp                      \$1000.00 USD";
     ok @txn[37]<postings>[1]<id><xxhash> == 1025058054;
-    ok @txn[38]<header><date> eqv DateTime.new(2012,1,1,0,0,0);
+    ok @txn[38]<header><date> eqv Date.new('2012-01-01');
     ok @txn[38]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.01 USD in early January 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/January'」\n";
     ok @txn[38]<header><important> == 0;
     ok @txn[38]<id><number> eqv Array[UInt].new(1, 1, 0);
@@ -1972,7 +1972,7 @@ subtest
     ok @txn[38]<postings>[1]<id><number> == 1;
     ok @txn[38]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.01 USD";
     ok @txn[38]<postings>[1]<id><xxhash> == 2966987256;
-    ok @txn[39]<header><date> eqv DateTime.new(2012,1,16,0,0,0);
+    ok @txn[39]<header><date> eqv Date.new('2012-01-16');
     ok @txn[39]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0116 USD";
     ok @txn[39]<header><important> == 0;
     ok @txn[39]<id><number> eqv Array[UInt].new(1, 1, 1, 0);
@@ -2008,7 +2008,7 @@ subtest
     ok @txn[39]<postings>[1]<id><number> == 1;
     ok @txn[39]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0116 USD";
     ok @txn[39]<postings>[1]<id><xxhash> == 1403571913;
-    ok @txn[40]<header><date> eqv DateTime.new(2012,1,31,0,0,0);
+    ok @txn[40]<header><date> eqv Date.new('2012-01-31');
     ok @txn[40]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.01 USD in late January 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/January'」\n";
     ok @txn[40]<header><important> == 0;
     ok @txn[40]<id><number> eqv Array[UInt].new(1, 1, 2);
@@ -2044,7 +2044,7 @@ subtest
     ok @txn[40]<postings>[1]<id><number> == 1;
     ok @txn[40]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.01 USD";
     ok @txn[40]<postings>[1]<id><xxhash> == 2649719130;
-    ok @txn[41]<header><date> eqv DateTime.new(2012,2,1,0,0,0);
+    ok @txn[41]<header><date> eqv Date.new('2012-02-01');
     ok @txn[41]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.02 USD in early February 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/February'」\n";
     ok @txn[41]<header><important> == 0;
     ok @txn[41]<id><number> eqv Array[UInt].new(1, 1, 3);
@@ -2080,7 +2080,7 @@ subtest
     ok @txn[41]<postings>[1]<id><number> == 1;
     ok @txn[41]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.02 USD";
     ok @txn[41]<postings>[1]<id><xxhash> == 4217279969;
-    ok @txn[42]<header><date> eqv DateTime.new(2012,2,16,0,0,0);
+    ok @txn[42]<header><date> eqv Date.new('2012-02-16');
     ok @txn[42]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0216 USD";
     ok @txn[42]<header><important> == 0;
     ok @txn[42]<id><number> eqv Array[UInt].new(1, 1, 4, 0);
@@ -2116,7 +2116,7 @@ subtest
     ok @txn[42]<postings>[1]<id><number> == 1;
     ok @txn[42]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0216 USD";
     ok @txn[42]<postings>[1]<id><xxhash> == 2386315820;
-    ok @txn[43]<header><date> eqv DateTime.new(2012,2,29,0,0,0);
+    ok @txn[43]<header><date> eqv Date.new('2012-02-29');
     ok @txn[43]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.02 USD in late February 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/February'」\n";
     ok @txn[43]<header><important> == 0;
     ok @txn[43]<id><number> eqv Array[UInt].new(1, 1, 5);
@@ -2152,7 +2152,7 @@ subtest
     ok @txn[43]<postings>[1]<id><number> == 1;
     ok @txn[43]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.02 USD";
     ok @txn[43]<postings>[1]<id><xxhash> == 2786971912;
-    ok @txn[44]<header><date> eqv DateTime.new(2012,3,1,0,0,0);
+    ok @txn[44]<header><date> eqv Date.new('2012-03-01');
     ok @txn[44]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.03 USD in early March 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/March'」\n";
     ok @txn[44]<header><important> == 0;
     ok @txn[44]<id><number> eqv Array[UInt].new(1, 1, 6);
@@ -2188,7 +2188,7 @@ subtest
     ok @txn[44]<postings>[1]<id><number> == 1;
     ok @txn[44]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.03 USD";
     ok @txn[44]<postings>[1]<id><xxhash> == 48485376;
-    ok @txn[45]<header><date> eqv DateTime.new(2012,3,16,0,0,0);
+    ok @txn[45]<header><date> eqv Date.new('2012-03-16');
     ok @txn[45]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0316 USD";
     ok @txn[45]<header><important> == 0;
     ok @txn[45]<id><number> eqv Array[UInt].new(1, 1, 7, 0);
@@ -2224,7 +2224,7 @@ subtest
     ok @txn[45]<postings>[1]<id><number> == 1;
     ok @txn[45]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0316 USD";
     ok @txn[45]<postings>[1]<id><xxhash> == 1016359530;
-    ok @txn[46]<header><date> eqv DateTime.new(2012,3,31,0,0,0);
+    ok @txn[46]<header><date> eqv Date.new('2012-03-31');
     ok @txn[46]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.03 USD in late March 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/March'」\n";
     ok @txn[46]<header><important> == 0;
     ok @txn[46]<id><number> eqv Array[UInt].new(1, 1, 8);
@@ -2260,7 +2260,7 @@ subtest
     ok @txn[46]<postings>[1]<id><number> == 1;
     ok @txn[46]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.03 USD";
     ok @txn[46]<postings>[1]<id><xxhash> == 3495293318;
-    ok @txn[47]<header><date> eqv DateTime.new(2012,4,1,0,0,0);
+    ok @txn[47]<header><date> eqv Date.new('2012-04-01');
     ok @txn[47]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.04 USD in early April 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/April'」\n";
     ok @txn[47]<header><important> == 0;
     ok @txn[47]<id><number> eqv Array[UInt].new(1, 2, 0);
@@ -2296,7 +2296,7 @@ subtest
     ok @txn[47]<postings>[1]<id><number> == 1;
     ok @txn[47]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.04 USD";
     ok @txn[47]<postings>[1]<id><xxhash> == 1215240546;
-    ok @txn[48]<header><date> eqv DateTime.new(2012,4,16,0,0,0);
+    ok @txn[48]<header><date> eqv Date.new('2012-04-16');
     ok @txn[48]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0416 USD";
     ok @txn[48]<header><important> == 0;
     ok @txn[48]<id><number> eqv Array[UInt].new(1, 2, 1, 0);
@@ -2332,7 +2332,7 @@ subtest
     ok @txn[48]<postings>[1]<id><number> == 1;
     ok @txn[48]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0416 USD";
     ok @txn[48]<postings>[1]<id><xxhash> == 3098158574;
-    ok @txn[49]<header><date> eqv DateTime.new(2012,4,30,0,0,0);
+    ok @txn[49]<header><date> eqv Date.new('2012-04-30');
     ok @txn[49]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.04 USD in late April 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/April'」\n";
     ok @txn[49]<header><important> == 0;
     ok @txn[49]<id><number> eqv Array[UInt].new(1, 2, 2);
@@ -2368,7 +2368,7 @@ subtest
     ok @txn[49]<postings>[1]<id><number> == 1;
     ok @txn[49]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.04 USD";
     ok @txn[49]<postings>[1]<id><xxhash> == 2492372061;
-    ok @txn[50]<header><date> eqv DateTime.new(2012,5,1,0,0,0);
+    ok @txn[50]<header><date> eqv Date.new('2012-05-01');
     ok @txn[50]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.05 USD in early May 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/May'」\n";
     ok @txn[50]<header><important> == 0;
     ok @txn[50]<id><number> eqv Array[UInt].new(1, 2, 3);
@@ -2404,7 +2404,7 @@ subtest
     ok @txn[50]<postings>[1]<id><number> == 1;
     ok @txn[50]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.05 USD";
     ok @txn[50]<postings>[1]<id><xxhash> == 1182404444;
-    ok @txn[51]<header><date> eqv DateTime.new(2012,5,16,0,0,0);
+    ok @txn[51]<header><date> eqv Date.new('2012-05-16');
     ok @txn[51]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0516 USD";
     ok @txn[51]<header><important> == 0;
     ok @txn[51]<id><number> eqv Array[UInt].new(1, 2, 4, 0);
@@ -2440,7 +2440,7 @@ subtest
     ok @txn[51]<postings>[1]<id><number> == 1;
     ok @txn[51]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0516 USD";
     ok @txn[51]<postings>[1]<id><xxhash> == 263105630;
-    ok @txn[52]<header><date> eqv DateTime.new(2012,5,31,0,0,0);
+    ok @txn[52]<header><date> eqv Date.new('2012-05-31');
     ok @txn[52]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.05 USD in late May 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/May'」\n";
     ok @txn[52]<header><important> == 0;
     ok @txn[52]<id><number> eqv Array[UInt].new(1, 2, 5);
@@ -2476,7 +2476,7 @@ subtest
     ok @txn[52]<postings>[1]<id><number> == 1;
     ok @txn[52]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.05 USD";
     ok @txn[52]<postings>[1]<id><xxhash> == 3748210809;
-    ok @txn[53]<header><date> eqv DateTime.new(2012,6,1,0,0,0);
+    ok @txn[53]<header><date> eqv Date.new('2012-06-01');
     ok @txn[53]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.06 USD in early June 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/June'」\n";
     ok @txn[53]<header><important> == 0;
     ok @txn[53]<id><number> eqv Array[UInt].new(1, 2, 6);
@@ -2512,7 +2512,7 @@ subtest
     ok @txn[53]<postings>[1]<id><number> == 1;
     ok @txn[53]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.06 USD";
     ok @txn[53]<postings>[1]<id><xxhash> == 2192104612;
-    ok @txn[54]<header><date> eqv DateTime.new(2012,6,16,0,0,0);
+    ok @txn[54]<header><date> eqv Date.new('2012-06-16');
     ok @txn[54]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0616 USD";
     ok @txn[54]<header><important> == 0;
     ok @txn[54]<id><number> eqv Array[UInt].new(1, 2, 7, 0);
@@ -2548,7 +2548,7 @@ subtest
     ok @txn[54]<postings>[1]<id><number> == 1;
     ok @txn[54]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0616 USD";
     ok @txn[54]<postings>[1]<id><xxhash> == 2809751684;
-    ok @txn[55]<header><date> eqv DateTime.new(2012,6,30,0,0,0);
+    ok @txn[55]<header><date> eqv Date.new('2012-06-30');
     ok @txn[55]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.06 USD in late June 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/June'」\n";
     ok @txn[55]<header><important> == 0;
     ok @txn[55]<id><number> eqv Array[UInt].new(1, 2, 8);
@@ -2584,7 +2584,7 @@ subtest
     ok @txn[55]<postings>[1]<id><number> == 1;
     ok @txn[55]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.06 USD";
     ok @txn[55]<postings>[1]<id><xxhash> == 3753283423;
-    ok @txn[56]<header><date> eqv DateTime.new(2012,7,1,0,0,0);
+    ok @txn[56]<header><date> eqv Date.new('2012-07-01');
     ok @txn[56]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.07 USD in early July 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/July'」\n";
     ok @txn[56]<header><important> == 0;
     ok @txn[56]<id><number> eqv Array[UInt].new(1, 3, 0);
@@ -2620,7 +2620,7 @@ subtest
     ok @txn[56]<postings>[1]<id><number> == 1;
     ok @txn[56]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.07 USD";
     ok @txn[56]<postings>[1]<id><xxhash> == 2474022905;
-    ok @txn[57]<header><date> eqv DateTime.new(2012,7,16,0,0,0);
+    ok @txn[57]<header><date> eqv Date.new('2012-07-16');
     ok @txn[57]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0716 USD";
     ok @txn[57]<header><important> == 0;
     ok @txn[57]<id><number> eqv Array[UInt].new(1, 3, 1, 0);
@@ -2656,7 +2656,7 @@ subtest
     ok @txn[57]<postings>[1]<id><number> == 1;
     ok @txn[57]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0716 USD";
     ok @txn[57]<postings>[1]<id><xxhash> == 1671141747;
-    ok @txn[58]<header><date> eqv DateTime.new(2012,7,31,0,0,0);
+    ok @txn[58]<header><date> eqv Date.new('2012-07-31');
     ok @txn[58]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.07 USD in late July 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/July'」\n";
     ok @txn[58]<header><important> == 0;
     ok @txn[58]<id><number> eqv Array[UInt].new(1, 3, 2);
@@ -2692,7 +2692,7 @@ subtest
     ok @txn[58]<postings>[1]<id><number> == 1;
     ok @txn[58]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.07 USD";
     ok @txn[58]<postings>[1]<id><xxhash> == 1106340009;
-    ok @txn[59]<header><date> eqv DateTime.new(2012,8,1,0,0,0);
+    ok @txn[59]<header><date> eqv Date.new('2012-08-01');
     ok @txn[59]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.08 USD in early August 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/August'」\n";
     ok @txn[59]<header><important> == 0;
     ok @txn[59]<id><number> eqv Array[UInt].new(1, 3, 3);
@@ -2728,7 +2728,7 @@ subtest
     ok @txn[59]<postings>[1]<id><number> == 1;
     ok @txn[59]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.08 USD";
     ok @txn[59]<postings>[1]<id><xxhash> == 2749172222;
-    ok @txn[60]<header><date> eqv DateTime.new(2012,8,16,0,0,0);
+    ok @txn[60]<header><date> eqv Date.new('2012-08-16');
     ok @txn[60]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0816 USD";
     ok @txn[60]<header><important> == 0;
     ok @txn[60]<id><number> eqv Array[UInt].new(1, 3, 4, 0);
@@ -2764,7 +2764,7 @@ subtest
     ok @txn[60]<postings>[1]<id><number> == 1;
     ok @txn[60]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0816 USD";
     ok @txn[60]<postings>[1]<id><xxhash> == 2033582180;
-    ok @txn[61]<header><date> eqv DateTime.new(2012,8,31,0,0,0);
+    ok @txn[61]<header><date> eqv Date.new('2012-08-31');
     ok @txn[61]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.08 USD in late August 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/August'」\n";
     ok @txn[61]<header><important> == 0;
     ok @txn[61]<id><number> eqv Array[UInt].new(1, 3, 5);
@@ -2800,7 +2800,7 @@ subtest
     ok @txn[61]<postings>[1]<id><number> == 1;
     ok @txn[61]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.08 USD";
     ok @txn[61]<postings>[1]<id><xxhash> == 3797888419;
-    ok @txn[62]<header><date> eqv DateTime.new(2012,9,1,0,0,0);
+    ok @txn[62]<header><date> eqv Date.new('2012-09-01');
     ok @txn[62]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.09 USD in early September 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/September'」\n";
     ok @txn[62]<header><important> == 0;
     ok @txn[62]<id><number> eqv Array[UInt].new(1, 3, 6);
@@ -2836,7 +2836,7 @@ subtest
     ok @txn[62]<postings>[1]<id><number> == 1;
     ok @txn[62]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.09 USD";
     ok @txn[62]<postings>[1]<id><xxhash> == 243411132;
-    ok @txn[63]<header><date> eqv DateTime.new(2012,9,16,0,0,0);
+    ok @txn[63]<header><date> eqv Date.new('2012-09-16');
     ok @txn[63]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0916 USD";
     ok @txn[63]<header><important> == 0;
     ok @txn[63]<id><number> eqv Array[UInt].new(1, 3, 7, 0);
@@ -2872,7 +2872,7 @@ subtest
     ok @txn[63]<postings>[1]<id><number> == 1;
     ok @txn[63]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0916 USD";
     ok @txn[63]<postings>[1]<id><xxhash> == 3854836884;
-    ok @txn[64]<header><date> eqv DateTime.new(2012,9,30,0,0,0);
+    ok @txn[64]<header><date> eqv Date.new('2012-09-30');
     ok @txn[64]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.09 USD in late September 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/September'」\n";
     ok @txn[64]<header><important> == 0;
     ok @txn[64]<id><number> eqv Array[UInt].new(1, 3, 8);
@@ -2908,7 +2908,7 @@ subtest
     ok @txn[64]<postings>[1]<id><number> == 1;
     ok @txn[64]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.09 USD";
     ok @txn[64]<postings>[1]<id><xxhash> == 951147748;
-    ok @txn[65]<header><date> eqv DateTime.new(2012,10,1,0,0,0);
+    ok @txn[65]<header><date> eqv Date.new('2012-10-01');
     ok @txn[65]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.10 USD in early October 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/October'」\n";
     ok @txn[65]<header><important> == 0;
     ok @txn[65]<id><number> eqv Array[UInt].new(1, 4, 0);
@@ -2944,7 +2944,7 @@ subtest
     ok @txn[65]<postings>[1]<id><number> == 1;
     ok @txn[65]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.10 USD";
     ok @txn[65]<postings>[1]<id><xxhash> == 2882172050;
-    ok @txn[66]<header><date> eqv DateTime.new(2012,10,16,0,0,0);
+    ok @txn[66]<header><date> eqv Date.new('2012-10-16');
     ok @txn[66]<header><description> eqv "Wigwam LLC received a dividend of \$2012.1016 USD";
     ok @txn[66]<header><important> == 0;
     ok @txn[66]<id><number> eqv Array[UInt].new(1, 4, 1, 0);
@@ -2980,7 +2980,7 @@ subtest
     ok @txn[66]<postings>[1]<id><number> == 1;
     ok @txn[66]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.1016 USD";
     ok @txn[66]<postings>[1]<id><xxhash> == 3525777378;
-    ok @txn[67]<header><date> eqv DateTime.new(2012,10,31,0,0,0);
+    ok @txn[67]<header><date> eqv Date.new('2012-10-31');
     ok @txn[67]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.10 USD in late October 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/October'」\n";
     ok @txn[67]<header><important> == 0;
     ok @txn[67]<id><number> eqv Array[UInt].new(1, 4, 2);
@@ -3016,7 +3016,7 @@ subtest
     ok @txn[67]<postings>[1]<id><number> == 1;
     ok @txn[67]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.10 USD";
     ok @txn[67]<postings>[1]<id><xxhash> == 53602413;
-    ok @txn[68]<header><date> eqv DateTime.new(2012,11,1,0,0,0);
+    ok @txn[68]<header><date> eqv Date.new('2012-11-01');
     ok @txn[68]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.11 USD in early November 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/November'」\n";
     ok @txn[68]<header><important> == 0;
     ok @txn[68]<id><number> eqv Array[UInt].new(1, 4, 3);
@@ -3052,7 +3052,7 @@ subtest
     ok @txn[68]<postings>[1]<id><number> == 1;
     ok @txn[68]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.11 USD";
     ok @txn[68]<postings>[1]<id><xxhash> == 974733802;
-    ok @txn[69]<header><date> eqv DateTime.new(2012,11,16,0,0,0);
+    ok @txn[69]<header><date> eqv Date.new('2012-11-16');
     ok @txn[69]<header><description> eqv "Wigwam LLC received a dividend of \$2012.1116 USD";
     ok @txn[69]<header><important> == 0;
     ok @txn[69]<id><number> eqv Array[UInt].new(1, 4, 4, 0);
@@ -3088,7 +3088,7 @@ subtest
     ok @txn[69]<postings>[1]<id><number> == 1;
     ok @txn[69]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.1116 USD";
     ok @txn[69]<postings>[1]<id><xxhash> == 400356518;
-    ok @txn[70]<header><date> eqv DateTime.new(2012,11,30,0,0,0);
+    ok @txn[70]<header><date> eqv Date.new('2012-11-30');
     ok @txn[70]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.11 USD in late November 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/November'」\n";
     ok @txn[70]<header><important> == 0;
     ok @txn[70]<id><number> eqv Array[UInt].new(1, 4, 5);
@@ -3124,7 +3124,7 @@ subtest
     ok @txn[70]<postings>[1]<id><number> == 1;
     ok @txn[70]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.11 USD";
     ok @txn[70]<postings>[1]<id><xxhash> == 1515324218;
-    ok @txn[71]<header><date> eqv DateTime.new(2012,12,1,0,0,0);
+    ok @txn[71]<header><date> eqv Date.new('2012-12-01');
     ok @txn[71]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.12 USD in early December 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/December'」\n";
     ok @txn[71]<header><important> == 0;
     ok @txn[71]<id><number> eqv Array[UInt].new(1, 4, 6);
@@ -3160,7 +3160,7 @@ subtest
     ok @txn[71]<postings>[1]<id><number> == 1;
     ok @txn[71]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.12 USD";
     ok @txn[71]<postings>[1]<id><xxhash> == 1223007802;
-    ok @txn[72]<header><date> eqv DateTime.new(2012,12,16,0,0,0);
+    ok @txn[72]<header><date> eqv Date.new('2012-12-16');
     ok @txn[72]<header><description> eqv "Wigwam LLC received a dividend of \$2012.1216 USD";
     ok @txn[72]<header><important> == 0;
     ok @txn[72]<id><number> eqv Array[UInt].new(1, 4, 7, 0);
@@ -3196,7 +3196,7 @@ subtest
     ok @txn[72]<postings>[1]<id><number> == 1;
     ok @txn[72]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.1216 USD";
     ok @txn[72]<postings>[1]<id><xxhash> == 3325655088;
-    ok @txn[73]<header><date> eqv DateTime.new(2012,12,31,0,0,0);
+    ok @txn[73]<header><date> eqv Date.new('2012-12-31');
     ok @txn[73]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.12 USD in late December 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/December'」\n";
     ok @txn[73]<header><important> == 0;
     ok @txn[73]<id><number> eqv Array[UInt].new(1, 4, 8);
@@ -3232,7 +3232,7 @@ subtest
     ok @txn[73]<postings>[1]<id><number> == 1;
     ok @txn[73]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.12 USD";
     ok @txn[73]<postings>[1]<id><xxhash> == 3096402053;
-    ok @txn[74]<header><date> eqv DateTime.new(2013,1,1,0,0,0);
+    ok @txn[74]<header><date> eqv Date.new('2013-01-01');
     ok @txn[74]<header><description> eqv "FooCorp started the year with \$1000 in Bankwest cheque account";
     ok @txn[74]<header><important> == 0;
     ok @txn[74]<id><number> eqv Array[UInt].new(2, 0);
@@ -3267,7 +3267,7 @@ subtest
     ok @txn[74]<postings>[1]<id><number> == 1;
     ok @txn[74]<postings>[1]<id><text> eqv "Equity:FooCorp                      \$1000.00 USD";
     ok @txn[74]<postings>[1]<id><xxhash> == 1025058054;
-    ok @txn[75]<header><date> eqv DateTime.new(2013,1,1,0,0,0);
+    ok @txn[75]<header><date> eqv Date.new('2013-01-01');
     ok @txn[75]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.01 USD in early January 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/January'」\n";
     ok @txn[75]<header><important> == 0;
     ok @txn[75]<id><number> eqv Array[UInt].new(2, 1, 0);
@@ -3303,7 +3303,7 @@ subtest
     ok @txn[75]<postings>[1]<id><number> == 1;
     ok @txn[75]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.01 USD";
     ok @txn[75]<postings>[1]<id><xxhash> == 35511673;
-    ok @txn[76]<header><date> eqv DateTime.new(2013,1,16,0,0,0);
+    ok @txn[76]<header><date> eqv Date.new('2013-01-16');
     ok @txn[76]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0116 USD";
     ok @txn[76]<header><important> == 0;
     ok @txn[76]<id><number> eqv Array[UInt].new(2, 1, 1, 0);
@@ -3339,7 +3339,7 @@ subtest
     ok @txn[76]<postings>[1]<id><number> == 1;
     ok @txn[76]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0116 USD";
     ok @txn[76]<postings>[1]<id><xxhash> == 1105245657;
-    ok @txn[77]<header><date> eqv DateTime.new(2013,1,31,0,0,0);
+    ok @txn[77]<header><date> eqv Date.new('2013-01-31');
     ok @txn[77]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.01 USD in late January 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/January'」\n";
     ok @txn[77]<header><important> == 0;
     ok @txn[77]<id><number> eqv Array[UInt].new(2, 1, 2);
@@ -3375,7 +3375,7 @@ subtest
     ok @txn[77]<postings>[1]<id><number> == 1;
     ok @txn[77]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.01 USD";
     ok @txn[77]<postings>[1]<id><xxhash> == 1596641458;
-    ok @txn[78]<header><date> eqv DateTime.new(2013,2,1,0,0,0);
+    ok @txn[78]<header><date> eqv Date.new('2013-02-01');
     ok @txn[78]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.02 USD in early February 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/February'」\n";
     ok @txn[78]<header><important> == 0;
     ok @txn[78]<id><number> eqv Array[UInt].new(2, 1, 3);
@@ -3411,7 +3411,7 @@ subtest
     ok @txn[78]<postings>[1]<id><number> == 1;
     ok @txn[78]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.02 USD";
     ok @txn[78]<postings>[1]<id><xxhash> == 3350274487;
-    ok @txn[79]<header><date> eqv DateTime.new(2013,2,16,0,0,0);
+    ok @txn[79]<header><date> eqv Date.new('2013-02-16');
     ok @txn[79]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0216 USD";
     ok @txn[79]<header><important> == 0;
     ok @txn[79]<id><number> eqv Array[UInt].new(2, 1, 4, 0);
@@ -3447,7 +3447,7 @@ subtest
     ok @txn[79]<postings>[1]<id><number> == 1;
     ok @txn[79]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0216 USD";
     ok @txn[79]<postings>[1]<id><xxhash> == 2807440849;
-    ok @txn[80]<header><date> eqv DateTime.new(2013,2,28,0,0,0);
+    ok @txn[80]<header><date> eqv Date.new('2013-02-28');
     ok @txn[80]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.02 USD in late February 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/February'」\n";
     ok @txn[80]<header><important> == 0;
     ok @txn[80]<id><number> eqv Array[UInt].new(2, 1, 5);
@@ -3483,7 +3483,7 @@ subtest
     ok @txn[80]<postings>[1]<id><number> == 1;
     ok @txn[80]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.02 USD";
     ok @txn[80]<postings>[1]<id><xxhash> == 1035364396;
-    ok @txn[81]<header><date> eqv DateTime.new(2013,3,1,0,0,0);
+    ok @txn[81]<header><date> eqv Date.new('2013-03-01');
     ok @txn[81]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.03 USD in early March 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/March'」\n";
     ok @txn[81]<header><important> == 0;
     ok @txn[81]<id><number> eqv Array[UInt].new(2, 1, 6);
@@ -3519,7 +3519,7 @@ subtest
     ok @txn[81]<postings>[1]<id><number> == 1;
     ok @txn[81]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.03 USD";
     ok @txn[81]<postings>[1]<id><xxhash> == 1840852121;
-    ok @txn[82]<header><date> eqv DateTime.new(2013,3,16,0,0,0);
+    ok @txn[82]<header><date> eqv Date.new('2013-03-16');
     ok @txn[82]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0316 USD";
     ok @txn[82]<header><important> == 0;
     ok @txn[82]<id><number> eqv Array[UInt].new(2, 1, 7, 0);
@@ -3555,7 +3555,7 @@ subtest
     ok @txn[82]<postings>[1]<id><number> == 1;
     ok @txn[82]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0316 USD";
     ok @txn[82]<postings>[1]<id><xxhash> == 1244356843;
-    ok @txn[83]<header><date> eqv DateTime.new(2013,3,31,0,0,0);
+    ok @txn[83]<header><date> eqv Date.new('2013-03-31');
     ok @txn[83]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.03 USD in late March 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/March'」\n";
     ok @txn[83]<header><important> == 0;
     ok @txn[83]<id><number> eqv Array[UInt].new(2, 1, 8);
@@ -3591,7 +3591,7 @@ subtest
     ok @txn[83]<postings>[1]<id><number> == 1;
     ok @txn[83]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.03 USD";
     ok @txn[83]<postings>[1]<id><xxhash> == 3941709198;
-    ok @txn[84]<header><date> eqv DateTime.new(2013,4,1,0,0,0);
+    ok @txn[84]<header><date> eqv Date.new('2013-04-01');
     ok @txn[84]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.04 USD in early April 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/April'」\n";
     ok @txn[84]<header><important> == 0;
     ok @txn[84]<id><number> eqv Array[UInt].new(2, 2, 0);
@@ -3627,7 +3627,7 @@ subtest
     ok @txn[84]<postings>[1]<id><number> == 1;
     ok @txn[84]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.04 USD";
     ok @txn[84]<postings>[1]<id><xxhash> == 2267252423;
-    ok @txn[85]<header><date> eqv DateTime.new(2013,4,16,0,0,0);
+    ok @txn[85]<header><date> eqv Date.new('2013-04-16');
     ok @txn[85]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0416 USD";
     ok @txn[85]<header><important> == 0;
     ok @txn[85]<id><number> eqv Array[UInt].new(2, 2, 1, 0);
@@ -3663,7 +3663,7 @@ subtest
     ok @txn[85]<postings>[1]<id><number> == 1;
     ok @txn[85]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0416 USD";
     ok @txn[85]<postings>[1]<id><xxhash> == 419651900;
-    ok @txn[86]<header><date> eqv DateTime.new(2013,4,30,0,0,0);
+    ok @txn[86]<header><date> eqv Date.new('2013-04-30');
     ok @txn[86]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.04 USD in late April 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/April'」\n";
     ok @txn[86]<header><important> == 0;
     ok @txn[86]<id><number> eqv Array[UInt].new(2, 2, 2);
@@ -3699,7 +3699,7 @@ subtest
     ok @txn[86]<postings>[1]<id><number> == 1;
     ok @txn[86]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.04 USD";
     ok @txn[86]<postings>[1]<id><xxhash> == 3893093683;
-    ok @txn[87]<header><date> eqv DateTime.new(2013,5,1,0,0,0);
+    ok @txn[87]<header><date> eqv Date.new('2013-05-01');
     ok @txn[87]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.05 USD in early May 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/May'」\n";
     ok @txn[87]<header><important> == 0;
     ok @txn[87]<id><number> eqv Array[UInt].new(2, 2, 3);
@@ -3735,7 +3735,7 @@ subtest
     ok @txn[87]<postings>[1]<id><number> == 1;
     ok @txn[87]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.05 USD";
     ok @txn[87]<postings>[1]<id><xxhash> == 2590724923;
-    ok @txn[88]<header><date> eqv DateTime.new(2013,5,16,0,0,0);
+    ok @txn[88]<header><date> eqv Date.new('2013-05-16');
     ok @txn[88]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0516 USD";
     ok @txn[88]<header><important> == 0;
     ok @txn[88]<id><number> eqv Array[UInt].new(2, 2, 4, 0);
@@ -3771,7 +3771,7 @@ subtest
     ok @txn[88]<postings>[1]<id><number> == 1;
     ok @txn[88]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0516 USD";
     ok @txn[88]<postings>[1]<id><xxhash> == 1692039403;
-    ok @txn[89]<header><date> eqv DateTime.new(2013,5,31,0,0,0);
+    ok @txn[89]<header><date> eqv Date.new('2013-05-31');
     ok @txn[89]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.05 USD in late May 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/May'」\n";
     ok @txn[89]<header><important> == 0;
     ok @txn[89]<id><number> eqv Array[UInt].new(2, 2, 5);
@@ -3807,7 +3807,7 @@ subtest
     ok @txn[89]<postings>[1]<id><number> == 1;
     ok @txn[89]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.05 USD";
     ok @txn[89]<postings>[1]<id><xxhash> == 895907392;
-    ok @txn[90]<header><date> eqv DateTime.new(2013,6,1,0,0,0);
+    ok @txn[90]<header><date> eqv Date.new('2013-06-01');
     ok @txn[90]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.06 USD in early June 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/June'」\n";
     ok @txn[90]<header><important> == 0;
     ok @txn[90]<id><number> eqv Array[UInt].new(2, 2, 6);
@@ -3843,7 +3843,7 @@ subtest
     ok @txn[90]<postings>[1]<id><number> == 1;
     ok @txn[90]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.06 USD";
     ok @txn[90]<postings>[1]<id><xxhash> == 1187163231;
-    ok @txn[91]<header><date> eqv DateTime.new(2013,6,16,0,0,0);
+    ok @txn[91]<header><date> eqv Date.new('2013-06-16');
     ok @txn[91]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0616 USD";
     ok @txn[91]<header><important> == 0;
     ok @txn[91]<id><number> eqv Array[UInt].new(2, 2, 7, 0);
@@ -3879,7 +3879,7 @@ subtest
     ok @txn[91]<postings>[1]<id><number> == 1;
     ok @txn[91]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0616 USD";
     ok @txn[91]<postings>[1]<id><xxhash> == 398263546;
-    ok @txn[92]<header><date> eqv DateTime.new(2013,6,30,0,0,0);
+    ok @txn[92]<header><date> eqv Date.new('2013-06-30');
     ok @txn[92]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.06 USD in late June 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/June'」\n";
     ok @txn[92]<header><important> == 0;
     ok @txn[92]<id><number> eqv Array[UInt].new(2, 2, 8);
@@ -3915,7 +3915,7 @@ subtest
     ok @txn[92]<postings>[1]<id><number> == 1;
     ok @txn[92]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.06 USD";
     ok @txn[92]<postings>[1]<id><xxhash> == 1167336265;
-    ok @txn[93]<header><date> eqv DateTime.new(2013,7,1,0,0,0);
+    ok @txn[93]<header><date> eqv Date.new('2013-07-01');
     ok @txn[93]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.07 USD in early July 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/July'」\n";
     ok @txn[93]<header><important> == 0;
     ok @txn[93]<id><number> eqv Array[UInt].new(2, 3, 0);
@@ -3951,7 +3951,7 @@ subtest
     ok @txn[93]<postings>[1]<id><number> == 1;
     ok @txn[93]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.07 USD";
     ok @txn[93]<postings>[1]<id><xxhash> == 2675724246;
-    ok @txn[94]<header><date> eqv DateTime.new(2013,7,16,0,0,0);
+    ok @txn[94]<header><date> eqv Date.new('2013-07-16');
     ok @txn[94]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0716 USD";
     ok @txn[94]<header><important> == 0;
     ok @txn[94]<id><number> eqv Array[UInt].new(2, 3, 1, 0);
@@ -3987,7 +3987,7 @@ subtest
     ok @txn[94]<postings>[1]<id><number> == 1;
     ok @txn[94]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0716 USD";
     ok @txn[94]<postings>[1]<id><xxhash> == 1429453554;
-    ok @txn[95]<header><date> eqv DateTime.new(2013,7,31,0,0,0);
+    ok @txn[95]<header><date> eqv Date.new('2013-07-31');
     ok @txn[95]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.07 USD in late July 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/July'」\n";
     ok @txn[95]<header><important> == 0;
     ok @txn[95]<id><number> eqv Array[UInt].new(2, 3, 2);
@@ -4023,7 +4023,7 @@ subtest
     ok @txn[95]<postings>[1]<id><number> == 1;
     ok @txn[95]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.07 USD";
     ok @txn[95]<postings>[1]<id><xxhash> == 3307372531;
-    ok @txn[96]<header><date> eqv DateTime.new(2013,8,1,0,0,0);
+    ok @txn[96]<header><date> eqv Date.new('2013-08-01');
     ok @txn[96]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.08 USD in early August 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/August'」\n";
     ok @txn[96]<header><important> == 0;
     ok @txn[96]<id><number> eqv Array[UInt].new(2, 3, 3);
@@ -4059,7 +4059,7 @@ subtest
     ok @txn[96]<postings>[1]<id><number> == 1;
     ok @txn[96]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.08 USD";
     ok @txn[96]<postings>[1]<id><xxhash> == 3039180281;
-    ok @txn[97]<header><date> eqv DateTime.new(2013,8,16,0,0,0);
+    ok @txn[97]<header><date> eqv Date.new('2013-08-16');
     ok @txn[97]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0816 USD";
     ok @txn[97]<header><important> == 0;
     ok @txn[97]<id><number> eqv Array[UInt].new(2, 3, 4, 0);
@@ -4095,7 +4095,7 @@ subtest
     ok @txn[97]<postings>[1]<id><number> == 1;
     ok @txn[97]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0816 USD";
     ok @txn[97]<postings>[1]<id><xxhash> == 1969770397;
-    ok @txn[98]<header><date> eqv DateTime.new(2013,8,31,0,0,0);
+    ok @txn[98]<header><date> eqv Date.new('2013-08-31');
     ok @txn[98]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.08 USD in late August 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/August'」\n";
     ok @txn[98]<header><important> == 0;
     ok @txn[98]<id><number> eqv Array[UInt].new(2, 3, 5);
@@ -4131,7 +4131,7 @@ subtest
     ok @txn[98]<postings>[1]<id><number> == 1;
     ok @txn[98]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.08 USD";
     ok @txn[98]<postings>[1]<id><xxhash> == 115568189;
-    ok @txn[99]<header><date> eqv DateTime.new(2013,9,1,0,0,0);
+    ok @txn[99]<header><date> eqv Date.new('2013-09-01');
     ok @txn[99]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.09 USD in early September 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/September'」\n";
     ok @txn[99]<header><important> == 0;
     ok @txn[99]<id><number> eqv Array[UInt].new(2, 3, 6);
@@ -4167,7 +4167,7 @@ subtest
     ok @txn[99]<postings>[1]<id><number> == 1;
     ok @txn[99]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.09 USD";
     ok @txn[99]<postings>[1]<id><xxhash> == 3596800179;
-    ok @txn[100]<header><date> eqv DateTime.new(2013,9,16,0,0,0);
+    ok @txn[100]<header><date> eqv Date.new('2013-09-16');
     ok @txn[100]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0916 USD";
     ok @txn[100]<header><important> == 0;
     ok @txn[100]<id><number> eqv Array[UInt].new(2, 3, 7, 0);
@@ -4203,7 +4203,7 @@ subtest
     ok @txn[100]<postings>[1]<id><number> == 1;
     ok @txn[100]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0916 USD";
     ok @txn[100]<postings>[1]<id><xxhash> == 742012739;
-    ok @txn[101]<header><date> eqv DateTime.new(2013,9,30,0,0,0);
+    ok @txn[101]<header><date> eqv Date.new('2013-09-30');
     ok @txn[101]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.09 USD in late September 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/September'」\n";
     ok @txn[101]<header><important> == 0;
     ok @txn[101]<id><number> eqv Array[UInt].new(2, 3, 8);
@@ -4239,7 +4239,7 @@ subtest
     ok @txn[101]<postings>[1]<id><number> == 1;
     ok @txn[101]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.09 USD";
     ok @txn[101]<postings>[1]<id><xxhash> == 4150514617;
-    ok @txn[102]<header><date> eqv DateTime.new(2013,10,1,0,0,0);
+    ok @txn[102]<header><date> eqv Date.new('2013-10-01');
     ok @txn[102]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.10 USD in early October 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/October'」\n";
     ok @txn[102]<header><important> == 0;
     ok @txn[102]<id><number> eqv Array[UInt].new(2, 4, 0);
@@ -4275,7 +4275,7 @@ subtest
     ok @txn[102]<postings>[1]<id><number> == 1;
     ok @txn[102]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.10 USD";
     ok @txn[102]<postings>[1]<id><xxhash> == 806384794;
-    ok @txn[103]<header><date> eqv DateTime.new(2013,10,16,0,0,0);
+    ok @txn[103]<header><date> eqv Date.new('2013-10-16');
     ok @txn[103]<header><description> eqv "Wigwam LLC received a dividend of \$2013.1016 USD";
     ok @txn[103]<header><important> == 0;
     ok @txn[103]<id><number> eqv Array[UInt].new(2, 4, 1, 0);
@@ -4311,7 +4311,7 @@ subtest
     ok @txn[103]<postings>[1]<id><number> == 1;
     ok @txn[103]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.1016 USD";
     ok @txn[103]<postings>[1]<id><xxhash> == 719072295;
-    ok @txn[104]<header><date> eqv DateTime.new(2013,10,31,0,0,0);
+    ok @txn[104]<header><date> eqv Date.new('2013-10-31');
     ok @txn[104]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.10 USD in late October 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/October'」\n";
     ok @txn[104]<header><important> == 0;
     ok @txn[104]<id><number> eqv Array[UInt].new(2, 4, 2);
@@ -4347,7 +4347,7 @@ subtest
     ok @txn[104]<postings>[1]<id><number> == 1;
     ok @txn[104]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.10 USD";
     ok @txn[104]<postings>[1]<id><xxhash> == 1943956588;
-    ok @txn[105]<header><date> eqv DateTime.new(2013,11,1,0,0,0);
+    ok @txn[105]<header><date> eqv Date.new('2013-11-01');
     ok @txn[105]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.11 USD in early November 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/November'」\n";
     ok @txn[105]<header><important> == 0;
     ok @txn[105]<id><number> eqv Array[UInt].new(2, 4, 3);
@@ -4383,7 +4383,7 @@ subtest
     ok @txn[105]<postings>[1]<id><number> == 1;
     ok @txn[105]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.11 USD";
     ok @txn[105]<postings>[1]<id><xxhash> == 1726070033;
-    ok @txn[106]<header><date> eqv DateTime.new(2013,11,16,0,0,0);
+    ok @txn[106]<header><date> eqv Date.new('2013-11-16');
     ok @txn[106]<header><description> eqv "Wigwam LLC received a dividend of \$2013.1116 USD";
     ok @txn[106]<header><important> == 0;
     ok @txn[106]<id><number> eqv Array[UInt].new(2, 4, 4, 0);
@@ -4419,7 +4419,7 @@ subtest
     ok @txn[106]<postings>[1]<id><number> == 1;
     ok @txn[106]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.1116 USD";
     ok @txn[106]<postings>[1]<id><xxhash> == 690089900;
-    ok @txn[107]<header><date> eqv DateTime.new(2013,11,30,0,0,0);
+    ok @txn[107]<header><date> eqv Date.new('2013-11-30');
     ok @txn[107]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.11 USD in late November 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/November'」\n";
     ok @txn[107]<header><important> == 0;
     ok @txn[107]<id><number> eqv Array[UInt].new(2, 4, 5);
@@ -4455,7 +4455,7 @@ subtest
     ok @txn[107]<postings>[1]<id><number> == 1;
     ok @txn[107]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.11 USD";
     ok @txn[107]<postings>[1]<id><xxhash> == 2318076742;
-    ok @txn[108]<header><date> eqv DateTime.new(2013,12,1,0,0,0);
+    ok @txn[108]<header><date> eqv Date.new('2013-12-01');
     ok @txn[108]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.12 USD in early December 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/December'」\n";
     ok @txn[108]<header><important> == 0;
     ok @txn[108]<id><number> eqv Array[UInt].new(2, 4, 6);
@@ -4491,7 +4491,7 @@ subtest
     ok @txn[108]<postings>[1]<id><number> == 1;
     ok @txn[108]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.12 USD";
     ok @txn[108]<postings>[1]<id><xxhash> == 3978925433;
-    ok @txn[109]<header><date> eqv DateTime.new(2013,12,16,0,0,0);
+    ok @txn[109]<header><date> eqv Date.new('2013-12-16');
     ok @txn[109]<header><description> eqv "Wigwam LLC received a dividend of \$2013.1216 USD";
     ok @txn[109]<header><important> == 0;
     ok @txn[109]<id><number> eqv Array[UInt].new(2, 4, 7, 0);
@@ -4527,7 +4527,7 @@ subtest
     ok @txn[109]<postings>[1]<id><number> == 1;
     ok @txn[109]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.1216 USD";
     ok @txn[109]<postings>[1]<id><xxhash> == 2455119990;
-    ok @txn[110]<header><date> eqv DateTime.new(2013,12,31,0,0,0);
+    ok @txn[110]<header><date> eqv Date.new('2013-12-31');
     ok @txn[110]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.12 USD in late December 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/December'」\n";
     ok @txn[110]<header><important> == 0;
     ok @txn[110]<id><number> eqv Array[UInt].new(2, 4, 8);
@@ -4563,7 +4563,7 @@ subtest
     ok @txn[110]<postings>[1]<id><number> == 1;
     ok @txn[110]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.12 USD";
     ok @txn[110]<postings>[1]<id><xxhash> == 3832507616;
-    ok @txn[111]<header><date> eqv DateTime.new(2014,1,1,0,0,0);
+    ok @txn[111]<header><date> eqv Date.new('2014-01-01');
     ok @txn[111]<header><description> eqv "I started the year with \$1000 in Bankwest cheque account";
     ok @txn[111]<header><important> == 0;
     ok @txn[111]<id><number> eqv Array[UInt].new(3);
@@ -4605,7 +4605,7 @@ subtest
 {
     my Str $txn = "include <with-includes>\n";
     my @txn = TXN::Parser.parse($txn, :txndir<t/data/with-includes>).made;
-    ok @txn[0]<header><date> eqv DateTime.new(2011,1,1,0,0,0);
+    ok @txn[0]<header><date> eqv Date.new('2011-01-01');
     ok @txn[0]<header><description> eqv "FooCorp started the year with \$1000 in Bankwest cheque account";
     ok @txn[0]<header><important> == 0;
     ok @txn[0]<id><number> eqv Array[UInt].new(0, 0, 0);
@@ -4640,7 +4640,7 @@ subtest
     ok @txn[0]<postings>[1]<id><number> == 1;
     ok @txn[0]<postings>[1]<id><text> eqv "Equity:FooCorp                      \$1000.00 USD";
     ok @txn[0]<postings>[1]<id><xxhash> == 1025058054;
-    ok @txn[1]<header><date> eqv DateTime.new(2011,1,1,0,0,0);
+    ok @txn[1]<header><date> eqv Date.new('2011-01-01');
     ok @txn[1]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.01 USD in early January 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/January'」\n";
     ok @txn[1]<header><important> == 0;
     ok @txn[1]<id><number> eqv Array[UInt].new(0, 0, 1, 0);
@@ -4676,7 +4676,7 @@ subtest
     ok @txn[1]<postings>[1]<id><number> == 1;
     ok @txn[1]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.01 USD";
     ok @txn[1]<postings>[1]<id><xxhash> == 1442732716;
-    ok @txn[2]<header><date> eqv DateTime.new(2011,1,16,0,0,0);
+    ok @txn[2]<header><date> eqv Date.new('2011-01-16');
     ok @txn[2]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0116 USD";
     ok @txn[2]<header><important> == 0;
     ok @txn[2]<id><number> eqv Array[UInt].new(0, 0, 1, 1, 0);
@@ -4712,7 +4712,7 @@ subtest
     ok @txn[2]<postings>[1]<id><number> == 1;
     ok @txn[2]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0116 USD";
     ok @txn[2]<postings>[1]<id><xxhash> == 3822606469;
-    ok @txn[3]<header><date> eqv DateTime.new(2011,1,31,0,0,0);
+    ok @txn[3]<header><date> eqv Date.new('2011-01-31');
     ok @txn[3]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.01 USD in late January 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/January'」\n";
     ok @txn[3]<header><important> == 0;
     ok @txn[3]<id><number> eqv Array[UInt].new(0, 0, 1, 2);
@@ -4748,7 +4748,7 @@ subtest
     ok @txn[3]<postings>[1]<id><number> == 1;
     ok @txn[3]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.01 USD";
     ok @txn[3]<postings>[1]<id><xxhash> == 3589948839;
-    ok @txn[4]<header><date> eqv DateTime.new(2011,2,1,0,0,0);
+    ok @txn[4]<header><date> eqv Date.new('2011-02-01');
     ok @txn[4]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.02 USD in early February 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/February'」\n";
     ok @txn[4]<header><important> == 0;
     ok @txn[4]<id><number> eqv Array[UInt].new(0, 0, 1, 3);
@@ -4784,7 +4784,7 @@ subtest
     ok @txn[4]<postings>[1]<id><number> == 1;
     ok @txn[4]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.02 USD";
     ok @txn[4]<postings>[1]<id><xxhash> == 2965421556;
-    ok @txn[5]<header><date> eqv DateTime.new(2011,2,16,0,0,0);
+    ok @txn[5]<header><date> eqv Date.new('2011-02-16');
     ok @txn[5]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0216 USD";
     ok @txn[5]<header><important> == 0;
     ok @txn[5]<id><number> eqv Array[UInt].new(0, 0, 1, 4, 0);
@@ -4820,7 +4820,7 @@ subtest
     ok @txn[5]<postings>[1]<id><number> == 1;
     ok @txn[5]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0216 USD";
     ok @txn[5]<postings>[1]<id><xxhash> == 1447769892;
-    ok @txn[6]<header><date> eqv DateTime.new(2011,2,28,0,0,0);
+    ok @txn[6]<header><date> eqv Date.new('2011-02-28');
     ok @txn[6]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.02 USD in late February 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/February'」\n";
     ok @txn[6]<header><important> == 0;
     ok @txn[6]<id><number> eqv Array[UInt].new(0, 0, 1, 5);
@@ -4856,7 +4856,7 @@ subtest
     ok @txn[6]<postings>[1]<id><number> == 1;
     ok @txn[6]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.02 USD";
     ok @txn[6]<postings>[1]<id><xxhash> == 991307650;
-    ok @txn[7]<header><date> eqv DateTime.new(2011,3,1,0,0,0);
+    ok @txn[7]<header><date> eqv Date.new('2011-03-01');
     ok @txn[7]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.03 USD in early March 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/March'」\n";
     ok @txn[7]<header><important> == 0;
     ok @txn[7]<id><number> eqv Array[UInt].new(0, 0, 1, 6);
@@ -4892,7 +4892,7 @@ subtest
     ok @txn[7]<postings>[1]<id><number> == 1;
     ok @txn[7]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.03 USD";
     ok @txn[7]<postings>[1]<id><xxhash> == 1721285682;
-    ok @txn[8]<header><date> eqv DateTime.new(2011,3,16,0,0,0);
+    ok @txn[8]<header><date> eqv Date.new('2011-03-16');
     ok @txn[8]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0316 USD";
     ok @txn[8]<header><important> == 0;
     ok @txn[8]<id><number> eqv Array[UInt].new(0, 0, 1, 7, 0);
@@ -4928,7 +4928,7 @@ subtest
     ok @txn[8]<postings>[1]<id><number> == 1;
     ok @txn[8]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0316 USD";
     ok @txn[8]<postings>[1]<id><xxhash> == 1632975976;
-    ok @txn[9]<header><date> eqv DateTime.new(2011,3,31,0,0,0);
+    ok @txn[9]<header><date> eqv Date.new('2011-03-31');
     ok @txn[9]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.03 USD in late March 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/March'」\n";
     ok @txn[9]<header><important> == 0;
     ok @txn[9]<id><number> eqv Array[UInt].new(0, 0, 1, 8);
@@ -4964,7 +4964,7 @@ subtest
     ok @txn[9]<postings>[1]<id><number> == 1;
     ok @txn[9]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.03 USD";
     ok @txn[9]<postings>[1]<id><xxhash> == 2676696051;
-    ok @txn[10]<header><date> eqv DateTime.new(2011,4,1,0,0,0);
+    ok @txn[10]<header><date> eqv Date.new('2011-04-01');
     ok @txn[10]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.04 USD in early April 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/April'」\n";
     ok @txn[10]<header><important> == 0;
     ok @txn[10]<id><number> eqv Array[UInt].new(0, 0, 2, 0);
@@ -5000,7 +5000,7 @@ subtest
     ok @txn[10]<postings>[1]<id><number> == 1;
     ok @txn[10]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.04 USD";
     ok @txn[10]<postings>[1]<id><xxhash> == 3179024211;
-    ok @txn[11]<header><date> eqv DateTime.new(2011,4,16,0,0,0);
+    ok @txn[11]<header><date> eqv Date.new('2011-04-16');
     ok @txn[11]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0416 USD";
     ok @txn[11]<header><important> == 0;
     ok @txn[11]<id><number> eqv Array[UInt].new(0, 0, 2, 1, 0);
@@ -5036,7 +5036,7 @@ subtest
     ok @txn[11]<postings>[1]<id><number> == 1;
     ok @txn[11]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0416 USD";
     ok @txn[11]<postings>[1]<id><xxhash> == 1601475876;
-    ok @txn[12]<header><date> eqv DateTime.new(2011,4,30,0,0,0);
+    ok @txn[12]<header><date> eqv Date.new('2011-04-30');
     ok @txn[12]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.04 USD in late April 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/April'」\n";
     ok @txn[12]<header><important> == 0;
     ok @txn[12]<id><number> eqv Array[UInt].new(0, 0, 2, 2);
@@ -5072,7 +5072,7 @@ subtest
     ok @txn[12]<postings>[1]<id><number> == 1;
     ok @txn[12]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.04 USD";
     ok @txn[12]<postings>[1]<id><xxhash> == 701076721;
-    ok @txn[13]<header><date> eqv DateTime.new(2011,5,1,0,0,0);
+    ok @txn[13]<header><date> eqv Date.new('2011-05-01');
     ok @txn[13]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.05 USD in early May 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/May'」\n";
     ok @txn[13]<header><important> == 0;
     ok @txn[13]<id><number> eqv Array[UInt].new(0, 0, 2, 3);
@@ -5108,7 +5108,7 @@ subtest
     ok @txn[13]<postings>[1]<id><number> == 1;
     ok @txn[13]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.05 USD";
     ok @txn[13]<postings>[1]<id><xxhash> == 3177866826;
-    ok @txn[14]<header><date> eqv DateTime.new(2011,5,16,0,0,0);
+    ok @txn[14]<header><date> eqv Date.new('2011-05-16');
     ok @txn[14]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0516 USD";
     ok @txn[14]<header><important> == 0;
     ok @txn[14]<id><number> eqv Array[UInt].new(0, 0, 2, 4, 0);
@@ -5144,7 +5144,7 @@ subtest
     ok @txn[14]<postings>[1]<id><number> == 1;
     ok @txn[14]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0516 USD";
     ok @txn[14]<postings>[1]<id><xxhash> == 2731775541;
-    ok @txn[15]<header><date> eqv DateTime.new(2011,5,31,0,0,0);
+    ok @txn[15]<header><date> eqv Date.new('2011-05-31');
     ok @txn[15]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.05 USD in late May 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/May'」\n";
     ok @txn[15]<header><important> == 0;
     ok @txn[15]<id><number> eqv Array[UInt].new(0, 0, 2, 5);
@@ -5180,7 +5180,7 @@ subtest
     ok @txn[15]<postings>[1]<id><number> == 1;
     ok @txn[15]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.05 USD";
     ok @txn[15]<postings>[1]<id><xxhash> == 1957446417;
-    ok @txn[16]<header><date> eqv DateTime.new(2011,6,1,0,0,0);
+    ok @txn[16]<header><date> eqv Date.new('2011-06-01');
     ok @txn[16]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.06 USD in early June 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/June'」\n";
     ok @txn[16]<header><important> == 0;
     ok @txn[16]<id><number> eqv Array[UInt].new(0, 0, 2, 6);
@@ -5216,7 +5216,7 @@ subtest
     ok @txn[16]<postings>[1]<id><number> == 1;
     ok @txn[16]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.06 USD";
     ok @txn[16]<postings>[1]<id><xxhash> == 1066001694;
-    ok @txn[17]<header><date> eqv DateTime.new(2011,6,16,0,0,0);
+    ok @txn[17]<header><date> eqv Date.new('2011-06-16');
     ok @txn[17]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0616 USD";
     ok @txn[17]<header><important> == 0;
     ok @txn[17]<id><number> eqv Array[UInt].new(0, 0, 2, 7, 0);
@@ -5252,7 +5252,7 @@ subtest
     ok @txn[17]<postings>[1]<id><number> == 1;
     ok @txn[17]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0616 USD";
     ok @txn[17]<postings>[1]<id><xxhash> == 2894491481;
-    ok @txn[18]<header><date> eqv DateTime.new(2011,6,30,0,0,0);
+    ok @txn[18]<header><date> eqv Date.new('2011-06-30');
     ok @txn[18]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.06 USD in late June 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/June'」\n";
     ok @txn[18]<header><important> == 0;
     ok @txn[18]<id><number> eqv Array[UInt].new(0, 0, 2, 8);
@@ -5288,7 +5288,7 @@ subtest
     ok @txn[18]<postings>[1]<id><number> == 1;
     ok @txn[18]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.06 USD";
     ok @txn[18]<postings>[1]<id><xxhash> == 1322105725;
-    ok @txn[19]<header><date> eqv DateTime.new(2011,7,1,0,0,0);
+    ok @txn[19]<header><date> eqv Date.new('2011-07-01');
     ok @txn[19]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.07 USD in early July 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/July'」\n";
     ok @txn[19]<header><important> == 0;
     ok @txn[19]<id><number> eqv Array[UInt].new(0, 0, 3, 0);
@@ -5324,7 +5324,7 @@ subtest
     ok @txn[19]<postings>[1]<id><number> == 1;
     ok @txn[19]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.07 USD";
     ok @txn[19]<postings>[1]<id><xxhash> == 879230496;
-    ok @txn[20]<header><date> eqv DateTime.new(2011,7,16,0,0,0);
+    ok @txn[20]<header><date> eqv Date.new('2011-07-16');
     ok @txn[20]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0716 USD";
     ok @txn[20]<header><important> == 0;
     ok @txn[20]<id><number> eqv Array[UInt].new(0, 0, 3, 1, 0);
@@ -5360,7 +5360,7 @@ subtest
     ok @txn[20]<postings>[1]<id><number> == 1;
     ok @txn[20]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0716 USD";
     ok @txn[20]<postings>[1]<id><xxhash> == 1354653370;
-    ok @txn[21]<header><date> eqv DateTime.new(2011,7,31,0,0,0);
+    ok @txn[21]<header><date> eqv Date.new('2011-07-31');
     ok @txn[21]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.07 USD in late July 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/July'」\n";
     ok @txn[21]<header><important> == 0;
     ok @txn[21]<id><number> eqv Array[UInt].new(0, 0, 3, 2);
@@ -5396,7 +5396,7 @@ subtest
     ok @txn[21]<postings>[1]<id><number> == 1;
     ok @txn[21]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.07 USD";
     ok @txn[21]<postings>[1]<id><xxhash> == 1406482422;
-    ok @txn[22]<header><date> eqv DateTime.new(2011,8,1,0,0,0);
+    ok @txn[22]<header><date> eqv Date.new('2011-08-01');
     ok @txn[22]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.08 USD in early August 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/August'」\n";
     ok @txn[22]<header><important> == 0;
     ok @txn[22]<id><number> eqv Array[UInt].new(0, 0, 3, 3);
@@ -5432,7 +5432,7 @@ subtest
     ok @txn[22]<postings>[1]<id><number> == 1;
     ok @txn[22]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.08 USD";
     ok @txn[22]<postings>[1]<id><xxhash> == 1923859345;
-    ok @txn[23]<header><date> eqv DateTime.new(2011,8,16,0,0,0);
+    ok @txn[23]<header><date> eqv Date.new('2011-08-16');
     ok @txn[23]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0816 USD";
     ok @txn[23]<header><important> == 0;
     ok @txn[23]<id><number> eqv Array[UInt].new(0, 0, 3, 4, 0);
@@ -5468,7 +5468,7 @@ subtest
     ok @txn[23]<postings>[1]<id><number> == 1;
     ok @txn[23]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0816 USD";
     ok @txn[23]<postings>[1]<id><xxhash> == 4267062116;
-    ok @txn[24]<header><date> eqv DateTime.new(2011,8,31,0,0,0);
+    ok @txn[24]<header><date> eqv Date.new('2011-08-31');
     ok @txn[24]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.08 USD in late August 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/August'」\n";
     ok @txn[24]<header><important> == 0;
     ok @txn[24]<id><number> eqv Array[UInt].new(0, 0, 3, 5);
@@ -5504,7 +5504,7 @@ subtest
     ok @txn[24]<postings>[1]<id><number> == 1;
     ok @txn[24]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.08 USD";
     ok @txn[24]<postings>[1]<id><xxhash> == 1142673963;
-    ok @txn[25]<header><date> eqv DateTime.new(2011,9,1,0,0,0);
+    ok @txn[25]<header><date> eqv Date.new('2011-09-01');
     ok @txn[25]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.09 USD in early September 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/September'」\n";
     ok @txn[25]<header><important> == 0;
     ok @txn[25]<id><number> eqv Array[UInt].new(0, 0, 3, 6);
@@ -5540,7 +5540,7 @@ subtest
     ok @txn[25]<postings>[1]<id><number> == 1;
     ok @txn[25]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.09 USD";
     ok @txn[25]<postings>[1]<id><xxhash> == 1895357630;
-    ok @txn[26]<header><date> eqv DateTime.new(2011,9,16,0,0,0);
+    ok @txn[26]<header><date> eqv Date.new('2011-09-16');
     ok @txn[26]<header><description> eqv "Wigwam LLC received a dividend of \$2011.0916 USD";
     ok @txn[26]<header><important> == 0;
     ok @txn[26]<id><number> eqv Array[UInt].new(0, 0, 3, 7, 0);
@@ -5576,7 +5576,7 @@ subtest
     ok @txn[26]<postings>[1]<id><number> == 1;
     ok @txn[26]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.0916 USD";
     ok @txn[26]<postings>[1]<id><xxhash> == 3486713981;
-    ok @txn[27]<header><date> eqv DateTime.new(2011,9,30,0,0,0);
+    ok @txn[27]<header><date> eqv Date.new('2011-09-30');
     ok @txn[27]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.09 USD in late September 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/September'」\n";
     ok @txn[27]<header><important> == 0;
     ok @txn[27]<id><number> eqv Array[UInt].new(0, 0, 3, 8);
@@ -5612,7 +5612,7 @@ subtest
     ok @txn[27]<postings>[1]<id><number> == 1;
     ok @txn[27]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.09 USD";
     ok @txn[27]<postings>[1]<id><xxhash> == 223171015;
-    ok @txn[28]<header><date> eqv DateTime.new(2011,10,1,0,0,0);
+    ok @txn[28]<header><date> eqv Date.new('2011-10-01');
     ok @txn[28]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.10 USD in early October 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/October'」\n";
     ok @txn[28]<header><important> == 0;
     ok @txn[28]<id><number> eqv Array[UInt].new(0, 0, 4, 0);
@@ -5648,7 +5648,7 @@ subtest
     ok @txn[28]<postings>[1]<id><number> == 1;
     ok @txn[28]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.10 USD";
     ok @txn[28]<postings>[1]<id><xxhash> == 39322455;
-    ok @txn[29]<header><date> eqv DateTime.new(2011,10,16,0,0,0);
+    ok @txn[29]<header><date> eqv Date.new('2011-10-16');
     ok @txn[29]<header><description> eqv "Wigwam LLC received a dividend of \$2011.1016 USD";
     ok @txn[29]<header><important> == 0;
     ok @txn[29]<id><number> eqv Array[UInt].new(0, 0, 4, 1, 0);
@@ -5684,7 +5684,7 @@ subtest
     ok @txn[29]<postings>[1]<id><number> == 1;
     ok @txn[29]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.1016 USD";
     ok @txn[29]<postings>[1]<id><xxhash> == 1286546360;
-    ok @txn[30]<header><date> eqv DateTime.new(2011,10,31,0,0,0);
+    ok @txn[30]<header><date> eqv Date.new('2011-10-31');
     ok @txn[30]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.10 USD in late October 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/October'」\n";
     ok @txn[30]<header><important> == 0;
     ok @txn[30]<id><number> eqv Array[UInt].new(0, 0, 4, 2);
@@ -5720,7 +5720,7 @@ subtest
     ok @txn[30]<postings>[1]<id><number> == 1;
     ok @txn[30]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.10 USD";
     ok @txn[30]<postings>[1]<id><xxhash> == 532507333;
-    ok @txn[31]<header><date> eqv DateTime.new(2011,11,1,0,0,0);
+    ok @txn[31]<header><date> eqv Date.new('2011-11-01');
     ok @txn[31]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.11 USD in early November 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/November'」\n";
     ok @txn[31]<header><important> == 0;
     ok @txn[31]<id><number> eqv Array[UInt].new(0, 0, 4, 3);
@@ -5756,7 +5756,7 @@ subtest
     ok @txn[31]<postings>[1]<id><number> == 1;
     ok @txn[31]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.11 USD";
     ok @txn[31]<postings>[1]<id><xxhash> == 4143645507;
-    ok @txn[32]<header><date> eqv DateTime.new(2011,11,16,0,0,0);
+    ok @txn[32]<header><date> eqv Date.new('2011-11-16');
     ok @txn[32]<header><description> eqv "Wigwam LLC received a dividend of \$2011.1116 USD";
     ok @txn[32]<header><important> == 0;
     ok @txn[32]<id><number> eqv Array[UInt].new(0, 0, 4, 4, 0);
@@ -5792,7 +5792,7 @@ subtest
     ok @txn[32]<postings>[1]<id><number> == 1;
     ok @txn[32]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.1116 USD";
     ok @txn[32]<postings>[1]<id><xxhash> == 3507307506;
-    ok @txn[33]<header><date> eqv DateTime.new(2011,11,30,0,0,0);
+    ok @txn[33]<header><date> eqv Date.new('2011-11-30');
     ok @txn[33]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.11 USD in late November 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/November'」\n";
     ok @txn[33]<header><important> == 0;
     ok @txn[33]<id><number> eqv Array[UInt].new(0, 0, 4, 5);
@@ -5828,7 +5828,7 @@ subtest
     ok @txn[33]<postings>[1]<id><number> == 1;
     ok @txn[33]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.11 USD";
     ok @txn[33]<postings>[1]<id><xxhash> == 942077384;
-    ok @txn[34]<header><date> eqv DateTime.new(2011,12,1,0,0,0);
+    ok @txn[34]<header><date> eqv Date.new('2011-12-01');
     ok @txn[34]<header><description> eqv "Wigwam LLC bought one wigwam for \$1.12 USD in early December 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/December'」\n";
     ok @txn[34]<header><important> == 0;
     ok @txn[34]<id><number> eqv Array[UInt].new(0, 0, 4, 6);
@@ -5864,7 +5864,7 @@ subtest
     ok @txn[34]<postings>[1]<id><number> == 1;
     ok @txn[34]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -1.12 USD";
     ok @txn[34]<postings>[1]<id><xxhash> == 1505204997;
-    ok @txn[35]<header><date> eqv DateTime.new(2011,12,16,0,0,0);
+    ok @txn[35]<header><date> eqv Date.new('2011-12-16');
     ok @txn[35]<header><description> eqv "Wigwam LLC received a dividend of \$2011.1216 USD";
     ok @txn[35]<header><important> == 0;
     ok @txn[35]<id><number> eqv Array[UInt].new(0, 0, 4, 7, 0);
@@ -5900,7 +5900,7 @@ subtest
     ok @txn[35]<postings>[1]<id><number> == 1;
     ok @txn[35]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2011.1216 USD";
     ok @txn[35]<postings>[1]<id><xxhash> == 1858587862;
-    ok @txn[36]<header><date> eqv DateTime.new(2011,12,31,0,0,0);
+    ok @txn[36]<header><date> eqv Date.new('2011-12-31');
     ok @txn[36]<header><description> eqv "Wigwam LLC sold one wigwam for \$1.12 USD in late December 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/December'」\n";
     ok @txn[36]<header><important> == 0;
     ok @txn[36]<id><number> eqv Array[UInt].new(0, 0, 4, 8);
@@ -5936,7 +5936,7 @@ subtest
     ok @txn[36]<postings>[1]<id><number> == 1;
     ok @txn[36]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.12 USD";
     ok @txn[36]<postings>[1]<id><xxhash> == 1323199045;
-    ok @txn[37]<header><date> eqv DateTime.new(2012,1,1,0,0,0);
+    ok @txn[37]<header><date> eqv Date.new('2012-01-01');
     ok @txn[37]<header><description> eqv "FooCorp started the year with \$1000 in Bankwest cheque account";
     ok @txn[37]<header><important> == 0;
     ok @txn[37]<id><number> eqv Array[UInt].new(0, 1, 0);
@@ -5971,7 +5971,7 @@ subtest
     ok @txn[37]<postings>[1]<id><number> == 1;
     ok @txn[37]<postings>[1]<id><text> eqv "Equity:FooCorp                      \$1000.00 USD";
     ok @txn[37]<postings>[1]<id><xxhash> == 1025058054;
-    ok @txn[38]<header><date> eqv DateTime.new(2012,1,1,0,0,0);
+    ok @txn[38]<header><date> eqv Date.new('2012-01-01');
     ok @txn[38]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.01 USD in early January 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/January'」\n";
     ok @txn[38]<header><important> == 0;
     ok @txn[38]<id><number> eqv Array[UInt].new(0, 1, 1, 0);
@@ -6007,7 +6007,7 @@ subtest
     ok @txn[38]<postings>[1]<id><number> == 1;
     ok @txn[38]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.01 USD";
     ok @txn[38]<postings>[1]<id><xxhash> == 2966987256;
-    ok @txn[39]<header><date> eqv DateTime.new(2012,1,16,0,0,0);
+    ok @txn[39]<header><date> eqv Date.new('2012-01-16');
     ok @txn[39]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0116 USD";
     ok @txn[39]<header><important> == 0;
     ok @txn[39]<id><number> eqv Array[UInt].new(0, 1, 1, 1, 0);
@@ -6043,7 +6043,7 @@ subtest
     ok @txn[39]<postings>[1]<id><number> == 1;
     ok @txn[39]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0116 USD";
     ok @txn[39]<postings>[1]<id><xxhash> == 1403571913;
-    ok @txn[40]<header><date> eqv DateTime.new(2012,1,31,0,0,0);
+    ok @txn[40]<header><date> eqv Date.new('2012-01-31');
     ok @txn[40]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.01 USD in late January 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/January'」\n";
     ok @txn[40]<header><important> == 0;
     ok @txn[40]<id><number> eqv Array[UInt].new(0, 1, 1, 2);
@@ -6079,7 +6079,7 @@ subtest
     ok @txn[40]<postings>[1]<id><number> == 1;
     ok @txn[40]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.01 USD";
     ok @txn[40]<postings>[1]<id><xxhash> == 2649719130;
-    ok @txn[41]<header><date> eqv DateTime.new(2012,2,1,0,0,0);
+    ok @txn[41]<header><date> eqv Date.new('2012-02-01');
     ok @txn[41]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.02 USD in early February 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/February'」\n";
     ok @txn[41]<header><important> == 0;
     ok @txn[41]<id><number> eqv Array[UInt].new(0, 1, 1, 3);
@@ -6115,7 +6115,7 @@ subtest
     ok @txn[41]<postings>[1]<id><number> == 1;
     ok @txn[41]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.02 USD";
     ok @txn[41]<postings>[1]<id><xxhash> == 4217279969;
-    ok @txn[42]<header><date> eqv DateTime.new(2012,2,16,0,0,0);
+    ok @txn[42]<header><date> eqv Date.new('2012-02-16');
     ok @txn[42]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0216 USD";
     ok @txn[42]<header><important> == 0;
     ok @txn[42]<id><number> eqv Array[UInt].new(0, 1, 1, 4, 0);
@@ -6151,7 +6151,7 @@ subtest
     ok @txn[42]<postings>[1]<id><number> == 1;
     ok @txn[42]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0216 USD";
     ok @txn[42]<postings>[1]<id><xxhash> == 2386315820;
-    ok @txn[43]<header><date> eqv DateTime.new(2012,2,29,0,0,0);
+    ok @txn[43]<header><date> eqv Date.new('2012-02-29');
     ok @txn[43]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.02 USD in late February 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/February'」\n";
     ok @txn[43]<header><important> == 0;
     ok @txn[43]<id><number> eqv Array[UInt].new(0, 1, 1, 5);
@@ -6187,7 +6187,7 @@ subtest
     ok @txn[43]<postings>[1]<id><number> == 1;
     ok @txn[43]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.02 USD";
     ok @txn[43]<postings>[1]<id><xxhash> == 2786971912;
-    ok @txn[44]<header><date> eqv DateTime.new(2012,3,1,0,0,0);
+    ok @txn[44]<header><date> eqv Date.new('2012-03-01');
     ok @txn[44]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.03 USD in early March 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/March'」\n";
     ok @txn[44]<header><important> == 0;
     ok @txn[44]<id><number> eqv Array[UInt].new(0, 1, 1, 6);
@@ -6223,7 +6223,7 @@ subtest
     ok @txn[44]<postings>[1]<id><number> == 1;
     ok @txn[44]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.03 USD";
     ok @txn[44]<postings>[1]<id><xxhash> == 48485376;
-    ok @txn[45]<header><date> eqv DateTime.new(2012,3,16,0,0,0);
+    ok @txn[45]<header><date> eqv Date.new('2012-03-16');
     ok @txn[45]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0316 USD";
     ok @txn[45]<header><important> == 0;
     ok @txn[45]<id><number> eqv Array[UInt].new(0, 1, 1, 7, 0);
@@ -6259,7 +6259,7 @@ subtest
     ok @txn[45]<postings>[1]<id><number> == 1;
     ok @txn[45]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0316 USD";
     ok @txn[45]<postings>[1]<id><xxhash> == 1016359530;
-    ok @txn[46]<header><date> eqv DateTime.new(2012,3,31,0,0,0);
+    ok @txn[46]<header><date> eqv Date.new('2012-03-31');
     ok @txn[46]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.03 USD in late March 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/March'」\n";
     ok @txn[46]<header><important> == 0;
     ok @txn[46]<id><number> eqv Array[UInt].new(0, 1, 1, 8);
@@ -6295,7 +6295,7 @@ subtest
     ok @txn[46]<postings>[1]<id><number> == 1;
     ok @txn[46]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.03 USD";
     ok @txn[46]<postings>[1]<id><xxhash> == 3495293318;
-    ok @txn[47]<header><date> eqv DateTime.new(2012,4,1,0,0,0);
+    ok @txn[47]<header><date> eqv Date.new('2012-04-01');
     ok @txn[47]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.04 USD in early April 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/April'」\n";
     ok @txn[47]<header><important> == 0;
     ok @txn[47]<id><number> eqv Array[UInt].new(0, 1, 2, 0);
@@ -6331,7 +6331,7 @@ subtest
     ok @txn[47]<postings>[1]<id><number> == 1;
     ok @txn[47]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.04 USD";
     ok @txn[47]<postings>[1]<id><xxhash> == 1215240546;
-    ok @txn[48]<header><date> eqv DateTime.new(2012,4,16,0,0,0);
+    ok @txn[48]<header><date> eqv Date.new('2012-04-16');
     ok @txn[48]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0416 USD";
     ok @txn[48]<header><important> == 0;
     ok @txn[48]<id><number> eqv Array[UInt].new(0, 1, 2, 1, 0);
@@ -6367,7 +6367,7 @@ subtest
     ok @txn[48]<postings>[1]<id><number> == 1;
     ok @txn[48]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0416 USD";
     ok @txn[48]<postings>[1]<id><xxhash> == 3098158574;
-    ok @txn[49]<header><date> eqv DateTime.new(2012,4,30,0,0,0);
+    ok @txn[49]<header><date> eqv Date.new('2012-04-30');
     ok @txn[49]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.04 USD in late April 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/April'」\n";
     ok @txn[49]<header><important> == 0;
     ok @txn[49]<id><number> eqv Array[UInt].new(0, 1, 2, 2);
@@ -6403,7 +6403,7 @@ subtest
     ok @txn[49]<postings>[1]<id><number> == 1;
     ok @txn[49]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.04 USD";
     ok @txn[49]<postings>[1]<id><xxhash> == 2492372061;
-    ok @txn[50]<header><date> eqv DateTime.new(2012,5,1,0,0,0);
+    ok @txn[50]<header><date> eqv Date.new('2012-05-01');
     ok @txn[50]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.05 USD in early May 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/May'」\n";
     ok @txn[50]<header><important> == 0;
     ok @txn[50]<id><number> eqv Array[UInt].new(0, 1, 2, 3);
@@ -6439,7 +6439,7 @@ subtest
     ok @txn[50]<postings>[1]<id><number> == 1;
     ok @txn[50]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.05 USD";
     ok @txn[50]<postings>[1]<id><xxhash> == 1182404444;
-    ok @txn[51]<header><date> eqv DateTime.new(2012,5,16,0,0,0);
+    ok @txn[51]<header><date> eqv Date.new('2012-05-16');
     ok @txn[51]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0516 USD";
     ok @txn[51]<header><important> == 0;
     ok @txn[51]<id><number> eqv Array[UInt].new(0, 1, 2, 4, 0);
@@ -6475,7 +6475,7 @@ subtest
     ok @txn[51]<postings>[1]<id><number> == 1;
     ok @txn[51]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0516 USD";
     ok @txn[51]<postings>[1]<id><xxhash> == 263105630;
-    ok @txn[52]<header><date> eqv DateTime.new(2012,5,31,0,0,0);
+    ok @txn[52]<header><date> eqv Date.new('2012-05-31');
     ok @txn[52]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.05 USD in late May 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/May'」\n";
     ok @txn[52]<header><important> == 0;
     ok @txn[52]<id><number> eqv Array[UInt].new(0, 1, 2, 5);
@@ -6511,7 +6511,7 @@ subtest
     ok @txn[52]<postings>[1]<id><number> == 1;
     ok @txn[52]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.05 USD";
     ok @txn[52]<postings>[1]<id><xxhash> == 3748210809;
-    ok @txn[53]<header><date> eqv DateTime.new(2012,6,1,0,0,0);
+    ok @txn[53]<header><date> eqv Date.new('2012-06-01');
     ok @txn[53]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.06 USD in early June 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/June'」\n";
     ok @txn[53]<header><important> == 0;
     ok @txn[53]<id><number> eqv Array[UInt].new(0, 1, 2, 6);
@@ -6547,7 +6547,7 @@ subtest
     ok @txn[53]<postings>[1]<id><number> == 1;
     ok @txn[53]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.06 USD";
     ok @txn[53]<postings>[1]<id><xxhash> == 2192104612;
-    ok @txn[54]<header><date> eqv DateTime.new(2012,6,16,0,0,0);
+    ok @txn[54]<header><date> eqv Date.new('2012-06-16');
     ok @txn[54]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0616 USD";
     ok @txn[54]<header><important> == 0;
     ok @txn[54]<id><number> eqv Array[UInt].new(0, 1, 2, 7, 0);
@@ -6583,7 +6583,7 @@ subtest
     ok @txn[54]<postings>[1]<id><number> == 1;
     ok @txn[54]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0616 USD";
     ok @txn[54]<postings>[1]<id><xxhash> == 2809751684;
-    ok @txn[55]<header><date> eqv DateTime.new(2012,6,30,0,0,0);
+    ok @txn[55]<header><date> eqv Date.new('2012-06-30');
     ok @txn[55]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.06 USD in late June 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/June'」\n";
     ok @txn[55]<header><important> == 0;
     ok @txn[55]<id><number> eqv Array[UInt].new(0, 1, 2, 8);
@@ -6619,7 +6619,7 @@ subtest
     ok @txn[55]<postings>[1]<id><number> == 1;
     ok @txn[55]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.06 USD";
     ok @txn[55]<postings>[1]<id><xxhash> == 3753283423;
-    ok @txn[56]<header><date> eqv DateTime.new(2012,7,1,0,0,0);
+    ok @txn[56]<header><date> eqv Date.new('2012-07-01');
     ok @txn[56]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.07 USD in early July 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/July'」\n";
     ok @txn[56]<header><important> == 0;
     ok @txn[56]<id><number> eqv Array[UInt].new(0, 1, 3, 0);
@@ -6655,7 +6655,7 @@ subtest
     ok @txn[56]<postings>[1]<id><number> == 1;
     ok @txn[56]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.07 USD";
     ok @txn[56]<postings>[1]<id><xxhash> == 2474022905;
-    ok @txn[57]<header><date> eqv DateTime.new(2012,7,16,0,0,0);
+    ok @txn[57]<header><date> eqv Date.new('2012-07-16');
     ok @txn[57]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0716 USD";
     ok @txn[57]<header><important> == 0;
     ok @txn[57]<id><number> eqv Array[UInt].new(0, 1, 3, 1, 0);
@@ -6691,7 +6691,7 @@ subtest
     ok @txn[57]<postings>[1]<id><number> == 1;
     ok @txn[57]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0716 USD";
     ok @txn[57]<postings>[1]<id><xxhash> == 1671141747;
-    ok @txn[58]<header><date> eqv DateTime.new(2012,7,31,0,0,0);
+    ok @txn[58]<header><date> eqv Date.new('2012-07-31');
     ok @txn[58]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.07 USD in late July 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/July'」\n";
     ok @txn[58]<header><important> == 0;
     ok @txn[58]<id><number> eqv Array[UInt].new(0, 1, 3, 2);
@@ -6727,7 +6727,7 @@ subtest
     ok @txn[58]<postings>[1]<id><number> == 1;
     ok @txn[58]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.07 USD";
     ok @txn[58]<postings>[1]<id><xxhash> == 1106340009;
-    ok @txn[59]<header><date> eqv DateTime.new(2012,8,1,0,0,0);
+    ok @txn[59]<header><date> eqv Date.new('2012-08-01');
     ok @txn[59]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.08 USD in early August 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/August'」\n";
     ok @txn[59]<header><important> == 0;
     ok @txn[59]<id><number> eqv Array[UInt].new(0, 1, 3, 3);
@@ -6763,7 +6763,7 @@ subtest
     ok @txn[59]<postings>[1]<id><number> == 1;
     ok @txn[59]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.08 USD";
     ok @txn[59]<postings>[1]<id><xxhash> == 2749172222;
-    ok @txn[60]<header><date> eqv DateTime.new(2012,8,16,0,0,0);
+    ok @txn[60]<header><date> eqv Date.new('2012-08-16');
     ok @txn[60]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0816 USD";
     ok @txn[60]<header><important> == 0;
     ok @txn[60]<id><number> eqv Array[UInt].new(0, 1, 3, 4, 0);
@@ -6799,7 +6799,7 @@ subtest
     ok @txn[60]<postings>[1]<id><number> == 1;
     ok @txn[60]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0816 USD";
     ok @txn[60]<postings>[1]<id><xxhash> == 2033582180;
-    ok @txn[61]<header><date> eqv DateTime.new(2012,8,31,0,0,0);
+    ok @txn[61]<header><date> eqv Date.new('2012-08-31');
     ok @txn[61]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.08 USD in late August 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/August'」\n";
     ok @txn[61]<header><important> == 0;
     ok @txn[61]<id><number> eqv Array[UInt].new(0, 1, 3, 5);
@@ -6835,7 +6835,7 @@ subtest
     ok @txn[61]<postings>[1]<id><number> == 1;
     ok @txn[61]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.08 USD";
     ok @txn[61]<postings>[1]<id><xxhash> == 3797888419;
-    ok @txn[62]<header><date> eqv DateTime.new(2012,9,1,0,0,0);
+    ok @txn[62]<header><date> eqv Date.new('2012-09-01');
     ok @txn[62]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.09 USD in early September 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/September'」\n";
     ok @txn[62]<header><important> == 0;
     ok @txn[62]<id><number> eqv Array[UInt].new(0, 1, 3, 6);
@@ -6871,7 +6871,7 @@ subtest
     ok @txn[62]<postings>[1]<id><number> == 1;
     ok @txn[62]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.09 USD";
     ok @txn[62]<postings>[1]<id><xxhash> == 243411132;
-    ok @txn[63]<header><date> eqv DateTime.new(2012,9,16,0,0,0);
+    ok @txn[63]<header><date> eqv Date.new('2012-09-16');
     ok @txn[63]<header><description> eqv "Wigwam LLC received a dividend of \$2012.0916 USD";
     ok @txn[63]<header><important> == 0;
     ok @txn[63]<id><number> eqv Array[UInt].new(0, 1, 3, 7, 0);
@@ -6907,7 +6907,7 @@ subtest
     ok @txn[63]<postings>[1]<id><number> == 1;
     ok @txn[63]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.0916 USD";
     ok @txn[63]<postings>[1]<id><xxhash> == 3854836884;
-    ok @txn[64]<header><date> eqv DateTime.new(2012,9,30,0,0,0);
+    ok @txn[64]<header><date> eqv Date.new('2012-09-30');
     ok @txn[64]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.09 USD in late September 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/September'」\n";
     ok @txn[64]<header><important> == 0;
     ok @txn[64]<id><number> eqv Array[UInt].new(0, 1, 3, 8);
@@ -6943,7 +6943,7 @@ subtest
     ok @txn[64]<postings>[1]<id><number> == 1;
     ok @txn[64]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.09 USD";
     ok @txn[64]<postings>[1]<id><xxhash> == 951147748;
-    ok @txn[65]<header><date> eqv DateTime.new(2012,10,1,0,0,0);
+    ok @txn[65]<header><date> eqv Date.new('2012-10-01');
     ok @txn[65]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.10 USD in early October 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/October'」\n";
     ok @txn[65]<header><important> == 0;
     ok @txn[65]<id><number> eqv Array[UInt].new(0, 1, 4, 0);
@@ -6979,7 +6979,7 @@ subtest
     ok @txn[65]<postings>[1]<id><number> == 1;
     ok @txn[65]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.10 USD";
     ok @txn[65]<postings>[1]<id><xxhash> == 2882172050;
-    ok @txn[66]<header><date> eqv DateTime.new(2012,10,16,0,0,0);
+    ok @txn[66]<header><date> eqv Date.new('2012-10-16');
     ok @txn[66]<header><description> eqv "Wigwam LLC received a dividend of \$2012.1016 USD";
     ok @txn[66]<header><important> == 0;
     ok @txn[66]<id><number> eqv Array[UInt].new(0, 1, 4, 1, 0);
@@ -7015,7 +7015,7 @@ subtest
     ok @txn[66]<postings>[1]<id><number> == 1;
     ok @txn[66]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.1016 USD";
     ok @txn[66]<postings>[1]<id><xxhash> == 3525777378;
-    ok @txn[67]<header><date> eqv DateTime.new(2012,10,31,0,0,0);
+    ok @txn[67]<header><date> eqv Date.new('2012-10-31');
     ok @txn[67]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.10 USD in late October 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/October'」\n";
     ok @txn[67]<header><important> == 0;
     ok @txn[67]<id><number> eqv Array[UInt].new(0, 1, 4, 2);
@@ -7051,7 +7051,7 @@ subtest
     ok @txn[67]<postings>[1]<id><number> == 1;
     ok @txn[67]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.10 USD";
     ok @txn[67]<postings>[1]<id><xxhash> == 53602413;
-    ok @txn[68]<header><date> eqv DateTime.new(2012,11,1,0,0,0);
+    ok @txn[68]<header><date> eqv Date.new('2012-11-01');
     ok @txn[68]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.11 USD in early November 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/November'」\n";
     ok @txn[68]<header><important> == 0;
     ok @txn[68]<id><number> eqv Array[UInt].new(0, 1, 4, 3);
@@ -7087,7 +7087,7 @@ subtest
     ok @txn[68]<postings>[1]<id><number> == 1;
     ok @txn[68]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.11 USD";
     ok @txn[68]<postings>[1]<id><xxhash> == 974733802;
-    ok @txn[69]<header><date> eqv DateTime.new(2012,11,16,0,0,0);
+    ok @txn[69]<header><date> eqv Date.new('2012-11-16');
     ok @txn[69]<header><description> eqv "Wigwam LLC received a dividend of \$2012.1116 USD";
     ok @txn[69]<header><important> == 0;
     ok @txn[69]<id><number> eqv Array[UInt].new(0, 1, 4, 4, 0);
@@ -7123,7 +7123,7 @@ subtest
     ok @txn[69]<postings>[1]<id><number> == 1;
     ok @txn[69]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.1116 USD";
     ok @txn[69]<postings>[1]<id><xxhash> == 400356518;
-    ok @txn[70]<header><date> eqv DateTime.new(2012,11,30,0,0,0);
+    ok @txn[70]<header><date> eqv Date.new('2012-11-30');
     ok @txn[70]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.11 USD in late November 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/November'」\n";
     ok @txn[70]<header><important> == 0;
     ok @txn[70]<id><number> eqv Array[UInt].new(0, 1, 4, 5);
@@ -7159,7 +7159,7 @@ subtest
     ok @txn[70]<postings>[1]<id><number> == 1;
     ok @txn[70]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.11 USD";
     ok @txn[70]<postings>[1]<id><xxhash> == 1515324218;
-    ok @txn[71]<header><date> eqv DateTime.new(2012,12,1,0,0,0);
+    ok @txn[71]<header><date> eqv Date.new('2012-12-01');
     ok @txn[71]<header><description> eqv "Wigwam LLC bought one wigwam for \$2.12 USD in early December 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/December'」\n";
     ok @txn[71]<header><important> == 0;
     ok @txn[71]<id><number> eqv Array[UInt].new(0, 1, 4, 6);
@@ -7195,7 +7195,7 @@ subtest
     ok @txn[71]<postings>[1]<id><number> == 1;
     ok @txn[71]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -2.12 USD";
     ok @txn[71]<postings>[1]<id><xxhash> == 1223007802;
-    ok @txn[72]<header><date> eqv DateTime.new(2012,12,16,0,0,0);
+    ok @txn[72]<header><date> eqv Date.new('2012-12-16');
     ok @txn[72]<header><description> eqv "Wigwam LLC received a dividend of \$2012.1216 USD";
     ok @txn[72]<header><important> == 0;
     ok @txn[72]<id><number> eqv Array[UInt].new(0, 1, 4, 7, 0);
@@ -7231,7 +7231,7 @@ subtest
     ok @txn[72]<postings>[1]<id><number> == 1;
     ok @txn[72]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2012.1216 USD";
     ok @txn[72]<postings>[1]<id><xxhash> == 3325655088;
-    ok @txn[73]<header><date> eqv DateTime.new(2012,12,31,0,0,0);
+    ok @txn[73]<header><date> eqv Date.new('2012-12-31');
     ok @txn[73]<header><description> eqv "Wigwam LLC sold one wigwam for \$2.12 USD in late December 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/December'」\n";
     ok @txn[73]<header><important> == 0;
     ok @txn[73]<id><number> eqv Array[UInt].new(0, 1, 4, 8);
@@ -7267,7 +7267,7 @@ subtest
     ok @txn[73]<postings>[1]<id><number> == 1;
     ok @txn[73]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.12 USD";
     ok @txn[73]<postings>[1]<id><xxhash> == 3096402053;
-    ok @txn[74]<header><date> eqv DateTime.new(2013,1,1,0,0,0);
+    ok @txn[74]<header><date> eqv Date.new('2013-01-01');
     ok @txn[74]<header><description> eqv "FooCorp started the year with \$1000 in Bankwest cheque account";
     ok @txn[74]<header><important> == 0;
     ok @txn[74]<id><number> eqv Array[UInt].new(0, 2, 0);
@@ -7302,7 +7302,7 @@ subtest
     ok @txn[74]<postings>[1]<id><number> == 1;
     ok @txn[74]<postings>[1]<id><text> eqv "Equity:FooCorp                      \$1000.00 USD";
     ok @txn[74]<postings>[1]<id><xxhash> == 1025058054;
-    ok @txn[75]<header><date> eqv DateTime.new(2013,1,1,0,0,0);
+    ok @txn[75]<header><date> eqv Date.new('2013-01-01');
     ok @txn[75]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.01 USD in early January 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/January'」\n";
     ok @txn[75]<header><important> == 0;
     ok @txn[75]<id><number> eqv Array[UInt].new(0, 2, 1, 0);
@@ -7338,7 +7338,7 @@ subtest
     ok @txn[75]<postings>[1]<id><number> == 1;
     ok @txn[75]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.01 USD";
     ok @txn[75]<postings>[1]<id><xxhash> == 35511673;
-    ok @txn[76]<header><date> eqv DateTime.new(2013,1,16,0,0,0);
+    ok @txn[76]<header><date> eqv Date.new('2013-01-16');
     ok @txn[76]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0116 USD";
     ok @txn[76]<header><important> == 0;
     ok @txn[76]<id><number> eqv Array[UInt].new(0, 2, 1, 1, 0);
@@ -7374,7 +7374,7 @@ subtest
     ok @txn[76]<postings>[1]<id><number> == 1;
     ok @txn[76]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0116 USD";
     ok @txn[76]<postings>[1]<id><xxhash> == 1105245657;
-    ok @txn[77]<header><date> eqv DateTime.new(2013,1,31,0,0,0);
+    ok @txn[77]<header><date> eqv Date.new('2013-01-31');
     ok @txn[77]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.01 USD in late January 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/January'」\n";
     ok @txn[77]<header><important> == 0;
     ok @txn[77]<id><number> eqv Array[UInt].new(0, 2, 1, 2);
@@ -7410,7 +7410,7 @@ subtest
     ok @txn[77]<postings>[1]<id><number> == 1;
     ok @txn[77]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.01 USD";
     ok @txn[77]<postings>[1]<id><xxhash> == 1596641458;
-    ok @txn[78]<header><date> eqv DateTime.new(2013,2,1,0,0,0);
+    ok @txn[78]<header><date> eqv Date.new('2013-02-01');
     ok @txn[78]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.02 USD in early February 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/February'」\n";
     ok @txn[78]<header><important> == 0;
     ok @txn[78]<id><number> eqv Array[UInt].new(0, 2, 1, 3);
@@ -7446,7 +7446,7 @@ subtest
     ok @txn[78]<postings>[1]<id><number> == 1;
     ok @txn[78]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.02 USD";
     ok @txn[78]<postings>[1]<id><xxhash> == 3350274487;
-    ok @txn[79]<header><date> eqv DateTime.new(2013,2,16,0,0,0);
+    ok @txn[79]<header><date> eqv Date.new('2013-02-16');
     ok @txn[79]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0216 USD";
     ok @txn[79]<header><important> == 0;
     ok @txn[79]<id><number> eqv Array[UInt].new(0, 2, 1, 4, 0);
@@ -7482,7 +7482,7 @@ subtest
     ok @txn[79]<postings>[1]<id><number> == 1;
     ok @txn[79]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0216 USD";
     ok @txn[79]<postings>[1]<id><xxhash> == 2807440849;
-    ok @txn[80]<header><date> eqv DateTime.new(2013,2,28,0,0,0);
+    ok @txn[80]<header><date> eqv Date.new('2013-02-28');
     ok @txn[80]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.02 USD in late February 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/February'」\n";
     ok @txn[80]<header><important> == 0;
     ok @txn[80]<id><number> eqv Array[UInt].new(0, 2, 1, 5);
@@ -7518,7 +7518,7 @@ subtest
     ok @txn[80]<postings>[1]<id><number> == 1;
     ok @txn[80]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.02 USD";
     ok @txn[80]<postings>[1]<id><xxhash> == 1035364396;
-    ok @txn[81]<header><date> eqv DateTime.new(2013,3,1,0,0,0);
+    ok @txn[81]<header><date> eqv Date.new('2013-03-01');
     ok @txn[81]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.03 USD in early March 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/March'」\n";
     ok @txn[81]<header><important> == 0;
     ok @txn[81]<id><number> eqv Array[UInt].new(0, 2, 1, 6);
@@ -7554,7 +7554,7 @@ subtest
     ok @txn[81]<postings>[1]<id><number> == 1;
     ok @txn[81]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.03 USD";
     ok @txn[81]<postings>[1]<id><xxhash> == 1840852121;
-    ok @txn[82]<header><date> eqv DateTime.new(2013,3,16,0,0,0);
+    ok @txn[82]<header><date> eqv Date.new('2013-03-16');
     ok @txn[82]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0316 USD";
     ok @txn[82]<header><important> == 0;
     ok @txn[82]<id><number> eqv Array[UInt].new(0, 2, 1, 7, 0);
@@ -7590,7 +7590,7 @@ subtest
     ok @txn[82]<postings>[1]<id><number> == 1;
     ok @txn[82]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0316 USD";
     ok @txn[82]<postings>[1]<id><xxhash> == 1244356843;
-    ok @txn[83]<header><date> eqv DateTime.new(2013,3,31,0,0,0);
+    ok @txn[83]<header><date> eqv Date.new('2013-03-31');
     ok @txn[83]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.03 USD in late March 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/March'」\n";
     ok @txn[83]<header><important> == 0;
     ok @txn[83]<id><number> eqv Array[UInt].new(0, 2, 1, 8);
@@ -7626,7 +7626,7 @@ subtest
     ok @txn[83]<postings>[1]<id><number> == 1;
     ok @txn[83]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.03 USD";
     ok @txn[83]<postings>[1]<id><xxhash> == 3941709198;
-    ok @txn[84]<header><date> eqv DateTime.new(2013,4,1,0,0,0);
+    ok @txn[84]<header><date> eqv Date.new('2013-04-01');
     ok @txn[84]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.04 USD in early April 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/April'」\n";
     ok @txn[84]<header><important> == 0;
     ok @txn[84]<id><number> eqv Array[UInt].new(0, 2, 2, 0);
@@ -7662,7 +7662,7 @@ subtest
     ok @txn[84]<postings>[1]<id><number> == 1;
     ok @txn[84]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.04 USD";
     ok @txn[84]<postings>[1]<id><xxhash> == 2267252423;
-    ok @txn[85]<header><date> eqv DateTime.new(2013,4,16,0,0,0);
+    ok @txn[85]<header><date> eqv Date.new('2013-04-16');
     ok @txn[85]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0416 USD";
     ok @txn[85]<header><important> == 0;
     ok @txn[85]<id><number> eqv Array[UInt].new(0, 2, 2, 1, 0);
@@ -7698,7 +7698,7 @@ subtest
     ok @txn[85]<postings>[1]<id><number> == 1;
     ok @txn[85]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0416 USD";
     ok @txn[85]<postings>[1]<id><xxhash> == 419651900;
-    ok @txn[86]<header><date> eqv DateTime.new(2013,4,30,0,0,0);
+    ok @txn[86]<header><date> eqv Date.new('2013-04-30');
     ok @txn[86]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.04 USD in late April 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/April'」\n";
     ok @txn[86]<header><important> == 0;
     ok @txn[86]<id><number> eqv Array[UInt].new(0, 2, 2, 2);
@@ -7734,7 +7734,7 @@ subtest
     ok @txn[86]<postings>[1]<id><number> == 1;
     ok @txn[86]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.04 USD";
     ok @txn[86]<postings>[1]<id><xxhash> == 3893093683;
-    ok @txn[87]<header><date> eqv DateTime.new(2013,5,1,0,0,0);
+    ok @txn[87]<header><date> eqv Date.new('2013-05-01');
     ok @txn[87]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.05 USD in early May 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/May'」\n";
     ok @txn[87]<header><important> == 0;
     ok @txn[87]<id><number> eqv Array[UInt].new(0, 2, 2, 3);
@@ -7770,7 +7770,7 @@ subtest
     ok @txn[87]<postings>[1]<id><number> == 1;
     ok @txn[87]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.05 USD";
     ok @txn[87]<postings>[1]<id><xxhash> == 2590724923;
-    ok @txn[88]<header><date> eqv DateTime.new(2013,5,16,0,0,0);
+    ok @txn[88]<header><date> eqv Date.new('2013-05-16');
     ok @txn[88]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0516 USD";
     ok @txn[88]<header><important> == 0;
     ok @txn[88]<id><number> eqv Array[UInt].new(0, 2, 2, 4, 0);
@@ -7806,7 +7806,7 @@ subtest
     ok @txn[88]<postings>[1]<id><number> == 1;
     ok @txn[88]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0516 USD";
     ok @txn[88]<postings>[1]<id><xxhash> == 1692039403;
-    ok @txn[89]<header><date> eqv DateTime.new(2013,5,31,0,0,0);
+    ok @txn[89]<header><date> eqv Date.new('2013-05-31');
     ok @txn[89]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.05 USD in late May 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/May'」\n";
     ok @txn[89]<header><important> == 0;
     ok @txn[89]<id><number> eqv Array[UInt].new(0, 2, 2, 5);
@@ -7842,7 +7842,7 @@ subtest
     ok @txn[89]<postings>[1]<id><number> == 1;
     ok @txn[89]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.05 USD";
     ok @txn[89]<postings>[1]<id><xxhash> == 895907392;
-    ok @txn[90]<header><date> eqv DateTime.new(2013,6,1,0,0,0);
+    ok @txn[90]<header><date> eqv Date.new('2013-06-01');
     ok @txn[90]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.06 USD in early June 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/June'」\n";
     ok @txn[90]<header><important> == 0;
     ok @txn[90]<id><number> eqv Array[UInt].new(0, 2, 2, 6);
@@ -7878,7 +7878,7 @@ subtest
     ok @txn[90]<postings>[1]<id><number> == 1;
     ok @txn[90]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.06 USD";
     ok @txn[90]<postings>[1]<id><xxhash> == 1187163231;
-    ok @txn[91]<header><date> eqv DateTime.new(2013,6,16,0,0,0);
+    ok @txn[91]<header><date> eqv Date.new('2013-06-16');
     ok @txn[91]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0616 USD";
     ok @txn[91]<header><important> == 0;
     ok @txn[91]<id><number> eqv Array[UInt].new(0, 2, 2, 7, 0);
@@ -7914,7 +7914,7 @@ subtest
     ok @txn[91]<postings>[1]<id><number> == 1;
     ok @txn[91]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0616 USD";
     ok @txn[91]<postings>[1]<id><xxhash> == 398263546;
-    ok @txn[92]<header><date> eqv DateTime.new(2013,6,30,0,0,0);
+    ok @txn[92]<header><date> eqv Date.new('2013-06-30');
     ok @txn[92]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.06 USD in late June 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/June'」\n";
     ok @txn[92]<header><important> == 0;
     ok @txn[92]<id><number> eqv Array[UInt].new(0, 2, 2, 8);
@@ -7950,7 +7950,7 @@ subtest
     ok @txn[92]<postings>[1]<id><number> == 1;
     ok @txn[92]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.06 USD";
     ok @txn[92]<postings>[1]<id><xxhash> == 1167336265;
-    ok @txn[93]<header><date> eqv DateTime.new(2013,7,1,0,0,0);
+    ok @txn[93]<header><date> eqv Date.new('2013-07-01');
     ok @txn[93]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.07 USD in early July 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/July'」\n";
     ok @txn[93]<header><important> == 0;
     ok @txn[93]<id><number> eqv Array[UInt].new(0, 2, 3, 0);
@@ -7986,7 +7986,7 @@ subtest
     ok @txn[93]<postings>[1]<id><number> == 1;
     ok @txn[93]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.07 USD";
     ok @txn[93]<postings>[1]<id><xxhash> == 2675724246;
-    ok @txn[94]<header><date> eqv DateTime.new(2013,7,16,0,0,0);
+    ok @txn[94]<header><date> eqv Date.new('2013-07-16');
     ok @txn[94]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0716 USD";
     ok @txn[94]<header><important> == 0;
     ok @txn[94]<id><number> eqv Array[UInt].new(0, 2, 3, 1, 0);
@@ -8022,7 +8022,7 @@ subtest
     ok @txn[94]<postings>[1]<id><number> == 1;
     ok @txn[94]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0716 USD";
     ok @txn[94]<postings>[1]<id><xxhash> == 1429453554;
-    ok @txn[95]<header><date> eqv DateTime.new(2013,7,31,0,0,0);
+    ok @txn[95]<header><date> eqv Date.new('2013-07-31');
     ok @txn[95]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.07 USD in late July 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/July'」\n";
     ok @txn[95]<header><important> == 0;
     ok @txn[95]<id><number> eqv Array[UInt].new(0, 2, 3, 2);
@@ -8058,7 +8058,7 @@ subtest
     ok @txn[95]<postings>[1]<id><number> == 1;
     ok @txn[95]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.07 USD";
     ok @txn[95]<postings>[1]<id><xxhash> == 3307372531;
-    ok @txn[96]<header><date> eqv DateTime.new(2013,8,1,0,0,0);
+    ok @txn[96]<header><date> eqv Date.new('2013-08-01');
     ok @txn[96]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.08 USD in early August 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/August'」\n";
     ok @txn[96]<header><important> == 0;
     ok @txn[96]<id><number> eqv Array[UInt].new(0, 2, 3, 3);
@@ -8094,7 +8094,7 @@ subtest
     ok @txn[96]<postings>[1]<id><number> == 1;
     ok @txn[96]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.08 USD";
     ok @txn[96]<postings>[1]<id><xxhash> == 3039180281;
-    ok @txn[97]<header><date> eqv DateTime.new(2013,8,16,0,0,0);
+    ok @txn[97]<header><date> eqv Date.new('2013-08-16');
     ok @txn[97]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0816 USD";
     ok @txn[97]<header><important> == 0;
     ok @txn[97]<id><number> eqv Array[UInt].new(0, 2, 3, 4, 0);
@@ -8130,7 +8130,7 @@ subtest
     ok @txn[97]<postings>[1]<id><number> == 1;
     ok @txn[97]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0816 USD";
     ok @txn[97]<postings>[1]<id><xxhash> == 1969770397;
-    ok @txn[98]<header><date> eqv DateTime.new(2013,8,31,0,0,0);
+    ok @txn[98]<header><date> eqv Date.new('2013-08-31');
     ok @txn[98]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.08 USD in late August 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/August'」\n";
     ok @txn[98]<header><important> == 0;
     ok @txn[98]<id><number> eqv Array[UInt].new(0, 2, 3, 5);
@@ -8166,7 +8166,7 @@ subtest
     ok @txn[98]<postings>[1]<id><number> == 1;
     ok @txn[98]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.08 USD";
     ok @txn[98]<postings>[1]<id><xxhash> == 115568189;
-    ok @txn[99]<header><date> eqv DateTime.new(2013,9,1,0,0,0);
+    ok @txn[99]<header><date> eqv Date.new('2013-09-01');
     ok @txn[99]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.09 USD in early September 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/September'」\n";
     ok @txn[99]<header><important> == 0;
     ok @txn[99]<id><number> eqv Array[UInt].new(0, 2, 3, 6);
@@ -8202,7 +8202,7 @@ subtest
     ok @txn[99]<postings>[1]<id><number> == 1;
     ok @txn[99]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.09 USD";
     ok @txn[99]<postings>[1]<id><xxhash> == 3596800179;
-    ok @txn[100]<header><date> eqv DateTime.new(2013,9,16,0,0,0);
+    ok @txn[100]<header><date> eqv Date.new('2013-09-16');
     ok @txn[100]<header><description> eqv "Wigwam LLC received a dividend of \$2013.0916 USD";
     ok @txn[100]<header><important> == 0;
     ok @txn[100]<id><number> eqv Array[UInt].new(0, 2, 3, 7, 0);
@@ -8238,7 +8238,7 @@ subtest
     ok @txn[100]<postings>[1]<id><number> == 1;
     ok @txn[100]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.0916 USD";
     ok @txn[100]<postings>[1]<id><xxhash> == 742012739;
-    ok @txn[101]<header><date> eqv DateTime.new(2013,9,30,0,0,0);
+    ok @txn[101]<header><date> eqv Date.new('2013-09-30');
     ok @txn[101]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.09 USD in late September 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/September'」\n";
     ok @txn[101]<header><important> == 0;
     ok @txn[101]<id><number> eqv Array[UInt].new(0, 2, 3, 8);
@@ -8274,7 +8274,7 @@ subtest
     ok @txn[101]<postings>[1]<id><number> == 1;
     ok @txn[101]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.09 USD";
     ok @txn[101]<postings>[1]<id><xxhash> == 4150514617;
-    ok @txn[102]<header><date> eqv DateTime.new(2013,10,1,0,0,0);
+    ok @txn[102]<header><date> eqv Date.new('2013-10-01');
     ok @txn[102]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.10 USD in early October 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/October'」\n";
     ok @txn[102]<header><important> == 0;
     ok @txn[102]<id><number> eqv Array[UInt].new(0, 2, 4, 0);
@@ -8310,7 +8310,7 @@ subtest
     ok @txn[102]<postings>[1]<id><number> == 1;
     ok @txn[102]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.10 USD";
     ok @txn[102]<postings>[1]<id><xxhash> == 806384794;
-    ok @txn[103]<header><date> eqv DateTime.new(2013,10,16,0,0,0);
+    ok @txn[103]<header><date> eqv Date.new('2013-10-16');
     ok @txn[103]<header><description> eqv "Wigwam LLC received a dividend of \$2013.1016 USD";
     ok @txn[103]<header><important> == 0;
     ok @txn[103]<id><number> eqv Array[UInt].new(0, 2, 4, 1, 0);
@@ -8346,7 +8346,7 @@ subtest
     ok @txn[103]<postings>[1]<id><number> == 1;
     ok @txn[103]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.1016 USD";
     ok @txn[103]<postings>[1]<id><xxhash> == 719072295;
-    ok @txn[104]<header><date> eqv DateTime.new(2013,10,31,0,0,0);
+    ok @txn[104]<header><date> eqv Date.new('2013-10-31');
     ok @txn[104]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.10 USD in late October 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/October'」\n";
     ok @txn[104]<header><important> == 0;
     ok @txn[104]<id><number> eqv Array[UInt].new(0, 2, 4, 2);
@@ -8382,7 +8382,7 @@ subtest
     ok @txn[104]<postings>[1]<id><number> == 1;
     ok @txn[104]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.10 USD";
     ok @txn[104]<postings>[1]<id><xxhash> == 1943956588;
-    ok @txn[105]<header><date> eqv DateTime.new(2013,11,1,0,0,0);
+    ok @txn[105]<header><date> eqv Date.new('2013-11-01');
     ok @txn[105]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.11 USD in early November 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/November'」\n";
     ok @txn[105]<header><important> == 0;
     ok @txn[105]<id><number> eqv Array[UInt].new(0, 2, 4, 3);
@@ -8418,7 +8418,7 @@ subtest
     ok @txn[105]<postings>[1]<id><number> == 1;
     ok @txn[105]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.11 USD";
     ok @txn[105]<postings>[1]<id><xxhash> == 1726070033;
-    ok @txn[106]<header><date> eqv DateTime.new(2013,11,16,0,0,0);
+    ok @txn[106]<header><date> eqv Date.new('2013-11-16');
     ok @txn[106]<header><description> eqv "Wigwam LLC received a dividend of \$2013.1116 USD";
     ok @txn[106]<header><important> == 0;
     ok @txn[106]<id><number> eqv Array[UInt].new(0, 2, 4, 4, 0);
@@ -8454,7 +8454,7 @@ subtest
     ok @txn[106]<postings>[1]<id><number> == 1;
     ok @txn[106]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.1116 USD";
     ok @txn[106]<postings>[1]<id><xxhash> == 690089900;
-    ok @txn[107]<header><date> eqv DateTime.new(2013,11,30,0,0,0);
+    ok @txn[107]<header><date> eqv Date.new('2013-11-30');
     ok @txn[107]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.11 USD in late November 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/November'」\n";
     ok @txn[107]<header><important> == 0;
     ok @txn[107]<id><number> eqv Array[UInt].new(0, 2, 4, 5);
@@ -8490,7 +8490,7 @@ subtest
     ok @txn[107]<postings>[1]<id><number> == 1;
     ok @txn[107]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.11 USD";
     ok @txn[107]<postings>[1]<id><xxhash> == 2318076742;
-    ok @txn[108]<header><date> eqv DateTime.new(2013,12,1,0,0,0);
+    ok @txn[108]<header><date> eqv Date.new('2013-12-01');
     ok @txn[108]<header><description> eqv "Wigwam LLC bought one wigwam for \$3.12 USD in early December 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/December'」\n";
     ok @txn[108]<header><important> == 0;
     ok @txn[108]<id><number> eqv Array[UInt].new(0, 2, 4, 6);
@@ -8526,7 +8526,7 @@ subtest
     ok @txn[108]<postings>[1]<id><number> == 1;
     ok @txn[108]<postings>[1]<id><text> eqv "Assets:WigwamLLC:KoopaTroopaBank      -3.12 USD";
     ok @txn[108]<postings>[1]<id><xxhash> == 3978925433;
-    ok @txn[109]<header><date> eqv DateTime.new(2013,12,16,0,0,0);
+    ok @txn[109]<header><date> eqv Date.new('2013-12-16');
     ok @txn[109]<header><description> eqv "Wigwam LLC received a dividend of \$2013.1216 USD";
     ok @txn[109]<header><important> == 0;
     ok @txn[109]<id><number> eqv Array[UInt].new(0, 2, 4, 7, 0);
@@ -8562,7 +8562,7 @@ subtest
     ok @txn[109]<postings>[1]<id><number> == 1;
     ok @txn[109]<postings>[1]<id><text> eqv "Income:WigwamLLC:Dividends          \$2013.1216 USD";
     ok @txn[109]<postings>[1]<id><xxhash> == 2455119990;
-    ok @txn[110]<header><date> eqv DateTime.new(2013,12,31,0,0,0);
+    ok @txn[110]<header><date> eqv Date.new('2013-12-31');
     ok @txn[110]<header><description> eqv "Wigwam LLC sold one wigwam for \$3.12 USD in late December 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/December'」\n";
     ok @txn[110]<header><important> == 0;
     ok @txn[110]<id><number> eqv Array[UInt].new(0, 2, 4, 8);
@@ -8598,7 +8598,7 @@ subtest
     ok @txn[110]<postings>[1]<id><number> == 1;
     ok @txn[110]<postings>[1]<id><text> eqv "Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.12 USD";
     ok @txn[110]<postings>[1]<id><xxhash> == 3832507616;
-    ok @txn[111]<header><date> eqv DateTime.new(2014,1,1,0,0,0);
+    ok @txn[111]<header><date> eqv Date.new('2014-01-01');
     ok @txn[111]<header><description> eqv "I started the year with \$1000 in Bankwest cheque account";
     ok @txn[111]<header><important> == 0;
     ok @txn[111]<id><number> eqv Array[UInt].new(0, 3);

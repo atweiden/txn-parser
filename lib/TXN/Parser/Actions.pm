@@ -414,7 +414,7 @@ method date-time($/)
 
 method date:full-date ($/)
 {
-    make DateTime.new(|$<full-date>.made, :timezone($.date-local-offset));
+    make Date.new(|$<full-date>.made);
 }
 
 method date:date-time-omit-local-offset ($/)
@@ -478,7 +478,7 @@ method description($/)
 method header($/)
 {
     # entry date
-    my DateTime $date = $<date>.made;
+    my Dateish $date = $<date>.made;
 
     # entry description
     my Str $description = $<description> ?? $<description>.made !! '';
