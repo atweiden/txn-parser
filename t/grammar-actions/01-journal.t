@@ -4494,11 +4494,11 @@ subtest
     # end tests }}}
 }
 
-# check that we repeat results of above test when including from txndir
+# check that we repeat results of above test when including from txn-dir
 subtest
 {
     my Str $txn = "include <with-includes>\n";
-    my @txn = TXN::Parser.parse($txn, :txndir<t/data/with-includes>).made;
+    my @txn = TXN::Parser.parse($txn, :txn-dir<t/data/with-includes>).made;
     # tests {{{
     ok @txn[0]<header><date> eqv Date.new(2011,1,1);
     ok @txn[0]<header><description> eqv "FooCorp started the year with \$1000 in Bankwest cheque account";
