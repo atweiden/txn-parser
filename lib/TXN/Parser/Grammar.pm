@@ -542,9 +542,9 @@ token posting
 
 token account
 {
-    # silo and entity are required, subaccounts are optional
+    # silo and entity are required, path is optional
     <silo> <account-delimiter> <entity=.var-name>
-    [ <account-delimiter> <account-sub=.acct-name> ]?
+    [ <account-delimiter> <account-path=.acct-name> ]?
 }
 
 proto token silo {*}
@@ -714,14 +714,14 @@ token txnlib
 }
 
 # end include grammar }}}
-# journal grammar {{{
+# ledger grammar {{{
 
 token TOP
 {
-    <journal>
+    <ledger>
 }
 
-token journal
+token ledger
 {
     [
         <segment>
@@ -748,6 +748,6 @@ token comment-line
     ^^ \h* <.comment> $$
 }
 
-# end journal grammar }}}
+# end ledger grammar }}}
 
 # vim: set filetype=perl6 foldmethod=marker foldlevel=0:
