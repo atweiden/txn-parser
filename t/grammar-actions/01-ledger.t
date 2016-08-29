@@ -16,7 +16,7 @@ subtest
         $match-ledger.WHAT,
         Match,
         q:to/EOF/
-        ♪ [Grammar.parse($document)] - 1 of 7885
+        ♪ [Grammar.parse($document)] - 1 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ Parses accounting ledger successfully
         ┃   Success   ┃
@@ -29,7 +29,7 @@ subtest
         $match-ledger.made.WHAT,
         Array[TXN::Parser::AST::Entry],
         q:to/EOF/
-        ♪ [Is array?] - 2 of 7885
+        ♪ [Is array?] - 2 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made.WHAT ~~ Array[TXN::Parser::AST::Entry]
         ┃   Success   ┃
@@ -42,7 +42,7 @@ subtest
         $match-ledger.made[0].header.date,
         '2014-01-01',
         q:to/EOF/
-        ♪ [Is expected value?] - 3 of 7885
+        ♪ [Is expected value?] - 3 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].header.date ~~ '2014-01-01'
         ┃   Success   ┃
@@ -54,7 +54,7 @@ subtest
         $match-ledger.made[0].header.description,
         'I started the year with $1000 in Bankwest cheque account',
         q:to/EOF/
-        ♪ [Is expected value?] - 4 of 7885
+        ♪ [Is expected value?] - 4 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].header.description
         ┃   Success   ┃        ~~ '...'
@@ -66,7 +66,7 @@ subtest
         $match-ledger.made[0].header.important,
         0,
         q:to/EOF/
-        ♪ [Is expected value?] - 5 of 7885
+        ♪ [Is expected value?] - 5 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].header.important
         ┃   Success   ┃        == 0
@@ -78,7 +78,7 @@ subtest
         $match-ledger.made[0].header.tag[0],
         'TAG1',
         q:to/EOF/
-        ♪ [Is expected value?] - 6 of 7885
+        ♪ [Is expected value?] - 6 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].header.tag[0]
         ┃   Success   ┃        ~~ 'TAG1'
@@ -90,7 +90,7 @@ subtest
         $match-ledger.made[0].header.tag[1],
         'TAG2',
         q:to/EOF/
-        ♪ [Is expected value?] - 7 of 7885
+        ♪ [Is expected value?] - 7 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].header.tag[1]
         ┃   Success   ┃        ~~ 'TAG2'
@@ -102,7 +102,7 @@ subtest
         $match-ledger.made[0].id.number,
         0,
         q:to/EOF/
-        ♪ [Is expected value?] - 8 of 7885
+        ♪ [Is expected value?] - 8 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].id.number == 0
         ┃   Success   ┃
@@ -114,7 +114,7 @@ subtest
         $match-ledger.made[0].id.text,
         "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\" #TAG1 #TAG2 -- EODESC COMMENT\n  -- this is a comment line\n  Assets:Personal:Bankwest:Cheque    \$1000.00 USD\n  -- this is a second comment line\n  Equity:Personal                    \$1000.00 USD -- EOL COMMENT\n  -- this is a third comment line\n-- this is a stray comment\n-- another",
         q:to/EOF/
-        ♪ [Is expected value?] - 9 of 7885
+        ♪ [Is expected value?] - 9 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].id.text ~~ "..."
         ┃   Success   ┃
@@ -126,7 +126,7 @@ subtest
         $match-ledger.made[0].id.xxhash,
         2186778410,
         q:to/EOF/
-        ♪ [Is expected value?] - 10 of 7885
+        ♪ [Is expected value?] - 10 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].id.xxhash == 3251202721
         ┃   Success   ┃
@@ -138,7 +138,7 @@ subtest
         $match-ledger.made[0].posting[0].account.entity,
         'Personal',
         q:to/EOF/
-        ♪ [Is expected value?] - 11 of 7885
+        ♪ [Is expected value?] - 11 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].account.entity
         ┃   Success   ┃        ~~ 'Personal'
@@ -150,7 +150,7 @@ subtest
         $match-ledger.made[0].posting[0].account.silo,
         TXN::Parser::Types::Silo::ASSETS,
         q:to/EOF/
-        ♪ [Is expected value?] - 12 of 7885
+        ♪ [Is expected value?] - 12 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].account.silo
         ┃   Success   ┃        ~~ TXN::Parser::Types::Silo::ASSETS
@@ -162,7 +162,7 @@ subtest
         $match-ledger.made[0].posting[0].account.path[0],
         'Bankwest',
         q:to/EOF/
-        ♪ [Is expected value?] - 13 of 7885
+        ♪ [Is expected value?] - 13 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].account.path[0]
         ┃   Success   ┃        ~~ 'Bankwest'
@@ -174,7 +174,7 @@ subtest
         $match-ledger.made[0].posting[0].account.path[1],
         'Cheque',
         q:to/EOF/
-        ♪ [Is expected value?] - 14 of 7885
+        ♪ [Is expected value?] - 14 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].account.path[1]
         ┃   Success   ┃        ~~ 'Cheque'
@@ -186,7 +186,7 @@ subtest
         $match-ledger.made[0].posting[0].amount.asset-code,
         'USD',
         q:to/EOF/
-        ♪ [Is expected value?] - 15 of 7885
+        ♪ [Is expected value?] - 15 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].amount.asset-code
         ┃   Success   ┃        ~~ 'USD'
@@ -198,7 +198,7 @@ subtest
         $match-ledger.made[0].posting[0].amount.asset-quantity,
         1000.0,
         q:to/EOF/
-        ♪ [Is expected value?] - 16 of 7885
+        ♪ [Is expected value?] - 16 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].amount.asset-quantity
         ┃   Success   ┃        == 1000.0
@@ -210,7 +210,7 @@ subtest
         $match-ledger.made[0].posting[0].amount.asset-symbol,
         '$',
         q:to/EOF/
-        ♪ [Is expected value?] - 17 of 7885
+        ♪ [Is expected value?] - 17 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].amount.asset-symbol
         ┃   Success   ┃        ~~ '$'
@@ -222,7 +222,7 @@ subtest
         $match-ledger.made[0].posting[0].amount.xe,
         TXN::Parser::AST::Entry::Posting::Amount::XE,
         q:to/EOF/
-        ♪ [Is expected value?] - 18 of 7885
+        ♪ [Is expected value?] - 18 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].amount.xe
         ┃   Success   ┃        ~~ TXN::Parser::AST::Entry::Posting::Amount::XE
@@ -234,7 +234,7 @@ subtest
         $match-ledger.made[0].posting[0].amount.plus-or-minus,
         TXN::Parser::Types::PlusMinus,
         q:to/EOF/
-        ♪ [Is expected value?] - 19 of 7885
+        ♪ [Is expected value?] - 19 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].amount.plus-or-minus
         ┃   Success   ┃        ~~ TXN::Parser::Types::PlusMinus
@@ -246,7 +246,7 @@ subtest
         $match-ledger.made[0].posting[0].decinc,
         TXN::Parser::Types::DecInc::INC,
         q:to/EOF/
-        ♪ [Is expected value?] - 20 of 7885
+        ♪ [Is expected value?] - 20 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].decinc
         ┃   Success   ┃        ~~ TXN::Parser::Types::DecInc::INC
@@ -255,10 +255,22 @@ subtest
         EOF
     );
     is(
+        $match-ledger.made[0].posting[0].drcr,
+        TXN::Parser::Types::DrCr::DEBIT,
+        q:to/EOF/
+        ♪ [Is expected value?] - 21 of 8334
+        ┏━━━━━━━━━━━━━┓
+        ┃             ┃  ∙ $match-ledger.made[0].posting[0].drcr
+        ┃   Success   ┃        ~~ TXN::Parser::Types::DrCR::DEBIT
+        ┃             ┃
+        ┗━━━━━━━━━━━━━┛
+        EOF
+    );
+    is(
         $match-ledger.made[0].posting[0].id.number,
         0,
         q:to/EOF/
-        ♪ [Is expected value?] - 21 of 7885
+        ♪ [Is expected value?] - 22 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].id.number == 0
         ┃   Success   ┃
@@ -270,7 +282,7 @@ subtest
         $match-ledger.made[0].posting[0].id.text,
         'Assets:Personal:Bankwest:Cheque    $1000.00 USD',
         q:to/EOF/
-        ♪ [Is expected value?] - 22 of 7885
+        ♪ [Is expected value?] - 23 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].id.text ~~ '...'
         ┃   Success   ┃
@@ -282,7 +294,7 @@ subtest
         $match-ledger.made[0].posting[0].id.xxhash,
         352942826,
         q:to/EOF/
-        ♪ [Is expected value?] - 23 of 7885
+        ♪ [Is expected value?] - 24 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].id.xxhash
         ┃   Success   ┃        == 352942826
@@ -294,7 +306,7 @@ subtest
         $match-ledger.made[0].posting[0].id.entry-id.number,
         0,
         q:to/EOF/
-        ♪ [Is expected value?] - 24 of 7885
+        ♪ [Is expected value?] - 25 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].id.entry-id.number
         ┃   Success   ┃        == 0
@@ -306,7 +318,7 @@ subtest
         $match-ledger.made[0].posting[0].id.entry-id.text,
         "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\" #TAG1 #TAG2 -- EODESC COMMENT\n  -- this is a comment line\n  Assets:Personal:Bankwest:Cheque    \$1000.00 USD\n  -- this is a second comment line\n  Equity:Personal                    \$1000.00 USD -- EOL COMMENT\n  -- this is a third comment line\n-- this is a stray comment\n-- another",
         q:to/EOF/
-        ♪ [Is expected value?] - 25 of 7885
+        ♪ [Is expected value?] - 26 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].id.entry-id.text
         ┃   Success   ┃        ~~ "..."
@@ -318,7 +330,7 @@ subtest
         $match-ledger.made[0].posting[0].id.entry-id.xxhash,
         2186778410,
         q:to/EOF/
-        ♪ [Is expected value?] - 26 of 7885
+        ♪ [Is expected value?] - 27 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].id.entry-id.xxhash
         ┃   Success   ┃        == 3251202721
@@ -348,7 +360,7 @@ subtest
         @entry[0].posting[0].amount.asset-code,
         'BTC',
         q:to/EOF/
-        ♪ [Is expected value?] - 27 of 7885
+        ♪ [Is expected value?] - 28 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.asset-code eq 'BTC'
         ┃   Success   ┃
@@ -360,7 +372,7 @@ subtest
         @entry[0].posting[0].amount.asset-quantity,
         5,
         q:to/EOF/
-        ♪ [Is expected value?] - 28 of 7885
+        ♪ [Is expected value?] - 29 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.asset-quantity == 5
         ┃   Success   ┃
@@ -372,7 +384,7 @@ subtest
         @entry[0].posting[0].amount.asset-symbol,
         '฿',
         q:to/EOF/
-        ♪ [Is expected value?] - 29 of 7885
+        ♪ [Is expected value?] - 30 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.asset-symbol eq '฿'
         ┃   Success   ┃
@@ -384,7 +396,7 @@ subtest
         @entry[0].posting[0].amount.xe.asset-code,
         'USD',
         q:to/EOF/
-        ♪ [Is expected value?] - 30 of 7885
+        ♪ [Is expected value?] - 31 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.xe.asset-code
         ┃   Success   ┃         eq 'USD'
@@ -396,7 +408,7 @@ subtest
         @entry[0].posting[0].amount.xe.asset-quantity,
         466,
         q:to/EOF/
-        ♪ [Is expected value?] - 31 of 7885
+        ♪ [Is expected value?] - 32 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.xe.asset-quantity
         ┃   Success   ┃         == 466
@@ -408,7 +420,7 @@ subtest
         @entry[0].posting[0].amount.xe.asset-symbol,
         '$',
         q:to/EOF/
-        ♪ [Is expected value?] - 32 of 7885
+        ♪ [Is expected value?] - 33 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.xe.asset-symbol
         ┃   Success   ┃         eq '$'
@@ -420,7 +432,7 @@ subtest
         @entry[0].posting[0].amount.xe.augment.inherited-basis.asset-code,
         'USD',
         q:to/EOF/
-        ♪ [Is expected value?] - 33 of 7885
+        ♪ [Is expected value?] - 34 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.xe.augment.inherited-basis.asset-code
         ┃   Success   ┃         eq 'USD'
@@ -432,7 +444,7 @@ subtest
         @entry[0].posting[0].amount.xe.augment.inherited-basis.asset-quantity,
         0.04,
         q:to/EOF/
-        ♪ [Is expected value?] - 34 of 7885
+        ♪ [Is expected value?] - 35 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.xe.augment.inherited-basis.asset-quantity
         ┃   Success   ┃         == 0.04
@@ -444,7 +456,7 @@ subtest
         @entry[0].posting[0].amount.xe.augment.inherited-basis.asset-symbol,
         '$',
         q:to/EOF/
-        ♪ [Is expected value?] - 35 of 7885
+        ♪ [Is expected value?] - 36 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.xe.augment.inherited-basis.asset-symbol
         ┃   Success   ┃         eq '$'
@@ -473,7 +485,7 @@ subtest
         @entry[0].posting[0].amount.asset-code,
         'BTC',
         q:to/EOF/
-        ♪ [Is expected value?] - 36 of 7885
+        ♪ [Is expected value?] - 37 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.asset-code eq 'BTC'
         ┃   Success   ┃
@@ -485,7 +497,7 @@ subtest
         @entry[0].posting[0].amount.asset-quantity,
         0.1,
         q:to/EOF/
-        ♪ [Is expected value?] - 37 of 7885
+        ♪ [Is expected value?] - 38 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.asset-quantity == 0.1
         ┃   Success   ┃
@@ -497,7 +509,7 @@ subtest
         @entry[0].posting[0].amount.asset-symbol,
         '฿',
         q:to/EOF/
-        ♪ [Is expected value?] - 38 of 7885
+        ♪ [Is expected value?] - 39 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.asset-symbol eq '฿'
         ┃   Success   ┃
@@ -509,7 +521,7 @@ subtest
         @entry[0].posting[0].amount.xe.asset-code,
         'USD',
         q:to/EOF/
-        ♪ [Is expected value?] - 39 of 7885
+        ♪ [Is expected value?] - 40 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.xe.asset-code
         ┃   Success   ┃         eq 'USD'
@@ -521,7 +533,7 @@ subtest
         @entry[0].posting[0].amount.xe.asset-quantity,
         700,
         q:to/EOF/
-        ♪ [Is expected value?] - 40 of 7885
+        ♪ [Is expected value?] - 41 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.xe.asset-quantity
         ┃   Success   ┃         == 700
@@ -533,7 +545,7 @@ subtest
         @entry[0].posting[0].amount.xe.asset-symbol,
         '$',
         q:to/EOF/
-        ♪ [Is expected value?] - 41 of 7885
+        ♪ [Is expected value?] - 42 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.xe.asset-symbol
         ┃   Success   ┃         eq '$'
@@ -545,7 +557,7 @@ subtest
         @entry[0].posting[0].amount.xe.augment.lot.code,
         'instapurchase',
         q:to/EOF/
-        ♪ [Is expected value?] - 42 of 7885
+        ♪ [Is expected value?] - 43 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.xe.augment.lot.code
         ┃   Success   ┃         eq 'instapurchase'
@@ -557,7 +569,7 @@ subtest
         @entry[0].posting[0].amount.xe.augment.lot.decinc,
         TXN::Parser::Types::DecInc::INC,
         q:to/EOF/
-        ♪ [Is expected value?] - 43 of 7885
+        ♪ [Is expected value?] - 44 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[0].posting[0].amount.xe.augment.lot.decinc
         ┃   Success   ┃         eq TXN::Parser::Types::DecInc::INC
@@ -569,7 +581,7 @@ subtest
         @entry[1].posting[1].amount.xe.augment.lot.code,
         'instapurchase',
         q:to/EOF/
-        ♪ [Is expected value?] - 44 of 7885
+        ♪ [Is expected value?] - 45 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[1].posting[1].amount.xe.augment.lot.code
         ┃   Success   ┃         eq 'instapurchase'
@@ -581,7 +593,7 @@ subtest
         @entry[1].posting[1].amount.xe.augment.lot.decinc,
         TXN::Parser::Types::DecInc::DEC,
         q:to/EOF/
-        ♪ [Is expected value?] - 45 of 7885
+        ♪ [Is expected value?] - 46 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ @entry[1].posting[1].amount.xe.augment.lot.decinc
         ┃   Success   ┃         eq TXN::Parser::Types::DecInc::DEC
@@ -612,6 +624,7 @@ subtest
     ok @entry[0].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[0].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[0].posting[0].decinc eqv DecInc::INC;
+    ok @entry[0].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[0].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0);
     ok @entry[0].posting[0].id.entry-id.text eqv "2011-01-01 \"FooCorp started the year with \$1000 in Bankwest cheque account\"\n  Assets:FooCorp:Bankwest:Cheque      \$1000.00 USD\n  Equity:FooCorp                      \$1000.00 USD";
     ok @entry[0].posting[0].id.entry-id.xxhash == 839297870;
@@ -626,6 +639,7 @@ subtest
     ok @entry[0].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[0].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[0].posting[1].decinc eqv DecInc::INC;
+    ok @entry[0].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[0].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0);
     ok @entry[0].posting[1].id.entry-id.text eqv "2011-01-01 \"FooCorp started the year with \$1000 in Bankwest cheque account\"\n  Assets:FooCorp:Bankwest:Cheque      \$1000.00 USD\n  Equity:FooCorp                      \$1000.00 USD";
     ok @entry[0].posting[1].id.entry-id.xxhash == 839297870;
@@ -647,6 +661,7 @@ subtest
     ok @entry[1].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[1].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[1].posting[0].decinc eqv DecInc::INC;
+    ok @entry[1].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[1].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 0);
     ok @entry[1].posting[0].id.entry-id.text eqv "2011-01-01 '''\nWigwam LLC bought one wigwam for \$1.01 USD in early January 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/January'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.01 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.01 USD";
     ok @entry[1].posting[0].id.entry-id.xxhash == 3127303444;
@@ -661,6 +676,7 @@ subtest
     ok @entry[1].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[1].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[1].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[1].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[1].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 0);
     ok @entry[1].posting[1].id.entry-id.text eqv "2011-01-01 '''\nWigwam LLC bought one wigwam for \$1.01 USD in early January 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/January'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.01 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.01 USD";
     ok @entry[1].posting[1].id.entry-id.xxhash == 3127303444;
@@ -682,6 +698,7 @@ subtest
     ok @entry[2].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[2].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[2].posting[0].decinc eqv DecInc::INC;
+    ok @entry[2].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[2].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 0);
     ok @entry[2].posting[0].id.entry-id.text eqv "2011-01-16 'Wigwam LLC received a dividend of \$2011.0116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0116 USD\n  Income:WigwamLLC:Dividends          \$2011.0116 USD";
     ok @entry[2].posting[0].id.entry-id.xxhash == 4018141641;
@@ -696,6 +713,7 @@ subtest
     ok @entry[2].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[2].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[2].posting[1].decinc eqv DecInc::INC;
+    ok @entry[2].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[2].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 0);
     ok @entry[2].posting[1].id.entry-id.text eqv "2011-01-16 'Wigwam LLC received a dividend of \$2011.0116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0116 USD\n  Income:WigwamLLC:Dividends          \$2011.0116 USD";
     ok @entry[2].posting[1].id.entry-id.xxhash == 4018141641;
@@ -717,6 +735,7 @@ subtest
     ok @entry[3].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[3].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[3].posting[0].decinc eqv DecInc::INC;
+    ok @entry[3].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[3].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 2);
     ok @entry[3].posting[0].id.entry-id.text eqv "2011-01-31 '''\nWigwam LLC sold one wigwam for \$1.01 USD in late January 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/January'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.01 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.01 USD";
     ok @entry[3].posting[0].id.entry-id.xxhash == 2478358144;
@@ -731,6 +750,7 @@ subtest
     ok @entry[3].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[3].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[3].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[3].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[3].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 2);
     ok @entry[3].posting[1].id.entry-id.text eqv "2011-01-31 '''\nWigwam LLC sold one wigwam for \$1.01 USD in late January 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/January'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.01 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.01 USD";
     ok @entry[3].posting[1].id.entry-id.xxhash == 2478358144;
@@ -752,6 +772,7 @@ subtest
     ok @entry[4].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[4].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[4].posting[0].decinc eqv DecInc::INC;
+    ok @entry[4].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[4].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 3);
     ok @entry[4].posting[0].id.entry-id.text eqv "2011-02-01 '''\nWigwam LLC bought one wigwam for \$1.02 USD in early February 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/February'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.02 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.02 USD";
     ok @entry[4].posting[0].id.entry-id.xxhash == 2320468031;
@@ -766,6 +787,7 @@ subtest
     ok @entry[4].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[4].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[4].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[4].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[4].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 3);
     ok @entry[4].posting[1].id.entry-id.text eqv "2011-02-01 '''\nWigwam LLC bought one wigwam for \$1.02 USD in early February 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/February'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.02 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.02 USD";
     ok @entry[4].posting[1].id.entry-id.xxhash == 2320468031;
@@ -787,6 +809,7 @@ subtest
     ok @entry[5].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[5].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[5].posting[0].decinc eqv DecInc::INC;
+    ok @entry[5].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[5].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 0);
     ok @entry[5].posting[0].id.entry-id.text eqv "2011-02-16 'Wigwam LLC received a dividend of \$2011.0216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0216 USD\n  Income:WigwamLLC:Dividends          \$2011.0216 USD";
     ok @entry[5].posting[0].id.entry-id.xxhash == 1177608739;
@@ -801,6 +824,7 @@ subtest
     ok @entry[5].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[5].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[5].posting[1].decinc eqv DecInc::INC;
+    ok @entry[5].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[5].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 0);
     ok @entry[5].posting[1].id.entry-id.text eqv "2011-02-16 'Wigwam LLC received a dividend of \$2011.0216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0216 USD\n  Income:WigwamLLC:Dividends          \$2011.0216 USD";
     ok @entry[5].posting[1].id.entry-id.xxhash == 1177608739;
@@ -822,6 +846,7 @@ subtest
     ok @entry[6].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[6].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[6].posting[0].decinc eqv DecInc::INC;
+    ok @entry[6].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[6].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 5);
     ok @entry[6].posting[0].id.entry-id.text eqv "2011-02-28 '''\nWigwam LLC sold one wigwam for \$1.02 USD in late February 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/February'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.02 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.02 USD";
     ok @entry[6].posting[0].id.entry-id.xxhash == 3178583936;
@@ -836,6 +861,7 @@ subtest
     ok @entry[6].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[6].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[6].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[6].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[6].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 5);
     ok @entry[6].posting[1].id.entry-id.text eqv "2011-02-28 '''\nWigwam LLC sold one wigwam for \$1.02 USD in late February 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/February'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.02 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.02 USD";
     ok @entry[6].posting[1].id.entry-id.xxhash == 3178583936;
@@ -857,6 +883,7 @@ subtest
     ok @entry[7].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[7].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[7].posting[0].decinc eqv DecInc::INC;
+    ok @entry[7].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[7].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 6);
     ok @entry[7].posting[0].id.entry-id.text eqv "2011-03-01 '''\nWigwam LLC bought one wigwam for \$1.03 USD in early March 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/March'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.03 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.03 USD";
     ok @entry[7].posting[0].id.entry-id.xxhash == 1567632724;
@@ -871,6 +898,7 @@ subtest
     ok @entry[7].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[7].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[7].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[7].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[7].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 6);
     ok @entry[7].posting[1].id.entry-id.text eqv "2011-03-01 '''\nWigwam LLC bought one wigwam for \$1.03 USD in early March 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/March'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.03 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.03 USD";
     ok @entry[7].posting[1].id.entry-id.xxhash == 1567632724;
@@ -892,6 +920,7 @@ subtest
     ok @entry[8].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[8].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[8].posting[0].decinc eqv DecInc::INC;
+    ok @entry[8].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[8].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 7, 0);
     ok @entry[8].posting[0].id.entry-id.text eqv "2011-03-16 'Wigwam LLC received a dividend of \$2011.0316 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0316 USD\n  Income:WigwamLLC:Dividends          \$2011.0316 USD";
     ok @entry[8].posting[0].id.entry-id.xxhash == 3569777874;
@@ -906,6 +935,7 @@ subtest
     ok @entry[8].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[8].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[8].posting[1].decinc eqv DecInc::INC;
+    ok @entry[8].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[8].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 7, 0);
     ok @entry[8].posting[1].id.entry-id.text eqv "2011-03-16 'Wigwam LLC received a dividend of \$2011.0316 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0316 USD\n  Income:WigwamLLC:Dividends          \$2011.0316 USD";
     ok @entry[8].posting[1].id.entry-id.xxhash == 3569777874;
@@ -927,6 +957,7 @@ subtest
     ok @entry[9].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[9].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[9].posting[0].decinc eqv DecInc::INC;
+    ok @entry[9].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[9].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 8);
     ok @entry[9].posting[0].id.entry-id.text eqv "2011-03-31 '''\nWigwam LLC sold one wigwam for \$1.03 USD in late March 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/March'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.03 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.03 USD";
     ok @entry[9].posting[0].id.entry-id.xxhash == 521313438;
@@ -941,6 +972,7 @@ subtest
     ok @entry[9].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[9].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[9].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[9].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[9].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 8);
     ok @entry[9].posting[1].id.entry-id.text eqv "2011-03-31 '''\nWigwam LLC sold one wigwam for \$1.03 USD in late March 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/March'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.03 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.03 USD";
     ok @entry[9].posting[1].id.entry-id.xxhash == 521313438;
@@ -962,6 +994,7 @@ subtest
     ok @entry[10].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(26, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[10].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[10].posting[0].decinc eqv DecInc::INC;
+    ok @entry[10].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[10].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 0);
     ok @entry[10].posting[0].id.entry-id.text eqv "2011-04-01 '''\nWigwam LLC bought one wigwam for \$1.04 USD in early April 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/April'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.04 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.04 USD";
     ok @entry[10].posting[0].id.entry-id.xxhash == 234894800;
@@ -976,6 +1009,7 @@ subtest
     ok @entry[10].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[10].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[10].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[10].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[10].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 0);
     ok @entry[10].posting[1].id.entry-id.text eqv "2011-04-01 '''\nWigwam LLC bought one wigwam for \$1.04 USD in early April 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/April'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.04 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.04 USD";
     ok @entry[10].posting[1].id.entry-id.xxhash == 234894800;
@@ -997,6 +1031,7 @@ subtest
     ok @entry[11].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[11].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[11].posting[0].decinc eqv DecInc::INC;
+    ok @entry[11].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[11].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 0);
     ok @entry[11].posting[0].id.entry-id.text eqv "2011-04-16 'Wigwam LLC received a dividend of \$2011.0416 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0416 USD\n  Income:WigwamLLC:Dividends          \$2011.0416 USD";
     ok @entry[11].posting[0].id.entry-id.xxhash == 2888576925;
@@ -1011,6 +1046,7 @@ subtest
     ok @entry[11].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[11].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[11].posting[1].decinc eqv DecInc::INC;
+    ok @entry[11].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[11].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 0);
     ok @entry[11].posting[1].id.entry-id.text eqv "2011-04-16 'Wigwam LLC received a dividend of \$2011.0416 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0416 USD\n  Income:WigwamLLC:Dividends          \$2011.0416 USD";
     ok @entry[11].posting[1].id.entry-id.xxhash == 2888576925;
@@ -1032,6 +1068,7 @@ subtest
     ok @entry[12].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[12].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[12].posting[0].decinc eqv DecInc::INC;
+    ok @entry[12].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[12].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 2);
     ok @entry[12].posting[0].id.entry-id.text eqv "2011-04-30 '''\nWigwam LLC sold one wigwam for \$1.04 USD in late April 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/April'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.04 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.04 USD";
     ok @entry[12].posting[0].id.entry-id.xxhash == 801753479;
@@ -1046,6 +1083,7 @@ subtest
     ok @entry[12].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(26, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[12].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[12].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[12].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[12].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 2);
     ok @entry[12].posting[1].id.entry-id.text eqv "2011-04-30 '''\nWigwam LLC sold one wigwam for \$1.04 USD in late April 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/April'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.04 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.04 USD";
     ok @entry[12].posting[1].id.entry-id.xxhash == 801753479;
@@ -1067,6 +1105,7 @@ subtest
     ok @entry[13].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 20), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[13].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[13].posting[0].decinc eqv DecInc::INC;
+    ok @entry[13].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[13].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 3);
     ok @entry[13].posting[0].id.entry-id.text eqv "2011-05-01 '''\nWigwam LLC bought one wigwam for \$1.05 USD in early May 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/May'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.05 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.05 USD";
     ok @entry[13].posting[0].id.entry-id.xxhash == 2708781669;
@@ -1081,6 +1120,7 @@ subtest
     ok @entry[13].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[13].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[13].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[13].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[13].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 3);
     ok @entry[13].posting[1].id.entry-id.text eqv "2011-05-01 '''\nWigwam LLC bought one wigwam for \$1.05 USD in early May 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/May'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.05 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.05 USD";
     ok @entry[13].posting[1].id.entry-id.xxhash == 2708781669;
@@ -1102,6 +1142,7 @@ subtest
     ok @entry[14].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[14].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[14].posting[0].decinc eqv DecInc::INC;
+    ok @entry[14].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[14].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 0);
     ok @entry[14].posting[0].id.entry-id.text eqv "2011-05-16 'Wigwam LLC received a dividend of \$2011.0516 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0516 USD\n  Income:WigwamLLC:Dividends          \$2011.0516 USD";
     ok @entry[14].posting[0].id.entry-id.xxhash == 2585914;
@@ -1116,6 +1157,7 @@ subtest
     ok @entry[14].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[14].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[14].posting[1].decinc eqv DecInc::INC;
+    ok @entry[14].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[14].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 0);
     ok @entry[14].posting[1].id.entry-id.text eqv "2011-05-16 'Wigwam LLC received a dividend of \$2011.0516 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0516 USD\n  Income:WigwamLLC:Dividends          \$2011.0516 USD";
     ok @entry[14].posting[1].id.entry-id.xxhash == 2585914;
@@ -1137,6 +1179,7 @@ subtest
     ok @entry[15].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[15].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[15].posting[0].decinc eqv DecInc::INC;
+    ok @entry[15].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[15].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 5);
     ok @entry[15].posting[0].id.entry-id.text eqv "2011-05-31 '''\nWigwam LLC sold one wigwam for \$1.05 USD in late May 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/May'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.05 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.05 USD";
     ok @entry[15].posting[0].id.entry-id.xxhash == 793767881;
@@ -1151,6 +1194,7 @@ subtest
     ok @entry[15].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 20), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[15].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[15].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[15].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[15].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 5);
     ok @entry[15].posting[1].id.entry-id.text eqv "2011-05-31 '''\nWigwam LLC sold one wigwam for \$1.05 USD in late May 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/May'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.05 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.05 USD";
     ok @entry[15].posting[1].id.entry-id.xxhash == 793767881;
@@ -1172,6 +1216,7 @@ subtest
     ok @entry[16].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[16].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[16].posting[0].decinc eqv DecInc::INC;
+    ok @entry[16].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[16].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 6);
     ok @entry[16].posting[0].id.entry-id.text eqv "2011-06-01 '''\nWigwam LLC bought one wigwam for \$1.06 USD in early June 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/June'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.06 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.06 USD";
     ok @entry[16].posting[0].id.entry-id.xxhash == 1054837725;
@@ -1186,6 +1231,7 @@ subtest
     ok @entry[16].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[16].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[16].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[16].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[16].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 6);
     ok @entry[16].posting[1].id.entry-id.text eqv "2011-06-01 '''\nWigwam LLC bought one wigwam for \$1.06 USD in early June 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/June'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.06 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.06 USD";
     ok @entry[16].posting[1].id.entry-id.xxhash == 1054837725;
@@ -1207,6 +1253,7 @@ subtest
     ok @entry[17].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[17].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[17].posting[0].decinc eqv DecInc::INC;
+    ok @entry[17].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[17].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 7, 0);
     ok @entry[17].posting[0].id.entry-id.text eqv "2011-06-16 'Wigwam LLC received a dividend of \$2011.0616 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0616 USD\n  Income:WigwamLLC:Dividends          \$2011.0616 USD";
     ok @entry[17].posting[0].id.entry-id.xxhash == 2233477133;
@@ -1221,6 +1268,7 @@ subtest
     ok @entry[17].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[17].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[17].posting[1].decinc eqv DecInc::INC;
+    ok @entry[17].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[17].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 7, 0);
     ok @entry[17].posting[1].id.entry-id.text eqv "2011-06-16 'Wigwam LLC received a dividend of \$2011.0616 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0616 USD\n  Income:WigwamLLC:Dividends          \$2011.0616 USD";
     ok @entry[17].posting[1].id.entry-id.xxhash == 2233477133;
@@ -1242,6 +1290,7 @@ subtest
     ok @entry[18].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[18].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[18].posting[0].decinc eqv DecInc::INC;
+    ok @entry[18].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[18].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 8);
     ok @entry[18].posting[0].id.entry-id.text eqv "2011-06-30 '''\nWigwam LLC sold one wigwam for \$1.06 USD in late June 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/June'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.06 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.06 USD";
     ok @entry[18].posting[0].id.entry-id.xxhash == 2726916770;
@@ -1256,6 +1305,7 @@ subtest
     ok @entry[18].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[18].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[18].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[18].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[18].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 8);
     ok @entry[18].posting[1].id.entry-id.text eqv "2011-06-30 '''\nWigwam LLC sold one wigwam for \$1.06 USD in late June 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/June'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.06 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.06 USD";
     ok @entry[18].posting[1].id.entry-id.xxhash == 2726916770;
@@ -1277,6 +1327,7 @@ subtest
     ok @entry[19].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(107, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[19].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[19].posting[0].decinc eqv DecInc::INC;
+    ok @entry[19].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[19].posting[0].id.entry-id.number eqv Array[UInt].new(0, 3, 0);
     ok @entry[19].posting[0].id.entry-id.text eqv "2011-07-01 '''\nWigwam LLC bought one wigwam for \$1.07 USD in early July 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/July'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.07 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.07 USD";
     ok @entry[19].posting[0].id.entry-id.xxhash == 2522748302;
@@ -1291,6 +1342,7 @@ subtest
     ok @entry[19].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[19].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[19].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[19].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[19].posting[1].id.entry-id.number eqv Array[UInt].new(0, 3, 0);
     ok @entry[19].posting[1].id.entry-id.text eqv "2011-07-01 '''\nWigwam LLC bought one wigwam for \$1.07 USD in early July 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/July'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.07 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.07 USD";
     ok @entry[19].posting[1].id.entry-id.xxhash == 2522748302;
@@ -1312,6 +1364,7 @@ subtest
     ok @entry[20].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[20].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[20].posting[0].decinc eqv DecInc::INC;
+    ok @entry[20].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[20].posting[0].id.entry-id.number eqv Array[UInt].new(0, 3, 1, 0);
     ok @entry[20].posting[0].id.entry-id.text eqv "2011-07-16 'Wigwam LLC received a dividend of \$2011.0716 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0716 USD\n  Income:WigwamLLC:Dividends          \$2011.0716 USD";
     ok @entry[20].posting[0].id.entry-id.xxhash == 66189993;
@@ -1326,6 +1379,7 @@ subtest
     ok @entry[20].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[20].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[20].posting[1].decinc eqv DecInc::INC;
+    ok @entry[20].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[20].posting[1].id.entry-id.number eqv Array[UInt].new(0, 3, 1, 0);
     ok @entry[20].posting[1].id.entry-id.text eqv "2011-07-16 'Wigwam LLC received a dividend of \$2011.0716 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0716 USD\n  Income:WigwamLLC:Dividends          \$2011.0716 USD";
     ok @entry[20].posting[1].id.entry-id.xxhash == 66189993;
@@ -1347,6 +1401,7 @@ subtest
     ok @entry[21].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[21].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[21].posting[0].decinc eqv DecInc::INC;
+    ok @entry[21].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[21].posting[0].id.entry-id.number eqv Array[UInt].new(0, 3, 2);
     ok @entry[21].posting[0].id.entry-id.text eqv "2011-07-31 '''\nWigwam LLC sold one wigwam for \$1.07 USD in late July 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/July'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.07 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.07 USD";
     ok @entry[21].posting[0].id.entry-id.xxhash == 992681704;
@@ -1361,6 +1416,7 @@ subtest
     ok @entry[21].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(107, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[21].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[21].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[21].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[21].posting[1].id.entry-id.number eqv Array[UInt].new(0, 3, 2);
     ok @entry[21].posting[1].id.entry-id.text eqv "2011-07-31 '''\nWigwam LLC sold one wigwam for \$1.07 USD in late July 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/July'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.07 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.07 USD";
     ok @entry[21].posting[1].id.entry-id.xxhash == 992681704;
@@ -1382,6 +1438,7 @@ subtest
     ok @entry[22].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(27, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[22].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[22].posting[0].decinc eqv DecInc::INC;
+    ok @entry[22].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[22].posting[0].id.entry-id.number eqv Array[UInt].new(0, 3, 3);
     ok @entry[22].posting[0].id.entry-id.text eqv "2011-08-01 '''\nWigwam LLC bought one wigwam for \$1.08 USD in early August 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/August'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.08 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.08 USD";
     ok @entry[22].posting[0].id.entry-id.xxhash == 2932388883;
@@ -1396,6 +1453,7 @@ subtest
     ok @entry[22].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[22].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[22].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[22].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[22].posting[1].id.entry-id.number eqv Array[UInt].new(0, 3, 3);
     ok @entry[22].posting[1].id.entry-id.text eqv "2011-08-01 '''\nWigwam LLC bought one wigwam for \$1.08 USD in early August 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/August'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.08 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.08 USD";
     ok @entry[22].posting[1].id.entry-id.xxhash == 2932388883;
@@ -1417,6 +1475,7 @@ subtest
     ok @entry[23].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[23].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[23].posting[0].decinc eqv DecInc::INC;
+    ok @entry[23].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[23].posting[0].id.entry-id.number eqv Array[UInt].new(0, 3, 4, 0);
     ok @entry[23].posting[0].id.entry-id.text eqv "2011-08-16 'Wigwam LLC received a dividend of \$2011.0816 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0816 USD\n  Income:WigwamLLC:Dividends          \$2011.0816 USD";
     ok @entry[23].posting[0].id.entry-id.xxhash == 165262646;
@@ -1431,6 +1490,7 @@ subtest
     ok @entry[23].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[23].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[23].posting[1].decinc eqv DecInc::INC;
+    ok @entry[23].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[23].posting[1].id.entry-id.number eqv Array[UInt].new(0, 3, 4, 0);
     ok @entry[23].posting[1].id.entry-id.text eqv "2011-08-16 'Wigwam LLC received a dividend of \$2011.0816 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0816 USD\n  Income:WigwamLLC:Dividends          \$2011.0816 USD";
     ok @entry[23].posting[1].id.entry-id.xxhash == 165262646;
@@ -1452,6 +1512,7 @@ subtest
     ok @entry[24].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[24].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[24].posting[0].decinc eqv DecInc::INC;
+    ok @entry[24].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[24].posting[0].id.entry-id.number eqv Array[UInt].new(0, 3, 5);
     ok @entry[24].posting[0].id.entry-id.text eqv "2011-08-31 '''\nWigwam LLC sold one wigwam for \$1.08 USD in late August 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/August'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.08 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.08 USD";
     ok @entry[24].posting[0].id.entry-id.xxhash == 2421394429;
@@ -1466,6 +1527,7 @@ subtest
     ok @entry[24].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(27, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[24].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[24].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[24].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[24].posting[1].id.entry-id.number eqv Array[UInt].new(0, 3, 5);
     ok @entry[24].posting[1].id.entry-id.text eqv "2011-08-31 '''\nWigwam LLC sold one wigwam for \$1.08 USD in late August 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/August'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.08 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.08 USD";
     ok @entry[24].posting[1].id.entry-id.xxhash == 2421394429;
@@ -1487,6 +1549,7 @@ subtest
     ok @entry[25].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(109, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[25].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[25].posting[0].decinc eqv DecInc::INC;
+    ok @entry[25].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[25].posting[0].id.entry-id.number eqv Array[UInt].new(0, 3, 6);
     ok @entry[25].posting[0].id.entry-id.text eqv "2011-09-01 '''\nWigwam LLC bought one wigwam for \$1.09 USD in early September 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/September'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.09 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.09 USD";
     ok @entry[25].posting[0].id.entry-id.xxhash == 3100476228;
@@ -1501,6 +1564,7 @@ subtest
     ok @entry[25].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[25].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[25].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[25].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[25].posting[1].id.entry-id.number eqv Array[UInt].new(0, 3, 6);
     ok @entry[25].posting[1].id.entry-id.text eqv "2011-09-01 '''\nWigwam LLC bought one wigwam for \$1.09 USD in early September 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/September'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.09 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.09 USD";
     ok @entry[25].posting[1].id.entry-id.xxhash == 3100476228;
@@ -1522,6 +1586,7 @@ subtest
     ok @entry[26].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[26].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[26].posting[0].decinc eqv DecInc::INC;
+    ok @entry[26].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[26].posting[0].id.entry-id.number eqv Array[UInt].new(0, 3, 7, 0);
     ok @entry[26].posting[0].id.entry-id.text eqv "2011-09-16 'Wigwam LLC received a dividend of \$2011.0916 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0916 USD\n  Income:WigwamLLC:Dividends          \$2011.0916 USD";
     ok @entry[26].posting[0].id.entry-id.xxhash == 1591575233;
@@ -1536,6 +1601,7 @@ subtest
     ok @entry[26].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[26].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[26].posting[1].decinc eqv DecInc::INC;
+    ok @entry[26].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[26].posting[1].id.entry-id.number eqv Array[UInt].new(0, 3, 7, 0);
     ok @entry[26].posting[1].id.entry-id.text eqv "2011-09-16 'Wigwam LLC received a dividend of \$2011.0916 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0916 USD\n  Income:WigwamLLC:Dividends          \$2011.0916 USD";
     ok @entry[26].posting[1].id.entry-id.xxhash == 1591575233;
@@ -1557,6 +1623,7 @@ subtest
     ok @entry[27].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[27].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[27].posting[0].decinc eqv DecInc::INC;
+    ok @entry[27].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[27].posting[0].id.entry-id.number eqv Array[UInt].new(0, 3, 8);
     ok @entry[27].posting[0].id.entry-id.text eqv "2011-09-30 '''\nWigwam LLC sold one wigwam for \$1.09 USD in late September 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/September'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.09 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.09 USD";
     ok @entry[27].posting[0].id.entry-id.xxhash == 1027238853;
@@ -1571,6 +1638,7 @@ subtest
     ok @entry[27].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(109, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[27].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[27].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[27].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[27].posting[1].id.entry-id.number eqv Array[UInt].new(0, 3, 8);
     ok @entry[27].posting[1].id.entry-id.text eqv "2011-09-30 '''\nWigwam LLC sold one wigwam for \$1.09 USD in late September 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/September'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.09 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.09 USD";
     ok @entry[27].posting[1].id.entry-id.xxhash == 1027238853;
@@ -1592,6 +1660,7 @@ subtest
     ok @entry[28].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(11, 10), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[28].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[28].posting[0].decinc eqv DecInc::INC;
+    ok @entry[28].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[28].posting[0].id.entry-id.number eqv Array[UInt].new(0, 4, 0);
     ok @entry[28].posting[0].id.entry-id.text eqv "2011-10-01 '''\nWigwam LLC bought one wigwam for \$1.10 USD in early October 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/October'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.10 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.10 USD";
     ok @entry[28].posting[0].id.entry-id.xxhash == 2088813850;
@@ -1606,6 +1675,7 @@ subtest
     ok @entry[28].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[28].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[28].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[28].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[28].posting[1].id.entry-id.number eqv Array[UInt].new(0, 4, 0);
     ok @entry[28].posting[1].id.entry-id.text eqv "2011-10-01 '''\nWigwam LLC bought one wigwam for \$1.10 USD in early October 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/October'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.10 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.10 USD";
     ok @entry[28].posting[1].id.entry-id.xxhash == 2088813850;
@@ -1627,6 +1697,7 @@ subtest
     ok @entry[29].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[29].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[29].posting[0].decinc eqv DecInc::INC;
+    ok @entry[29].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[29].posting[0].id.entry-id.number eqv Array[UInt].new(0, 4, 1, 0);
     ok @entry[29].posting[0].id.entry-id.text eqv "2011-10-16 'Wigwam LLC received a dividend of \$2011.1016 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.1016 USD\n  Income:WigwamLLC:Dividends          \$2011.1016 USD";
     ok @entry[29].posting[0].id.entry-id.xxhash == 1630761716;
@@ -1641,6 +1712,7 @@ subtest
     ok @entry[29].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[29].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[29].posting[1].decinc eqv DecInc::INC;
+    ok @entry[29].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[29].posting[1].id.entry-id.number eqv Array[UInt].new(0, 4, 1, 0);
     ok @entry[29].posting[1].id.entry-id.text eqv "2011-10-16 'Wigwam LLC received a dividend of \$2011.1016 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.1016 USD\n  Income:WigwamLLC:Dividends          \$2011.1016 USD";
     ok @entry[29].posting[1].id.entry-id.xxhash == 1630761716;
@@ -1662,6 +1734,7 @@ subtest
     ok @entry[30].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[30].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[30].posting[0].decinc eqv DecInc::INC;
+    ok @entry[30].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[30].posting[0].id.entry-id.number eqv Array[UInt].new(0, 4, 2);
     ok @entry[30].posting[0].id.entry-id.text eqv "2011-10-31 '''\nWigwam LLC sold one wigwam for \$1.10 USD in late October 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/October'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.10 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.10 USD";
     ok @entry[30].posting[0].id.entry-id.xxhash == 3547803812;
@@ -1676,6 +1749,7 @@ subtest
     ok @entry[30].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(11, 10), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[30].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[30].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[30].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[30].posting[1].id.entry-id.number eqv Array[UInt].new(0, 4, 2);
     ok @entry[30].posting[1].id.entry-id.text eqv "2011-10-31 '''\nWigwam LLC sold one wigwam for \$1.10 USD in late October 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/October'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.10 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.10 USD";
     ok @entry[30].posting[1].id.entry-id.xxhash == 3547803812;
@@ -1697,6 +1771,7 @@ subtest
     ok @entry[31].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(111, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[31].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[31].posting[0].decinc eqv DecInc::INC;
+    ok @entry[31].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[31].posting[0].id.entry-id.number eqv Array[UInt].new(0, 4, 3);
     ok @entry[31].posting[0].id.entry-id.text eqv "2011-11-01 '''\nWigwam LLC bought one wigwam for \$1.11 USD in early November 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/November'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.11 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.11 USD";
     ok @entry[31].posting[0].id.entry-id.xxhash == 3153707624;
@@ -1711,6 +1786,7 @@ subtest
     ok @entry[31].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[31].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[31].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[31].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[31].posting[1].id.entry-id.number eqv Array[UInt].new(0, 4, 3);
     ok @entry[31].posting[1].id.entry-id.text eqv "2011-11-01 '''\nWigwam LLC bought one wigwam for \$1.11 USD in early November 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/November'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.11 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.11 USD";
     ok @entry[31].posting[1].id.entry-id.xxhash == 3153707624;
@@ -1732,6 +1808,7 @@ subtest
     ok @entry[32].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[32].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[32].posting[0].decinc eqv DecInc::INC;
+    ok @entry[32].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[32].posting[0].id.entry-id.number eqv Array[UInt].new(0, 4, 4, 0);
     ok @entry[32].posting[0].id.entry-id.text eqv "2011-11-16 'Wigwam LLC received a dividend of \$2011.1116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.1116 USD\n  Income:WigwamLLC:Dividends          \$2011.1116 USD";
     ok @entry[32].posting[0].id.entry-id.xxhash == 784831183;
@@ -1746,6 +1823,7 @@ subtest
     ok @entry[32].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[32].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[32].posting[1].decinc eqv DecInc::INC;
+    ok @entry[32].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[32].posting[1].id.entry-id.number eqv Array[UInt].new(0, 4, 4, 0);
     ok @entry[32].posting[1].id.entry-id.text eqv "2011-11-16 'Wigwam LLC received a dividend of \$2011.1116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.1116 USD\n  Income:WigwamLLC:Dividends          \$2011.1116 USD";
     ok @entry[32].posting[1].id.entry-id.xxhash == 784831183;
@@ -1767,6 +1845,7 @@ subtest
     ok @entry[33].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[33].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[33].posting[0].decinc eqv DecInc::INC;
+    ok @entry[33].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[33].posting[0].id.entry-id.number eqv Array[UInt].new(0, 4, 5);
     ok @entry[33].posting[0].id.entry-id.text eqv "2011-11-30 '''\nWigwam LLC sold one wigwam for \$1.11 USD in late November 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/November'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.11 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.11 USD";
     ok @entry[33].posting[0].id.entry-id.xxhash == 3036041749;
@@ -1781,6 +1860,7 @@ subtest
     ok @entry[33].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(111, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[33].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[33].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[33].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[33].posting[1].id.entry-id.number eqv Array[UInt].new(0, 4, 5);
     ok @entry[33].posting[1].id.entry-id.text eqv "2011-11-30 '''\nWigwam LLC sold one wigwam for \$1.11 USD in late November 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/November'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.11 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.11 USD";
     ok @entry[33].posting[1].id.entry-id.xxhash == 3036041749;
@@ -1802,6 +1882,7 @@ subtest
     ok @entry[34].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(28, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[34].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[34].posting[0].decinc eqv DecInc::INC;
+    ok @entry[34].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[34].posting[0].id.entry-id.number eqv Array[UInt].new(0, 4, 6);
     ok @entry[34].posting[0].id.entry-id.text eqv "2011-12-01 '''\nWigwam LLC bought one wigwam for \$1.12 USD in early December 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/December'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.12 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.12 USD";
     ok @entry[34].posting[0].id.entry-id.xxhash == 3901453053;
@@ -1816,6 +1897,7 @@ subtest
     ok @entry[34].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[34].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[34].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[34].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[34].posting[1].id.entry-id.number eqv Array[UInt].new(0, 4, 6);
     ok @entry[34].posting[1].id.entry-id.text eqv "2011-12-01 '''\nWigwam LLC bought one wigwam for \$1.12 USD in early December 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/December'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.12 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.12 USD";
     ok @entry[34].posting[1].id.entry-id.xxhash == 3901453053;
@@ -1837,6 +1919,7 @@ subtest
     ok @entry[35].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[35].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[35].posting[0].decinc eqv DecInc::INC;
+    ok @entry[35].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[35].posting[0].id.entry-id.number eqv Array[UInt].new(0, 4, 7, 0);
     ok @entry[35].posting[0].id.entry-id.text eqv "2011-12-16 'Wigwam LLC received a dividend of \$2011.1216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.1216 USD\n  Income:WigwamLLC:Dividends          \$2011.1216 USD";
     ok @entry[35].posting[0].id.entry-id.xxhash == 2743061682;
@@ -1851,6 +1934,7 @@ subtest
     ok @entry[35].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[35].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[35].posting[1].decinc eqv DecInc::INC;
+    ok @entry[35].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[35].posting[1].id.entry-id.number eqv Array[UInt].new(0, 4, 7, 0);
     ok @entry[35].posting[1].id.entry-id.text eqv "2011-12-16 'Wigwam LLC received a dividend of \$2011.1216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.1216 USD\n  Income:WigwamLLC:Dividends          \$2011.1216 USD";
     ok @entry[35].posting[1].id.entry-id.xxhash == 2743061682;
@@ -1872,6 +1956,7 @@ subtest
     ok @entry[36].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[36].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[36].posting[0].decinc eqv DecInc::INC;
+    ok @entry[36].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[36].posting[0].id.entry-id.number eqv Array[UInt].new(0, 4, 8);
     ok @entry[36].posting[0].id.entry-id.text eqv "2011-12-31 '''\nWigwam LLC sold one wigwam for \$1.12 USD in late December 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/December'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.12 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.12 USD";
     ok @entry[36].posting[0].id.entry-id.xxhash == 3355735851;
@@ -1886,6 +1971,7 @@ subtest
     ok @entry[36].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(28, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[36].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[36].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[36].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[36].posting[1].id.entry-id.number eqv Array[UInt].new(0, 4, 8);
     ok @entry[36].posting[1].id.entry-id.text eqv "2011-12-31 '''\nWigwam LLC sold one wigwam for \$1.12 USD in late December 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/December'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.12 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.12 USD";
     ok @entry[36].posting[1].id.entry-id.xxhash == 3355735851;
@@ -1907,6 +1993,7 @@ subtest
     ok @entry[37].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[37].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[37].posting[0].decinc eqv DecInc::INC;
+    ok @entry[37].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[37].posting[0].id.entry-id.number eqv Array[UInt].new(1, 0);
     ok @entry[37].posting[0].id.entry-id.text eqv "2012-01-01 \"FooCorp started the year with \$1000 in Bankwest cheque account\"\n  Assets:FooCorp:Bankwest:Cheque      \$1000.00 USD\n  Equity:FooCorp                      \$1000.00 USD";
     ok @entry[37].posting[0].id.entry-id.xxhash == 581231782;
@@ -1921,6 +2008,7 @@ subtest
     ok @entry[37].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[37].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[37].posting[1].decinc eqv DecInc::INC;
+    ok @entry[37].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[37].posting[1].id.entry-id.number eqv Array[UInt].new(1, 0);
     ok @entry[37].posting[1].id.entry-id.text eqv "2012-01-01 \"FooCorp started the year with \$1000 in Bankwest cheque account\"\n  Assets:FooCorp:Bankwest:Cheque      \$1000.00 USD\n  Equity:FooCorp                      \$1000.00 USD";
     ok @entry[37].posting[1].id.entry-id.xxhash == 581231782;
@@ -1942,6 +2030,7 @@ subtest
     ok @entry[38].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(201, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[38].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[38].posting[0].decinc eqv DecInc::INC;
+    ok @entry[38].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[38].posting[0].id.entry-id.number eqv Array[UInt].new(1, 1, 0);
     ok @entry[38].posting[0].id.entry-id.text eqv "2012-01-01 '''\nWigwam LLC bought one wigwam for \$2.01 USD in early January 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/January'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.01 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.01 USD";
     ok @entry[38].posting[0].id.entry-id.xxhash == 2118065854;
@@ -1956,6 +2045,7 @@ subtest
     ok @entry[38].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[38].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[38].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[38].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[38].posting[1].id.entry-id.number eqv Array[UInt].new(1, 1, 0);
     ok @entry[38].posting[1].id.entry-id.text eqv "2012-01-01 '''\nWigwam LLC bought one wigwam for \$2.01 USD in early January 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/January'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.01 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.01 USD";
     ok @entry[38].posting[1].id.entry-id.xxhash == 2118065854;
@@ -1977,6 +2067,7 @@ subtest
     ok @entry[39].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[39].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[39].posting[0].decinc eqv DecInc::INC;
+    ok @entry[39].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[39].posting[0].id.entry-id.number eqv Array[UInt].new(1, 1, 1, 0);
     ok @entry[39].posting[0].id.entry-id.text eqv "2012-01-16 'Wigwam LLC received a dividend of \$2012.0116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0116 USD\n  Income:WigwamLLC:Dividends          \$2012.0116 USD";
     ok @entry[39].posting[0].id.entry-id.xxhash == 822843219;
@@ -1991,6 +2082,7 @@ subtest
     ok @entry[39].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[39].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[39].posting[1].decinc eqv DecInc::INC;
+    ok @entry[39].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[39].posting[1].id.entry-id.number eqv Array[UInt].new(1, 1, 1, 0);
     ok @entry[39].posting[1].id.entry-id.text eqv "2012-01-16 'Wigwam LLC received a dividend of \$2012.0116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0116 USD\n  Income:WigwamLLC:Dividends          \$2012.0116 USD";
     ok @entry[39].posting[1].id.entry-id.xxhash == 822843219;
@@ -2012,6 +2104,7 @@ subtest
     ok @entry[40].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[40].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[40].posting[0].decinc eqv DecInc::INC;
+    ok @entry[40].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[40].posting[0].id.entry-id.number eqv Array[UInt].new(1, 1, 2);
     ok @entry[40].posting[0].id.entry-id.text eqv "2012-01-31 '''\nWigwam LLC sold one wigwam for \$2.01 USD in late January 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/January'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.01 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.01 USD";
     ok @entry[40].posting[0].id.entry-id.xxhash == 1801463403;
@@ -2026,6 +2119,7 @@ subtest
     ok @entry[40].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(201, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[40].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[40].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[40].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[40].posting[1].id.entry-id.number eqv Array[UInt].new(1, 1, 2);
     ok @entry[40].posting[1].id.entry-id.text eqv "2012-01-31 '''\nWigwam LLC sold one wigwam for \$2.01 USD in late January 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/January'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.01 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.01 USD";
     ok @entry[40].posting[1].id.entry-id.xxhash == 1801463403;
@@ -2047,6 +2141,7 @@ subtest
     ok @entry[41].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[41].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[41].posting[0].decinc eqv DecInc::INC;
+    ok @entry[41].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[41].posting[0].id.entry-id.number eqv Array[UInt].new(1, 1, 3);
     ok @entry[41].posting[0].id.entry-id.text eqv "2012-02-01 '''\nWigwam LLC bought one wigwam for \$2.02 USD in early February 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/February'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.02 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.02 USD";
     ok @entry[41].posting[0].id.entry-id.xxhash == 1339543688;
@@ -2061,6 +2156,7 @@ subtest
     ok @entry[41].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[41].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[41].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[41].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[41].posting[1].id.entry-id.number eqv Array[UInt].new(1, 1, 3);
     ok @entry[41].posting[1].id.entry-id.text eqv "2012-02-01 '''\nWigwam LLC bought one wigwam for \$2.02 USD in early February 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/February'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.02 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.02 USD";
     ok @entry[41].posting[1].id.entry-id.xxhash == 1339543688;
@@ -2082,6 +2178,7 @@ subtest
     ok @entry[42].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[42].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[42].posting[0].decinc eqv DecInc::INC;
+    ok @entry[42].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[42].posting[0].id.entry-id.number eqv Array[UInt].new(1, 1, 4, 0);
     ok @entry[42].posting[0].id.entry-id.text eqv "2012-02-16 'Wigwam LLC received a dividend of \$2012.0216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0216 USD\n  Income:WigwamLLC:Dividends          \$2012.0216 USD";
     ok @entry[42].posting[0].id.entry-id.xxhash == 230490045;
@@ -2096,6 +2193,7 @@ subtest
     ok @entry[42].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[42].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[42].posting[1].decinc eqv DecInc::INC;
+    ok @entry[42].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[42].posting[1].id.entry-id.number eqv Array[UInt].new(1, 1, 4, 0);
     ok @entry[42].posting[1].id.entry-id.text eqv "2012-02-16 'Wigwam LLC received a dividend of \$2012.0216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0216 USD\n  Income:WigwamLLC:Dividends          \$2012.0216 USD";
     ok @entry[42].posting[1].id.entry-id.xxhash == 230490045;
@@ -2117,6 +2215,7 @@ subtest
     ok @entry[43].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[43].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[43].posting[0].decinc eqv DecInc::INC;
+    ok @entry[43].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[43].posting[0].id.entry-id.number eqv Array[UInt].new(1, 1, 5);
     ok @entry[43].posting[0].id.entry-id.text eqv "2012-02-29 '''\nWigwam LLC sold one wigwam for \$2.02 USD in late February 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/February'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.02 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.02 USD";
     ok @entry[43].posting[0].id.entry-id.xxhash == 2961867692;
@@ -2131,6 +2230,7 @@ subtest
     ok @entry[43].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[43].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[43].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[43].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[43].posting[1].id.entry-id.number eqv Array[UInt].new(1, 1, 5);
     ok @entry[43].posting[1].id.entry-id.text eqv "2012-02-29 '''\nWigwam LLC sold one wigwam for \$2.02 USD in late February 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/February'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.02 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.02 USD";
     ok @entry[43].posting[1].id.entry-id.xxhash == 2961867692;
@@ -2152,6 +2252,7 @@ subtest
     ok @entry[44].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(203, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[44].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[44].posting[0].decinc eqv DecInc::INC;
+    ok @entry[44].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[44].posting[0].id.entry-id.number eqv Array[UInt].new(1, 1, 6);
     ok @entry[44].posting[0].id.entry-id.text eqv "2012-03-01 '''\nWigwam LLC bought one wigwam for \$2.03 USD in early March 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/March'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.03 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.03 USD";
     ok @entry[44].posting[0].id.entry-id.xxhash == 462880268;
@@ -2166,6 +2267,7 @@ subtest
     ok @entry[44].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[44].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[44].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[44].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[44].posting[1].id.entry-id.number eqv Array[UInt].new(1, 1, 6);
     ok @entry[44].posting[1].id.entry-id.text eqv "2012-03-01 '''\nWigwam LLC bought one wigwam for \$2.03 USD in early March 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/March'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.03 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.03 USD";
     ok @entry[44].posting[1].id.entry-id.xxhash == 462880268;
@@ -2187,6 +2289,7 @@ subtest
     ok @entry[45].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[45].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[45].posting[0].decinc eqv DecInc::INC;
+    ok @entry[45].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[45].posting[0].id.entry-id.number eqv Array[UInt].new(1, 1, 7, 0);
     ok @entry[45].posting[0].id.entry-id.text eqv "2012-03-16 'Wigwam LLC received a dividend of \$2012.0316 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0316 USD\n  Income:WigwamLLC:Dividends          \$2012.0316 USD";
     ok @entry[45].posting[0].id.entry-id.xxhash == 1496080492;
@@ -2201,6 +2304,7 @@ subtest
     ok @entry[45].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[45].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[45].posting[1].decinc eqv DecInc::INC;
+    ok @entry[45].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[45].posting[1].id.entry-id.number eqv Array[UInt].new(1, 1, 7, 0);
     ok @entry[45].posting[1].id.entry-id.text eqv "2012-03-16 'Wigwam LLC received a dividend of \$2012.0316 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0316 USD\n  Income:WigwamLLC:Dividends          \$2012.0316 USD";
     ok @entry[45].posting[1].id.entry-id.xxhash == 1496080492;
@@ -2222,6 +2326,7 @@ subtest
     ok @entry[46].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[46].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[46].posting[0].decinc eqv DecInc::INC;
+    ok @entry[46].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[46].posting[0].id.entry-id.number eqv Array[UInt].new(1, 1, 8);
     ok @entry[46].posting[0].id.entry-id.text eqv "2012-03-31 '''\nWigwam LLC sold one wigwam for \$2.03 USD in late March 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/March'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.03 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.03 USD";
     ok @entry[46].posting[0].id.entry-id.xxhash == 1725880199;
@@ -2236,6 +2341,7 @@ subtest
     ok @entry[46].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(203, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[46].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[46].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[46].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[46].posting[1].id.entry-id.number eqv Array[UInt].new(1, 1, 8);
     ok @entry[46].posting[1].id.entry-id.text eqv "2012-03-31 '''\nWigwam LLC sold one wigwam for \$2.03 USD in late March 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/March'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.03 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.03 USD";
     ok @entry[46].posting[1].id.entry-id.xxhash == 1725880199;
@@ -2257,6 +2363,7 @@ subtest
     ok @entry[47].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[47].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[47].posting[0].decinc eqv DecInc::INC;
+    ok @entry[47].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[47].posting[0].id.entry-id.number eqv Array[UInt].new(1, 2, 0);
     ok @entry[47].posting[0].id.entry-id.text eqv "2012-04-01 '''\nWigwam LLC bought one wigwam for \$2.04 USD in early April 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/April'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.04 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.04 USD";
     ok @entry[47].posting[0].id.entry-id.xxhash == 4013949028;
@@ -2271,6 +2378,7 @@ subtest
     ok @entry[47].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[47].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[47].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[47].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[47].posting[1].id.entry-id.number eqv Array[UInt].new(1, 2, 0);
     ok @entry[47].posting[1].id.entry-id.text eqv "2012-04-01 '''\nWigwam LLC bought one wigwam for \$2.04 USD in early April 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/April'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.04 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.04 USD";
     ok @entry[47].posting[1].id.entry-id.xxhash == 4013949028;
@@ -2292,6 +2400,7 @@ subtest
     ok @entry[48].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[48].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[48].posting[0].decinc eqv DecInc::INC;
+    ok @entry[48].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[48].posting[0].id.entry-id.number eqv Array[UInt].new(1, 2, 1, 0);
     ok @entry[48].posting[0].id.entry-id.text eqv "2012-04-16 'Wigwam LLC received a dividend of \$2012.0416 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0416 USD\n  Income:WigwamLLC:Dividends          \$2012.0416 USD";
     ok @entry[48].posting[0].id.entry-id.xxhash == 2366118516;
@@ -2306,6 +2415,7 @@ subtest
     ok @entry[48].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[48].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[48].posting[1].decinc eqv DecInc::INC;
+    ok @entry[48].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[48].posting[1].id.entry-id.number eqv Array[UInt].new(1, 2, 1, 0);
     ok @entry[48].posting[1].id.entry-id.text eqv "2012-04-16 'Wigwam LLC received a dividend of \$2012.0416 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0416 USD\n  Income:WigwamLLC:Dividends          \$2012.0416 USD";
     ok @entry[48].posting[1].id.entry-id.xxhash == 2366118516;
@@ -2327,6 +2437,7 @@ subtest
     ok @entry[49].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[49].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[49].posting[0].decinc eqv DecInc::INC;
+    ok @entry[49].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[49].posting[0].id.entry-id.number eqv Array[UInt].new(1, 2, 2);
     ok @entry[49].posting[0].id.entry-id.text eqv "2012-04-30 '''\nWigwam LLC sold one wigwam for \$2.04 USD in late April 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/April'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.04 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.04 USD";
     ok @entry[49].posting[0].id.entry-id.xxhash == 534726936;
@@ -2341,6 +2452,7 @@ subtest
     ok @entry[49].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[49].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[49].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[49].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[49].posting[1].id.entry-id.number eqv Array[UInt].new(1, 2, 2);
     ok @entry[49].posting[1].id.entry-id.text eqv "2012-04-30 '''\nWigwam LLC sold one wigwam for \$2.04 USD in late April 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/April'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.04 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.04 USD";
     ok @entry[49].posting[1].id.entry-id.xxhash == 534726936;
@@ -2362,6 +2474,7 @@ subtest
     ok @entry[50].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(41, 20), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[50].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[50].posting[0].decinc eqv DecInc::INC;
+    ok @entry[50].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[50].posting[0].id.entry-id.number eqv Array[UInt].new(1, 2, 3);
     ok @entry[50].posting[0].id.entry-id.text eqv "2012-05-01 '''\nWigwam LLC bought one wigwam for \$2.05 USD in early May 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/May'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.05 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.05 USD";
     ok @entry[50].posting[0].id.entry-id.xxhash == 3245023882;
@@ -2376,6 +2489,7 @@ subtest
     ok @entry[50].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[50].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[50].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[50].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[50].posting[1].id.entry-id.number eqv Array[UInt].new(1, 2, 3);
     ok @entry[50].posting[1].id.entry-id.text eqv "2012-05-01 '''\nWigwam LLC bought one wigwam for \$2.05 USD in early May 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/May'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.05 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.05 USD";
     ok @entry[50].posting[1].id.entry-id.xxhash == 3245023882;
@@ -2397,6 +2511,7 @@ subtest
     ok @entry[51].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[51].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[51].posting[0].decinc eqv DecInc::INC;
+    ok @entry[51].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[51].posting[0].id.entry-id.number eqv Array[UInt].new(1, 2, 4, 0);
     ok @entry[51].posting[0].id.entry-id.text eqv "2012-05-16 'Wigwam LLC received a dividend of \$2012.0516 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0516 USD\n  Income:WigwamLLC:Dividends          \$2012.0516 USD";
     ok @entry[51].posting[0].id.entry-id.xxhash == 2131847179;
@@ -2411,6 +2526,7 @@ subtest
     ok @entry[51].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[51].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[51].posting[1].decinc eqv DecInc::INC;
+    ok @entry[51].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[51].posting[1].id.entry-id.number eqv Array[UInt].new(1, 2, 4, 0);
     ok @entry[51].posting[1].id.entry-id.text eqv "2012-05-16 'Wigwam LLC received a dividend of \$2012.0516 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0516 USD\n  Income:WigwamLLC:Dividends          \$2012.0516 USD";
     ok @entry[51].posting[1].id.entry-id.xxhash == 2131847179;
@@ -2432,6 +2548,7 @@ subtest
     ok @entry[52].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[52].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[52].posting[0].decinc eqv DecInc::INC;
+    ok @entry[52].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[52].posting[0].id.entry-id.number eqv Array[UInt].new(1, 2, 5);
     ok @entry[52].posting[0].id.entry-id.text eqv "2012-05-31 '''\nWigwam LLC sold one wigwam for \$2.05 USD in late May 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/May'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.05 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.05 USD";
     ok @entry[52].posting[0].id.entry-id.xxhash == 3774317231;
@@ -2446,6 +2563,7 @@ subtest
     ok @entry[52].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(41, 20), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[52].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[52].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[52].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[52].posting[1].id.entry-id.number eqv Array[UInt].new(1, 2, 5);
     ok @entry[52].posting[1].id.entry-id.text eqv "2012-05-31 '''\nWigwam LLC sold one wigwam for \$2.05 USD in late May 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/May'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.05 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.05 USD";
     ok @entry[52].posting[1].id.entry-id.xxhash == 3774317231;
@@ -2467,6 +2585,7 @@ subtest
     ok @entry[53].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[53].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[53].posting[0].decinc eqv DecInc::INC;
+    ok @entry[53].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[53].posting[0].id.entry-id.number eqv Array[UInt].new(1, 2, 6);
     ok @entry[53].posting[0].id.entry-id.text eqv "2012-06-01 '''\nWigwam LLC bought one wigwam for \$2.06 USD in early June 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/June'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.06 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.06 USD";
     ok @entry[53].posting[0].id.entry-id.xxhash == 1722267067;
@@ -2481,6 +2600,7 @@ subtest
     ok @entry[53].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[53].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[53].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[53].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[53].posting[1].id.entry-id.number eqv Array[UInt].new(1, 2, 6);
     ok @entry[53].posting[1].id.entry-id.text eqv "2012-06-01 '''\nWigwam LLC bought one wigwam for \$2.06 USD in early June 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/June'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.06 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.06 USD";
     ok @entry[53].posting[1].id.entry-id.xxhash == 1722267067;
@@ -2502,6 +2622,7 @@ subtest
     ok @entry[54].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[54].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[54].posting[0].decinc eqv DecInc::INC;
+    ok @entry[54].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[54].posting[0].id.entry-id.number eqv Array[UInt].new(1, 2, 7, 0);
     ok @entry[54].posting[0].id.entry-id.text eqv "2012-06-16 'Wigwam LLC received a dividend of \$2012.0616 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0616 USD\n  Income:WigwamLLC:Dividends          \$2012.0616 USD";
     ok @entry[54].posting[0].id.entry-id.xxhash == 3942872006;
@@ -2516,6 +2637,7 @@ subtest
     ok @entry[54].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[54].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[54].posting[1].decinc eqv DecInc::INC;
+    ok @entry[54].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[54].posting[1].id.entry-id.number eqv Array[UInt].new(1, 2, 7, 0);
     ok @entry[54].posting[1].id.entry-id.text eqv "2012-06-16 'Wigwam LLC received a dividend of \$2012.0616 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0616 USD\n  Income:WigwamLLC:Dividends          \$2012.0616 USD";
     ok @entry[54].posting[1].id.entry-id.xxhash == 3942872006;
@@ -2537,6 +2659,7 @@ subtest
     ok @entry[55].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[55].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[55].posting[0].decinc eqv DecInc::INC;
+    ok @entry[55].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[55].posting[0].id.entry-id.number eqv Array[UInt].new(1, 2, 8);
     ok @entry[55].posting[0].id.entry-id.text eqv "2012-06-30 '''\nWigwam LLC sold one wigwam for \$2.06 USD in late June 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/June'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.06 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.06 USD";
     ok @entry[55].posting[0].id.entry-id.xxhash == 4168296451;
@@ -2551,6 +2674,7 @@ subtest
     ok @entry[55].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[55].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[55].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[55].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[55].posting[1].id.entry-id.number eqv Array[UInt].new(1, 2, 8);
     ok @entry[55].posting[1].id.entry-id.text eqv "2012-06-30 '''\nWigwam LLC sold one wigwam for \$2.06 USD in late June 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/June'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.06 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.06 USD";
     ok @entry[55].posting[1].id.entry-id.xxhash == 4168296451;
@@ -2572,6 +2696,7 @@ subtest
     ok @entry[56].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(207, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[56].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[56].posting[0].decinc eqv DecInc::INC;
+    ok @entry[56].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[56].posting[0].id.entry-id.number eqv Array[UInt].new(1, 3, 0);
     ok @entry[56].posting[0].id.entry-id.text eqv "2012-07-01 '''\nWigwam LLC bought one wigwam for \$2.07 USD in early July 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/July'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.07 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.07 USD";
     ok @entry[56].posting[0].id.entry-id.xxhash == 220833898;
@@ -2586,6 +2711,7 @@ subtest
     ok @entry[56].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[56].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[56].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[56].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[56].posting[1].id.entry-id.number eqv Array[UInt].new(1, 3, 0);
     ok @entry[56].posting[1].id.entry-id.text eqv "2012-07-01 '''\nWigwam LLC bought one wigwam for \$2.07 USD in early July 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/July'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.07 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.07 USD";
     ok @entry[56].posting[1].id.entry-id.xxhash == 220833898;
@@ -2607,6 +2733,7 @@ subtest
     ok @entry[57].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[57].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[57].posting[0].decinc eqv DecInc::INC;
+    ok @entry[57].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[57].posting[0].id.entry-id.number eqv Array[UInt].new(1, 3, 1, 0);
     ok @entry[57].posting[0].id.entry-id.text eqv "2012-07-16 'Wigwam LLC received a dividend of \$2012.0716 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0716 USD\n  Income:WigwamLLC:Dividends          \$2012.0716 USD";
     ok @entry[57].posting[0].id.entry-id.xxhash == 2173105363;
@@ -2621,6 +2748,7 @@ subtest
     ok @entry[57].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[57].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[57].posting[1].decinc eqv DecInc::INC;
+    ok @entry[57].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[57].posting[1].id.entry-id.number eqv Array[UInt].new(1, 3, 1, 0);
     ok @entry[57].posting[1].id.entry-id.text eqv "2012-07-16 'Wigwam LLC received a dividend of \$2012.0716 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0716 USD\n  Income:WigwamLLC:Dividends          \$2012.0716 USD";
     ok @entry[57].posting[1].id.entry-id.xxhash == 2173105363;
@@ -2642,6 +2770,7 @@ subtest
     ok @entry[58].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[58].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[58].posting[0].decinc eqv DecInc::INC;
+    ok @entry[58].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[58].posting[0].id.entry-id.number eqv Array[UInt].new(1, 3, 2);
     ok @entry[58].posting[0].id.entry-id.text eqv "2012-07-31 '''\nWigwam LLC sold one wigwam for \$2.07 USD in late July 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/July'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.07 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.07 USD";
     ok @entry[58].posting[0].id.entry-id.xxhash == 2998128583;
@@ -2656,6 +2785,7 @@ subtest
     ok @entry[58].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(207, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[58].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[58].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[58].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[58].posting[1].id.entry-id.number eqv Array[UInt].new(1, 3, 2);
     ok @entry[58].posting[1].id.entry-id.text eqv "2012-07-31 '''\nWigwam LLC sold one wigwam for \$2.07 USD in late July 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/July'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.07 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.07 USD";
     ok @entry[58].posting[1].id.entry-id.xxhash == 2998128583;
@@ -2677,6 +2807,7 @@ subtest
     ok @entry[59].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(52, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[59].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[59].posting[0].decinc eqv DecInc::INC;
+    ok @entry[59].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[59].posting[0].id.entry-id.number eqv Array[UInt].new(1, 3, 3);
     ok @entry[59].posting[0].id.entry-id.text eqv "2012-08-01 '''\nWigwam LLC bought one wigwam for \$2.08 USD in early August 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/August'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.08 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.08 USD";
     ok @entry[59].posting[0].id.entry-id.xxhash == 752691327;
@@ -2691,6 +2822,7 @@ subtest
     ok @entry[59].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[59].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[59].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[59].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[59].posting[1].id.entry-id.number eqv Array[UInt].new(1, 3, 3);
     ok @entry[59].posting[1].id.entry-id.text eqv "2012-08-01 '''\nWigwam LLC bought one wigwam for \$2.08 USD in early August 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/August'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.08 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.08 USD";
     ok @entry[59].posting[1].id.entry-id.xxhash == 752691327;
@@ -2712,6 +2844,7 @@ subtest
     ok @entry[60].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[60].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[60].posting[0].decinc eqv DecInc::INC;
+    ok @entry[60].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[60].posting[0].id.entry-id.number eqv Array[UInt].new(1, 3, 4, 0);
     ok @entry[60].posting[0].id.entry-id.text eqv "2012-08-16 'Wigwam LLC received a dividend of \$2012.0816 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0816 USD\n  Income:WigwamLLC:Dividends          \$2012.0816 USD";
     ok @entry[60].posting[0].id.entry-id.xxhash == 1870601986;
@@ -2726,6 +2859,7 @@ subtest
     ok @entry[60].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[60].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[60].posting[1].decinc eqv DecInc::INC;
+    ok @entry[60].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[60].posting[1].id.entry-id.number eqv Array[UInt].new(1, 3, 4, 0);
     ok @entry[60].posting[1].id.entry-id.text eqv "2012-08-16 'Wigwam LLC received a dividend of \$2012.0816 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0816 USD\n  Income:WigwamLLC:Dividends          \$2012.0816 USD";
     ok @entry[60].posting[1].id.entry-id.xxhash == 1870601986;
@@ -2747,6 +2881,7 @@ subtest
     ok @entry[61].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[61].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[61].posting[0].decinc eqv DecInc::INC;
+    ok @entry[61].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[61].posting[0].id.entry-id.number eqv Array[UInt].new(1, 3, 5);
     ok @entry[61].posting[0].id.entry-id.text eqv "2012-08-31 '''\nWigwam LLC sold one wigwam for \$2.08 USD in late August 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/August'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.08 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.08 USD";
     ok @entry[61].posting[0].id.entry-id.xxhash == 3036777254;
@@ -2761,6 +2896,7 @@ subtest
     ok @entry[61].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(52, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[61].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[61].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[61].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[61].posting[1].id.entry-id.number eqv Array[UInt].new(1, 3, 5);
     ok @entry[61].posting[1].id.entry-id.text eqv "2012-08-31 '''\nWigwam LLC sold one wigwam for \$2.08 USD in late August 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/August'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.08 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.08 USD";
     ok @entry[61].posting[1].id.entry-id.xxhash == 3036777254;
@@ -2782,6 +2918,7 @@ subtest
     ok @entry[62].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(209, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[62].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[62].posting[0].decinc eqv DecInc::INC;
+    ok @entry[62].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[62].posting[0].id.entry-id.number eqv Array[UInt].new(1, 3, 6);
     ok @entry[62].posting[0].id.entry-id.text eqv "2012-09-01 '''\nWigwam LLC bought one wigwam for \$2.09 USD in early September 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/September'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.09 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.09 USD";
     ok @entry[62].posting[0].id.entry-id.xxhash == 3451152685;
@@ -2796,6 +2933,7 @@ subtest
     ok @entry[62].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[62].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[62].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[62].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[62].posting[1].id.entry-id.number eqv Array[UInt].new(1, 3, 6);
     ok @entry[62].posting[1].id.entry-id.text eqv "2012-09-01 '''\nWigwam LLC bought one wigwam for \$2.09 USD in early September 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/September'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.09 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.09 USD";
     ok @entry[62].posting[1].id.entry-id.xxhash == 3451152685;
@@ -2817,6 +2955,7 @@ subtest
     ok @entry[63].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[63].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[63].posting[0].decinc eqv DecInc::INC;
+    ok @entry[63].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[63].posting[0].id.entry-id.number eqv Array[UInt].new(1, 3, 7, 0);
     ok @entry[63].posting[0].id.entry-id.text eqv "2012-09-16 'Wigwam LLC received a dividend of \$2012.0916 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0916 USD\n  Income:WigwamLLC:Dividends          \$2012.0916 USD";
     ok @entry[63].posting[0].id.entry-id.xxhash == 3511177135;
@@ -2831,6 +2970,7 @@ subtest
     ok @entry[63].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[63].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[63].posting[1].decinc eqv DecInc::INC;
+    ok @entry[63].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[63].posting[1].id.entry-id.number eqv Array[UInt].new(1, 3, 7, 0);
     ok @entry[63].posting[1].id.entry-id.text eqv "2012-09-16 'Wigwam LLC received a dividend of \$2012.0916 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0916 USD\n  Income:WigwamLLC:Dividends          \$2012.0916 USD";
     ok @entry[63].posting[1].id.entry-id.xxhash == 3511177135;
@@ -2852,6 +2992,7 @@ subtest
     ok @entry[64].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[64].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[64].posting[0].decinc eqv DecInc::INC;
+    ok @entry[64].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[64].posting[0].id.entry-id.number eqv Array[UInt].new(1, 3, 8);
     ok @entry[64].posting[0].id.entry-id.text eqv "2012-09-30 '''\nWigwam LLC sold one wigwam for \$2.09 USD in late September 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/September'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.09 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.09 USD";
     ok @entry[64].posting[0].id.entry-id.xxhash == 1903824288;
@@ -2866,6 +3007,7 @@ subtest
     ok @entry[64].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(209, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[64].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[64].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[64].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[64].posting[1].id.entry-id.number eqv Array[UInt].new(1, 3, 8);
     ok @entry[64].posting[1].id.entry-id.text eqv "2012-09-30 '''\nWigwam LLC sold one wigwam for \$2.09 USD in late September 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/September'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.09 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.09 USD";
     ok @entry[64].posting[1].id.entry-id.xxhash == 1903824288;
@@ -2887,6 +3029,7 @@ subtest
     ok @entry[65].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 10), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[65].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[65].posting[0].decinc eqv DecInc::INC;
+    ok @entry[65].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[65].posting[0].id.entry-id.number eqv Array[UInt].new(1, 4, 0);
     ok @entry[65].posting[0].id.entry-id.text eqv "2012-10-01 '''\nWigwam LLC bought one wigwam for \$2.10 USD in early October 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/October'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.10 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.10 USD";
     ok @entry[65].posting[0].id.entry-id.xxhash == 3197209626;
@@ -2901,6 +3044,7 @@ subtest
     ok @entry[65].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[65].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[65].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[65].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[65].posting[1].id.entry-id.number eqv Array[UInt].new(1, 4, 0);
     ok @entry[65].posting[1].id.entry-id.text eqv "2012-10-01 '''\nWigwam LLC bought one wigwam for \$2.10 USD in early October 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/October'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.10 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.10 USD";
     ok @entry[65].posting[1].id.entry-id.xxhash == 3197209626;
@@ -2922,6 +3066,7 @@ subtest
     ok @entry[66].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[66].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[66].posting[0].decinc eqv DecInc::INC;
+    ok @entry[66].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[66].posting[0].id.entry-id.number eqv Array[UInt].new(1, 4, 1, 0);
     ok @entry[66].posting[0].id.entry-id.text eqv "2012-10-16 'Wigwam LLC received a dividend of \$2012.1016 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.1016 USD\n  Income:WigwamLLC:Dividends          \$2012.1016 USD";
     ok @entry[66].posting[0].id.entry-id.xxhash == 518309921;
@@ -2936,6 +3081,7 @@ subtest
     ok @entry[66].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[66].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[66].posting[1].decinc eqv DecInc::INC;
+    ok @entry[66].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[66].posting[1].id.entry-id.number eqv Array[UInt].new(1, 4, 1, 0);
     ok @entry[66].posting[1].id.entry-id.text eqv "2012-10-16 'Wigwam LLC received a dividend of \$2012.1016 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.1016 USD\n  Income:WigwamLLC:Dividends          \$2012.1016 USD";
     ok @entry[66].posting[1].id.entry-id.xxhash == 518309921;
@@ -2957,6 +3103,7 @@ subtest
     ok @entry[67].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[67].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[67].posting[0].decinc eqv DecInc::INC;
+    ok @entry[67].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[67].posting[0].id.entry-id.number eqv Array[UInt].new(1, 4, 2);
     ok @entry[67].posting[0].id.entry-id.text eqv "2012-10-31 '''\nWigwam LLC sold one wigwam for \$2.10 USD in late October 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/October'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.10 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.10 USD";
     ok @entry[67].posting[0].id.entry-id.xxhash == 2477064034;
@@ -2971,6 +3118,7 @@ subtest
     ok @entry[67].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 10), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[67].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[67].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[67].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[67].posting[1].id.entry-id.number eqv Array[UInt].new(1, 4, 2);
     ok @entry[67].posting[1].id.entry-id.text eqv "2012-10-31 '''\nWigwam LLC sold one wigwam for \$2.10 USD in late October 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/October'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.10 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.10 USD";
     ok @entry[67].posting[1].id.entry-id.xxhash == 2477064034;
@@ -2992,6 +3140,7 @@ subtest
     ok @entry[68].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(211, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[68].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[68].posting[0].decinc eqv DecInc::INC;
+    ok @entry[68].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[68].posting[0].id.entry-id.number eqv Array[UInt].new(1, 4, 3);
     ok @entry[68].posting[0].id.entry-id.text eqv "2012-11-01 '''\nWigwam LLC bought one wigwam for \$2.11 USD in early November 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/November'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.11 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.11 USD";
     ok @entry[68].posting[0].id.entry-id.xxhash == 729373328;
@@ -3006,6 +3155,7 @@ subtest
     ok @entry[68].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[68].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[68].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[68].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[68].posting[1].id.entry-id.number eqv Array[UInt].new(1, 4, 3);
     ok @entry[68].posting[1].id.entry-id.text eqv "2012-11-01 '''\nWigwam LLC bought one wigwam for \$2.11 USD in early November 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/November'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.11 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.11 USD";
     ok @entry[68].posting[1].id.entry-id.xxhash == 729373328;
@@ -3027,6 +3177,7 @@ subtest
     ok @entry[69].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[69].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[69].posting[0].decinc eqv DecInc::INC;
+    ok @entry[69].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[69].posting[0].id.entry-id.number eqv Array[UInt].new(1, 4, 4, 0);
     ok @entry[69].posting[0].id.entry-id.text eqv "2012-11-16 'Wigwam LLC received a dividend of \$2012.1116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.1116 USD\n  Income:WigwamLLC:Dividends          \$2012.1116 USD";
     ok @entry[69].posting[0].id.entry-id.xxhash == 2908538066;
@@ -3041,6 +3192,7 @@ subtest
     ok @entry[69].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[69].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[69].posting[1].decinc eqv DecInc::INC;
+    ok @entry[69].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[69].posting[1].id.entry-id.number eqv Array[UInt].new(1, 4, 4, 0);
     ok @entry[69].posting[1].id.entry-id.text eqv "2012-11-16 'Wigwam LLC received a dividend of \$2012.1116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.1116 USD\n  Income:WigwamLLC:Dividends          \$2012.1116 USD";
     ok @entry[69].posting[1].id.entry-id.xxhash == 2908538066;
@@ -3062,6 +3214,7 @@ subtest
     ok @entry[70].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[70].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[70].posting[0].decinc eqv DecInc::INC;
+    ok @entry[70].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[70].posting[0].id.entry-id.number eqv Array[UInt].new(1, 4, 5);
     ok @entry[70].posting[0].id.entry-id.text eqv "2012-11-30 '''\nWigwam LLC sold one wigwam for \$2.11 USD in late November 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/November'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.11 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.11 USD";
     ok @entry[70].posting[0].id.entry-id.xxhash == 228106705;
@@ -3076,6 +3229,7 @@ subtest
     ok @entry[70].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(211, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[70].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[70].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[70].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[70].posting[1].id.entry-id.number eqv Array[UInt].new(1, 4, 5);
     ok @entry[70].posting[1].id.entry-id.text eqv "2012-11-30 '''\nWigwam LLC sold one wigwam for \$2.11 USD in late November 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/November'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.11 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.11 USD";
     ok @entry[70].posting[1].id.entry-id.xxhash == 228106705;
@@ -3097,6 +3251,7 @@ subtest
     ok @entry[71].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[71].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[71].posting[0].decinc eqv DecInc::INC;
+    ok @entry[71].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[71].posting[0].id.entry-id.number eqv Array[UInt].new(1, 4, 6);
     ok @entry[71].posting[0].id.entry-id.text eqv "2012-12-01 '''\nWigwam LLC bought one wigwam for \$2.12 USD in early December 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/December'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.12 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.12 USD";
     ok @entry[71].posting[0].id.entry-id.xxhash == 118051768;
@@ -3111,6 +3266,7 @@ subtest
     ok @entry[71].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[71].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[71].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[71].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[71].posting[1].id.entry-id.number eqv Array[UInt].new(1, 4, 6);
     ok @entry[71].posting[1].id.entry-id.text eqv "2012-12-01 '''\nWigwam LLC bought one wigwam for \$2.12 USD in early December 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/December'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.12 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.12 USD";
     ok @entry[71].posting[1].id.entry-id.xxhash == 118051768;
@@ -3132,6 +3288,7 @@ subtest
     ok @entry[72].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[72].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[72].posting[0].decinc eqv DecInc::INC;
+    ok @entry[72].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[72].posting[0].id.entry-id.number eqv Array[UInt].new(1, 4, 7, 0);
     ok @entry[72].posting[0].id.entry-id.text eqv "2012-12-16 'Wigwam LLC received a dividend of \$2012.1216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.1216 USD\n  Income:WigwamLLC:Dividends          \$2012.1216 USD";
     ok @entry[72].posting[0].id.entry-id.xxhash == 3874590774;
@@ -3146,6 +3303,7 @@ subtest
     ok @entry[72].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[72].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[72].posting[1].decinc eqv DecInc::INC;
+    ok @entry[72].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[72].posting[1].id.entry-id.number eqv Array[UInt].new(1, 4, 7, 0);
     ok @entry[72].posting[1].id.entry-id.text eqv "2012-12-16 'Wigwam LLC received a dividend of \$2012.1216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.1216 USD\n  Income:WigwamLLC:Dividends          \$2012.1216 USD";
     ok @entry[72].posting[1].id.entry-id.xxhash == 3874590774;
@@ -3167,6 +3325,7 @@ subtest
     ok @entry[73].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[73].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[73].posting[0].decinc eqv DecInc::INC;
+    ok @entry[73].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[73].posting[0].id.entry-id.number eqv Array[UInt].new(1, 4, 8);
     ok @entry[73].posting[0].id.entry-id.text eqv "2012-12-31 '''\nWigwam LLC sold one wigwam for \$2.12 USD in late December 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/December'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.12 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.12 USD";
     ok @entry[73].posting[0].id.entry-id.xxhash == 2276583731;
@@ -3181,6 +3340,7 @@ subtest
     ok @entry[73].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[73].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[73].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[73].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[73].posting[1].id.entry-id.number eqv Array[UInt].new(1, 4, 8);
     ok @entry[73].posting[1].id.entry-id.text eqv "2012-12-31 '''\nWigwam LLC sold one wigwam for \$2.12 USD in late December 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/December'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.12 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.12 USD";
     ok @entry[73].posting[1].id.entry-id.xxhash == 2276583731;
@@ -3202,6 +3362,7 @@ subtest
     ok @entry[74].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[74].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[74].posting[0].decinc eqv DecInc::INC;
+    ok @entry[74].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[74].posting[0].id.entry-id.number eqv Array[UInt].new(2, 0);
     ok @entry[74].posting[0].id.entry-id.text eqv "2013-01-01 \"FooCorp started the year with \$1000 in Bankwest cheque account\"\n  Assets:FooCorp:Bankwest:Cheque      \$1000.00 USD\n  Equity:FooCorp                      \$1000.00 USD";
     ok @entry[74].posting[0].id.entry-id.xxhash == 2316435396;
@@ -3216,6 +3377,7 @@ subtest
     ok @entry[74].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[74].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[74].posting[1].decinc eqv DecInc::INC;
+    ok @entry[74].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[74].posting[1].id.entry-id.number eqv Array[UInt].new(2, 0);
     ok @entry[74].posting[1].id.entry-id.text eqv "2013-01-01 \"FooCorp started the year with \$1000 in Bankwest cheque account\"\n  Assets:FooCorp:Bankwest:Cheque      \$1000.00 USD\n  Equity:FooCorp                      \$1000.00 USD";
     ok @entry[74].posting[1].id.entry-id.xxhash == 2316435396;
@@ -3237,6 +3399,7 @@ subtest
     ok @entry[75].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(301, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[75].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[75].posting[0].decinc eqv DecInc::INC;
+    ok @entry[75].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[75].posting[0].id.entry-id.number eqv Array[UInt].new(2, 1, 0);
     ok @entry[75].posting[0].id.entry-id.text eqv "2013-01-01 '''\nWigwam LLC bought one wigwam for \$3.01 USD in early January 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/January'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.01 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.01 USD";
     ok @entry[75].posting[0].id.entry-id.xxhash == 265230743;
@@ -3251,6 +3414,7 @@ subtest
     ok @entry[75].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[75].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[75].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[75].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[75].posting[1].id.entry-id.number eqv Array[UInt].new(2, 1, 0);
     ok @entry[75].posting[1].id.entry-id.text eqv "2013-01-01 '''\nWigwam LLC bought one wigwam for \$3.01 USD in early January 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/January'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.01 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.01 USD";
     ok @entry[75].posting[1].id.entry-id.xxhash == 265230743;
@@ -3272,6 +3436,7 @@ subtest
     ok @entry[76].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[76].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[76].posting[0].decinc eqv DecInc::INC;
+    ok @entry[76].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[76].posting[0].id.entry-id.number eqv Array[UInt].new(2, 1, 1, 0);
     ok @entry[76].posting[0].id.entry-id.text eqv "2013-01-16 'Wigwam LLC received a dividend of \$2013.0116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0116 USD\n  Income:WigwamLLC:Dividends          \$2013.0116 USD";
     ok @entry[76].posting[0].id.entry-id.xxhash == 1201569906;
@@ -3286,6 +3451,7 @@ subtest
     ok @entry[76].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[76].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[76].posting[1].decinc eqv DecInc::INC;
+    ok @entry[76].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[76].posting[1].id.entry-id.number eqv Array[UInt].new(2, 1, 1, 0);
     ok @entry[76].posting[1].id.entry-id.text eqv "2013-01-16 'Wigwam LLC received a dividend of \$2013.0116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0116 USD\n  Income:WigwamLLC:Dividends          \$2013.0116 USD";
     ok @entry[76].posting[1].id.entry-id.xxhash == 1201569906;
@@ -3307,6 +3473,7 @@ subtest
     ok @entry[77].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[77].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[77].posting[0].decinc eqv DecInc::INC;
+    ok @entry[77].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[77].posting[0].id.entry-id.number eqv Array[UInt].new(2, 1, 2);
     ok @entry[77].posting[0].id.entry-id.text eqv "2013-01-31 '''\nWigwam LLC sold one wigwam for \$3.01 USD in late January 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/January'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.01 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.01 USD";
     ok @entry[77].posting[0].id.entry-id.xxhash == 3717945709;
@@ -3321,6 +3488,7 @@ subtest
     ok @entry[77].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(301, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[77].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[77].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[77].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[77].posting[1].id.entry-id.number eqv Array[UInt].new(2, 1, 2);
     ok @entry[77].posting[1].id.entry-id.text eqv "2013-01-31 '''\nWigwam LLC sold one wigwam for \$3.01 USD in late January 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/January'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.01 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.01 USD";
     ok @entry[77].posting[1].id.entry-id.xxhash == 3717945709;
@@ -3342,6 +3510,7 @@ subtest
     ok @entry[78].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(151, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[78].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[78].posting[0].decinc eqv DecInc::INC;
+    ok @entry[78].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[78].posting[0].id.entry-id.number eqv Array[UInt].new(2, 1, 3);
     ok @entry[78].posting[0].id.entry-id.text eqv "2013-02-01 '''\nWigwam LLC bought one wigwam for \$3.02 USD in early February 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/February'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.02 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.02 USD";
     ok @entry[78].posting[0].id.entry-id.xxhash == 4024926956;
@@ -3356,6 +3525,7 @@ subtest
     ok @entry[78].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[78].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[78].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[78].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[78].posting[1].id.entry-id.number eqv Array[UInt].new(2, 1, 3);
     ok @entry[78].posting[1].id.entry-id.text eqv "2013-02-01 '''\nWigwam LLC bought one wigwam for \$3.02 USD in early February 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/February'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.02 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.02 USD";
     ok @entry[78].posting[1].id.entry-id.xxhash == 4024926956;
@@ -3377,6 +3547,7 @@ subtest
     ok @entry[79].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[79].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[79].posting[0].decinc eqv DecInc::INC;
+    ok @entry[79].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[79].posting[0].id.entry-id.number eqv Array[UInt].new(2, 1, 4, 0);
     ok @entry[79].posting[0].id.entry-id.text eqv "2013-02-16 'Wigwam LLC received a dividend of \$2013.0216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0216 USD\n  Income:WigwamLLC:Dividends          \$2013.0216 USD";
     ok @entry[79].posting[0].id.entry-id.xxhash == 2203509452;
@@ -3391,6 +3562,7 @@ subtest
     ok @entry[79].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[79].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[79].posting[1].decinc eqv DecInc::INC;
+    ok @entry[79].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[79].posting[1].id.entry-id.number eqv Array[UInt].new(2, 1, 4, 0);
     ok @entry[79].posting[1].id.entry-id.text eqv "2013-02-16 'Wigwam LLC received a dividend of \$2013.0216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0216 USD\n  Income:WigwamLLC:Dividends          \$2013.0216 USD";
     ok @entry[79].posting[1].id.entry-id.xxhash == 2203509452;
@@ -3412,6 +3584,7 @@ subtest
     ok @entry[80].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[80].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[80].posting[0].decinc eqv DecInc::INC;
+    ok @entry[80].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[80].posting[0].id.entry-id.number eqv Array[UInt].new(2, 1, 5);
     ok @entry[80].posting[0].id.entry-id.text eqv "2013-02-28 '''\nWigwam LLC sold one wigwam for \$3.02 USD in late February 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/February'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.02 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.02 USD";
     ok @entry[80].posting[0].id.entry-id.xxhash == 1337772394;
@@ -3426,6 +3599,7 @@ subtest
     ok @entry[80].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(151, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[80].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[80].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[80].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[80].posting[1].id.entry-id.number eqv Array[UInt].new(2, 1, 5);
     ok @entry[80].posting[1].id.entry-id.text eqv "2013-02-28 '''\nWigwam LLC sold one wigwam for \$3.02 USD in late February 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/February'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.02 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.02 USD";
     ok @entry[80].posting[1].id.entry-id.xxhash == 1337772394;
@@ -3447,6 +3621,7 @@ subtest
     ok @entry[81].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(303, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[81].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[81].posting[0].decinc eqv DecInc::INC;
+    ok @entry[81].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[81].posting[0].id.entry-id.number eqv Array[UInt].new(2, 1, 6);
     ok @entry[81].posting[0].id.entry-id.text eqv "2013-03-01 '''\nWigwam LLC bought one wigwam for \$3.03 USD in early March 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/March'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.03 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.03 USD";
     ok @entry[81].posting[0].id.entry-id.xxhash == 3993675371;
@@ -3461,6 +3636,7 @@ subtest
     ok @entry[81].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[81].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[81].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[81].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[81].posting[1].id.entry-id.number eqv Array[UInt].new(2, 1, 6);
     ok @entry[81].posting[1].id.entry-id.text eqv "2013-03-01 '''\nWigwam LLC bought one wigwam for \$3.03 USD in early March 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/March'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.03 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.03 USD";
     ok @entry[81].posting[1].id.entry-id.xxhash == 3993675371;
@@ -3482,6 +3658,7 @@ subtest
     ok @entry[82].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[82].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[82].posting[0].decinc eqv DecInc::INC;
+    ok @entry[82].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[82].posting[0].id.entry-id.number eqv Array[UInt].new(2, 1, 7, 0);
     ok @entry[82].posting[0].id.entry-id.text eqv "2013-03-16 'Wigwam LLC received a dividend of \$2013.0316 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0316 USD\n  Income:WigwamLLC:Dividends          \$2013.0316 USD";
     ok @entry[82].posting[0].id.entry-id.xxhash == 1562886410;
@@ -3496,6 +3673,7 @@ subtest
     ok @entry[82].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[82].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[82].posting[1].decinc eqv DecInc::INC;
+    ok @entry[82].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[82].posting[1].id.entry-id.number eqv Array[UInt].new(2, 1, 7, 0);
     ok @entry[82].posting[1].id.entry-id.text eqv "2013-03-16 'Wigwam LLC received a dividend of \$2013.0316 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0316 USD\n  Income:WigwamLLC:Dividends          \$2013.0316 USD";
     ok @entry[82].posting[1].id.entry-id.xxhash == 1562886410;
@@ -3517,6 +3695,7 @@ subtest
     ok @entry[83].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[83].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[83].posting[0].decinc eqv DecInc::INC;
+    ok @entry[83].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[83].posting[0].id.entry-id.number eqv Array[UInt].new(2, 1, 8);
     ok @entry[83].posting[0].id.entry-id.text eqv "2013-03-31 '''\nWigwam LLC sold one wigwam for \$3.03 USD in late March 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/March'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.03 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.03 USD";
     ok @entry[83].posting[0].id.entry-id.xxhash == 1634210627;
@@ -3531,6 +3710,7 @@ subtest
     ok @entry[83].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(303, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[83].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[83].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[83].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[83].posting[1].id.entry-id.number eqv Array[UInt].new(2, 1, 8);
     ok @entry[83].posting[1].id.entry-id.text eqv "2013-03-31 '''\nWigwam LLC sold one wigwam for \$3.03 USD in late March 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/March'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.03 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.03 USD";
     ok @entry[83].posting[1].id.entry-id.xxhash == 1634210627;
@@ -3552,6 +3732,7 @@ subtest
     ok @entry[84].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(76, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[84].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[84].posting[0].decinc eqv DecInc::INC;
+    ok @entry[84].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[84].posting[0].id.entry-id.number eqv Array[UInt].new(2, 2, 0);
     ok @entry[84].posting[0].id.entry-id.text eqv "2013-04-01 '''\nWigwam LLC bought one wigwam for \$3.04 USD in early April 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/April'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.04 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.04 USD";
     ok @entry[84].posting[0].id.entry-id.xxhash == 713752082;
@@ -3566,6 +3747,7 @@ subtest
     ok @entry[84].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[84].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[84].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[84].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[84].posting[1].id.entry-id.number eqv Array[UInt].new(2, 2, 0);
     ok @entry[84].posting[1].id.entry-id.text eqv "2013-04-01 '''\nWigwam LLC bought one wigwam for \$3.04 USD in early April 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/April'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.04 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.04 USD";
     ok @entry[84].posting[1].id.entry-id.xxhash == 713752082;
@@ -3587,6 +3769,7 @@ subtest
     ok @entry[85].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[85].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[85].posting[0].decinc eqv DecInc::INC;
+    ok @entry[85].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[85].posting[0].id.entry-id.number eqv Array[UInt].new(2, 2, 1, 0);
     ok @entry[85].posting[0].id.entry-id.text eqv "2013-04-16 'Wigwam LLC received a dividend of \$2013.0416 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0416 USD\n  Income:WigwamLLC:Dividends          \$2013.0416 USD";
     ok @entry[85].posting[0].id.entry-id.xxhash == 2573101041;
@@ -3601,6 +3784,7 @@ subtest
     ok @entry[85].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[85].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[85].posting[1].decinc eqv DecInc::INC;
+    ok @entry[85].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[85].posting[1].id.entry-id.number eqv Array[UInt].new(2, 2, 1, 0);
     ok @entry[85].posting[1].id.entry-id.text eqv "2013-04-16 'Wigwam LLC received a dividend of \$2013.0416 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0416 USD\n  Income:WigwamLLC:Dividends          \$2013.0416 USD";
     ok @entry[85].posting[1].id.entry-id.xxhash == 2573101041;
@@ -3622,6 +3806,7 @@ subtest
     ok @entry[86].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[86].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[86].posting[0].decinc eqv DecInc::INC;
+    ok @entry[86].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[86].posting[0].id.entry-id.number eqv Array[UInt].new(2, 2, 2);
     ok @entry[86].posting[0].id.entry-id.text eqv "2013-04-30 '''\nWigwam LLC sold one wigwam for \$3.04 USD in late April 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/April'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.04 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.04 USD";
     ok @entry[86].posting[0].id.entry-id.xxhash == 2698432083;
@@ -3636,6 +3821,7 @@ subtest
     ok @entry[86].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(76, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[86].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[86].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[86].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[86].posting[1].id.entry-id.number eqv Array[UInt].new(2, 2, 2);
     ok @entry[86].posting[1].id.entry-id.text eqv "2013-04-30 '''\nWigwam LLC sold one wigwam for \$3.04 USD in late April 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/April'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.04 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.04 USD";
     ok @entry[86].posting[1].id.entry-id.xxhash == 2698432083;
@@ -3657,6 +3843,7 @@ subtest
     ok @entry[87].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(61, 20), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[87].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[87].posting[0].decinc eqv DecInc::INC;
+    ok @entry[87].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[87].posting[0].id.entry-id.number eqv Array[UInt].new(2, 2, 3);
     ok @entry[87].posting[0].id.entry-id.text eqv "2013-05-01 '''\nWigwam LLC bought one wigwam for \$3.05 USD in early May 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/May'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.05 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.05 USD";
     ok @entry[87].posting[0].id.entry-id.xxhash == 607841021;
@@ -3671,6 +3858,7 @@ subtest
     ok @entry[87].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[87].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[87].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[87].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[87].posting[1].id.entry-id.number eqv Array[UInt].new(2, 2, 3);
     ok @entry[87].posting[1].id.entry-id.text eqv "2013-05-01 '''\nWigwam LLC bought one wigwam for \$3.05 USD in early May 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/May'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.05 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.05 USD";
     ok @entry[87].posting[1].id.entry-id.xxhash == 607841021;
@@ -3692,6 +3880,7 @@ subtest
     ok @entry[88].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[88].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[88].posting[0].decinc eqv DecInc::INC;
+    ok @entry[88].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[88].posting[0].id.entry-id.number eqv Array[UInt].new(2, 2, 4, 0);
     ok @entry[88].posting[0].id.entry-id.text eqv "2013-05-16 'Wigwam LLC received a dividend of \$2013.0516 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0516 USD\n  Income:WigwamLLC:Dividends          \$2013.0516 USD";
     ok @entry[88].posting[0].id.entry-id.xxhash == 3814087496;
@@ -3706,6 +3895,7 @@ subtest
     ok @entry[88].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[88].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[88].posting[1].decinc eqv DecInc::INC;
+    ok @entry[88].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[88].posting[1].id.entry-id.number eqv Array[UInt].new(2, 2, 4, 0);
     ok @entry[88].posting[1].id.entry-id.text eqv "2013-05-16 'Wigwam LLC received a dividend of \$2013.0516 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0516 USD\n  Income:WigwamLLC:Dividends          \$2013.0516 USD";
     ok @entry[88].posting[1].id.entry-id.xxhash == 3814087496;
@@ -3727,6 +3917,7 @@ subtest
     ok @entry[89].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[89].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[89].posting[0].decinc eqv DecInc::INC;
+    ok @entry[89].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[89].posting[0].id.entry-id.number eqv Array[UInt].new(2, 2, 5);
     ok @entry[89].posting[0].id.entry-id.text eqv "2013-05-31 '''\nWigwam LLC sold one wigwam for \$3.05 USD in late May 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/May'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.05 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.05 USD";
     ok @entry[89].posting[0].id.entry-id.xxhash == 3166921593;
@@ -3741,6 +3932,7 @@ subtest
     ok @entry[89].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(61, 20), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[89].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[89].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[89].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[89].posting[1].id.entry-id.number eqv Array[UInt].new(2, 2, 5);
     ok @entry[89].posting[1].id.entry-id.text eqv "2013-05-31 '''\nWigwam LLC sold one wigwam for \$3.05 USD in late May 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/May'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.05 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.05 USD";
     ok @entry[89].posting[1].id.entry-id.xxhash == 3166921593;
@@ -3762,6 +3954,7 @@ subtest
     ok @entry[90].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(153, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[90].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[90].posting[0].decinc eqv DecInc::INC;
+    ok @entry[90].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[90].posting[0].id.entry-id.number eqv Array[UInt].new(2, 2, 6);
     ok @entry[90].posting[0].id.entry-id.text eqv "2013-06-01 '''\nWigwam LLC bought one wigwam for \$3.06 USD in early June 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/June'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.06 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.06 USD";
     ok @entry[90].posting[0].id.entry-id.xxhash == 927323051;
@@ -3776,6 +3969,7 @@ subtest
     ok @entry[90].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[90].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[90].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[90].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[90].posting[1].id.entry-id.number eqv Array[UInt].new(2, 2, 6);
     ok @entry[90].posting[1].id.entry-id.text eqv "2013-06-01 '''\nWigwam LLC bought one wigwam for \$3.06 USD in early June 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/June'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.06 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.06 USD";
     ok @entry[90].posting[1].id.entry-id.xxhash == 927323051;
@@ -3797,6 +3991,7 @@ subtest
     ok @entry[91].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[91].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[91].posting[0].decinc eqv DecInc::INC;
+    ok @entry[91].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[91].posting[0].id.entry-id.number eqv Array[UInt].new(2, 2, 7, 0);
     ok @entry[91].posting[0].id.entry-id.text eqv "2013-06-16 'Wigwam LLC received a dividend of \$2013.0616 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0616 USD\n  Income:WigwamLLC:Dividends          \$2013.0616 USD";
     ok @entry[91].posting[0].id.entry-id.xxhash == 2504499649;
@@ -3811,6 +4006,7 @@ subtest
     ok @entry[91].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[91].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[91].posting[1].decinc eqv DecInc::INC;
+    ok @entry[91].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[91].posting[1].id.entry-id.number eqv Array[UInt].new(2, 2, 7, 0);
     ok @entry[91].posting[1].id.entry-id.text eqv "2013-06-16 'Wigwam LLC received a dividend of \$2013.0616 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0616 USD\n  Income:WigwamLLC:Dividends          \$2013.0616 USD";
     ok @entry[91].posting[1].id.entry-id.xxhash == 2504499649;
@@ -3832,6 +4028,7 @@ subtest
     ok @entry[92].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[92].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[92].posting[0].decinc eqv DecInc::INC;
+    ok @entry[92].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[92].posting[0].id.entry-id.number eqv Array[UInt].new(2, 2, 8);
     ok @entry[92].posting[0].id.entry-id.text eqv "2013-06-30 '''\nWigwam LLC sold one wigwam for \$3.06 USD in late June 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/June'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.06 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.06 USD";
     ok @entry[92].posting[0].id.entry-id.xxhash == 1870422416;
@@ -3846,6 +4043,7 @@ subtest
     ok @entry[92].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(153, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[92].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[92].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[92].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[92].posting[1].id.entry-id.number eqv Array[UInt].new(2, 2, 8);
     ok @entry[92].posting[1].id.entry-id.text eqv "2013-06-30 '''\nWigwam LLC sold one wigwam for \$3.06 USD in late June 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/June'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.06 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.06 USD";
     ok @entry[92].posting[1].id.entry-id.xxhash == 1870422416;
@@ -3867,6 +4065,7 @@ subtest
     ok @entry[93].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(307, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[93].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[93].posting[0].decinc eqv DecInc::INC;
+    ok @entry[93].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[93].posting[0].id.entry-id.number eqv Array[UInt].new(2, 3, 0);
     ok @entry[93].posting[0].id.entry-id.text eqv "2013-07-01 '''\nWigwam LLC bought one wigwam for \$3.07 USD in early July 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/July'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.07 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.07 USD";
     ok @entry[93].posting[0].id.entry-id.xxhash == 4095708493;
@@ -3881,6 +4080,7 @@ subtest
     ok @entry[93].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[93].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[93].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[93].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[93].posting[1].id.entry-id.number eqv Array[UInt].new(2, 3, 0);
     ok @entry[93].posting[1].id.entry-id.text eqv "2013-07-01 '''\nWigwam LLC bought one wigwam for \$3.07 USD in early July 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/July'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.07 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.07 USD";
     ok @entry[93].posting[1].id.entry-id.xxhash == 4095708493;
@@ -3902,6 +4102,7 @@ subtest
     ok @entry[94].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[94].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[94].posting[0].decinc eqv DecInc::INC;
+    ok @entry[94].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[94].posting[0].id.entry-id.number eqv Array[UInt].new(2, 3, 1, 0);
     ok @entry[94].posting[0].id.entry-id.text eqv "2013-07-16 'Wigwam LLC received a dividend of \$2013.0716 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0716 USD\n  Income:WigwamLLC:Dividends          \$2013.0716 USD";
     ok @entry[94].posting[0].id.entry-id.xxhash == 1271983877;
@@ -3916,6 +4117,7 @@ subtest
     ok @entry[94].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[94].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[94].posting[1].decinc eqv DecInc::INC;
+    ok @entry[94].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[94].posting[1].id.entry-id.number eqv Array[UInt].new(2, 3, 1, 0);
     ok @entry[94].posting[1].id.entry-id.text eqv "2013-07-16 'Wigwam LLC received a dividend of \$2013.0716 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0716 USD\n  Income:WigwamLLC:Dividends          \$2013.0716 USD";
     ok @entry[94].posting[1].id.entry-id.xxhash == 1271983877;
@@ -3937,6 +4139,7 @@ subtest
     ok @entry[95].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[95].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[95].posting[0].decinc eqv DecInc::INC;
+    ok @entry[95].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[95].posting[0].id.entry-id.number eqv Array[UInt].new(2, 3, 2);
     ok @entry[95].posting[0].id.entry-id.text eqv "2013-07-31 '''\nWigwam LLC sold one wigwam for \$3.07 USD in late July 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/July'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.07 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.07 USD";
     ok @entry[95].posting[0].id.entry-id.xxhash == 585905153;
@@ -3951,6 +4154,7 @@ subtest
     ok @entry[95].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(307, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[95].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[95].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[95].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[95].posting[1].id.entry-id.number eqv Array[UInt].new(2, 3, 2);
     ok @entry[95].posting[1].id.entry-id.text eqv "2013-07-31 '''\nWigwam LLC sold one wigwam for \$3.07 USD in late July 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/July'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.07 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.07 USD";
     ok @entry[95].posting[1].id.entry-id.xxhash == 585905153;
@@ -3972,6 +4176,7 @@ subtest
     ok @entry[96].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(77, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[96].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[96].posting[0].decinc eqv DecInc::INC;
+    ok @entry[96].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[96].posting[0].id.entry-id.number eqv Array[UInt].new(2, 3, 3);
     ok @entry[96].posting[0].id.entry-id.text eqv "2013-08-01 '''\nWigwam LLC bought one wigwam for \$3.08 USD in early August 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/August'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.08 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.08 USD";
     ok @entry[96].posting[0].id.entry-id.xxhash == 444744934;
@@ -3986,6 +4191,7 @@ subtest
     ok @entry[96].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[96].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[96].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[96].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[96].posting[1].id.entry-id.number eqv Array[UInt].new(2, 3, 3);
     ok @entry[96].posting[1].id.entry-id.text eqv "2013-08-01 '''\nWigwam LLC bought one wigwam for \$3.08 USD in early August 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/August'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.08 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.08 USD";
     ok @entry[96].posting[1].id.entry-id.xxhash == 444744934;
@@ -4007,6 +4213,7 @@ subtest
     ok @entry[97].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[97].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[97].posting[0].decinc eqv DecInc::INC;
+    ok @entry[97].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[97].posting[0].id.entry-id.number eqv Array[UInt].new(2, 3, 4, 0);
     ok @entry[97].posting[0].id.entry-id.text eqv "2013-08-16 'Wigwam LLC received a dividend of \$2013.0816 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0816 USD\n  Income:WigwamLLC:Dividends          \$2013.0816 USD";
     ok @entry[97].posting[0].id.entry-id.xxhash == 796956488;
@@ -4021,6 +4228,7 @@ subtest
     ok @entry[97].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[97].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[97].posting[1].decinc eqv DecInc::INC;
+    ok @entry[97].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[97].posting[1].id.entry-id.number eqv Array[UInt].new(2, 3, 4, 0);
     ok @entry[97].posting[1].id.entry-id.text eqv "2013-08-16 'Wigwam LLC received a dividend of \$2013.0816 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0816 USD\n  Income:WigwamLLC:Dividends          \$2013.0816 USD";
     ok @entry[97].posting[1].id.entry-id.xxhash == 796956488;
@@ -4042,6 +4250,7 @@ subtest
     ok @entry[98].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[98].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[98].posting[0].decinc eqv DecInc::INC;
+    ok @entry[98].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[98].posting[0].id.entry-id.number eqv Array[UInt].new(2, 3, 5);
     ok @entry[98].posting[0].id.entry-id.text eqv "2013-08-31 '''\nWigwam LLC sold one wigwam for \$3.08 USD in late August 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/August'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.08 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.08 USD";
     ok @entry[98].posting[0].id.entry-id.xxhash == 1033193703;
@@ -4056,6 +4265,7 @@ subtest
     ok @entry[98].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(77, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[98].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[98].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[98].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[98].posting[1].id.entry-id.number eqv Array[UInt].new(2, 3, 5);
     ok @entry[98].posting[1].id.entry-id.text eqv "2013-08-31 '''\nWigwam LLC sold one wigwam for \$3.08 USD in late August 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/August'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.08 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.08 USD";
     ok @entry[98].posting[1].id.entry-id.xxhash == 1033193703;
@@ -4077,6 +4287,7 @@ subtest
     ok @entry[99].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(309, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[99].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[99].posting[0].decinc eqv DecInc::INC;
+    ok @entry[99].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[99].posting[0].id.entry-id.number eqv Array[UInt].new(2, 3, 6);
     ok @entry[99].posting[0].id.entry-id.text eqv "2013-09-01 '''\nWigwam LLC bought one wigwam for \$3.09 USD in early September 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/September'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.09 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.09 USD";
     ok @entry[99].posting[0].id.entry-id.xxhash == 2081861311;
@@ -4091,6 +4302,7 @@ subtest
     ok @entry[99].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[99].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[99].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[99].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[99].posting[1].id.entry-id.number eqv Array[UInt].new(2, 3, 6);
     ok @entry[99].posting[1].id.entry-id.text eqv "2013-09-01 '''\nWigwam LLC bought one wigwam for \$3.09 USD in early September 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/September'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.09 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.09 USD";
     ok @entry[99].posting[1].id.entry-id.xxhash == 2081861311;
@@ -4112,6 +4324,7 @@ subtest
     ok @entry[100].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[100].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[100].posting[0].decinc eqv DecInc::INC;
+    ok @entry[100].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[100].posting[0].id.entry-id.number eqv Array[UInt].new(2, 3, 7, 0);
     ok @entry[100].posting[0].id.entry-id.text eqv "2013-09-16 'Wigwam LLC received a dividend of \$2013.0916 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0916 USD\n  Income:WigwamLLC:Dividends          \$2013.0916 USD";
     ok @entry[100].posting[0].id.entry-id.xxhash == 705777824;
@@ -4126,6 +4339,7 @@ subtest
     ok @entry[100].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[100].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[100].posting[1].decinc eqv DecInc::INC;
+    ok @entry[100].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[100].posting[1].id.entry-id.number eqv Array[UInt].new(2, 3, 7, 0);
     ok @entry[100].posting[1].id.entry-id.text eqv "2013-09-16 'Wigwam LLC received a dividend of \$2013.0916 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0916 USD\n  Income:WigwamLLC:Dividends          \$2013.0916 USD";
     ok @entry[100].posting[1].id.entry-id.xxhash == 705777824;
@@ -4147,6 +4361,7 @@ subtest
     ok @entry[101].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[101].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[101].posting[0].decinc eqv DecInc::INC;
+    ok @entry[101].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[101].posting[0].id.entry-id.number eqv Array[UInt].new(2, 3, 8);
     ok @entry[101].posting[0].id.entry-id.text eqv "2013-09-30 '''\nWigwam LLC sold one wigwam for \$3.09 USD in late September 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/September'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.09 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.09 USD";
     ok @entry[101].posting[0].id.entry-id.xxhash == 2792675818;
@@ -4161,6 +4376,7 @@ subtest
     ok @entry[101].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(309, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[101].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[101].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[101].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[101].posting[1].id.entry-id.number eqv Array[UInt].new(2, 3, 8);
     ok @entry[101].posting[1].id.entry-id.text eqv "2013-09-30 '''\nWigwam LLC sold one wigwam for \$3.09 USD in late September 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/September'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.09 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.09 USD";
     ok @entry[101].posting[1].id.entry-id.xxhash == 2792675818;
@@ -4182,6 +4398,7 @@ subtest
     ok @entry[102].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(31, 10), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[102].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[102].posting[0].decinc eqv DecInc::INC;
+    ok @entry[102].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[102].posting[0].id.entry-id.number eqv Array[UInt].new(2, 4, 0);
     ok @entry[102].posting[0].id.entry-id.text eqv "2013-10-01 '''\nWigwam LLC bought one wigwam for \$3.10 USD in early October 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/October'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.10 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.10 USD";
     ok @entry[102].posting[0].id.entry-id.xxhash == 574545503;
@@ -4196,6 +4413,7 @@ subtest
     ok @entry[102].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[102].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[102].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[102].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[102].posting[1].id.entry-id.number eqv Array[UInt].new(2, 4, 0);
     ok @entry[102].posting[1].id.entry-id.text eqv "2013-10-01 '''\nWigwam LLC bought one wigwam for \$3.10 USD in early October 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/October'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.10 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.10 USD";
     ok @entry[102].posting[1].id.entry-id.xxhash == 574545503;
@@ -4217,6 +4435,7 @@ subtest
     ok @entry[103].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[103].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[103].posting[0].decinc eqv DecInc::INC;
+    ok @entry[103].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[103].posting[0].id.entry-id.number eqv Array[UInt].new(2, 4, 1, 0);
     ok @entry[103].posting[0].id.entry-id.text eqv "2013-10-16 'Wigwam LLC received a dividend of \$2013.1016 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.1016 USD\n  Income:WigwamLLC:Dividends          \$2013.1016 USD";
     ok @entry[103].posting[0].id.entry-id.xxhash == 1123984249;
@@ -4231,6 +4450,7 @@ subtest
     ok @entry[103].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[103].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[103].posting[1].decinc eqv DecInc::INC;
+    ok @entry[103].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[103].posting[1].id.entry-id.number eqv Array[UInt].new(2, 4, 1, 0);
     ok @entry[103].posting[1].id.entry-id.text eqv "2013-10-16 'Wigwam LLC received a dividend of \$2013.1016 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.1016 USD\n  Income:WigwamLLC:Dividends          \$2013.1016 USD";
     ok @entry[103].posting[1].id.entry-id.xxhash == 1123984249;
@@ -4252,6 +4472,7 @@ subtest
     ok @entry[104].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[104].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[104].posting[0].decinc eqv DecInc::INC;
+    ok @entry[104].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[104].posting[0].id.entry-id.number eqv Array[UInt].new(2, 4, 2);
     ok @entry[104].posting[0].id.entry-id.text eqv "2013-10-31 '''\nWigwam LLC sold one wigwam for \$3.10 USD in late October 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/October'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.10 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.10 USD";
     ok @entry[104].posting[0].id.entry-id.xxhash == 1605620712;
@@ -4266,6 +4487,7 @@ subtest
     ok @entry[104].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(31, 10), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[104].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[104].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[104].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[104].posting[1].id.entry-id.number eqv Array[UInt].new(2, 4, 2);
     ok @entry[104].posting[1].id.entry-id.text eqv "2013-10-31 '''\nWigwam LLC sold one wigwam for \$3.10 USD in late October 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/October'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.10 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.10 USD";
     ok @entry[104].posting[1].id.entry-id.xxhash == 1605620712;
@@ -4287,6 +4509,7 @@ subtest
     ok @entry[105].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(311, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[105].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[105].posting[0].decinc eqv DecInc::INC;
+    ok @entry[105].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[105].posting[0].id.entry-id.number eqv Array[UInt].new(2, 4, 3);
     ok @entry[105].posting[0].id.entry-id.text eqv "2013-11-01 '''\nWigwam LLC bought one wigwam for \$3.11 USD in early November 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/November'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.11 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.11 USD";
     ok @entry[105].posting[0].id.entry-id.xxhash == 3963180771;
@@ -4301,6 +4524,7 @@ subtest
     ok @entry[105].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[105].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[105].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[105].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[105].posting[1].id.entry-id.number eqv Array[UInt].new(2, 4, 3);
     ok @entry[105].posting[1].id.entry-id.text eqv "2013-11-01 '''\nWigwam LLC bought one wigwam for \$3.11 USD in early November 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/November'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.11 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.11 USD";
     ok @entry[105].posting[1].id.entry-id.xxhash == 3963180771;
@@ -4322,6 +4546,7 @@ subtest
     ok @entry[106].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[106].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[106].posting[0].decinc eqv DecInc::INC;
+    ok @entry[106].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[106].posting[0].id.entry-id.number eqv Array[UInt].new(2, 4, 4, 0);
     ok @entry[106].posting[0].id.entry-id.text eqv "2013-11-16 'Wigwam LLC received a dividend of \$2013.1116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.1116 USD\n  Income:WigwamLLC:Dividends          \$2013.1116 USD";
     ok @entry[106].posting[0].id.entry-id.xxhash == 3185930480;
@@ -4336,6 +4561,7 @@ subtest
     ok @entry[106].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[106].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[106].posting[1].decinc eqv DecInc::INC;
+    ok @entry[106].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[106].posting[1].id.entry-id.number eqv Array[UInt].new(2, 4, 4, 0);
     ok @entry[106].posting[1].id.entry-id.text eqv "2013-11-16 'Wigwam LLC received a dividend of \$2013.1116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.1116 USD\n  Income:WigwamLLC:Dividends          \$2013.1116 USD";
     ok @entry[106].posting[1].id.entry-id.xxhash == 3185930480;
@@ -4357,6 +4583,7 @@ subtest
     ok @entry[107].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[107].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[107].posting[0].decinc eqv DecInc::INC;
+    ok @entry[107].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[107].posting[0].id.entry-id.number eqv Array[UInt].new(2, 4, 5);
     ok @entry[107].posting[0].id.entry-id.text eqv "2013-11-30 '''\nWigwam LLC sold one wigwam for \$3.11 USD in late November 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/November'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.11 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.11 USD";
     ok @entry[107].posting[0].id.entry-id.xxhash == 2315332478;
@@ -4371,6 +4598,7 @@ subtest
     ok @entry[107].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(311, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[107].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[107].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[107].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[107].posting[1].id.entry-id.number eqv Array[UInt].new(2, 4, 5);
     ok @entry[107].posting[1].id.entry-id.text eqv "2013-11-30 '''\nWigwam LLC sold one wigwam for \$3.11 USD in late November 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/November'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.11 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.11 USD";
     ok @entry[107].posting[1].id.entry-id.xxhash == 2315332478;
@@ -4392,6 +4620,7 @@ subtest
     ok @entry[108].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(78, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[108].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[108].posting[0].decinc eqv DecInc::INC;
+    ok @entry[108].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[108].posting[0].id.entry-id.number eqv Array[UInt].new(2, 4, 6);
     ok @entry[108].posting[0].id.entry-id.text eqv "2013-12-01 '''\nWigwam LLC bought one wigwam for \$3.12 USD in early December 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/December'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.12 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.12 USD";
     ok @entry[108].posting[0].id.entry-id.xxhash == 646922698;
@@ -4406,6 +4635,7 @@ subtest
     ok @entry[108].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[108].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[108].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[108].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[108].posting[1].id.entry-id.number eqv Array[UInt].new(2, 4, 6);
     ok @entry[108].posting[1].id.entry-id.text eqv "2013-12-01 '''\nWigwam LLC bought one wigwam for \$3.12 USD in early December 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/December'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.12 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.12 USD";
     ok @entry[108].posting[1].id.entry-id.xxhash == 646922698;
@@ -4427,6 +4657,7 @@ subtest
     ok @entry[109].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[109].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[109].posting[0].decinc eqv DecInc::INC;
+    ok @entry[109].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[109].posting[0].id.entry-id.number eqv Array[UInt].new(2, 4, 7, 0);
     ok @entry[109].posting[0].id.entry-id.text eqv "2013-12-16 'Wigwam LLC received a dividend of \$2013.1216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.1216 USD\n  Income:WigwamLLC:Dividends          \$2013.1216 USD";
     ok @entry[109].posting[0].id.entry-id.xxhash == 2042360109;
@@ -4441,6 +4672,7 @@ subtest
     ok @entry[109].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[109].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[109].posting[1].decinc eqv DecInc::INC;
+    ok @entry[109].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[109].posting[1].id.entry-id.number eqv Array[UInt].new(2, 4, 7, 0);
     ok @entry[109].posting[1].id.entry-id.text eqv "2013-12-16 'Wigwam LLC received a dividend of \$2013.1216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.1216 USD\n  Income:WigwamLLC:Dividends          \$2013.1216 USD";
     ok @entry[109].posting[1].id.entry-id.xxhash == 2042360109;
@@ -4462,6 +4694,7 @@ subtest
     ok @entry[110].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[110].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[110].posting[0].decinc eqv DecInc::INC;
+    ok @entry[110].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[110].posting[0].id.entry-id.number eqv Array[UInt].new(2, 4, 8);
     ok @entry[110].posting[0].id.entry-id.text eqv "2013-12-31 '''\nWigwam LLC sold one wigwam for \$3.12 USD in late December 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/December'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.12 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.12 USD";
     ok @entry[110].posting[0].id.entry-id.xxhash == 1933516675;
@@ -4476,6 +4709,7 @@ subtest
     ok @entry[110].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(78, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[110].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[110].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[110].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[110].posting[1].id.entry-id.number eqv Array[UInt].new(2, 4, 8);
     ok @entry[110].posting[1].id.entry-id.text eqv "2013-12-31 '''\nWigwam LLC sold one wigwam for \$3.12 USD in late December 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/December'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.12 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.12 USD";
     ok @entry[110].posting[1].id.entry-id.xxhash == 1933516675;
@@ -4497,6 +4731,7 @@ subtest
     ok @entry[111].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[111].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[111].posting[0].decinc eqv DecInc::INC;
+    ok @entry[111].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[111].posting[0].id.entry-id.number eqv Array[UInt].new(3);
     ok @entry[111].posting[0].id.entry-id.text eqv "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\"\n  Assets:Personal:Bankwest:Cheque      \$1000.00 USD\n  Equity:Personal                      \$1000.00 USD";
     ok @entry[111].posting[0].id.entry-id.xxhash == 1468523538;
@@ -4511,6 +4746,7 @@ subtest
     ok @entry[111].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[111].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[111].posting[1].decinc eqv DecInc::INC;
+    ok @entry[111].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[111].posting[1].id.entry-id.number eqv Array[UInt].new(3);
     ok @entry[111].posting[1].id.entry-id.text eqv "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\"\n  Assets:Personal:Bankwest:Cheque      \$1000.00 USD\n  Equity:Personal                      \$1000.00 USD";
     ok @entry[111].posting[1].id.entry-id.xxhash == 1468523538;
@@ -4543,6 +4779,7 @@ subtest
     ok @entry[0].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[0].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[0].posting[0].decinc eqv DecInc::INC;
+    ok @entry[0].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[0].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 0);
     ok @entry[0].posting[0].id.entry-id.text eqv "2011-01-01 \"FooCorp started the year with \$1000 in Bankwest cheque account\"\n  Assets:FooCorp:Bankwest:Cheque      \$1000.00 USD\n  Equity:FooCorp                      \$1000.00 USD";
     ok @entry[0].posting[0].id.entry-id.xxhash == 839297870;
@@ -4557,6 +4794,7 @@ subtest
     ok @entry[0].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[0].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[0].posting[1].decinc eqv DecInc::INC;
+    ok @entry[0].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[0].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 0);
     ok @entry[0].posting[1].id.entry-id.text eqv "2011-01-01 \"FooCorp started the year with \$1000 in Bankwest cheque account\"\n  Assets:FooCorp:Bankwest:Cheque      \$1000.00 USD\n  Equity:FooCorp                      \$1000.00 USD";
     ok @entry[0].posting[1].id.entry-id.xxhash == 839297870;
@@ -4578,6 +4816,7 @@ subtest
     ok @entry[1].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[1].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[1].posting[0].decinc eqv DecInc::INC;
+    ok @entry[1].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[1].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 0);
     ok @entry[1].posting[0].id.entry-id.text eqv "2011-01-01 '''\nWigwam LLC bought one wigwam for \$1.01 USD in early January 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/January'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.01 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.01 USD";
     ok @entry[1].posting[0].id.entry-id.xxhash == 3127303444;
@@ -4592,6 +4831,7 @@ subtest
     ok @entry[1].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[1].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[1].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[1].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[1].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 0);
     ok @entry[1].posting[1].id.entry-id.text eqv "2011-01-01 '''\nWigwam LLC bought one wigwam for \$1.01 USD in early January 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/January'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.01 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.01 USD";
     ok @entry[1].posting[1].id.entry-id.xxhash == 3127303444;
@@ -4613,6 +4853,7 @@ subtest
     ok @entry[2].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[2].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[2].posting[0].decinc eqv DecInc::INC;
+    ok @entry[2].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[2].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 1, 0);
     ok @entry[2].posting[0].id.entry-id.text eqv "2011-01-16 'Wigwam LLC received a dividend of \$2011.0116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0116 USD\n  Income:WigwamLLC:Dividends          \$2011.0116 USD";
     ok @entry[2].posting[0].id.entry-id.xxhash == 4018141641;
@@ -4627,6 +4868,7 @@ subtest
     ok @entry[2].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[2].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[2].posting[1].decinc eqv DecInc::INC;
+    ok @entry[2].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[2].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 1, 0);
     ok @entry[2].posting[1].id.entry-id.text eqv "2011-01-16 'Wigwam LLC received a dividend of \$2011.0116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0116 USD\n  Income:WigwamLLC:Dividends          \$2011.0116 USD";
     ok @entry[2].posting[1].id.entry-id.xxhash == 4018141641;
@@ -4648,6 +4890,7 @@ subtest
     ok @entry[3].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[3].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[3].posting[0].decinc eqv DecInc::INC;
+    ok @entry[3].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[3].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 2);
     ok @entry[3].posting[0].id.entry-id.text eqv "2011-01-31 '''\nWigwam LLC sold one wigwam for \$1.01 USD in late January 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/January'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.01 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.01 USD";
     ok @entry[3].posting[0].id.entry-id.xxhash == 2478358144;
@@ -4662,6 +4905,7 @@ subtest
     ok @entry[3].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[3].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[3].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[3].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[3].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 2);
     ok @entry[3].posting[1].id.entry-id.text eqv "2011-01-31 '''\nWigwam LLC sold one wigwam for \$1.01 USD in late January 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/January'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.01 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.01 USD";
     ok @entry[3].posting[1].id.entry-id.xxhash == 2478358144;
@@ -4683,6 +4927,7 @@ subtest
     ok @entry[4].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[4].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[4].posting[0].decinc eqv DecInc::INC;
+    ok @entry[4].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[4].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 3);
     ok @entry[4].posting[0].id.entry-id.text eqv "2011-02-01 '''\nWigwam LLC bought one wigwam for \$1.02 USD in early February 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/February'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.02 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.02 USD";
     ok @entry[4].posting[0].id.entry-id.xxhash == 2320468031;
@@ -4697,6 +4942,7 @@ subtest
     ok @entry[4].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[4].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[4].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[4].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[4].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 3);
     ok @entry[4].posting[1].id.entry-id.text eqv "2011-02-01 '''\nWigwam LLC bought one wigwam for \$1.02 USD in early February 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/February'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.02 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.02 USD";
     ok @entry[4].posting[1].id.entry-id.xxhash == 2320468031;
@@ -4718,6 +4964,7 @@ subtest
     ok @entry[5].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[5].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[5].posting[0].decinc eqv DecInc::INC;
+    ok @entry[5].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[5].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 4, 0);
     ok @entry[5].posting[0].id.entry-id.text eqv "2011-02-16 'Wigwam LLC received a dividend of \$2011.0216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0216 USD\n  Income:WigwamLLC:Dividends          \$2011.0216 USD";
     ok @entry[5].posting[0].id.entry-id.xxhash == 1177608739;
@@ -4732,6 +4979,7 @@ subtest
     ok @entry[5].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[5].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[5].posting[1].decinc eqv DecInc::INC;
+    ok @entry[5].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[5].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 4, 0);
     ok @entry[5].posting[1].id.entry-id.text eqv "2011-02-16 'Wigwam LLC received a dividend of \$2011.0216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0216 USD\n  Income:WigwamLLC:Dividends          \$2011.0216 USD";
     ok @entry[5].posting[1].id.entry-id.xxhash == 1177608739;
@@ -4753,6 +5001,7 @@ subtest
     ok @entry[6].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[6].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[6].posting[0].decinc eqv DecInc::INC;
+    ok @entry[6].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[6].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 5);
     ok @entry[6].posting[0].id.entry-id.text eqv "2011-02-28 '''\nWigwam LLC sold one wigwam for \$1.02 USD in late February 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/February'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.02 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.02 USD";
     ok @entry[6].posting[0].id.entry-id.xxhash == 3178583936;
@@ -4767,6 +5016,7 @@ subtest
     ok @entry[6].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[6].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[6].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[6].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[6].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 5);
     ok @entry[6].posting[1].id.entry-id.text eqv "2011-02-28 '''\nWigwam LLC sold one wigwam for \$1.02 USD in late February 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/February'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.02 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.02 USD";
     ok @entry[6].posting[1].id.entry-id.xxhash == 3178583936;
@@ -4788,6 +5038,7 @@ subtest
     ok @entry[7].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[7].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[7].posting[0].decinc eqv DecInc::INC;
+    ok @entry[7].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[7].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 6);
     ok @entry[7].posting[0].id.entry-id.text eqv "2011-03-01 '''\nWigwam LLC bought one wigwam for \$1.03 USD in early March 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/March'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.03 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.03 USD";
     ok @entry[7].posting[0].id.entry-id.xxhash == 1567632724;
@@ -4802,6 +5053,7 @@ subtest
     ok @entry[7].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[7].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[7].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[7].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[7].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 6);
     ok @entry[7].posting[1].id.entry-id.text eqv "2011-03-01 '''\nWigwam LLC bought one wigwam for \$1.03 USD in early March 2011\nFILE:  「includes/2011/Q1.txn」\nBEFORE:「include 'Q1/March'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.03 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.03 USD";
     ok @entry[7].posting[1].id.entry-id.xxhash == 1567632724;
@@ -4823,6 +5075,7 @@ subtest
     ok @entry[8].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[8].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[8].posting[0].decinc eqv DecInc::INC;
+    ok @entry[8].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[8].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 7, 0);
     ok @entry[8].posting[0].id.entry-id.text eqv "2011-03-16 'Wigwam LLC received a dividend of \$2011.0316 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0316 USD\n  Income:WigwamLLC:Dividends          \$2011.0316 USD";
     ok @entry[8].posting[0].id.entry-id.xxhash == 3569777874;
@@ -4837,6 +5090,7 @@ subtest
     ok @entry[8].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[8].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[8].posting[1].decinc eqv DecInc::INC;
+    ok @entry[8].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[8].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 7, 0);
     ok @entry[8].posting[1].id.entry-id.text eqv "2011-03-16 'Wigwam LLC received a dividend of \$2011.0316 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0316 USD\n  Income:WigwamLLC:Dividends          \$2011.0316 USD";
     ok @entry[8].posting[1].id.entry-id.xxhash == 3569777874;
@@ -4858,6 +5112,7 @@ subtest
     ok @entry[9].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[9].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[9].posting[0].decinc eqv DecInc::INC;
+    ok @entry[9].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[9].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 8);
     ok @entry[9].posting[0].id.entry-id.text eqv "2011-03-31 '''\nWigwam LLC sold one wigwam for \$1.03 USD in late March 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/March'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.03 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.03 USD";
     ok @entry[9].posting[0].id.entry-id.xxhash == 521313438;
@@ -4872,6 +5127,7 @@ subtest
     ok @entry[9].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[9].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[9].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[9].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[9].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 1, 8);
     ok @entry[9].posting[1].id.entry-id.text eqv "2011-03-31 '''\nWigwam LLC sold one wigwam for \$1.03 USD in late March 2011\nFILE:  「includes/2011/Q1.txn」\nAFTER: 「include 'Q1/March'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.03 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.03 USD";
     ok @entry[9].posting[1].id.entry-id.xxhash == 521313438;
@@ -4893,6 +5149,7 @@ subtest
     ok @entry[10].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(26, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[10].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[10].posting[0].decinc eqv DecInc::INC;
+    ok @entry[10].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[10].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 0);
     ok @entry[10].posting[0].id.entry-id.text eqv "2011-04-01 '''\nWigwam LLC bought one wigwam for \$1.04 USD in early April 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/April'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.04 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.04 USD";
     ok @entry[10].posting[0].id.entry-id.xxhash == 234894800;
@@ -4907,6 +5164,7 @@ subtest
     ok @entry[10].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[10].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[10].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[10].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[10].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 0);
     ok @entry[10].posting[1].id.entry-id.text eqv "2011-04-01 '''\nWigwam LLC bought one wigwam for \$1.04 USD in early April 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/April'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.04 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.04 USD";
     ok @entry[10].posting[1].id.entry-id.xxhash == 234894800;
@@ -4928,6 +5186,7 @@ subtest
     ok @entry[11].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[11].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[11].posting[0].decinc eqv DecInc::INC;
+    ok @entry[11].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[11].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 1, 0);
     ok @entry[11].posting[0].id.entry-id.text eqv "2011-04-16 'Wigwam LLC received a dividend of \$2011.0416 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0416 USD\n  Income:WigwamLLC:Dividends          \$2011.0416 USD";
     ok @entry[11].posting[0].id.entry-id.xxhash == 2888576925;
@@ -4942,6 +5201,7 @@ subtest
     ok @entry[11].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[11].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[11].posting[1].decinc eqv DecInc::INC;
+    ok @entry[11].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[11].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 1, 0);
     ok @entry[11].posting[1].id.entry-id.text eqv "2011-04-16 'Wigwam LLC received a dividend of \$2011.0416 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0416 USD\n  Income:WigwamLLC:Dividends          \$2011.0416 USD";
     ok @entry[11].posting[1].id.entry-id.xxhash == 2888576925;
@@ -4963,6 +5223,7 @@ subtest
     ok @entry[12].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[12].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[12].posting[0].decinc eqv DecInc::INC;
+    ok @entry[12].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[12].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 2);
     ok @entry[12].posting[0].id.entry-id.text eqv "2011-04-30 '''\nWigwam LLC sold one wigwam for \$1.04 USD in late April 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/April'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.04 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.04 USD";
     ok @entry[12].posting[0].id.entry-id.xxhash == 801753479;
@@ -4977,6 +5238,7 @@ subtest
     ok @entry[12].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(26, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[12].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[12].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[12].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[12].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 2);
     ok @entry[12].posting[1].id.entry-id.text eqv "2011-04-30 '''\nWigwam LLC sold one wigwam for \$1.04 USD in late April 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/April'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.04 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.04 USD";
     ok @entry[12].posting[1].id.entry-id.xxhash == 801753479;
@@ -4998,6 +5260,7 @@ subtest
     ok @entry[13].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 20), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[13].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[13].posting[0].decinc eqv DecInc::INC;
+    ok @entry[13].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[13].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 3);
     ok @entry[13].posting[0].id.entry-id.text eqv "2011-05-01 '''\nWigwam LLC bought one wigwam for \$1.05 USD in early May 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/May'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.05 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.05 USD";
     ok @entry[13].posting[0].id.entry-id.xxhash == 2708781669;
@@ -5012,6 +5275,7 @@ subtest
     ok @entry[13].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[13].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[13].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[13].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[13].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 3);
     ok @entry[13].posting[1].id.entry-id.text eqv "2011-05-01 '''\nWigwam LLC bought one wigwam for \$1.05 USD in early May 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/May'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.05 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.05 USD";
     ok @entry[13].posting[1].id.entry-id.xxhash == 2708781669;
@@ -5033,6 +5297,7 @@ subtest
     ok @entry[14].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[14].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[14].posting[0].decinc eqv DecInc::INC;
+    ok @entry[14].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[14].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 4, 0);
     ok @entry[14].posting[0].id.entry-id.text eqv "2011-05-16 'Wigwam LLC received a dividend of \$2011.0516 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0516 USD\n  Income:WigwamLLC:Dividends          \$2011.0516 USD";
     ok @entry[14].posting[0].id.entry-id.xxhash == 2585914;
@@ -5047,6 +5312,7 @@ subtest
     ok @entry[14].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[14].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[14].posting[1].decinc eqv DecInc::INC;
+    ok @entry[14].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[14].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 4, 0);
     ok @entry[14].posting[1].id.entry-id.text eqv "2011-05-16 'Wigwam LLC received a dividend of \$2011.0516 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0516 USD\n  Income:WigwamLLC:Dividends          \$2011.0516 USD";
     ok @entry[14].posting[1].id.entry-id.xxhash == 2585914;
@@ -5068,6 +5334,7 @@ subtest
     ok @entry[15].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[15].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[15].posting[0].decinc eqv DecInc::INC;
+    ok @entry[15].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[15].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 5);
     ok @entry[15].posting[0].id.entry-id.text eqv "2011-05-31 '''\nWigwam LLC sold one wigwam for \$1.05 USD in late May 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/May'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.05 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.05 USD";
     ok @entry[15].posting[0].id.entry-id.xxhash == 793767881;
@@ -5082,6 +5349,7 @@ subtest
     ok @entry[15].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 20), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[15].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[15].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[15].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[15].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 5);
     ok @entry[15].posting[1].id.entry-id.text eqv "2011-05-31 '''\nWigwam LLC sold one wigwam for \$1.05 USD in late May 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/May'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.05 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.05 USD";
     ok @entry[15].posting[1].id.entry-id.xxhash == 793767881;
@@ -5103,6 +5371,7 @@ subtest
     ok @entry[16].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[16].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[16].posting[0].decinc eqv DecInc::INC;
+    ok @entry[16].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[16].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 6);
     ok @entry[16].posting[0].id.entry-id.text eqv "2011-06-01 '''\nWigwam LLC bought one wigwam for \$1.06 USD in early June 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/June'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.06 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.06 USD";
     ok @entry[16].posting[0].id.entry-id.xxhash == 1054837725;
@@ -5117,6 +5386,7 @@ subtest
     ok @entry[16].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[16].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[16].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[16].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[16].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 6);
     ok @entry[16].posting[1].id.entry-id.text eqv "2011-06-01 '''\nWigwam LLC bought one wigwam for \$1.06 USD in early June 2011\nFILE:  「includes/2011/Q2.txn」\nBEFORE:「include 'Q2/June'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.06 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.06 USD";
     ok @entry[16].posting[1].id.entry-id.xxhash == 1054837725;
@@ -5138,6 +5408,7 @@ subtest
     ok @entry[17].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[17].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[17].posting[0].decinc eqv DecInc::INC;
+    ok @entry[17].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[17].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 7, 0);
     ok @entry[17].posting[0].id.entry-id.text eqv "2011-06-16 'Wigwam LLC received a dividend of \$2011.0616 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0616 USD\n  Income:WigwamLLC:Dividends          \$2011.0616 USD";
     ok @entry[17].posting[0].id.entry-id.xxhash == 2233477133;
@@ -5152,6 +5423,7 @@ subtest
     ok @entry[17].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[17].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[17].posting[1].decinc eqv DecInc::INC;
+    ok @entry[17].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[17].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 7, 0);
     ok @entry[17].posting[1].id.entry-id.text eqv "2011-06-16 'Wigwam LLC received a dividend of \$2011.0616 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0616 USD\n  Income:WigwamLLC:Dividends          \$2011.0616 USD";
     ok @entry[17].posting[1].id.entry-id.xxhash == 2233477133;
@@ -5173,6 +5445,7 @@ subtest
     ok @entry[18].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[18].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[18].posting[0].decinc eqv DecInc::INC;
+    ok @entry[18].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[18].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 8);
     ok @entry[18].posting[0].id.entry-id.text eqv "2011-06-30 '''\nWigwam LLC sold one wigwam for \$1.06 USD in late June 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/June'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.06 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.06 USD";
     ok @entry[18].posting[0].id.entry-id.xxhash == 2726916770;
@@ -5187,6 +5460,7 @@ subtest
     ok @entry[18].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[18].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[18].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[18].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[18].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 2, 8);
     ok @entry[18].posting[1].id.entry-id.text eqv "2011-06-30 '''\nWigwam LLC sold one wigwam for \$1.06 USD in late June 2011\nFILE:  「includes/2011/Q2.txn」\nAFTER: 「include 'Q2/June'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.06 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.06 USD";
     ok @entry[18].posting[1].id.entry-id.xxhash == 2726916770;
@@ -5208,6 +5482,7 @@ subtest
     ok @entry[19].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(107, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[19].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[19].posting[0].decinc eqv DecInc::INC;
+    ok @entry[19].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[19].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 0);
     ok @entry[19].posting[0].id.entry-id.text eqv "2011-07-01 '''\nWigwam LLC bought one wigwam for \$1.07 USD in early July 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/July'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.07 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.07 USD";
     ok @entry[19].posting[0].id.entry-id.xxhash == 2522748302;
@@ -5222,6 +5497,7 @@ subtest
     ok @entry[19].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[19].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[19].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[19].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[19].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 0);
     ok @entry[19].posting[1].id.entry-id.text eqv "2011-07-01 '''\nWigwam LLC bought one wigwam for \$1.07 USD in early July 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/July'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.07 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.07 USD";
     ok @entry[19].posting[1].id.entry-id.xxhash == 2522748302;
@@ -5243,6 +5519,7 @@ subtest
     ok @entry[20].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[20].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[20].posting[0].decinc eqv DecInc::INC;
+    ok @entry[20].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[20].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 1, 0);
     ok @entry[20].posting[0].id.entry-id.text eqv "2011-07-16 'Wigwam LLC received a dividend of \$2011.0716 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0716 USD\n  Income:WigwamLLC:Dividends          \$2011.0716 USD";
     ok @entry[20].posting[0].id.entry-id.xxhash == 66189993;
@@ -5257,6 +5534,7 @@ subtest
     ok @entry[20].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[20].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[20].posting[1].decinc eqv DecInc::INC;
+    ok @entry[20].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[20].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 1, 0);
     ok @entry[20].posting[1].id.entry-id.text eqv "2011-07-16 'Wigwam LLC received a dividend of \$2011.0716 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0716 USD\n  Income:WigwamLLC:Dividends          \$2011.0716 USD";
     ok @entry[20].posting[1].id.entry-id.xxhash == 66189993;
@@ -5278,6 +5556,7 @@ subtest
     ok @entry[21].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[21].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[21].posting[0].decinc eqv DecInc::INC;
+    ok @entry[21].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[21].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 2);
     ok @entry[21].posting[0].id.entry-id.text eqv "2011-07-31 '''\nWigwam LLC sold one wigwam for \$1.07 USD in late July 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/July'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.07 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.07 USD";
     ok @entry[21].posting[0].id.entry-id.xxhash == 992681704;
@@ -5292,6 +5571,7 @@ subtest
     ok @entry[21].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(107, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[21].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[21].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[21].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[21].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 2);
     ok @entry[21].posting[1].id.entry-id.text eqv "2011-07-31 '''\nWigwam LLC sold one wigwam for \$1.07 USD in late July 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/July'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.07 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.07 USD";
     ok @entry[21].posting[1].id.entry-id.xxhash == 992681704;
@@ -5313,6 +5593,7 @@ subtest
     ok @entry[22].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(27, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[22].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[22].posting[0].decinc eqv DecInc::INC;
+    ok @entry[22].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[22].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 3);
     ok @entry[22].posting[0].id.entry-id.text eqv "2011-08-01 '''\nWigwam LLC bought one wigwam for \$1.08 USD in early August 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/August'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.08 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.08 USD";
     ok @entry[22].posting[0].id.entry-id.xxhash == 2932388883;
@@ -5327,6 +5608,7 @@ subtest
     ok @entry[22].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[22].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[22].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[22].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[22].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 3);
     ok @entry[22].posting[1].id.entry-id.text eqv "2011-08-01 '''\nWigwam LLC bought one wigwam for \$1.08 USD in early August 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/August'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.08 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.08 USD";
     ok @entry[22].posting[1].id.entry-id.xxhash == 2932388883;
@@ -5348,6 +5630,7 @@ subtest
     ok @entry[23].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[23].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[23].posting[0].decinc eqv DecInc::INC;
+    ok @entry[23].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[23].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 4, 0);
     ok @entry[23].posting[0].id.entry-id.text eqv "2011-08-16 'Wigwam LLC received a dividend of \$2011.0816 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0816 USD\n  Income:WigwamLLC:Dividends          \$2011.0816 USD";
     ok @entry[23].posting[0].id.entry-id.xxhash == 165262646;
@@ -5362,6 +5645,7 @@ subtest
     ok @entry[23].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[23].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[23].posting[1].decinc eqv DecInc::INC;
+    ok @entry[23].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[23].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 4, 0);
     ok @entry[23].posting[1].id.entry-id.text eqv "2011-08-16 'Wigwam LLC received a dividend of \$2011.0816 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0816 USD\n  Income:WigwamLLC:Dividends          \$2011.0816 USD";
     ok @entry[23].posting[1].id.entry-id.xxhash == 165262646;
@@ -5383,6 +5667,7 @@ subtest
     ok @entry[24].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[24].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[24].posting[0].decinc eqv DecInc::INC;
+    ok @entry[24].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[24].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 5);
     ok @entry[24].posting[0].id.entry-id.text eqv "2011-08-31 '''\nWigwam LLC sold one wigwam for \$1.08 USD in late August 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/August'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.08 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.08 USD";
     ok @entry[24].posting[0].id.entry-id.xxhash == 2421394429;
@@ -5397,6 +5682,7 @@ subtest
     ok @entry[24].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(27, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[24].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[24].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[24].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[24].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 5);
     ok @entry[24].posting[1].id.entry-id.text eqv "2011-08-31 '''\nWigwam LLC sold one wigwam for \$1.08 USD in late August 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/August'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.08 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.08 USD";
     ok @entry[24].posting[1].id.entry-id.xxhash == 2421394429;
@@ -5418,6 +5704,7 @@ subtest
     ok @entry[25].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(109, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[25].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[25].posting[0].decinc eqv DecInc::INC;
+    ok @entry[25].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[25].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 6);
     ok @entry[25].posting[0].id.entry-id.text eqv "2011-09-01 '''\nWigwam LLC bought one wigwam for \$1.09 USD in early September 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/September'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.09 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.09 USD";
     ok @entry[25].posting[0].id.entry-id.xxhash == 3100476228;
@@ -5432,6 +5719,7 @@ subtest
     ok @entry[25].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[25].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[25].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[25].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[25].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 6);
     ok @entry[25].posting[1].id.entry-id.text eqv "2011-09-01 '''\nWigwam LLC bought one wigwam for \$1.09 USD in early September 2011\nFILE:  「includes/2011/Q3.txn」\nBEFORE:「include 'Q3/September'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.09 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.09 USD";
     ok @entry[25].posting[1].id.entry-id.xxhash == 3100476228;
@@ -5453,6 +5741,7 @@ subtest
     ok @entry[26].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[26].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[26].posting[0].decinc eqv DecInc::INC;
+    ok @entry[26].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[26].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 7, 0);
     ok @entry[26].posting[0].id.entry-id.text eqv "2011-09-16 'Wigwam LLC received a dividend of \$2011.0916 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0916 USD\n  Income:WigwamLLC:Dividends          \$2011.0916 USD";
     ok @entry[26].posting[0].id.entry-id.xxhash == 1591575233;
@@ -5467,6 +5756,7 @@ subtest
     ok @entry[26].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[26].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[26].posting[1].decinc eqv DecInc::INC;
+    ok @entry[26].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[26].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 7, 0);
     ok @entry[26].posting[1].id.entry-id.text eqv "2011-09-16 'Wigwam LLC received a dividend of \$2011.0916 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.0916 USD\n  Income:WigwamLLC:Dividends          \$2011.0916 USD";
     ok @entry[26].posting[1].id.entry-id.xxhash == 1591575233;
@@ -5488,6 +5778,7 @@ subtest
     ok @entry[27].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[27].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[27].posting[0].decinc eqv DecInc::INC;
+    ok @entry[27].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[27].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 8);
     ok @entry[27].posting[0].id.entry-id.text eqv "2011-09-30 '''\nWigwam LLC sold one wigwam for \$1.09 USD in late September 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/September'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.09 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.09 USD";
     ok @entry[27].posting[0].id.entry-id.xxhash == 1027238853;
@@ -5502,6 +5793,7 @@ subtest
     ok @entry[27].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(109, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[27].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[27].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[27].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[27].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 3, 8);
     ok @entry[27].posting[1].id.entry-id.text eqv "2011-09-30 '''\nWigwam LLC sold one wigwam for \$1.09 USD in late September 2011\nFILE:  「includes/2011/Q3.txn」\nAFTER: 「include 'Q3/September'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.09 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.09 USD";
     ok @entry[27].posting[1].id.entry-id.xxhash == 1027238853;
@@ -5523,6 +5815,7 @@ subtest
     ok @entry[28].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(11, 10), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[28].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[28].posting[0].decinc eqv DecInc::INC;
+    ok @entry[28].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[28].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 0);
     ok @entry[28].posting[0].id.entry-id.text eqv "2011-10-01 '''\nWigwam LLC bought one wigwam for \$1.10 USD in early October 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/October'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.10 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.10 USD";
     ok @entry[28].posting[0].id.entry-id.xxhash == 2088813850;
@@ -5537,6 +5830,7 @@ subtest
     ok @entry[28].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[28].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[28].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[28].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[28].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 0);
     ok @entry[28].posting[1].id.entry-id.text eqv "2011-10-01 '''\nWigwam LLC bought one wigwam for \$1.10 USD in early October 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/October'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.10 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.10 USD";
     ok @entry[28].posting[1].id.entry-id.xxhash == 2088813850;
@@ -5558,6 +5852,7 @@ subtest
     ok @entry[29].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[29].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[29].posting[0].decinc eqv DecInc::INC;
+    ok @entry[29].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[29].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 1, 0);
     ok @entry[29].posting[0].id.entry-id.text eqv "2011-10-16 'Wigwam LLC received a dividend of \$2011.1016 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.1016 USD\n  Income:WigwamLLC:Dividends          \$2011.1016 USD";
     ok @entry[29].posting[0].id.entry-id.xxhash == 1630761716;
@@ -5572,6 +5867,7 @@ subtest
     ok @entry[29].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[29].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[29].posting[1].decinc eqv DecInc::INC;
+    ok @entry[29].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[29].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 1, 0);
     ok @entry[29].posting[1].id.entry-id.text eqv "2011-10-16 'Wigwam LLC received a dividend of \$2011.1016 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.1016 USD\n  Income:WigwamLLC:Dividends          \$2011.1016 USD";
     ok @entry[29].posting[1].id.entry-id.xxhash == 1630761716;
@@ -5593,6 +5889,7 @@ subtest
     ok @entry[30].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[30].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[30].posting[0].decinc eqv DecInc::INC;
+    ok @entry[30].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[30].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 2);
     ok @entry[30].posting[0].id.entry-id.text eqv "2011-10-31 '''\nWigwam LLC sold one wigwam for \$1.10 USD in late October 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/October'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.10 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.10 USD";
     ok @entry[30].posting[0].id.entry-id.xxhash == 3547803812;
@@ -5607,6 +5904,7 @@ subtest
     ok @entry[30].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(11, 10), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[30].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[30].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[30].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[30].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 2);
     ok @entry[30].posting[1].id.entry-id.text eqv "2011-10-31 '''\nWigwam LLC sold one wigwam for \$1.10 USD in late October 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/October'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.10 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.10 USD";
     ok @entry[30].posting[1].id.entry-id.xxhash == 3547803812;
@@ -5628,6 +5926,7 @@ subtest
     ok @entry[31].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(111, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[31].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[31].posting[0].decinc eqv DecInc::INC;
+    ok @entry[31].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[31].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 3);
     ok @entry[31].posting[0].id.entry-id.text eqv "2011-11-01 '''\nWigwam LLC bought one wigwam for \$1.11 USD in early November 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/November'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.11 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.11 USD";
     ok @entry[31].posting[0].id.entry-id.xxhash == 3153707624;
@@ -5642,6 +5941,7 @@ subtest
     ok @entry[31].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[31].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[31].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[31].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[31].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 3);
     ok @entry[31].posting[1].id.entry-id.text eqv "2011-11-01 '''\nWigwam LLC bought one wigwam for \$1.11 USD in early November 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/November'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.11 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.11 USD";
     ok @entry[31].posting[1].id.entry-id.xxhash == 3153707624;
@@ -5663,6 +5963,7 @@ subtest
     ok @entry[32].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[32].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[32].posting[0].decinc eqv DecInc::INC;
+    ok @entry[32].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[32].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 4, 0);
     ok @entry[32].posting[0].id.entry-id.text eqv "2011-11-16 'Wigwam LLC received a dividend of \$2011.1116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.1116 USD\n  Income:WigwamLLC:Dividends          \$2011.1116 USD";
     ok @entry[32].posting[0].id.entry-id.xxhash == 784831183;
@@ -5677,6 +5978,7 @@ subtest
     ok @entry[32].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[32].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[32].posting[1].decinc eqv DecInc::INC;
+    ok @entry[32].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[32].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 4, 0);
     ok @entry[32].posting[1].id.entry-id.text eqv "2011-11-16 'Wigwam LLC received a dividend of \$2011.1116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.1116 USD\n  Income:WigwamLLC:Dividends          \$2011.1116 USD";
     ok @entry[32].posting[1].id.entry-id.xxhash == 784831183;
@@ -5698,6 +6000,7 @@ subtest
     ok @entry[33].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[33].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[33].posting[0].decinc eqv DecInc::INC;
+    ok @entry[33].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[33].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 5);
     ok @entry[33].posting[0].id.entry-id.text eqv "2011-11-30 '''\nWigwam LLC sold one wigwam for \$1.11 USD in late November 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/November'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.11 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.11 USD";
     ok @entry[33].posting[0].id.entry-id.xxhash == 3036041749;
@@ -5712,6 +6015,7 @@ subtest
     ok @entry[33].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(111, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[33].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[33].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[33].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[33].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 5);
     ok @entry[33].posting[1].id.entry-id.text eqv "2011-11-30 '''\nWigwam LLC sold one wigwam for \$1.11 USD in late November 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/November'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.11 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.11 USD";
     ok @entry[33].posting[1].id.entry-id.xxhash == 3036041749;
@@ -5733,6 +6037,7 @@ subtest
     ok @entry[34].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(28, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[34].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[34].posting[0].decinc eqv DecInc::INC;
+    ok @entry[34].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[34].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 6);
     ok @entry[34].posting[0].id.entry-id.text eqv "2011-12-01 '''\nWigwam LLC bought one wigwam for \$1.12 USD in early December 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/December'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.12 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.12 USD";
     ok @entry[34].posting[0].id.entry-id.xxhash == 3901453053;
@@ -5747,6 +6052,7 @@ subtest
     ok @entry[34].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[34].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[34].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[34].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[34].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 6);
     ok @entry[34].posting[1].id.entry-id.text eqv "2011-12-01 '''\nWigwam LLC bought one wigwam for \$1.12 USD in early December 2011\nFILE:  「includes/2011/Q4.txn」\nBEFORE:「include 'Q4/December'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 1.12 USD\nAssets:WigwamLLC:KoopaTroopaBank      -1.12 USD";
     ok @entry[34].posting[1].id.entry-id.xxhash == 3901453053;
@@ -5768,6 +6074,7 @@ subtest
     ok @entry[35].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[35].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[35].posting[0].decinc eqv DecInc::INC;
+    ok @entry[35].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[35].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 7, 0);
     ok @entry[35].posting[0].id.entry-id.text eqv "2011-12-16 'Wigwam LLC received a dividend of \$2011.1216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.1216 USD\n  Income:WigwamLLC:Dividends          \$2011.1216 USD";
     ok @entry[35].posting[0].id.entry-id.xxhash == 2743061682;
@@ -5782,6 +6089,7 @@ subtest
     ok @entry[35].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[35].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[35].posting[1].decinc eqv DecInc::INC;
+    ok @entry[35].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[35].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 7, 0);
     ok @entry[35].posting[1].id.entry-id.text eqv "2011-12-16 'Wigwam LLC received a dividend of \$2011.1216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2011.1216 USD\n  Income:WigwamLLC:Dividends          \$2011.1216 USD";
     ok @entry[35].posting[1].id.entry-id.xxhash == 2743061682;
@@ -5803,6 +6111,7 @@ subtest
     ok @entry[36].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[36].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[36].posting[0].decinc eqv DecInc::INC;
+    ok @entry[36].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[36].posting[0].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 8);
     ok @entry[36].posting[0].id.entry-id.text eqv "2011-12-31 '''\nWigwam LLC sold one wigwam for \$1.12 USD in late December 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/December'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.12 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.12 USD";
     ok @entry[36].posting[0].id.entry-id.xxhash == 3355735851;
@@ -5817,6 +6126,7 @@ subtest
     ok @entry[36].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(28, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[36].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[36].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[36].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[36].posting[1].id.entry-id.number eqv Array[UInt].new(0, 0, 4, 8);
     ok @entry[36].posting[1].id.entry-id.text eqv "2011-12-31 '''\nWigwam LLC sold one wigwam for \$1.12 USD in late December 2011\nFILE:  「includes/2011/Q4.txn」\nAFTER: 「include 'Q4/December'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       1.12 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 1.12 USD";
     ok @entry[36].posting[1].id.entry-id.xxhash == 3355735851;
@@ -5838,6 +6148,7 @@ subtest
     ok @entry[37].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[37].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[37].posting[0].decinc eqv DecInc::INC;
+    ok @entry[37].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[37].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 0);
     ok @entry[37].posting[0].id.entry-id.text eqv "2012-01-01 \"FooCorp started the year with \$1000 in Bankwest cheque account\"\n  Assets:FooCorp:Bankwest:Cheque      \$1000.00 USD\n  Equity:FooCorp                      \$1000.00 USD";
     ok @entry[37].posting[0].id.entry-id.xxhash == 581231782;
@@ -5852,6 +6163,7 @@ subtest
     ok @entry[37].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[37].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[37].posting[1].decinc eqv DecInc::INC;
+    ok @entry[37].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[37].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 0);
     ok @entry[37].posting[1].id.entry-id.text eqv "2012-01-01 \"FooCorp started the year with \$1000 in Bankwest cheque account\"\n  Assets:FooCorp:Bankwest:Cheque      \$1000.00 USD\n  Equity:FooCorp                      \$1000.00 USD";
     ok @entry[37].posting[1].id.entry-id.xxhash == 581231782;
@@ -5873,6 +6185,7 @@ subtest
     ok @entry[38].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(201, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[38].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[38].posting[0].decinc eqv DecInc::INC;
+    ok @entry[38].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[38].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 0);
     ok @entry[38].posting[0].id.entry-id.text eqv "2012-01-01 '''\nWigwam LLC bought one wigwam for \$2.01 USD in early January 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/January'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.01 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.01 USD";
     ok @entry[38].posting[0].id.entry-id.xxhash == 2118065854;
@@ -5887,6 +6200,7 @@ subtest
     ok @entry[38].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[38].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[38].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[38].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[38].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 0);
     ok @entry[38].posting[1].id.entry-id.text eqv "2012-01-01 '''\nWigwam LLC bought one wigwam for \$2.01 USD in early January 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/January'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.01 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.01 USD";
     ok @entry[38].posting[1].id.entry-id.xxhash == 2118065854;
@@ -5908,6 +6222,7 @@ subtest
     ok @entry[39].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[39].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[39].posting[0].decinc eqv DecInc::INC;
+    ok @entry[39].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[39].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 1, 0);
     ok @entry[39].posting[0].id.entry-id.text eqv "2012-01-16 'Wigwam LLC received a dividend of \$2012.0116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0116 USD\n  Income:WigwamLLC:Dividends          \$2012.0116 USD";
     ok @entry[39].posting[0].id.entry-id.xxhash == 822843219;
@@ -5922,6 +6237,7 @@ subtest
     ok @entry[39].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[39].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[39].posting[1].decinc eqv DecInc::INC;
+    ok @entry[39].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[39].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 1, 0);
     ok @entry[39].posting[1].id.entry-id.text eqv "2012-01-16 'Wigwam LLC received a dividend of \$2012.0116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0116 USD\n  Income:WigwamLLC:Dividends          \$2012.0116 USD";
     ok @entry[39].posting[1].id.entry-id.xxhash == 822843219;
@@ -5943,6 +6259,7 @@ subtest
     ok @entry[40].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[40].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[40].posting[0].decinc eqv DecInc::INC;
+    ok @entry[40].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[40].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 2);
     ok @entry[40].posting[0].id.entry-id.text eqv "2012-01-31 '''\nWigwam LLC sold one wigwam for \$2.01 USD in late January 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/January'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.01 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.01 USD";
     ok @entry[40].posting[0].id.entry-id.xxhash == 1801463403;
@@ -5957,6 +6274,7 @@ subtest
     ok @entry[40].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(201, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[40].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[40].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[40].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[40].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 2);
     ok @entry[40].posting[1].id.entry-id.text eqv "2012-01-31 '''\nWigwam LLC sold one wigwam for \$2.01 USD in late January 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/January'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.01 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.01 USD";
     ok @entry[40].posting[1].id.entry-id.xxhash == 1801463403;
@@ -5978,6 +6296,7 @@ subtest
     ok @entry[41].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[41].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[41].posting[0].decinc eqv DecInc::INC;
+    ok @entry[41].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[41].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 3);
     ok @entry[41].posting[0].id.entry-id.text eqv "2012-02-01 '''\nWigwam LLC bought one wigwam for \$2.02 USD in early February 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/February'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.02 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.02 USD";
     ok @entry[41].posting[0].id.entry-id.xxhash == 1339543688;
@@ -5992,6 +6311,7 @@ subtest
     ok @entry[41].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[41].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[41].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[41].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[41].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 3);
     ok @entry[41].posting[1].id.entry-id.text eqv "2012-02-01 '''\nWigwam LLC bought one wigwam for \$2.02 USD in early February 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/February'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.02 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.02 USD";
     ok @entry[41].posting[1].id.entry-id.xxhash == 1339543688;
@@ -6013,6 +6333,7 @@ subtest
     ok @entry[42].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[42].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[42].posting[0].decinc eqv DecInc::INC;
+    ok @entry[42].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[42].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 4, 0);
     ok @entry[42].posting[0].id.entry-id.text eqv "2012-02-16 'Wigwam LLC received a dividend of \$2012.0216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0216 USD\n  Income:WigwamLLC:Dividends          \$2012.0216 USD";
     ok @entry[42].posting[0].id.entry-id.xxhash == 230490045;
@@ -6027,6 +6348,7 @@ subtest
     ok @entry[42].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[42].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[42].posting[1].decinc eqv DecInc::INC;
+    ok @entry[42].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[42].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 4, 0);
     ok @entry[42].posting[1].id.entry-id.text eqv "2012-02-16 'Wigwam LLC received a dividend of \$2012.0216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0216 USD\n  Income:WigwamLLC:Dividends          \$2012.0216 USD";
     ok @entry[42].posting[1].id.entry-id.xxhash == 230490045;
@@ -6048,6 +6370,7 @@ subtest
     ok @entry[43].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[43].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[43].posting[0].decinc eqv DecInc::INC;
+    ok @entry[43].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[43].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 5);
     ok @entry[43].posting[0].id.entry-id.text eqv "2012-02-29 '''\nWigwam LLC sold one wigwam for \$2.02 USD in late February 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/February'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.02 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.02 USD";
     ok @entry[43].posting[0].id.entry-id.xxhash == 2961867692;
@@ -6062,6 +6385,7 @@ subtest
     ok @entry[43].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[43].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[43].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[43].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[43].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 5);
     ok @entry[43].posting[1].id.entry-id.text eqv "2012-02-29 '''\nWigwam LLC sold one wigwam for \$2.02 USD in late February 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/February'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.02 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.02 USD";
     ok @entry[43].posting[1].id.entry-id.xxhash == 2961867692;
@@ -6083,6 +6407,7 @@ subtest
     ok @entry[44].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(203, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[44].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[44].posting[0].decinc eqv DecInc::INC;
+    ok @entry[44].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[44].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 6);
     ok @entry[44].posting[0].id.entry-id.text eqv "2012-03-01 '''\nWigwam LLC bought one wigwam for \$2.03 USD in early March 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/March'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.03 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.03 USD";
     ok @entry[44].posting[0].id.entry-id.xxhash == 462880268;
@@ -6097,6 +6422,7 @@ subtest
     ok @entry[44].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[44].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[44].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[44].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[44].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 6);
     ok @entry[44].posting[1].id.entry-id.text eqv "2012-03-01 '''\nWigwam LLC bought one wigwam for \$2.03 USD in early March 2012\nFILE:  「includes/2012/Q1.txn」\nBEFORE:「include 'Q1/March'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.03 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.03 USD";
     ok @entry[44].posting[1].id.entry-id.xxhash == 462880268;
@@ -6118,6 +6444,7 @@ subtest
     ok @entry[45].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[45].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[45].posting[0].decinc eqv DecInc::INC;
+    ok @entry[45].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[45].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 7, 0);
     ok @entry[45].posting[0].id.entry-id.text eqv "2012-03-16 'Wigwam LLC received a dividend of \$2012.0316 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0316 USD\n  Income:WigwamLLC:Dividends          \$2012.0316 USD";
     ok @entry[45].posting[0].id.entry-id.xxhash == 1496080492;
@@ -6132,6 +6459,7 @@ subtest
     ok @entry[45].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[45].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[45].posting[1].decinc eqv DecInc::INC;
+    ok @entry[45].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[45].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 7, 0);
     ok @entry[45].posting[1].id.entry-id.text eqv "2012-03-16 'Wigwam LLC received a dividend of \$2012.0316 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0316 USD\n  Income:WigwamLLC:Dividends          \$2012.0316 USD";
     ok @entry[45].posting[1].id.entry-id.xxhash == 1496080492;
@@ -6153,6 +6481,7 @@ subtest
     ok @entry[46].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[46].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[46].posting[0].decinc eqv DecInc::INC;
+    ok @entry[46].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[46].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 8);
     ok @entry[46].posting[0].id.entry-id.text eqv "2012-03-31 '''\nWigwam LLC sold one wigwam for \$2.03 USD in late March 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/March'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.03 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.03 USD";
     ok @entry[46].posting[0].id.entry-id.xxhash == 1725880199;
@@ -6167,6 +6496,7 @@ subtest
     ok @entry[46].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(203, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[46].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[46].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[46].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[46].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 1, 8);
     ok @entry[46].posting[1].id.entry-id.text eqv "2012-03-31 '''\nWigwam LLC sold one wigwam for \$2.03 USD in late March 2012\nFILE:  「includes/2012/Q1.txn」\nAFTER: 「include 'Q1/March'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.03 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.03 USD";
     ok @entry[46].posting[1].id.entry-id.xxhash == 1725880199;
@@ -6188,6 +6518,7 @@ subtest
     ok @entry[47].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[47].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[47].posting[0].decinc eqv DecInc::INC;
+    ok @entry[47].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[47].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 0);
     ok @entry[47].posting[0].id.entry-id.text eqv "2012-04-01 '''\nWigwam LLC bought one wigwam for \$2.04 USD in early April 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/April'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.04 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.04 USD";
     ok @entry[47].posting[0].id.entry-id.xxhash == 4013949028;
@@ -6202,6 +6533,7 @@ subtest
     ok @entry[47].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[47].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[47].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[47].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[47].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 0);
     ok @entry[47].posting[1].id.entry-id.text eqv "2012-04-01 '''\nWigwam LLC bought one wigwam for \$2.04 USD in early April 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/April'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.04 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.04 USD";
     ok @entry[47].posting[1].id.entry-id.xxhash == 4013949028;
@@ -6223,6 +6555,7 @@ subtest
     ok @entry[48].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[48].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[48].posting[0].decinc eqv DecInc::INC;
+    ok @entry[48].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[48].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 1, 0);
     ok @entry[48].posting[0].id.entry-id.text eqv "2012-04-16 'Wigwam LLC received a dividend of \$2012.0416 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0416 USD\n  Income:WigwamLLC:Dividends          \$2012.0416 USD";
     ok @entry[48].posting[0].id.entry-id.xxhash == 2366118516;
@@ -6237,6 +6570,7 @@ subtest
     ok @entry[48].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[48].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[48].posting[1].decinc eqv DecInc::INC;
+    ok @entry[48].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[48].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 1, 0);
     ok @entry[48].posting[1].id.entry-id.text eqv "2012-04-16 'Wigwam LLC received a dividend of \$2012.0416 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0416 USD\n  Income:WigwamLLC:Dividends          \$2012.0416 USD";
     ok @entry[48].posting[1].id.entry-id.xxhash == 2366118516;
@@ -6258,6 +6592,7 @@ subtest
     ok @entry[49].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[49].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[49].posting[0].decinc eqv DecInc::INC;
+    ok @entry[49].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[49].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 2);
     ok @entry[49].posting[0].id.entry-id.text eqv "2012-04-30 '''\nWigwam LLC sold one wigwam for \$2.04 USD in late April 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/April'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.04 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.04 USD";
     ok @entry[49].posting[0].id.entry-id.xxhash == 534726936;
@@ -6272,6 +6607,7 @@ subtest
     ok @entry[49].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[49].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[49].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[49].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[49].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 2);
     ok @entry[49].posting[1].id.entry-id.text eqv "2012-04-30 '''\nWigwam LLC sold one wigwam for \$2.04 USD in late April 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/April'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.04 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.04 USD";
     ok @entry[49].posting[1].id.entry-id.xxhash == 534726936;
@@ -6293,6 +6629,7 @@ subtest
     ok @entry[50].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(41, 20), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[50].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[50].posting[0].decinc eqv DecInc::INC;
+    ok @entry[50].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[50].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 3);
     ok @entry[50].posting[0].id.entry-id.text eqv "2012-05-01 '''\nWigwam LLC bought one wigwam for \$2.05 USD in early May 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/May'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.05 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.05 USD";
     ok @entry[50].posting[0].id.entry-id.xxhash == 3245023882;
@@ -6307,6 +6644,7 @@ subtest
     ok @entry[50].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[50].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[50].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[50].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[50].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 3);
     ok @entry[50].posting[1].id.entry-id.text eqv "2012-05-01 '''\nWigwam LLC bought one wigwam for \$2.05 USD in early May 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/May'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.05 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.05 USD";
     ok @entry[50].posting[1].id.entry-id.xxhash == 3245023882;
@@ -6328,6 +6666,7 @@ subtest
     ok @entry[51].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[51].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[51].posting[0].decinc eqv DecInc::INC;
+    ok @entry[51].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[51].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 4, 0);
     ok @entry[51].posting[0].id.entry-id.text eqv "2012-05-16 'Wigwam LLC received a dividend of \$2012.0516 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0516 USD\n  Income:WigwamLLC:Dividends          \$2012.0516 USD";
     ok @entry[51].posting[0].id.entry-id.xxhash == 2131847179;
@@ -6342,6 +6681,7 @@ subtest
     ok @entry[51].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[51].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[51].posting[1].decinc eqv DecInc::INC;
+    ok @entry[51].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[51].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 4, 0);
     ok @entry[51].posting[1].id.entry-id.text eqv "2012-05-16 'Wigwam LLC received a dividend of \$2012.0516 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0516 USD\n  Income:WigwamLLC:Dividends          \$2012.0516 USD";
     ok @entry[51].posting[1].id.entry-id.xxhash == 2131847179;
@@ -6363,6 +6703,7 @@ subtest
     ok @entry[52].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[52].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[52].posting[0].decinc eqv DecInc::INC;
+    ok @entry[52].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[52].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 5);
     ok @entry[52].posting[0].id.entry-id.text eqv "2012-05-31 '''\nWigwam LLC sold one wigwam for \$2.05 USD in late May 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/May'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.05 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.05 USD";
     ok @entry[52].posting[0].id.entry-id.xxhash == 3774317231;
@@ -6377,6 +6718,7 @@ subtest
     ok @entry[52].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(41, 20), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[52].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[52].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[52].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[52].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 5);
     ok @entry[52].posting[1].id.entry-id.text eqv "2012-05-31 '''\nWigwam LLC sold one wigwam for \$2.05 USD in late May 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/May'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.05 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.05 USD";
     ok @entry[52].posting[1].id.entry-id.xxhash == 3774317231;
@@ -6398,6 +6740,7 @@ subtest
     ok @entry[53].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[53].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[53].posting[0].decinc eqv DecInc::INC;
+    ok @entry[53].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[53].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 6);
     ok @entry[53].posting[0].id.entry-id.text eqv "2012-06-01 '''\nWigwam LLC bought one wigwam for \$2.06 USD in early June 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/June'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.06 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.06 USD";
     ok @entry[53].posting[0].id.entry-id.xxhash == 1722267067;
@@ -6412,6 +6755,7 @@ subtest
     ok @entry[53].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[53].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[53].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[53].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[53].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 6);
     ok @entry[53].posting[1].id.entry-id.text eqv "2012-06-01 '''\nWigwam LLC bought one wigwam for \$2.06 USD in early June 2012\nFILE:  「includes/2012/Q2.txn」\nBEFORE:「include 'Q2/June'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.06 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.06 USD";
     ok @entry[53].posting[1].id.entry-id.xxhash == 1722267067;
@@ -6433,6 +6777,7 @@ subtest
     ok @entry[54].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[54].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[54].posting[0].decinc eqv DecInc::INC;
+    ok @entry[54].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[54].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 7, 0);
     ok @entry[54].posting[0].id.entry-id.text eqv "2012-06-16 'Wigwam LLC received a dividend of \$2012.0616 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0616 USD\n  Income:WigwamLLC:Dividends          \$2012.0616 USD";
     ok @entry[54].posting[0].id.entry-id.xxhash == 3942872006;
@@ -6447,6 +6792,7 @@ subtest
     ok @entry[54].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[54].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[54].posting[1].decinc eqv DecInc::INC;
+    ok @entry[54].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[54].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 7, 0);
     ok @entry[54].posting[1].id.entry-id.text eqv "2012-06-16 'Wigwam LLC received a dividend of \$2012.0616 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0616 USD\n  Income:WigwamLLC:Dividends          \$2012.0616 USD";
     ok @entry[54].posting[1].id.entry-id.xxhash == 3942872006;
@@ -6468,6 +6814,7 @@ subtest
     ok @entry[55].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[55].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[55].posting[0].decinc eqv DecInc::INC;
+    ok @entry[55].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[55].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 8);
     ok @entry[55].posting[0].id.entry-id.text eqv "2012-06-30 '''\nWigwam LLC sold one wigwam for \$2.06 USD in late June 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/June'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.06 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.06 USD";
     ok @entry[55].posting[0].id.entry-id.xxhash == 4168296451;
@@ -6482,6 +6829,7 @@ subtest
     ok @entry[55].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[55].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[55].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[55].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[55].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 2, 8);
     ok @entry[55].posting[1].id.entry-id.text eqv "2012-06-30 '''\nWigwam LLC sold one wigwam for \$2.06 USD in late June 2012\nFILE:  「includes/2012/Q2.txn」\nAFTER: 「include 'Q2/June'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.06 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.06 USD";
     ok @entry[55].posting[1].id.entry-id.xxhash == 4168296451;
@@ -6503,6 +6851,7 @@ subtest
     ok @entry[56].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(207, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[56].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[56].posting[0].decinc eqv DecInc::INC;
+    ok @entry[56].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[56].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 0);
     ok @entry[56].posting[0].id.entry-id.text eqv "2012-07-01 '''\nWigwam LLC bought one wigwam for \$2.07 USD in early July 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/July'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.07 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.07 USD";
     ok @entry[56].posting[0].id.entry-id.xxhash == 220833898;
@@ -6517,6 +6866,7 @@ subtest
     ok @entry[56].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[56].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[56].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[56].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[56].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 0);
     ok @entry[56].posting[1].id.entry-id.text eqv "2012-07-01 '''\nWigwam LLC bought one wigwam for \$2.07 USD in early July 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/July'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.07 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.07 USD";
     ok @entry[56].posting[1].id.entry-id.xxhash == 220833898;
@@ -6538,6 +6888,7 @@ subtest
     ok @entry[57].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[57].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[57].posting[0].decinc eqv DecInc::INC;
+    ok @entry[57].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[57].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 1, 0);
     ok @entry[57].posting[0].id.entry-id.text eqv "2012-07-16 'Wigwam LLC received a dividend of \$2012.0716 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0716 USD\n  Income:WigwamLLC:Dividends          \$2012.0716 USD";
     ok @entry[57].posting[0].id.entry-id.xxhash == 2173105363;
@@ -6552,6 +6903,7 @@ subtest
     ok @entry[57].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[57].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[57].posting[1].decinc eqv DecInc::INC;
+    ok @entry[57].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[57].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 1, 0);
     ok @entry[57].posting[1].id.entry-id.text eqv "2012-07-16 'Wigwam LLC received a dividend of \$2012.0716 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0716 USD\n  Income:WigwamLLC:Dividends          \$2012.0716 USD";
     ok @entry[57].posting[1].id.entry-id.xxhash == 2173105363;
@@ -6573,6 +6925,7 @@ subtest
     ok @entry[58].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[58].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[58].posting[0].decinc eqv DecInc::INC;
+    ok @entry[58].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[58].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 2);
     ok @entry[58].posting[0].id.entry-id.text eqv "2012-07-31 '''\nWigwam LLC sold one wigwam for \$2.07 USD in late July 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/July'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.07 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.07 USD";
     ok @entry[58].posting[0].id.entry-id.xxhash == 2998128583;
@@ -6587,6 +6940,7 @@ subtest
     ok @entry[58].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(207, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[58].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[58].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[58].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[58].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 2);
     ok @entry[58].posting[1].id.entry-id.text eqv "2012-07-31 '''\nWigwam LLC sold one wigwam for \$2.07 USD in late July 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/July'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.07 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.07 USD";
     ok @entry[58].posting[1].id.entry-id.xxhash == 2998128583;
@@ -6608,6 +6962,7 @@ subtest
     ok @entry[59].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(52, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[59].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[59].posting[0].decinc eqv DecInc::INC;
+    ok @entry[59].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[59].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 3);
     ok @entry[59].posting[0].id.entry-id.text eqv "2012-08-01 '''\nWigwam LLC bought one wigwam for \$2.08 USD in early August 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/August'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.08 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.08 USD";
     ok @entry[59].posting[0].id.entry-id.xxhash == 752691327;
@@ -6622,6 +6977,7 @@ subtest
     ok @entry[59].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[59].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[59].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[59].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[59].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 3);
     ok @entry[59].posting[1].id.entry-id.text eqv "2012-08-01 '''\nWigwam LLC bought one wigwam for \$2.08 USD in early August 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/August'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.08 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.08 USD";
     ok @entry[59].posting[1].id.entry-id.xxhash == 752691327;
@@ -6643,6 +6999,7 @@ subtest
     ok @entry[60].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[60].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[60].posting[0].decinc eqv DecInc::INC;
+    ok @entry[60].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[60].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 4, 0);
     ok @entry[60].posting[0].id.entry-id.text eqv "2012-08-16 'Wigwam LLC received a dividend of \$2012.0816 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0816 USD\n  Income:WigwamLLC:Dividends          \$2012.0816 USD";
     ok @entry[60].posting[0].id.entry-id.xxhash == 1870601986;
@@ -6657,6 +7014,7 @@ subtest
     ok @entry[60].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[60].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[60].posting[1].decinc eqv DecInc::INC;
+    ok @entry[60].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[60].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 4, 0);
     ok @entry[60].posting[1].id.entry-id.text eqv "2012-08-16 'Wigwam LLC received a dividend of \$2012.0816 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0816 USD\n  Income:WigwamLLC:Dividends          \$2012.0816 USD";
     ok @entry[60].posting[1].id.entry-id.xxhash == 1870601986;
@@ -6678,6 +7036,7 @@ subtest
     ok @entry[61].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[61].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[61].posting[0].decinc eqv DecInc::INC;
+    ok @entry[61].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[61].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 5);
     ok @entry[61].posting[0].id.entry-id.text eqv "2012-08-31 '''\nWigwam LLC sold one wigwam for \$2.08 USD in late August 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/August'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.08 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.08 USD";
     ok @entry[61].posting[0].id.entry-id.xxhash == 3036777254;
@@ -6692,6 +7051,7 @@ subtest
     ok @entry[61].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(52, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[61].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[61].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[61].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[61].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 5);
     ok @entry[61].posting[1].id.entry-id.text eqv "2012-08-31 '''\nWigwam LLC sold one wigwam for \$2.08 USD in late August 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/August'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.08 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.08 USD";
     ok @entry[61].posting[1].id.entry-id.xxhash == 3036777254;
@@ -6713,6 +7073,7 @@ subtest
     ok @entry[62].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(209, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[62].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[62].posting[0].decinc eqv DecInc::INC;
+    ok @entry[62].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[62].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 6);
     ok @entry[62].posting[0].id.entry-id.text eqv "2012-09-01 '''\nWigwam LLC bought one wigwam for \$2.09 USD in early September 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/September'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.09 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.09 USD";
     ok @entry[62].posting[0].id.entry-id.xxhash == 3451152685;
@@ -6727,6 +7088,7 @@ subtest
     ok @entry[62].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[62].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[62].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[62].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[62].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 6);
     ok @entry[62].posting[1].id.entry-id.text eqv "2012-09-01 '''\nWigwam LLC bought one wigwam for \$2.09 USD in early September 2012\nFILE:  「includes/2012/Q3.txn」\nBEFORE:「include 'Q3/September'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.09 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.09 USD";
     ok @entry[62].posting[1].id.entry-id.xxhash == 3451152685;
@@ -6748,6 +7110,7 @@ subtest
     ok @entry[63].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[63].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[63].posting[0].decinc eqv DecInc::INC;
+    ok @entry[63].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[63].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 7, 0);
     ok @entry[63].posting[0].id.entry-id.text eqv "2012-09-16 'Wigwam LLC received a dividend of \$2012.0916 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0916 USD\n  Income:WigwamLLC:Dividends          \$2012.0916 USD";
     ok @entry[63].posting[0].id.entry-id.xxhash == 3511177135;
@@ -6762,6 +7125,7 @@ subtest
     ok @entry[63].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[63].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[63].posting[1].decinc eqv DecInc::INC;
+    ok @entry[63].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[63].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 7, 0);
     ok @entry[63].posting[1].id.entry-id.text eqv "2012-09-16 'Wigwam LLC received a dividend of \$2012.0916 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.0916 USD\n  Income:WigwamLLC:Dividends          \$2012.0916 USD";
     ok @entry[63].posting[1].id.entry-id.xxhash == 3511177135;
@@ -6783,6 +7147,7 @@ subtest
     ok @entry[64].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[64].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[64].posting[0].decinc eqv DecInc::INC;
+    ok @entry[64].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[64].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 8);
     ok @entry[64].posting[0].id.entry-id.text eqv "2012-09-30 '''\nWigwam LLC sold one wigwam for \$2.09 USD in late September 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/September'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.09 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.09 USD";
     ok @entry[64].posting[0].id.entry-id.xxhash == 1903824288;
@@ -6797,6 +7162,7 @@ subtest
     ok @entry[64].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(209, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[64].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[64].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[64].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[64].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 3, 8);
     ok @entry[64].posting[1].id.entry-id.text eqv "2012-09-30 '''\nWigwam LLC sold one wigwam for \$2.09 USD in late September 2012\nFILE:  「includes/2012/Q3.txn」\nAFTER: 「include 'Q3/September'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.09 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.09 USD";
     ok @entry[64].posting[1].id.entry-id.xxhash == 1903824288;
@@ -6818,6 +7184,7 @@ subtest
     ok @entry[65].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 10), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[65].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[65].posting[0].decinc eqv DecInc::INC;
+    ok @entry[65].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[65].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 0);
     ok @entry[65].posting[0].id.entry-id.text eqv "2012-10-01 '''\nWigwam LLC bought one wigwam for \$2.10 USD in early October 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/October'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.10 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.10 USD";
     ok @entry[65].posting[0].id.entry-id.xxhash == 3197209626;
@@ -6832,6 +7199,7 @@ subtest
     ok @entry[65].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[65].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[65].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[65].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[65].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 0);
     ok @entry[65].posting[1].id.entry-id.text eqv "2012-10-01 '''\nWigwam LLC bought one wigwam for \$2.10 USD in early October 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/October'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.10 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.10 USD";
     ok @entry[65].posting[1].id.entry-id.xxhash == 3197209626;
@@ -6853,6 +7221,7 @@ subtest
     ok @entry[66].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[66].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[66].posting[0].decinc eqv DecInc::INC;
+    ok @entry[66].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[66].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 1, 0);
     ok @entry[66].posting[0].id.entry-id.text eqv "2012-10-16 'Wigwam LLC received a dividend of \$2012.1016 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.1016 USD\n  Income:WigwamLLC:Dividends          \$2012.1016 USD";
     ok @entry[66].posting[0].id.entry-id.xxhash == 518309921;
@@ -6867,6 +7236,7 @@ subtest
     ok @entry[66].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[66].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[66].posting[1].decinc eqv DecInc::INC;
+    ok @entry[66].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[66].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 1, 0);
     ok @entry[66].posting[1].id.entry-id.text eqv "2012-10-16 'Wigwam LLC received a dividend of \$2012.1016 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.1016 USD\n  Income:WigwamLLC:Dividends          \$2012.1016 USD";
     ok @entry[66].posting[1].id.entry-id.xxhash == 518309921;
@@ -6888,6 +7258,7 @@ subtest
     ok @entry[67].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[67].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[67].posting[0].decinc eqv DecInc::INC;
+    ok @entry[67].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[67].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 2);
     ok @entry[67].posting[0].id.entry-id.text eqv "2012-10-31 '''\nWigwam LLC sold one wigwam for \$2.10 USD in late October 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/October'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.10 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.10 USD";
     ok @entry[67].posting[0].id.entry-id.xxhash == 2477064034;
@@ -6902,6 +7273,7 @@ subtest
     ok @entry[67].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 10), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[67].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[67].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[67].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[67].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 2);
     ok @entry[67].posting[1].id.entry-id.text eqv "2012-10-31 '''\nWigwam LLC sold one wigwam for \$2.10 USD in late October 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/October'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.10 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.10 USD";
     ok @entry[67].posting[1].id.entry-id.xxhash == 2477064034;
@@ -6923,6 +7295,7 @@ subtest
     ok @entry[68].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(211, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[68].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[68].posting[0].decinc eqv DecInc::INC;
+    ok @entry[68].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[68].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 3);
     ok @entry[68].posting[0].id.entry-id.text eqv "2012-11-01 '''\nWigwam LLC bought one wigwam for \$2.11 USD in early November 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/November'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.11 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.11 USD";
     ok @entry[68].posting[0].id.entry-id.xxhash == 729373328;
@@ -6937,6 +7310,7 @@ subtest
     ok @entry[68].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[68].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[68].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[68].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[68].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 3);
     ok @entry[68].posting[1].id.entry-id.text eqv "2012-11-01 '''\nWigwam LLC bought one wigwam for \$2.11 USD in early November 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/November'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.11 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.11 USD";
     ok @entry[68].posting[1].id.entry-id.xxhash == 729373328;
@@ -6958,6 +7332,7 @@ subtest
     ok @entry[69].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[69].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[69].posting[0].decinc eqv DecInc::INC;
+    ok @entry[69].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[69].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 4, 0);
     ok @entry[69].posting[0].id.entry-id.text eqv "2012-11-16 'Wigwam LLC received a dividend of \$2012.1116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.1116 USD\n  Income:WigwamLLC:Dividends          \$2012.1116 USD";
     ok @entry[69].posting[0].id.entry-id.xxhash == 2908538066;
@@ -6972,6 +7347,7 @@ subtest
     ok @entry[69].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[69].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[69].posting[1].decinc eqv DecInc::INC;
+    ok @entry[69].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[69].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 4, 0);
     ok @entry[69].posting[1].id.entry-id.text eqv "2012-11-16 'Wigwam LLC received a dividend of \$2012.1116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.1116 USD\n  Income:WigwamLLC:Dividends          \$2012.1116 USD";
     ok @entry[69].posting[1].id.entry-id.xxhash == 2908538066;
@@ -6993,6 +7369,7 @@ subtest
     ok @entry[70].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[70].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[70].posting[0].decinc eqv DecInc::INC;
+    ok @entry[70].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[70].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 5);
     ok @entry[70].posting[0].id.entry-id.text eqv "2012-11-30 '''\nWigwam LLC sold one wigwam for \$2.11 USD in late November 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/November'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.11 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.11 USD";
     ok @entry[70].posting[0].id.entry-id.xxhash == 228106705;
@@ -7007,6 +7384,7 @@ subtest
     ok @entry[70].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(211, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[70].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[70].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[70].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[70].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 5);
     ok @entry[70].posting[1].id.entry-id.text eqv "2012-11-30 '''\nWigwam LLC sold one wigwam for \$2.11 USD in late November 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/November'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.11 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.11 USD";
     ok @entry[70].posting[1].id.entry-id.xxhash == 228106705;
@@ -7028,6 +7406,7 @@ subtest
     ok @entry[71].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[71].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[71].posting[0].decinc eqv DecInc::INC;
+    ok @entry[71].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[71].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 6);
     ok @entry[71].posting[0].id.entry-id.text eqv "2012-12-01 '''\nWigwam LLC bought one wigwam for \$2.12 USD in early December 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/December'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.12 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.12 USD";
     ok @entry[71].posting[0].id.entry-id.xxhash == 118051768;
@@ -7042,6 +7421,7 @@ subtest
     ok @entry[71].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[71].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[71].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[71].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[71].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 6);
     ok @entry[71].posting[1].id.entry-id.text eqv "2012-12-01 '''\nWigwam LLC bought one wigwam for \$2.12 USD in early December 2012\nFILE:  「includes/2012/Q4.txn」\nBEFORE:「include 'Q4/December'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 2.12 USD\nAssets:WigwamLLC:KoopaTroopaBank      -2.12 USD";
     ok @entry[71].posting[1].id.entry-id.xxhash == 118051768;
@@ -7063,6 +7443,7 @@ subtest
     ok @entry[72].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[72].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[72].posting[0].decinc eqv DecInc::INC;
+    ok @entry[72].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[72].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 7, 0);
     ok @entry[72].posting[0].id.entry-id.text eqv "2012-12-16 'Wigwam LLC received a dividend of \$2012.1216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.1216 USD\n  Income:WigwamLLC:Dividends          \$2012.1216 USD";
     ok @entry[72].posting[0].id.entry-id.xxhash == 3874590774;
@@ -7077,6 +7458,7 @@ subtest
     ok @entry[72].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[72].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[72].posting[1].decinc eqv DecInc::INC;
+    ok @entry[72].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[72].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 7, 0);
     ok @entry[72].posting[1].id.entry-id.text eqv "2012-12-16 'Wigwam LLC received a dividend of \$2012.1216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2012.1216 USD\n  Income:WigwamLLC:Dividends          \$2012.1216 USD";
     ok @entry[72].posting[1].id.entry-id.xxhash == 3874590774;
@@ -7098,6 +7480,7 @@ subtest
     ok @entry[73].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[73].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[73].posting[0].decinc eqv DecInc::INC;
+    ok @entry[73].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[73].posting[0].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 8);
     ok @entry[73].posting[0].id.entry-id.text eqv "2012-12-31 '''\nWigwam LLC sold one wigwam for \$2.12 USD in late December 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/December'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.12 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.12 USD";
     ok @entry[73].posting[0].id.entry-id.xxhash == 2276583731;
@@ -7112,6 +7495,7 @@ subtest
     ok @entry[73].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[73].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[73].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[73].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[73].posting[1].id.entry-id.number eqv Array[UInt].new(0, 1, 4, 8);
     ok @entry[73].posting[1].id.entry-id.text eqv "2012-12-31 '''\nWigwam LLC sold one wigwam for \$2.12 USD in late December 2012\nFILE:  「includes/2012/Q4.txn」\nAFTER: 「include 'Q4/December'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       2.12 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 2.12 USD";
     ok @entry[73].posting[1].id.entry-id.xxhash == 2276583731;
@@ -7133,6 +7517,7 @@ subtest
     ok @entry[74].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[74].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[74].posting[0].decinc eqv DecInc::INC;
+    ok @entry[74].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[74].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 0);
     ok @entry[74].posting[0].id.entry-id.text eqv "2013-01-01 \"FooCorp started the year with \$1000 in Bankwest cheque account\"\n  Assets:FooCorp:Bankwest:Cheque      \$1000.00 USD\n  Equity:FooCorp                      \$1000.00 USD";
     ok @entry[74].posting[0].id.entry-id.xxhash == 2316435396;
@@ -7147,6 +7532,7 @@ subtest
     ok @entry[74].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[74].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[74].posting[1].decinc eqv DecInc::INC;
+    ok @entry[74].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[74].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 0);
     ok @entry[74].posting[1].id.entry-id.text eqv "2013-01-01 \"FooCorp started the year with \$1000 in Bankwest cheque account\"\n  Assets:FooCorp:Bankwest:Cheque      \$1000.00 USD\n  Equity:FooCorp                      \$1000.00 USD";
     ok @entry[74].posting[1].id.entry-id.xxhash == 2316435396;
@@ -7168,6 +7554,7 @@ subtest
     ok @entry[75].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(301, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[75].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[75].posting[0].decinc eqv DecInc::INC;
+    ok @entry[75].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[75].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 0);
     ok @entry[75].posting[0].id.entry-id.text eqv "2013-01-01 '''\nWigwam LLC bought one wigwam for \$3.01 USD in early January 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/January'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.01 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.01 USD";
     ok @entry[75].posting[0].id.entry-id.xxhash == 265230743;
@@ -7182,6 +7569,7 @@ subtest
     ok @entry[75].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[75].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[75].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[75].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[75].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 0);
     ok @entry[75].posting[1].id.entry-id.text eqv "2013-01-01 '''\nWigwam LLC bought one wigwam for \$3.01 USD in early January 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/January'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.01 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.01 USD";
     ok @entry[75].posting[1].id.entry-id.xxhash == 265230743;
@@ -7203,6 +7591,7 @@ subtest
     ok @entry[76].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[76].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[76].posting[0].decinc eqv DecInc::INC;
+    ok @entry[76].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[76].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 1, 0);
     ok @entry[76].posting[0].id.entry-id.text eqv "2013-01-16 'Wigwam LLC received a dividend of \$2013.0116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0116 USD\n  Income:WigwamLLC:Dividends          \$2013.0116 USD";
     ok @entry[76].posting[0].id.entry-id.xxhash == 1201569906;
@@ -7217,6 +7606,7 @@ subtest
     ok @entry[76].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[76].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[76].posting[1].decinc eqv DecInc::INC;
+    ok @entry[76].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[76].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 1, 0);
     ok @entry[76].posting[1].id.entry-id.text eqv "2013-01-16 'Wigwam LLC received a dividend of \$2013.0116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0116 USD\n  Income:WigwamLLC:Dividends          \$2013.0116 USD";
     ok @entry[76].posting[1].id.entry-id.xxhash == 1201569906;
@@ -7238,6 +7628,7 @@ subtest
     ok @entry[77].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[77].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[77].posting[0].decinc eqv DecInc::INC;
+    ok @entry[77].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[77].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 2);
     ok @entry[77].posting[0].id.entry-id.text eqv "2013-01-31 '''\nWigwam LLC sold one wigwam for \$3.01 USD in late January 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/January'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.01 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.01 USD";
     ok @entry[77].posting[0].id.entry-id.xxhash == 3717945709;
@@ -7252,6 +7643,7 @@ subtest
     ok @entry[77].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(301, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[77].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[77].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[77].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[77].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 2);
     ok @entry[77].posting[1].id.entry-id.text eqv "2013-01-31 '''\nWigwam LLC sold one wigwam for \$3.01 USD in late January 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/January'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.01 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.01 USD";
     ok @entry[77].posting[1].id.entry-id.xxhash == 3717945709;
@@ -7273,6 +7665,7 @@ subtest
     ok @entry[78].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(151, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[78].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[78].posting[0].decinc eqv DecInc::INC;
+    ok @entry[78].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[78].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 3);
     ok @entry[78].posting[0].id.entry-id.text eqv "2013-02-01 '''\nWigwam LLC bought one wigwam for \$3.02 USD in early February 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/February'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.02 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.02 USD";
     ok @entry[78].posting[0].id.entry-id.xxhash == 4024926956;
@@ -7287,6 +7680,7 @@ subtest
     ok @entry[78].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[78].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[78].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[78].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[78].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 3);
     ok @entry[78].posting[1].id.entry-id.text eqv "2013-02-01 '''\nWigwam LLC bought one wigwam for \$3.02 USD in early February 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/February'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.02 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.02 USD";
     ok @entry[78].posting[1].id.entry-id.xxhash == 4024926956;
@@ -7308,6 +7702,7 @@ subtest
     ok @entry[79].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[79].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[79].posting[0].decinc eqv DecInc::INC;
+    ok @entry[79].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[79].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 4, 0);
     ok @entry[79].posting[0].id.entry-id.text eqv "2013-02-16 'Wigwam LLC received a dividend of \$2013.0216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0216 USD\n  Income:WigwamLLC:Dividends          \$2013.0216 USD";
     ok @entry[79].posting[0].id.entry-id.xxhash == 2203509452;
@@ -7322,6 +7717,7 @@ subtest
     ok @entry[79].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[79].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[79].posting[1].decinc eqv DecInc::INC;
+    ok @entry[79].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[79].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 4, 0);
     ok @entry[79].posting[1].id.entry-id.text eqv "2013-02-16 'Wigwam LLC received a dividend of \$2013.0216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0216 USD\n  Income:WigwamLLC:Dividends          \$2013.0216 USD";
     ok @entry[79].posting[1].id.entry-id.xxhash == 2203509452;
@@ -7343,6 +7739,7 @@ subtest
     ok @entry[80].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[80].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[80].posting[0].decinc eqv DecInc::INC;
+    ok @entry[80].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[80].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 5);
     ok @entry[80].posting[0].id.entry-id.text eqv "2013-02-28 '''\nWigwam LLC sold one wigwam for \$3.02 USD in late February 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/February'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.02 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.02 USD";
     ok @entry[80].posting[0].id.entry-id.xxhash == 1337772394;
@@ -7357,6 +7754,7 @@ subtest
     ok @entry[80].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(151, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[80].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[80].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[80].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[80].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 5);
     ok @entry[80].posting[1].id.entry-id.text eqv "2013-02-28 '''\nWigwam LLC sold one wigwam for \$3.02 USD in late February 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/February'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.02 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.02 USD";
     ok @entry[80].posting[1].id.entry-id.xxhash == 1337772394;
@@ -7378,6 +7776,7 @@ subtest
     ok @entry[81].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(303, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[81].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[81].posting[0].decinc eqv DecInc::INC;
+    ok @entry[81].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[81].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 6);
     ok @entry[81].posting[0].id.entry-id.text eqv "2013-03-01 '''\nWigwam LLC bought one wigwam for \$3.03 USD in early March 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/March'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.03 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.03 USD";
     ok @entry[81].posting[0].id.entry-id.xxhash == 3993675371;
@@ -7392,6 +7791,7 @@ subtest
     ok @entry[81].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[81].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[81].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[81].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[81].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 6);
     ok @entry[81].posting[1].id.entry-id.text eqv "2013-03-01 '''\nWigwam LLC bought one wigwam for \$3.03 USD in early March 2013\nFILE:  「includes/2013/Q1.txn」\nBEFORE:「include 'Q1/March'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.03 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.03 USD";
     ok @entry[81].posting[1].id.entry-id.xxhash == 3993675371;
@@ -7413,6 +7813,7 @@ subtest
     ok @entry[82].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[82].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[82].posting[0].decinc eqv DecInc::INC;
+    ok @entry[82].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[82].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 7, 0);
     ok @entry[82].posting[0].id.entry-id.text eqv "2013-03-16 'Wigwam LLC received a dividend of \$2013.0316 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0316 USD\n  Income:WigwamLLC:Dividends          \$2013.0316 USD";
     ok @entry[82].posting[0].id.entry-id.xxhash == 1562886410;
@@ -7427,6 +7828,7 @@ subtest
     ok @entry[82].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[82].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[82].posting[1].decinc eqv DecInc::INC;
+    ok @entry[82].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[82].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 7, 0);
     ok @entry[82].posting[1].id.entry-id.text eqv "2013-03-16 'Wigwam LLC received a dividend of \$2013.0316 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0316 USD\n  Income:WigwamLLC:Dividends          \$2013.0316 USD";
     ok @entry[82].posting[1].id.entry-id.xxhash == 1562886410;
@@ -7448,6 +7850,7 @@ subtest
     ok @entry[83].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[83].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[83].posting[0].decinc eqv DecInc::INC;
+    ok @entry[83].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[83].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 8);
     ok @entry[83].posting[0].id.entry-id.text eqv "2013-03-31 '''\nWigwam LLC sold one wigwam for \$3.03 USD in late March 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/March'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.03 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.03 USD";
     ok @entry[83].posting[0].id.entry-id.xxhash == 1634210627;
@@ -7462,6 +7865,7 @@ subtest
     ok @entry[83].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(303, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[83].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[83].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[83].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[83].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 1, 8);
     ok @entry[83].posting[1].id.entry-id.text eqv "2013-03-31 '''\nWigwam LLC sold one wigwam for \$3.03 USD in late March 2013\nFILE:  「includes/2013/Q1.txn」\nAFTER: 「include 'Q1/March'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.03 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.03 USD";
     ok @entry[83].posting[1].id.entry-id.xxhash == 1634210627;
@@ -7483,6 +7887,7 @@ subtest
     ok @entry[84].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(76, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[84].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[84].posting[0].decinc eqv DecInc::INC;
+    ok @entry[84].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[84].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 0);
     ok @entry[84].posting[0].id.entry-id.text eqv "2013-04-01 '''\nWigwam LLC bought one wigwam for \$3.04 USD in early April 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/April'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.04 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.04 USD";
     ok @entry[84].posting[0].id.entry-id.xxhash == 713752082;
@@ -7497,6 +7902,7 @@ subtest
     ok @entry[84].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[84].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[84].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[84].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[84].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 0);
     ok @entry[84].posting[1].id.entry-id.text eqv "2013-04-01 '''\nWigwam LLC bought one wigwam for \$3.04 USD in early April 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/April'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.04 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.04 USD";
     ok @entry[84].posting[1].id.entry-id.xxhash == 713752082;
@@ -7518,6 +7924,7 @@ subtest
     ok @entry[85].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[85].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[85].posting[0].decinc eqv DecInc::INC;
+    ok @entry[85].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[85].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 1, 0);
     ok @entry[85].posting[0].id.entry-id.text eqv "2013-04-16 'Wigwam LLC received a dividend of \$2013.0416 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0416 USD\n  Income:WigwamLLC:Dividends          \$2013.0416 USD";
     ok @entry[85].posting[0].id.entry-id.xxhash == 2573101041;
@@ -7532,6 +7939,7 @@ subtest
     ok @entry[85].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[85].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[85].posting[1].decinc eqv DecInc::INC;
+    ok @entry[85].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[85].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 1, 0);
     ok @entry[85].posting[1].id.entry-id.text eqv "2013-04-16 'Wigwam LLC received a dividend of \$2013.0416 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0416 USD\n  Income:WigwamLLC:Dividends          \$2013.0416 USD";
     ok @entry[85].posting[1].id.entry-id.xxhash == 2573101041;
@@ -7553,6 +7961,7 @@ subtest
     ok @entry[86].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[86].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[86].posting[0].decinc eqv DecInc::INC;
+    ok @entry[86].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[86].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 2);
     ok @entry[86].posting[0].id.entry-id.text eqv "2013-04-30 '''\nWigwam LLC sold one wigwam for \$3.04 USD in late April 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/April'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.04 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.04 USD";
     ok @entry[86].posting[0].id.entry-id.xxhash == 2698432083;
@@ -7567,6 +7976,7 @@ subtest
     ok @entry[86].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(76, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[86].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[86].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[86].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[86].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 2);
     ok @entry[86].posting[1].id.entry-id.text eqv "2013-04-30 '''\nWigwam LLC sold one wigwam for \$3.04 USD in late April 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/April'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.04 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.04 USD";
     ok @entry[86].posting[1].id.entry-id.xxhash == 2698432083;
@@ -7588,6 +7998,7 @@ subtest
     ok @entry[87].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(61, 20), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[87].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[87].posting[0].decinc eqv DecInc::INC;
+    ok @entry[87].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[87].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 3);
     ok @entry[87].posting[0].id.entry-id.text eqv "2013-05-01 '''\nWigwam LLC bought one wigwam for \$3.05 USD in early May 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/May'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.05 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.05 USD";
     ok @entry[87].posting[0].id.entry-id.xxhash == 607841021;
@@ -7602,6 +8013,7 @@ subtest
     ok @entry[87].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[87].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[87].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[87].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[87].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 3);
     ok @entry[87].posting[1].id.entry-id.text eqv "2013-05-01 '''\nWigwam LLC bought one wigwam for \$3.05 USD in early May 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/May'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.05 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.05 USD";
     ok @entry[87].posting[1].id.entry-id.xxhash == 607841021;
@@ -7623,6 +8035,7 @@ subtest
     ok @entry[88].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[88].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[88].posting[0].decinc eqv DecInc::INC;
+    ok @entry[88].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[88].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 4, 0);
     ok @entry[88].posting[0].id.entry-id.text eqv "2013-05-16 'Wigwam LLC received a dividend of \$2013.0516 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0516 USD\n  Income:WigwamLLC:Dividends          \$2013.0516 USD";
     ok @entry[88].posting[0].id.entry-id.xxhash == 3814087496;
@@ -7637,6 +8050,7 @@ subtest
     ok @entry[88].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[88].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[88].posting[1].decinc eqv DecInc::INC;
+    ok @entry[88].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[88].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 4, 0);
     ok @entry[88].posting[1].id.entry-id.text eqv "2013-05-16 'Wigwam LLC received a dividend of \$2013.0516 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0516 USD\n  Income:WigwamLLC:Dividends          \$2013.0516 USD";
     ok @entry[88].posting[1].id.entry-id.xxhash == 3814087496;
@@ -7658,6 +8072,7 @@ subtest
     ok @entry[89].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[89].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[89].posting[0].decinc eqv DecInc::INC;
+    ok @entry[89].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[89].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 5);
     ok @entry[89].posting[0].id.entry-id.text eqv "2013-05-31 '''\nWigwam LLC sold one wigwam for \$3.05 USD in late May 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/May'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.05 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.05 USD";
     ok @entry[89].posting[0].id.entry-id.xxhash == 3166921593;
@@ -7672,6 +8087,7 @@ subtest
     ok @entry[89].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(61, 20), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[89].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[89].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[89].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[89].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 5);
     ok @entry[89].posting[1].id.entry-id.text eqv "2013-05-31 '''\nWigwam LLC sold one wigwam for \$3.05 USD in late May 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/May'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.05 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.05 USD";
     ok @entry[89].posting[1].id.entry-id.xxhash == 3166921593;
@@ -7693,6 +8109,7 @@ subtest
     ok @entry[90].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(153, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[90].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[90].posting[0].decinc eqv DecInc::INC;
+    ok @entry[90].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[90].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 6);
     ok @entry[90].posting[0].id.entry-id.text eqv "2013-06-01 '''\nWigwam LLC bought one wigwam for \$3.06 USD in early June 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/June'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.06 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.06 USD";
     ok @entry[90].posting[0].id.entry-id.xxhash == 927323051;
@@ -7707,6 +8124,7 @@ subtest
     ok @entry[90].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[90].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[90].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[90].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[90].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 6);
     ok @entry[90].posting[1].id.entry-id.text eqv "2013-06-01 '''\nWigwam LLC bought one wigwam for \$3.06 USD in early June 2013\nFILE:  「includes/2013/Q2.txn」\nBEFORE:「include 'Q2/June'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.06 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.06 USD";
     ok @entry[90].posting[1].id.entry-id.xxhash == 927323051;
@@ -7728,6 +8146,7 @@ subtest
     ok @entry[91].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[91].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[91].posting[0].decinc eqv DecInc::INC;
+    ok @entry[91].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[91].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 7, 0);
     ok @entry[91].posting[0].id.entry-id.text eqv "2013-06-16 'Wigwam LLC received a dividend of \$2013.0616 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0616 USD\n  Income:WigwamLLC:Dividends          \$2013.0616 USD";
     ok @entry[91].posting[0].id.entry-id.xxhash == 2504499649;
@@ -7742,6 +8161,7 @@ subtest
     ok @entry[91].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[91].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[91].posting[1].decinc eqv DecInc::INC;
+    ok @entry[91].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[91].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 7, 0);
     ok @entry[91].posting[1].id.entry-id.text eqv "2013-06-16 'Wigwam LLC received a dividend of \$2013.0616 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0616 USD\n  Income:WigwamLLC:Dividends          \$2013.0616 USD";
     ok @entry[91].posting[1].id.entry-id.xxhash == 2504499649;
@@ -7763,6 +8183,7 @@ subtest
     ok @entry[92].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[92].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[92].posting[0].decinc eqv DecInc::INC;
+    ok @entry[92].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[92].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 8);
     ok @entry[92].posting[0].id.entry-id.text eqv "2013-06-30 '''\nWigwam LLC sold one wigwam for \$3.06 USD in late June 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/June'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.06 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.06 USD";
     ok @entry[92].posting[0].id.entry-id.xxhash == 1870422416;
@@ -7777,6 +8198,7 @@ subtest
     ok @entry[92].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(153, 50), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[92].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[92].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[92].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[92].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 2, 8);
     ok @entry[92].posting[1].id.entry-id.text eqv "2013-06-30 '''\nWigwam LLC sold one wigwam for \$3.06 USD in late June 2013\nFILE:  「includes/2013/Q2.txn」\nAFTER: 「include 'Q2/June'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.06 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.06 USD";
     ok @entry[92].posting[1].id.entry-id.xxhash == 1870422416;
@@ -7798,6 +8220,7 @@ subtest
     ok @entry[93].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(307, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[93].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[93].posting[0].decinc eqv DecInc::INC;
+    ok @entry[93].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[93].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 0);
     ok @entry[93].posting[0].id.entry-id.text eqv "2013-07-01 '''\nWigwam LLC bought one wigwam for \$3.07 USD in early July 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/July'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.07 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.07 USD";
     ok @entry[93].posting[0].id.entry-id.xxhash == 4095708493;
@@ -7812,6 +8235,7 @@ subtest
     ok @entry[93].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[93].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[93].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[93].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[93].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 0);
     ok @entry[93].posting[1].id.entry-id.text eqv "2013-07-01 '''\nWigwam LLC bought one wigwam for \$3.07 USD in early July 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/July'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.07 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.07 USD";
     ok @entry[93].posting[1].id.entry-id.xxhash == 4095708493;
@@ -7833,6 +8257,7 @@ subtest
     ok @entry[94].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[94].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[94].posting[0].decinc eqv DecInc::INC;
+    ok @entry[94].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[94].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 1, 0);
     ok @entry[94].posting[0].id.entry-id.text eqv "2013-07-16 'Wigwam LLC received a dividend of \$2013.0716 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0716 USD\n  Income:WigwamLLC:Dividends          \$2013.0716 USD";
     ok @entry[94].posting[0].id.entry-id.xxhash == 1271983877;
@@ -7847,6 +8272,7 @@ subtest
     ok @entry[94].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[94].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[94].posting[1].decinc eqv DecInc::INC;
+    ok @entry[94].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[94].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 1, 0);
     ok @entry[94].posting[1].id.entry-id.text eqv "2013-07-16 'Wigwam LLC received a dividend of \$2013.0716 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0716 USD\n  Income:WigwamLLC:Dividends          \$2013.0716 USD";
     ok @entry[94].posting[1].id.entry-id.xxhash == 1271983877;
@@ -7868,6 +8294,7 @@ subtest
     ok @entry[95].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[95].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[95].posting[0].decinc eqv DecInc::INC;
+    ok @entry[95].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[95].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 2);
     ok @entry[95].posting[0].id.entry-id.text eqv "2013-07-31 '''\nWigwam LLC sold one wigwam for \$3.07 USD in late July 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/July'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.07 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.07 USD";
     ok @entry[95].posting[0].id.entry-id.xxhash == 585905153;
@@ -7882,6 +8309,7 @@ subtest
     ok @entry[95].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(307, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[95].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[95].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[95].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[95].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 2);
     ok @entry[95].posting[1].id.entry-id.text eqv "2013-07-31 '''\nWigwam LLC sold one wigwam for \$3.07 USD in late July 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/July'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.07 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.07 USD";
     ok @entry[95].posting[1].id.entry-id.xxhash == 585905153;
@@ -7903,6 +8331,7 @@ subtest
     ok @entry[96].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(77, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[96].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[96].posting[0].decinc eqv DecInc::INC;
+    ok @entry[96].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[96].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 3);
     ok @entry[96].posting[0].id.entry-id.text eqv "2013-08-01 '''\nWigwam LLC bought one wigwam for \$3.08 USD in early August 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/August'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.08 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.08 USD";
     ok @entry[96].posting[0].id.entry-id.xxhash == 444744934;
@@ -7917,6 +8346,7 @@ subtest
     ok @entry[96].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[96].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[96].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[96].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[96].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 3);
     ok @entry[96].posting[1].id.entry-id.text eqv "2013-08-01 '''\nWigwam LLC bought one wigwam for \$3.08 USD in early August 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/August'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.08 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.08 USD";
     ok @entry[96].posting[1].id.entry-id.xxhash == 444744934;
@@ -7938,6 +8368,7 @@ subtest
     ok @entry[97].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[97].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[97].posting[0].decinc eqv DecInc::INC;
+    ok @entry[97].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[97].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 4, 0);
     ok @entry[97].posting[0].id.entry-id.text eqv "2013-08-16 'Wigwam LLC received a dividend of \$2013.0816 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0816 USD\n  Income:WigwamLLC:Dividends          \$2013.0816 USD";
     ok @entry[97].posting[0].id.entry-id.xxhash == 796956488;
@@ -7952,6 +8383,7 @@ subtest
     ok @entry[97].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[97].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[97].posting[1].decinc eqv DecInc::INC;
+    ok @entry[97].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[97].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 4, 0);
     ok @entry[97].posting[1].id.entry-id.text eqv "2013-08-16 'Wigwam LLC received a dividend of \$2013.0816 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0816 USD\n  Income:WigwamLLC:Dividends          \$2013.0816 USD";
     ok @entry[97].posting[1].id.entry-id.xxhash == 796956488;
@@ -7973,6 +8405,7 @@ subtest
     ok @entry[98].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[98].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[98].posting[0].decinc eqv DecInc::INC;
+    ok @entry[98].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[98].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 5);
     ok @entry[98].posting[0].id.entry-id.text eqv "2013-08-31 '''\nWigwam LLC sold one wigwam for \$3.08 USD in late August 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/August'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.08 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.08 USD";
     ok @entry[98].posting[0].id.entry-id.xxhash == 1033193703;
@@ -7987,6 +8420,7 @@ subtest
     ok @entry[98].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(77, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[98].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[98].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[98].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[98].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 5);
     ok @entry[98].posting[1].id.entry-id.text eqv "2013-08-31 '''\nWigwam LLC sold one wigwam for \$3.08 USD in late August 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/August'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.08 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.08 USD";
     ok @entry[98].posting[1].id.entry-id.xxhash == 1033193703;
@@ -8008,6 +8442,7 @@ subtest
     ok @entry[99].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(309, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[99].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[99].posting[0].decinc eqv DecInc::INC;
+    ok @entry[99].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[99].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 6);
     ok @entry[99].posting[0].id.entry-id.text eqv "2013-09-01 '''\nWigwam LLC bought one wigwam for \$3.09 USD in early September 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/September'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.09 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.09 USD";
     ok @entry[99].posting[0].id.entry-id.xxhash == 2081861311;
@@ -8022,6 +8457,7 @@ subtest
     ok @entry[99].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[99].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[99].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[99].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[99].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 6);
     ok @entry[99].posting[1].id.entry-id.text eqv "2013-09-01 '''\nWigwam LLC bought one wigwam for \$3.09 USD in early September 2013\nFILE:  「includes/2013/Q3.txn」\nBEFORE:「include 'Q3/September'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.09 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.09 USD";
     ok @entry[99].posting[1].id.entry-id.xxhash == 2081861311;
@@ -8043,6 +8479,7 @@ subtest
     ok @entry[100].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[100].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[100].posting[0].decinc eqv DecInc::INC;
+    ok @entry[100].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[100].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 7, 0);
     ok @entry[100].posting[0].id.entry-id.text eqv "2013-09-16 'Wigwam LLC received a dividend of \$2013.0916 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0916 USD\n  Income:WigwamLLC:Dividends          \$2013.0916 USD";
     ok @entry[100].posting[0].id.entry-id.xxhash == 705777824;
@@ -8057,6 +8494,7 @@ subtest
     ok @entry[100].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[100].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[100].posting[1].decinc eqv DecInc::INC;
+    ok @entry[100].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[100].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 7, 0);
     ok @entry[100].posting[1].id.entry-id.text eqv "2013-09-16 'Wigwam LLC received a dividend of \$2013.0916 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.0916 USD\n  Income:WigwamLLC:Dividends          \$2013.0916 USD";
     ok @entry[100].posting[1].id.entry-id.xxhash == 705777824;
@@ -8078,6 +8516,7 @@ subtest
     ok @entry[101].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[101].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[101].posting[0].decinc eqv DecInc::INC;
+    ok @entry[101].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[101].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 8);
     ok @entry[101].posting[0].id.entry-id.text eqv "2013-09-30 '''\nWigwam LLC sold one wigwam for \$3.09 USD in late September 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/September'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.09 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.09 USD";
     ok @entry[101].posting[0].id.entry-id.xxhash == 2792675818;
@@ -8092,6 +8531,7 @@ subtest
     ok @entry[101].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(309, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[101].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[101].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[101].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[101].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 3, 8);
     ok @entry[101].posting[1].id.entry-id.text eqv "2013-09-30 '''\nWigwam LLC sold one wigwam for \$3.09 USD in late September 2013\nFILE:  「includes/2013/Q3.txn」\nAFTER: 「include 'Q3/September'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.09 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.09 USD";
     ok @entry[101].posting[1].id.entry-id.xxhash == 2792675818;
@@ -8113,6 +8553,7 @@ subtest
     ok @entry[102].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(31, 10), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[102].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[102].posting[0].decinc eqv DecInc::INC;
+    ok @entry[102].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[102].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 0);
     ok @entry[102].posting[0].id.entry-id.text eqv "2013-10-01 '''\nWigwam LLC bought one wigwam for \$3.10 USD in early October 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/October'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.10 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.10 USD";
     ok @entry[102].posting[0].id.entry-id.xxhash == 574545503;
@@ -8127,6 +8568,7 @@ subtest
     ok @entry[102].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[102].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[102].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[102].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[102].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 0);
     ok @entry[102].posting[1].id.entry-id.text eqv "2013-10-01 '''\nWigwam LLC bought one wigwam for \$3.10 USD in early October 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/October'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.10 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.10 USD";
     ok @entry[102].posting[1].id.entry-id.xxhash == 574545503;
@@ -8148,6 +8590,7 @@ subtest
     ok @entry[103].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[103].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[103].posting[0].decinc eqv DecInc::INC;
+    ok @entry[103].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[103].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 1, 0);
     ok @entry[103].posting[0].id.entry-id.text eqv "2013-10-16 'Wigwam LLC received a dividend of \$2013.1016 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.1016 USD\n  Income:WigwamLLC:Dividends          \$2013.1016 USD";
     ok @entry[103].posting[0].id.entry-id.xxhash == 1123984249;
@@ -8162,6 +8605,7 @@ subtest
     ok @entry[103].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[103].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[103].posting[1].decinc eqv DecInc::INC;
+    ok @entry[103].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[103].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 1, 0);
     ok @entry[103].posting[1].id.entry-id.text eqv "2013-10-16 'Wigwam LLC received a dividend of \$2013.1016 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.1016 USD\n  Income:WigwamLLC:Dividends          \$2013.1016 USD";
     ok @entry[103].posting[1].id.entry-id.xxhash == 1123984249;
@@ -8183,6 +8627,7 @@ subtest
     ok @entry[104].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[104].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[104].posting[0].decinc eqv DecInc::INC;
+    ok @entry[104].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[104].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 2);
     ok @entry[104].posting[0].id.entry-id.text eqv "2013-10-31 '''\nWigwam LLC sold one wigwam for \$3.10 USD in late October 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/October'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.10 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.10 USD";
     ok @entry[104].posting[0].id.entry-id.xxhash == 1605620712;
@@ -8197,6 +8642,7 @@ subtest
     ok @entry[104].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(31, 10), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[104].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[104].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[104].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[104].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 2);
     ok @entry[104].posting[1].id.entry-id.text eqv "2013-10-31 '''\nWigwam LLC sold one wigwam for \$3.10 USD in late October 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/October'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.10 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.10 USD";
     ok @entry[104].posting[1].id.entry-id.xxhash == 1605620712;
@@ -8218,6 +8664,7 @@ subtest
     ok @entry[105].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(311, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[105].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[105].posting[0].decinc eqv DecInc::INC;
+    ok @entry[105].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[105].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 3);
     ok @entry[105].posting[0].id.entry-id.text eqv "2013-11-01 '''\nWigwam LLC bought one wigwam for \$3.11 USD in early November 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/November'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.11 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.11 USD";
     ok @entry[105].posting[0].id.entry-id.xxhash == 3963180771;
@@ -8232,6 +8679,7 @@ subtest
     ok @entry[105].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[105].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[105].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[105].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[105].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 3);
     ok @entry[105].posting[1].id.entry-id.text eqv "2013-11-01 '''\nWigwam LLC bought one wigwam for \$3.11 USD in early November 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/November'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.11 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.11 USD";
     ok @entry[105].posting[1].id.entry-id.xxhash == 3963180771;
@@ -8253,6 +8701,7 @@ subtest
     ok @entry[106].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[106].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[106].posting[0].decinc eqv DecInc::INC;
+    ok @entry[106].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[106].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 4, 0);
     ok @entry[106].posting[0].id.entry-id.text eqv "2013-11-16 'Wigwam LLC received a dividend of \$2013.1116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.1116 USD\n  Income:WigwamLLC:Dividends          \$2013.1116 USD";
     ok @entry[106].posting[0].id.entry-id.xxhash == 3185930480;
@@ -8267,6 +8716,7 @@ subtest
     ok @entry[106].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[106].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[106].posting[1].decinc eqv DecInc::INC;
+    ok @entry[106].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[106].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 4, 0);
     ok @entry[106].posting[1].id.entry-id.text eqv "2013-11-16 'Wigwam LLC received a dividend of \$2013.1116 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.1116 USD\n  Income:WigwamLLC:Dividends          \$2013.1116 USD";
     ok @entry[106].posting[1].id.entry-id.xxhash == 3185930480;
@@ -8288,6 +8738,7 @@ subtest
     ok @entry[107].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[107].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[107].posting[0].decinc eqv DecInc::INC;
+    ok @entry[107].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[107].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 5);
     ok @entry[107].posting[0].id.entry-id.text eqv "2013-11-30 '''\nWigwam LLC sold one wigwam for \$3.11 USD in late November 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/November'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.11 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.11 USD";
     ok @entry[107].posting[0].id.entry-id.xxhash == 2315332478;
@@ -8302,6 +8753,7 @@ subtest
     ok @entry[107].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(311, 100), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[107].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[107].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[107].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[107].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 5);
     ok @entry[107].posting[1].id.entry-id.text eqv "2013-11-30 '''\nWigwam LLC sold one wigwam for \$3.11 USD in late November 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/November'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.11 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.11 USD";
     ok @entry[107].posting[1].id.entry-id.xxhash == 2315332478;
@@ -8323,6 +8775,7 @@ subtest
     ok @entry[108].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(78, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[108].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[108].posting[0].decinc eqv DecInc::INC;
+    ok @entry[108].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[108].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 6);
     ok @entry[108].posting[0].id.entry-id.text eqv "2013-12-01 '''\nWigwam LLC bought one wigwam for \$3.12 USD in early December 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/December'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.12 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.12 USD";
     ok @entry[108].posting[0].id.entry-id.xxhash == 646922698;
@@ -8337,6 +8790,7 @@ subtest
     ok @entry[108].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[108].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[108].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[108].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[108].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 6);
     ok @entry[108].posting[1].id.entry-id.text eqv "2013-12-01 '''\nWigwam LLC bought one wigwam for \$3.12 USD in early December 2013\nFILE:  「includes/2013/Q4.txn」\nBEFORE:「include 'Q4/December'」\n'''\nAssets:WigwamLLC:Inventory:Wigwams     1 Wigwam \@ 3.12 USD\nAssets:WigwamLLC:KoopaTroopaBank      -3.12 USD";
     ok @entry[108].posting[1].id.entry-id.xxhash == 646922698;
@@ -8358,6 +8812,7 @@ subtest
     ok @entry[109].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[109].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[109].posting[0].decinc eqv DecInc::INC;
+    ok @entry[109].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[109].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 7, 0);
     ok @entry[109].posting[0].id.entry-id.text eqv "2013-12-16 'Wigwam LLC received a dividend of \$2013.1216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.1216 USD\n  Income:WigwamLLC:Dividends          \$2013.1216 USD";
     ok @entry[109].posting[0].id.entry-id.xxhash == 2042360109;
@@ -8372,6 +8827,7 @@ subtest
     ok @entry[109].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[109].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[109].posting[1].decinc eqv DecInc::INC;
+    ok @entry[109].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[109].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 7, 0);
     ok @entry[109].posting[1].id.entry-id.text eqv "2013-12-16 'Wigwam LLC received a dividend of \$2013.1216 USD'\n  Assets:WigwamLLC:KoopaTroopaBank    \$2013.1216 USD\n  Income:WigwamLLC:Dividends          \$2013.1216 USD";
     ok @entry[109].posting[1].id.entry-id.xxhash == 2042360109;
@@ -8393,6 +8849,7 @@ subtest
     ok @entry[110].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[110].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[110].posting[0].decinc eqv DecInc::INC;
+    ok @entry[110].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[110].posting[0].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 8);
     ok @entry[110].posting[0].id.entry-id.text eqv "2013-12-31 '''\nWigwam LLC sold one wigwam for \$3.12 USD in late December 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/December'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.12 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.12 USD";
     ok @entry[110].posting[0].id.entry-id.xxhash == 1933516675;
@@ -8407,6 +8864,7 @@ subtest
     ok @entry[110].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE.new(asset-code => "USD", asset-quantity => FatRat.new(78, 25), asset-symbol => TXN::Parser::Types::AssetSymbol, augment => TXN::Parser::AST::Entry::Posting::Amount::XE::Augment);
     ok @entry[110].posting[1].amount.plus-or-minus eqv "-";
     ok @entry[110].posting[1].decinc eqv DecInc::DEC;
+    ok @entry[110].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[110].posting[1].id.entry-id.number eqv Array[UInt].new(0, 2, 4, 8);
     ok @entry[110].posting[1].id.entry-id.text eqv "2013-12-31 '''\nWigwam LLC sold one wigwam for \$3.12 USD in late December 2013\nFILE:  「includes/2013/Q4.txn」\nAFTER: 「include 'Q4/December'」\n'''\nAssets:WigwamLLC:KoopaTroopaBank       3.12 USD\nAssets:WigwamLLC:Inventory:Wigwams    -1 Wigwam \@ 3.12 USD";
     ok @entry[110].posting[1].id.entry-id.xxhash == 1933516675;
@@ -8428,6 +8886,7 @@ subtest
     ok @entry[111].posting[0].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[111].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[111].posting[0].decinc eqv DecInc::INC;
+    ok @entry[111].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[111].posting[0].id.entry-id.number eqv Array[UInt].new(0, 3);
     ok @entry[111].posting[0].id.entry-id.text eqv "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\"\n  Assets:Personal:Bankwest:Cheque      \$1000.00 USD\n  Equity:Personal                      \$1000.00 USD";
     ok @entry[111].posting[0].id.entry-id.xxhash == 1468523538;
@@ -8442,6 +8901,7 @@ subtest
     ok @entry[111].posting[1].amount.xe eqv TXN::Parser::AST::Entry::Posting::Amount::XE;
     ok @entry[111].posting[1].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
     ok @entry[111].posting[1].decinc eqv DecInc::INC;
+    ok @entry[111].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[111].posting[1].id.entry-id.number eqv Array[UInt].new(0, 3);
     ok @entry[111].posting[1].id.entry-id.text eqv "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\"\n  Assets:Personal:Bankwest:Cheque      \$1000.00 USD\n  Equity:Personal                      \$1000.00 USD";
     ok @entry[111].posting[1].id.entry-id.xxhash == 1468523538;
