@@ -31,60 +31,6 @@ class Entry::Header
 }
 
 # end TXN::Parser::AST::Entry::Header }}}
-# TXN::Parser::AST::Entry::Posting::Amount::XE::Augment::Lot {{{
-
-class Entry::Posting::Amount::XE::Augment::Lot
-{
-    # lot code
-    has VarName $.code is required;
-
-    # is this lot being drawn down or filled up?
-    has DecInc $.decinc is required;
-}
-
-# end TXN::Parser::AST::Entry::Posting::Amount::XE::Augment::Lot }}}
-# TXN::Parser::AST::Entry::Posting::Amount::XE::Augment::InheritedBasis {{{
-
-class Entry::Posting::Amount::XE::Augment::InheritedBasis
-{
-    has AssetCode $.asset-code is required;
-    has Quantity $.asset-quantity is required;
-    has AssetSymbol $.asset-symbol;
-}
-
-# end TXN::Parser::AST::Entry::Posting::Amount::XE::Augment::InheritedBasis }}}
-# TXN::Parser::AST::Entry::Posting::Amount::XE::Augment {{{
-
-class Entry::Posting::Amount::XE::Augment
-{
-    has Entry::Posting::Amount::XE::Augment::InheritedBasis $.inherited-basis;
-    has Entry::Posting::Amount::XE::Augment::Lot $.lot;
-}
-
-# end TXN::Parser::AST::Entry::Posting::Amount::XE::Augment }}}
-# TXN::Parser::AST::Entry::Posting::Amount::XE {{{
-
-class Entry::Posting::Amount::XE
-{
-    has AssetCode $.asset-code is required;
-    has Quantity $.asset-quantity is required;
-    has AssetSymbol $.asset-symbol;
-    has Entry::Posting::Amount::XE::Augment $.augment;
-}
-
-# end TXN::Parser::AST::Entry::Posting::Amount::XE }}}
-# TXN::Parser::AST::Entry::Posting::Amount {{{
-
-class Entry::Posting::Amount
-{
-    has AssetCode $.asset-code is required;
-    has Quantity $.asset-quantity is required;
-    has AssetSymbol $.asset-symbol;
-    has PlusMinus $.plus-or-minus;
-    has Entry::Posting::Amount::XE $.xe;
-}
-
-# end TXN::Parser::AST::Entry::Posting::Amount }}}
 # TXN::Parser::AST::Entry::Posting::Account {{{
 
 class Entry::Posting::Account
@@ -95,6 +41,53 @@ class Entry::Posting::Account
 }
 
 # end TXN::Parser::AST::Entry::Posting::Account }}}
+# TXN::Parser::AST::Entry::Posting::Amount {{{
+
+class Entry::Posting::Amount
+{
+    has AssetCode $.asset-code is required;
+    has Quantity $.asset-quantity is required;
+    has AssetSymbol $.asset-symbol;
+    has PlusMinus $.plus-or-minus;
+}
+
+# end TXN::Parser::AST::Entry::Posting::Amount }}}
+# TXN::Parser::AST::Entry::Posting::Annot::XE {{{
+
+class Entry::Posting::Annot::XE
+{
+    has AssetCode $.asset-code is required;
+    has Quantity $.asset-quantity is required;
+    has AssetSymbol $.asset-symbol;
+}
+
+# end TXN::Parser::AST::Entry::Posting::Annot::XE }}}
+# TXN::Parser::AST::Entry::Posting::Annot::Inherit {{{
+
+class Entry::Posting::Annot::Inherit is Entry::Posting::Annot::XE { * }
+
+# end TXN::Parser::AST::Entry::Posting::Annot::Inherit }}}
+# TXN::Parser::AST::Entry::Posting::Annot::Lot {{{
+
+class Entry::Posting::Annot::Lot
+{
+    has VarName $.name is required;
+
+    # is this lot being drawn down or filled up?
+    has DecInc $.decinc is required;
+}
+
+# end TXN::Parser::AST::Entry::Posting::Annot::Lot }}}
+# TXN::Parser::AST::Entry::Posting::Annot {{{
+
+class Entry::Posting::Annot
+{
+    has Entry::Posting::Annot::Inherit $.inherit;
+    has Entry::Posting::Annot::Lot $.lot;
+    has Entry::Posting::Annot::XE $.xe;
+}
+
+# end TXN::Parser::AST::Entry::Posting::Annot }}}
 # TXN::Parser::AST::Entry::Posting::ID {{{
 
 class Entry::Posting::ID
@@ -127,15 +120,19 @@ class Entry::Posting
     has DecInc $.decinc is required;
     has DrCr $.drcr is required;
 
+    has Entry::Posting::Annot $.annot;
+
     # submethod BUILD {{{
 
     submethod BUILD(
         Entry::Posting::Account :$!account!,
         Entry::Posting::Amount :$!amount!,
         Entry::Posting::ID :$!id!,
-        DecInc :$!decinc!
+        DecInc :$!decinc!,
+        Entry::Posting::Annot :$annot,
     )
     {
+        $!annot = $annot if $annot;
         $!drcr = determine-debit-or-credit($!account.silo, $!decinc);
     }
 
@@ -147,7 +144,8 @@ class Entry::Posting
             Entry::Posting::Account :$account!,
             Entry::Posting::Amount :$amount!,
             Entry::Posting::ID :$id!,
-            DecInc :$decinc!
+            DecInc :$decinc!,
+            Entry::Posting::Annot :$annot
         )
     )
     {

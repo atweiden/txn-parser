@@ -23,6 +23,12 @@ has UInt @.entry-number = 0;
 has Str $.file = '.';
 
 # end public attributes }}}
+# private types {{{
+
+# to aid with building exchange rates (@ and @@, « and ««)
+enum XERateType <PER-UNIT IN-TOTAL>;
+
+# end private types }}}
 
 # string grammar-actions {{{
 
@@ -499,7 +505,7 @@ method header($/)
 
 # --- posting account grammar-actions {{{
 
-method acct-name($/)
+method account-name($/)
 {
     make @<var-name>».made;
 }
@@ -571,89 +577,6 @@ method asset-quantity:float ($/)
     make $<float-unsigned>.made;
 }
 
-method xe-primary($/)
-{
-    my %xe-primary;
-
-    my AssetCode $asset-code = $<asset-code>.made;
-    my Quantity $asset-quantity = $<asset-quantity>.made;
-    my AssetSymbol $asset-symbol = $<asset-symbol>.made if $<asset-symbol>;
-
-    %xe-primary<asset-code> = $asset-code;
-    %xe-primary<asset-quantity> = $asset-quantity;
-    %xe-primary<asset-symbol> = $asset-symbol if $asset-symbol;
-
-    make %xe-primary;
-}
-
-method xe-augment:inherited-basis ($/)
-{
-    # a grammar alias, C<$<xe-inherited-basis>.made> comes from method
-    # C<xe-primary>
-    my %xe = $<xe-inherited-basis>.made;
-
-    my TXN::Parser::AST::Entry::Posting::Amount::XE::Augment::InheritedBasis
-        $inherited-basis .= new(|%xe);
-
-    make %(:$inherited-basis);
-}
-
-method xe-lot($/)
-{
-    make $<var-name>.made;
-}
-
-method xe-augment:lot-acquisition ($/)
-{
-    my %lot;
-
-    # lot code
-    my VarName $code = $<xe-lot>.made;
-    my DecInc $decinc = INC;
-
-    %lot<code> = $code;
-    %lot<decinc> = $decinc;
-
-    my TXN::Parser::AST::Entry::Posting::Amount::XE::Augment::Lot $lot .=
-        new(|%lot);
-
-    make %(:$lot);
-}
-
-method xe-augment:lot-disposition ($/)
-{
-    my %lot;
-
-    # lot code
-    my VarName $code = $<xe-lot>.made;
-    my DecInc $decinc = DEC;
-
-    %lot<code> = $code;
-    %lot<decinc> = $decinc;
-
-    my TXN::Parser::AST::Entry::Posting::Amount::XE::Augment::Lot $lot .=
-        new(|%lot);
-
-    make %(:$lot);
-}
-
-method xe($/)
-{
-    my %xe = $<xe-primary>.made;
-
-    my TXN::Parser::AST::Entry::Posting::Amount::XE::Augment $augment .=
-        new(|$<xe-augment>.made) if $<xe-augment>;
-
-    %xe<augment> = $augment if $augment;
-
-    make TXN::Parser::AST::Entry::Posting::Amount::XE.new(|%xe);
-}
-
-method exchange-rate($/)
-{
-    make $<xe>.made;
-}
-
 method amount($/)
 {
     my %amount;
@@ -662,31 +585,146 @@ method amount($/)
     my Quantity $asset-quantity = $<asset-quantity>.made;
     my AssetSymbol $asset-symbol = $<asset-symbol>.made if $<asset-symbol>;
     my PlusMinus $plus-or-minus = $<plus-or-minus>.made if $<plus-or-minus>;
-    my TXN::Parser::AST::Entry::Posting::Amount::XE $xe = $<exchange-rate>.made
-        if $<exchange-rate>;
 
     %amount<asset-code> = $asset-code;
     %amount<asset-quantity> = $asset-quantity;
     %amount<asset-symbol> = $asset-symbol if $asset-symbol;
     %amount<plus-or-minus> = $plus-or-minus if $plus-or-minus;
-    %amount<xe> = $xe if $xe;
 
     make TXN::Parser::AST::Entry::Posting::Amount.new(|%amount);
 }
 
 # --- end posting amount grammar-actions }}}
+# --- posting annotation grammar-actions {{{
+
+# --- --- xe grammar-actions {{{
+
+method xe-symbol:per-unit ($/)
+{
+    make PER-UNIT;
+}
+
+method xe-symbol:in-total ($/)
+{
+    make IN-TOTAL;
+}
+
+method xe-rate($/)
+{
+    my %xe-rate;
+
+    my AssetCode $asset-code = $<asset-code>.made;
+    my Quantity $asset-quantity = $<asset-quantity>.made;
+    my AssetSymbol $asset-symbol = $<asset-symbol>.made if $<asset-symbol>;
+
+    %xe-rate<asset-code> = $asset-code;
+    %xe-rate<asset-quantity> = $asset-quantity;
+    %xe-rate<asset-symbol> = $asset-symbol if $asset-symbol;
+
+    make %xe-rate;
+}
+
+method xe($/)
+{
+    my %xe-rate = $<xe-rate>.made;
+    my XERateType $rate-type = $<xe-symbol>.made;
+    %xe-rate<rate-type> = $rate-type;
+    make %xe-rate;
+}
+
+# --- --- end xe grammar-actions }}}
+# --- --- inherit grammar-actions {{{
+
+method inherit-symbol:per-unit ($/)
+{
+    make PER-UNIT;
+}
+
+method inherit-symbol:in-total ($/)
+{
+    make IN-TOTAL;
+}
+
+method inherit($/)
+{
+    # a grammar alias, C<$<inherit-rate> comes from C<xe-rate>
+    my %inherit-rate = $<inherit-rate>.made;
+    my XERateType $rate-type = $<inherit-symbol>.made;
+    %inherit-rate<rate-type> = $rate-type;
+    make %inherit-rate;
+}
+
+# --- --- end inherit grammar-actions }}}
+# --- --- lot grammar-actions {{{
+
+method lot-name($/)
+{
+    make $<var-name>.made;
+}
+
+method lot:acquisition ($/)
+{
+    my %lot;
+
+    my VarName $name = $<lot-name>.made;
+    my DecInc $decinc = INC;
+
+    %lot<name> = $name;
+    %lot<decinc> = $decinc;
+
+    make TXN::Parser::AST::Entry::Posting::Annot::Lot.new(|%lot);
+}
+
+method lot:disposition ($/)
+{
+    my %lot;
+
+    my VarName $name = $<lot-name>.made;
+    my DecInc $decinc = DEC;
+
+    %lot<name> = $name;
+    %lot<decinc> = $decinc;
+
+    make TXN::Parser::AST::Entry::Posting::Annot::Lot.new(|%lot);
+}
+
+# --- --- end lot grammar-actions }}}
+
+method annot($/)
+{
+    my %annot;
+
+    my %xe = $<xe>.made if $<xe>;
+    my %inherit = $<inherit>.made if $<inherit>;
+    my TXN::Parser::AST::Entry::Posting::Annot::Lot $lot = $<lot>.made if $<lot>;
+
+    %annot<xe> = %xe if %xe;
+    %annot<inherit> = %inherit if %inherit;
+    %annot<lot> = $lot if $lot;
+
+    make %annot;
+}
+
+# --- end posting annotation grammar-actions }}}
 
 method posting($/)
 {
     my Str $text = ~$/;
+    my XXHash $xxhash = xxHash32($text);
+
     my TXN::Parser::AST::Entry::Posting::Account $account = $<account>.made;
     my TXN::Parser::AST::Entry::Posting::Amount $amount = $<amount>.made;
+    my TXN::Parser::AST::Entry::Posting::Annot $annot = gen-annot(
+        $amount.asset-quantity,
+        $<annot>.made
+    ) if $<annot>;
+
     my PlusMinus $plus-or-minus = $amount.plus-or-minus if $amount.plus-or-minus;
     my DecInc $decinc = $plus-or-minus.defined && $plus-or-minus eq '-'
         ?? DEC
         !! INC;
-    my XXHash $xxhash = xxHash32($text);
-    make %(:$account, :$amount, :$decinc, :$text, :$xxhash);
+
+    make %(:$account, :$amount, :$annot, :$decinc, :$text, :$xxhash);
 }
 
 method posting-line:content ($/)
@@ -715,7 +753,7 @@ method entry($/)
     # insert Posting::ID derived from Entry::ID
     my UInt $posting-number = 0;
     my TXN::Parser::AST::Entry::Posting @posting = @postings.map({
-        my TXN::Parser::AST::Entry::Posting::ID $id .= new(
+        my TXN::Parser::AST::Entry::Posting::ID $posting-id .= new(
             :$entry-id,
             :number($posting-number++),
             :xxhash($_<xxhash>),
@@ -724,8 +762,9 @@ method entry($/)
         TXN::Parser::AST::Entry::Posting.new(
             :account($_<account>),
             :amount($_<amount>),
+            :annot($_<annot>),
             :decinc($_<decinc>),
-            :$id
+            :id($posting-id)
         );
     });
 
@@ -830,5 +869,75 @@ method TOP($/)
 }
 
 # end ledger grammar-actions }}}
+
+# helper functions {{{
+
+sub gen-annot(
+    Quantity $asset-quantity,
+    % (
+        :%xe,
+        :%inherit,
+        TXN::Parser::AST::Entry::Posting::Annot::Lot :$lot
+    )
+) returns TXN::Parser::AST::Entry::Posting::Annot
+{
+    my %annot;
+
+    my TXN::Parser::AST::Entry::Posting::Annot::XE $xe =
+        gen-xe($asset-quantity, :%xe) if %xe;
+    my TXN::Parser::AST::Entry::Posting::Annot::Inherit $inherit =
+        gen-xe($asset-quantity, :%inherit) if %inherit;
+
+    %annot<xe> = $xe if $xe;
+    %annot<inherit> = $inherit if $inherit;
+    %annot<lot> = $lot if $lot;
+
+    my TXN::Parser::AST::Entry::Posting::Annot $annot .= new(|%annot);
+}
+
+multi sub gen-xe(
+    Quantity $amount-asset-quantity,
+    :%xe! (
+        AssetCode :$asset-code!,
+        Quantity :$asset-quantity!,
+        XERateType :$rate-type!,
+        Str :$asset-symbol
+    )
+) returns TXN::Parser::AST::Entry::Posting::Annot::XE
+{
+    my %xe-rate;
+
+    %xe-rate<asset-code> = $asset-code;
+    %xe-rate<asset-quantity> = $rate-type ~~ IN-TOTAL
+        ?? ($asset-quantity / $amount-asset-quantity)
+        !! $asset-quantity;
+    %xe-rate<asset-symbol> = $asset-symbol if $asset-symbol;
+
+    my TXN::Parser::AST::Entry::Posting::Annot::XE $xe .= new(|%xe-rate);
+}
+
+multi sub gen-xe(
+    Quantity $amount-asset-quantity,
+    :%inherit! (
+        AssetCode :$asset-code!,
+        Quantity :$asset-quantity!,
+        XERateType :$rate-type!,
+        Str :$asset-symbol
+    )
+) returns TXN::Parser::AST::Entry::Posting::Annot::Inherit
+{
+    my %inherit-rate;
+
+    %inherit-rate<asset-code> = $asset-code;
+    %inherit-rate<asset-quantity> = $rate-type ~~ IN-TOTAL
+        ?? ($asset-quantity / $amount-asset-quantity)
+        !! $asset-quantity;
+    %inherit-rate<asset-symbol> = $asset-symbol if $asset-symbol;
+
+    my TXN::Parser::AST::Entry::Posting::Annot::Inherit $inherit .=
+        new(|%inherit-rate);
+}
+
+# end helper functions }}}
 
 # vim: set filetype=perl6 foldmethod=marker foldlevel=0:
