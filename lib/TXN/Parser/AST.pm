@@ -39,7 +39,7 @@ class Entry::ID does ToJSON
 # end TXN::Parser::AST::Entry::ID }}}
 # TXN::Parser::AST::Entry::Header {{{
 
-class Entry::Header
+class Entry::Header does ToJSON
 {
     has Dateish $.date is required;
     has Str $.description;
@@ -48,14 +48,7 @@ class Entry::Header
 
     method hash(::?CLASS:D:) returns Hash
     {
-        %(:$.date, :$.description, :$.important, :@.tag);
-    }
-
-    method to-json(::?CLASS:D:) returns Str
-    {
-        my %h = self.hash;
-        %h<date> = ~%h<date>;
-        Rakudo::Internals::JSON.to-json(%h);
+        %(:date(~$.date), :$.description, :$.important, :@.tag);
     }
 }
 
@@ -138,9 +131,9 @@ class Entry::Posting::Annot does ToJSON
     method hash(::?CLASS:D:) returns Hash
     {
         my %h;
-        %h<inherit> = $.inherit.hash if $.inherit;
-        %h<lot> = $.lot.hash if $.lot;
-        %h<xe> = $.xe.hash if $.xe;
+        %h<inherit> = $.inherit ?? $.inherit.hash !! Nil;
+        %h<lot> = $.lot ?? $.lot.hash !! Nil;
+        %h<xe> = $.xe ?? $.xe.hash !! Nil;
         %h;
     }
 }
@@ -227,7 +220,7 @@ class Entry::Posting does ToJSON
         %h<amount> = $.amount.hash;
         %h<decinc> = $.decinc.gist;
         %h<drcr> = $.drcr.gist;
-        %h<annot> = $.annot.hash if $.annot;
+        %h<annot> = $.annot ?? $.annot.hash !! Nil;
         %h;
     }
 
@@ -261,7 +254,7 @@ class Entry::Posting does ToJSON
 # end TXN::Parser::AST::Entry::Posting }}}
 # TXN::Parser::AST::Entry {{{
 
-class Entry
+class Entry does ToJSON
 {
 
     has Entry::ID $.id is required;
@@ -314,16 +307,6 @@ class Entry
     }
 
     # end method hash }}}
-    # method to-json {{{
-
-    method to-json(::?CLASS:D:) returns Str
-    {
-        my %h = self.hash;
-        %h<header><date> = ~%h<header><date>;
-        Rakudo::Internals::JSON.to-json(%h);
-    }
-
-    # end method to-json }}}
 }
 
 # end TXN::Parser::AST::Entry }}}
