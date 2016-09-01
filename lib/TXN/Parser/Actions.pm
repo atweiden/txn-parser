@@ -727,7 +727,7 @@ method posting($/)
     make %(:$account, :$amount, :$annot, :$decinc, :$text, :$xxhash);
 }
 
-method posting-line:content ($/)
+method posting-line($/)
 {
     make $<posting>.made;
 }

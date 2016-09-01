@@ -112,7 +112,7 @@ subtest
     );
     is(
         $match-ledger.made[0].id.text,
-        "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\" #TAG1 #TAG2 -- EODESC COMMENT\n  -- this is a comment line\n  Assets:Personal:Bankwest:Cheque    \$1000.00 USD\n  -- this is a second comment line\n  Equity:Personal                    \$1000.00 USD -- EOL COMMENT\n  -- this is a third comment line\n-- this is a stray comment\n-- another",
+        "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\" #TAG1 #TAG2 -- EODESC COMMENT\n  -- this is a comment line\n  Assets:Personal:Bankwest:Cheque    \$1000.00 USD\n  -- this is a second comment line\n  Equity:Personal                    \$1000.00 USD -- EOL COMMENT",
         q:to/EOF/
         ♪ [Is expected value?] - 9 of 8334
         ┏━━━━━━━━━━━━━┓
@@ -124,11 +124,11 @@ subtest
     );
     is(
         $match-ledger.made[0].id.xxhash,
-        2186778410,
+        1219414156,
         q:to/EOF/
         ♪ [Is expected value?] - 10 of 8334
         ┏━━━━━━━━━━━━━┓
-        ┃             ┃  ∙ $match-ledger.made[0].id.xxhash == 3251202721
+        ┃             ┃  ∙ $match-ledger.made[0].id.xxhash == 1219414156
         ┃   Success   ┃
         ┃             ┃
         ┗━━━━━━━━━━━━━┛
@@ -316,7 +316,7 @@ subtest
     );
     is(
         $match-ledger.made[0].posting[0].id.entry-id.text,
-        "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\" #TAG1 #TAG2 -- EODESC COMMENT\n  -- this is a comment line\n  Assets:Personal:Bankwest:Cheque    \$1000.00 USD\n  -- this is a second comment line\n  Equity:Personal                    \$1000.00 USD -- EOL COMMENT\n  -- this is a third comment line\n-- this is a stray comment\n-- another",
+        "2014-01-01 \"I started the year with \$1000 in Bankwest cheque account\" #TAG1 #TAG2 -- EODESC COMMENT\n  -- this is a comment line\n  Assets:Personal:Bankwest:Cheque    \$1000.00 USD\n  -- this is a second comment line\n  Equity:Personal                    \$1000.00 USD -- EOL COMMENT",
         q:to/EOF/
         ♪ [Is expected value?] - 26 of 8334
         ┏━━━━━━━━━━━━━┓
@@ -328,12 +328,12 @@ subtest
     );
     is(
         $match-ledger.made[0].posting[0].id.entry-id.xxhash,
-        2186778410,
+        1219414156,
         q:to/EOF/
         ♪ [Is expected value?] - 27 of 8334
         ┏━━━━━━━━━━━━━┓
         ┃             ┃  ∙ $match-ledger.made[0].posting[0].id.entry-id.xxhash
-        ┃   Success   ┃        == 3251202721
+        ┃   Success   ┃        == 1219414156
         ┃             ┃
         ┗━━━━━━━━━━━━━┛
         EOF
