@@ -485,7 +485,7 @@ method header($/)
     my Dateish $date = $<date>.made;
     my Str $description = $<description>.made if $<description>;
     my UInt $important = 0;
-    my VarName @tag;
+    my Str @tag;
 
     for @<metainfo>».made -> @metainfo
     {
@@ -540,8 +540,8 @@ method account($/)
     my %account;
 
     my Silo $silo = $<silo>.made;
-    my VarName $entity = $<entity>.made;
-    my VarName @path = $<account-path>.made if $<account-path>;
+    my Str $entity = $<entity>.made;
+    my Str @path = $<account-path>.made if $<account-path>;
 
     %account<silo> = $silo;
     %account<entity> = $entity;
@@ -666,7 +666,7 @@ method lot:acquisition ($/)
 {
     my %lot;
 
-    my VarName $name = $<lot-name>.made;
+    my Str $name = $<lot-name>.made;
     my DecInc $decinc = INC;
 
     %lot<name> = $name;
@@ -679,7 +679,7 @@ method lot:disposition ($/)
 {
     my %lot;
 
-    my VarName $name = $<lot-name>.made;
+    my Str $name = $<lot-name>.made;
     my DecInc $decinc = DEC;
 
     %lot<name> = $name;

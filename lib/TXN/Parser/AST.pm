@@ -44,7 +44,7 @@ class Entry::Header does ToJSON
     has Dateish $.date is required;
     has Str $.description;
     has UInt $.important = 0;
-    has VarName @.tag;
+    has Str @.tag;
 
     method hash(::?CLASS:D:) returns Hash
     {
@@ -58,8 +58,8 @@ class Entry::Header does ToJSON
 class Entry::Posting::Account does ToJSON
 {
     has Silo $.silo is required;
-    has VarName $.entity is required;
-    has VarName @.path;
+    has Str $.entity is required;
+    has Str @.path;
 
     method hash(::?CLASS:D:) returns Hash
     {
@@ -108,7 +108,7 @@ class Entry::Posting::Annot::Inherit is Entry::Posting::Annot::XE {*}
 
 class Entry::Posting::Annot::Lot does ToJSON
 {
-    has VarName $.name is required;
+    has Str $.name is required;
 
     # is this lot being drawn down or filled up?
     has DecInc $.decinc is required;
