@@ -581,7 +581,7 @@ method amount($/)
 {
     my %amount;
 
-    my AssetCode $asset-code = $<asset-code>.made;
+    my Str $asset-code = $<asset-code>.made;
     my Quantity $asset-quantity = $<asset-quantity>.made;
     my AssetSymbol $asset-symbol = $<asset-symbol>.made if $<asset-symbol>;
     my PlusMinus $plus-or-minus = $<plus-or-minus>.made if $<plus-or-minus>;
@@ -613,7 +613,7 @@ method xe-rate($/)
 {
     my %xe-rate;
 
-    my AssetCode $asset-code = $<asset-code>.made;
+    my Str $asset-code = $<asset-code>.made;
     my Quantity $asset-quantity = $<asset-quantity>.made;
     my AssetSymbol $asset-symbol = $<asset-symbol>.made if $<asset-symbol>;
 
@@ -898,7 +898,7 @@ sub gen-annot(
 multi sub gen-xe(
     Quantity $amount-asset-quantity,
     :%xe! (
-        AssetCode :$asset-code!,
+        Str :$asset-code!,
         Quantity :$asset-quantity!,
         XERateType :$rate-type!,
         Str :$asset-symbol
@@ -919,7 +919,7 @@ multi sub gen-xe(
 multi sub gen-xe(
     Quantity $amount-asset-quantity,
     :%inherit! (
-        AssetCode :$asset-code!,
+        Str :$asset-code!,
         Quantity :$asset-quantity!,
         XERateType :$rate-type!,
         Str :$asset-symbol

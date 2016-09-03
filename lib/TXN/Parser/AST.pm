@@ -72,7 +72,7 @@ class Entry::Posting::Account does ToJSON
 
 class Entry::Posting::Amount does ToJSON
 {
-    has AssetCode $.asset-code is required;
+    has Str $.asset-code is required;
     has Quantity $.asset-quantity is required;
     has AssetSymbol $.asset-symbol;
     has PlusMinus $.plus-or-minus;
@@ -88,7 +88,7 @@ class Entry::Posting::Amount does ToJSON
 
 class Entry::Posting::Annot::XE does ToJSON
 {
-    has AssetCode $.asset-code is required;
+    has Str $.asset-code is required;
     has Quantity $.asset-quantity is required;
     has AssetSymbol $.asset-symbol;
 
