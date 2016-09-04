@@ -185,7 +185,7 @@ class Entry::Posting does ToJSON
         Entry::Posting::Amount :$!amount!,
         Entry::Posting::ID :$!id!,
         DecInc :$!decinc!,
-        Entry::Posting::Annot :$annot,
+        Entry::Posting::Annot :$annot
     )
     {
         $!annot = $annot if $annot;
