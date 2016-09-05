@@ -3,21 +3,9 @@ use TXN::Parser::Types;
 use X::TXN::Parser;
 unit class TXN::Parser::AST;
 
-# role ToJSON {{{
-
-role ToJSON
-{
-    method to-json(::?CLASS:D:) returns Str
-    {
-        Rakudo::Internals::JSON.to-json(self.hash);
-    }
-}
-
-# end role ToJSON }}}
-
 # TXN::Parser::AST::Entry::ID {{{
 
-class Entry::ID does ToJSON
+class Entry::ID
 {
     has UInt @.number is required;
     has XXHash $.xxhash is required;
@@ -39,7 +27,7 @@ class Entry::ID does ToJSON
 # end TXN::Parser::AST::Entry::ID }}}
 # TXN::Parser::AST::Entry::Header {{{
 
-class Entry::Header does ToJSON
+class Entry::Header
 {
     has Dateish $.date is required;
     has Str $.description;
@@ -55,7 +43,7 @@ class Entry::Header does ToJSON
 # end TXN::Parser::AST::Entry::Header }}}
 # TXN::Parser::AST::Entry::Posting::Account {{{
 
-class Entry::Posting::Account does ToJSON
+class Entry::Posting::Account
 {
     has Silo $.silo is required;
     has Str $.entity is required;
@@ -70,7 +58,7 @@ class Entry::Posting::Account does ToJSON
 # end TXN::Parser::AST::Entry::Posting::Account }}}
 # TXN::Parser::AST::Entry::Posting::Amount {{{
 
-class Entry::Posting::Amount does ToJSON
+class Entry::Posting::Amount
 {
     has Str $.asset-code is required;
     has Quantity $.asset-quantity is required;
@@ -86,7 +74,7 @@ class Entry::Posting::Amount does ToJSON
 # end TXN::Parser::AST::Entry::Posting::Amount }}}
 # TXN::Parser::AST::Entry::Posting::Annot::XE {{{
 
-class Entry::Posting::Annot::XE does ToJSON
+class Entry::Posting::Annot::XE
 {
     has Str $.asset-code is required;
     has Quantity $.asset-quantity is required;
@@ -106,7 +94,7 @@ class Entry::Posting::Annot::Inherit is Entry::Posting::Annot::XE {*}
 # end TXN::Parser::AST::Entry::Posting::Annot::Inherit }}}
 # TXN::Parser::AST::Entry::Posting::Annot::Lot {{{
 
-class Entry::Posting::Annot::Lot does ToJSON
+class Entry::Posting::Annot::Lot
 {
     has Str $.name is required;
 
@@ -122,7 +110,7 @@ class Entry::Posting::Annot::Lot does ToJSON
 # end TXN::Parser::AST::Entry::Posting::Annot::Lot }}}
 # TXN::Parser::AST::Entry::Posting::Annot {{{
 
-class Entry::Posting::Annot does ToJSON
+class Entry::Posting::Annot
 {
     has Entry::Posting::Annot::Inherit $.inherit;
     has Entry::Posting::Annot::Lot $.lot;
@@ -141,7 +129,7 @@ class Entry::Posting::Annot does ToJSON
 # end TXN::Parser::AST::Entry::Posting::Annot }}}
 # TXN::Parser::AST::Entry::Posting::ID {{{
 
-class Entry::Posting::ID does ToJSON
+class Entry::Posting::ID
 {
     # parent
     has Entry::ID $.entry-id is required;
@@ -168,7 +156,7 @@ class Entry::Posting::ID does ToJSON
 # end TXN::Parser::AST::Entry::Posting::ID }}}
 # TXN::Parser::AST::Entry::Posting {{{
 
-class Entry::Posting does ToJSON
+class Entry::Posting
 {
     has Entry::Posting::ID $.id is required;
     has Entry::Posting::Account $.account is required;
@@ -254,7 +242,7 @@ class Entry::Posting does ToJSON
 # end TXN::Parser::AST::Entry::Posting }}}
 # TXN::Parser::AST::Entry {{{
 
-class Entry does ToJSON
+class Entry
 {
 
     has Entry::ID $.id is required;
