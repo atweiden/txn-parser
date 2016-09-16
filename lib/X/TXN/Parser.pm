@@ -5,10 +5,10 @@ unit module X::TXN::Parser;
 
 class Entry::MultipleEntities is Exception
 {
-    has Str $.entry-text is required;
-    has UInt $.number-entities is required;
+    has Str:D $.entry-text is required;
+    has UInt:D $.number-entities is required;
 
-    method message() returns Str
+    method message() returns Str:D
     {
         my Str $message = qq:to/EOF/;
         Sorry, only one entity per ledger entry allowed, but found
@@ -28,9 +28,9 @@ class Entry::MultipleEntities is Exception
 
 class Include is Exception
 {
-    has Str $.filename is required;
+    has Str:D $.filename is required;
 
-    method message() returns Str
+    method message() returns Str:D
     {
         my Str $message = qq:to/EOF/;
         Sorry, could not load accounting ledger to include at
@@ -49,10 +49,10 @@ class Include is Exception
 
 class ParseFailed is Exception
 {
-    has Str $.content is required;
-    method message() returns Str
+    has Str:D $.content is required;
+    method message() returns Str:D
     {
-        my Str $message = "Invalid TXN:\n「$.content」";
+        my Str:D $message = "Invalid TXN:\n「$.content」";
     }
 }
 
@@ -62,10 +62,10 @@ class ParseFailed is Exception
 
 class ParsefileFailed is Exception
 {
-    has Str $.file is required;
-    method message() returns Str
+    has Str:D $.file is required;
+    method message() returns Str:D
     {
-        my Str $message = "Invalid TXN in file 「$.file」";
+        my Str:D $message = "Invalid TXN in file 「$.file」";
     }
 }
 
@@ -75,11 +75,11 @@ class ParsefileFailed is Exception
 
 class String::EscapeSequence is Exception
 {
-    has Str $.esc is required;
+    has Str:D $.esc is required;
 
-    method message() returns Str
+    method message() returns Str:D
     {
-        my Str $message = "Sorry, found bad string escape sequence 「$.esc」";
+        my Str:D $message = "Sorry, found bad string escape sequence 「$.esc」";
     }
 }
 
@@ -89,11 +89,11 @@ class String::EscapeSequence is Exception
 
 class TXNLibAbsolute is Exception
 {
-    has Str $.lib is required;
+    has Str:D $.lib is required;
 
-    method message() returns Str
+    method message() returns Str:D
     {
-        my Str $message = "Sorry, txnlib path can't be absolute. Got:「$.lib」";
+        my Str:D $message = "Sorry, txnlib path can't be absolute. Got:「$.lib」";
     }
 }
 
