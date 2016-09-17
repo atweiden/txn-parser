@@ -7,8 +7,8 @@ unit class TXN::Parser;
 method parse(
     Str:D $content,
     *%opts (
-        Int :$date-local-offset,
-        Str :$txn-dir
+        Int :date-local-offset($),
+        Str :txn-dir($)
     )
 ) returns Match:D
 {
@@ -20,8 +20,8 @@ method parse(
 method parsefile(
     Str:D $file where *.so,
     *%opts (
-        Int :$date-local-offset,
-        Str :$txn-dir
+        Int :date-local-offset($),
+        Str :txn-dir($)
     )
 ) returns Match:D
 {

@@ -10,7 +10,7 @@ class Entry::MultipleEntities is Exception
 
     method message() returns Str:D
     {
-        my Str $message = qq:to/EOF/;
+        qq:to/EOF/.trim;
         Sorry, only one entity per ledger entry allowed, but found
         $.number-entities entities.
 
@@ -18,7 +18,6 @@ class Entry::MultipleEntities is Exception
 
         「$.entry-text」
         EOF
-        $message.trim;
     }
 }
 
@@ -32,14 +31,13 @@ class Include is Exception
 
     method message() returns Str:D
     {
-        my Str $message = qq:to/EOF/;
+        qq:to/EOF/.trim;
         Sorry, could not load accounting ledger to include at
 
             「$.filename」
 
         Accounting ledger not found or not readable.
         EOF
-        $message.trim;
     }
 }
 
@@ -52,7 +50,7 @@ class ParseFailed is Exception
     has Str:D $.content is required;
     method message() returns Str:D
     {
-        my Str:D $message = "Invalid TXN:\n「$.content」";
+        "Invalid TXN:\n「$.content」";
     }
 }
 
@@ -65,7 +63,7 @@ class ParsefileFailed is Exception
     has Str:D $.file is required;
     method message() returns Str:D
     {
-        my Str:D $message = "Invalid TXN in file 「$.file」";
+        "Invalid TXN in file 「$.file」";
     }
 }
 
@@ -79,7 +77,7 @@ class String::EscapeSequence is Exception
 
     method message() returns Str:D
     {
-        my Str:D $message = "Sorry, found bad string escape sequence 「$.esc」";
+        "Sorry, found bad string escape sequence 「$.esc」";
     }
 }
 
@@ -93,7 +91,7 @@ class TXNLibAbsolute is Exception
 
     method message() returns Str:D
     {
-        my Str:D $message = "Sorry, txnlib path can't be absolute. Got:「$.lib」";
+        "Sorry, txnlib path can't be absolute. Got:「$.lib」";
     }
 }
 
