@@ -489,8 +489,8 @@ method header($/)
 
     for @<metainfo>».made -> @metainfo
     {
-        $important += [+] @metainfo.grep({ .keys eq 'important' })».values.flat;
-        push @tag, |@metainfo.grep({ .keys eq 'tag' })».values.flat.unique;
+        $important += [+] @metainfo.grep(*.keys eq 'important')».values.flat;
+        push @tag, |@metainfo.grep(*.keys eq 'tag')».values.flat.unique;
     }
 
     %header<date> = $date;
@@ -736,7 +736,7 @@ method posting-line($/)
 
 method postings($/)
 {
-    make @<posting-line>».made.grep(Hash);
+    make @<posting-line>».made.grep(Hash:D);
 }
 
 # end posting grammar-actions }}}
@@ -874,7 +874,7 @@ method segment:include ($/)
 method ledger($/)
 {
     my TXN::Parser::AST::Entry:D @entry =
-        @<segment>».made.flatmap({ .grep(TXN::Parser::AST::Entry) });
+        @<segment>».made.flatmap(*.grep(TXN::Parser::AST::Entry:D));
     make @entry;
 }
 
