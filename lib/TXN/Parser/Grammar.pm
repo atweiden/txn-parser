@@ -608,8 +608,18 @@ token asset-symbol
 }
 
 proto token asset-quantity {*}
-token asset-quantity:float { <float-unsigned> }
-token asset-quantity:integer { <integer-unsigned> }
+
+token asset-quantity:float
+{
+    <float-unsigned>
+    { +$/ !== 0 or die X::TXN::Parser::AssetQuantityIsZero.new(:text(~$/)) }
+}
+
+token asset-quantity:integer
+{
+    <integer-unsigned>
+    { +$/ !== 0 or die X::TXN::Parser::AssetQuantityIsZero.new(:text(~$/)) }
+}
 
 # --- --- end posting amount grammar }}}
 # --- --- posting annotation grammar {{{
@@ -685,13 +695,17 @@ token xe-symbol-char { '@' }
 token xe-rate
 {
     # $830.024 USD
-    <asset-symbol>? <asset-quantity> \h+ <asset-code>
+    <asset-symbol>? <asset-price> \h+ <asset-code>
 
     |
 
     # USD $830.024
-    <asset-code> \h+ <asset-symbol>? <asset-quantity>
+    <asset-code> \h+ <asset-symbol>? <asset-price>
 }
+
+proto token asset-price {*}
+token asset-price:float { <float-unsigned> }
+token asset-price:integer { <integer-unsigned> }
 
 # --- --- --- end xe }}}
 # --- --- --- inherit {{{

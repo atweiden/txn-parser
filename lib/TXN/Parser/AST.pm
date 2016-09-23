@@ -77,12 +77,12 @@ class Entry::Posting::Amount
 class Entry::Posting::Annot::XE
 {
     has AssetCode:D $.asset-code is required;
-    has Quantity:D $.asset-quantity is required;
+    has Price:D $.asset-price is required;
     has AssetSymbol $.asset-symbol;
 
     method hash(::?CLASS:D:) returns Hash:D
     {
-        %(:$.asset-code, :$.asset-quantity, :$.asset-symbol);
+        %(:$.asset-code, :$.asset-price, :$.asset-symbol);
     }
 }
 

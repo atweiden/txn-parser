@@ -97,4 +97,20 @@ class TXNLibAbsolute is Exception
 
 # end X::TXN::Parser::TXNLibAbsolute }}}
 
+# X::TXN::Parser::AssetQuantityIsZero {{{
+
+class AssetQuantityIsZero is Exception
+{
+    has Str:D $.text is required;
+
+    method message() returns Str:D
+    {
+        qq:to/EOF/.trim;
+        Sorry, asset quantity can't be zero. Got 「$.text」
+        EOF
+    }
+}
+
+# end X::TXN::Parser::AssetQuantityIsZero }}}
+
 # vim: set filetype=perl6 foldmethod=marker foldlevel=0:

@@ -405,12 +405,12 @@ subtest
         EOF
     );
     is(
-        @entry[0].posting[0].annot.xe.asset-quantity,
+        @entry[0].posting[0].annot.xe.asset-price,
         466,
         q:to/EOF/
         ♪ [Is expected value?] - 32 of 8334
         ┏━━━━━━━━━━━━━┓
-        ┃             ┃  ∙ @entry[0].posting[0].annot.xe.asset-quantity == 466
+        ┃             ┃  ∙ @entry[0].posting[0].annot.xe.asset-price == 466
         ┃   Success   ┃
         ┃             ┃
         ┗━━━━━━━━━━━━━┛
@@ -441,12 +441,12 @@ subtest
         EOF
     );
     is(
-        @entry[0].posting[0].annot.inherit.asset-quantity,
+        @entry[0].posting[0].annot.inherit.asset-price,
         0.04,
         q:to/EOF/
         ♪ [Is expected value?] - 35 of 8334
         ┏━━━━━━━━━━━━━┓
-        ┃             ┃  ∙ @entry[0].posting[0].annot.inherit.asset-quantity == 0.04
+        ┃             ┃  ∙ @entry[0].posting[0].annot.inherit.asset-price == 0.04
         ┃   Success   ┃
         ┃             ┃
         ┗━━━━━━━━━━━━━┛
@@ -530,12 +530,12 @@ subtest
         EOF
     );
     is(
-        @entry[0].posting[0].annot.xe.asset-quantity,
+        @entry[0].posting[0].annot.xe.asset-price,
         700,
         q:to/EOF/
         ♪ [Is expected value?] - 41 of 8334
         ┏━━━━━━━━━━━━━┓
-        ┃             ┃  ∙ @entry[0].posting[0].annot.xe.asset-quantity == 700
+        ┃             ┃  ∙ @entry[0].posting[0].annot.xe.asset-price == 700
         ┃   Success   ┃
         ┃             ┃
         ┗━━━━━━━━━━━━━┛
@@ -659,7 +659,7 @@ subtest
     ok @entry[1].posting[0].amount.asset-quantity == 1;
     ok @entry[1].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[1].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[1].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[1].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(101, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[1].posting[0].decinc eqv DecInc::INC;
     ok @entry[1].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[1].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 0);
@@ -748,7 +748,7 @@ subtest
     ok @entry[3].posting[1].amount.asset-quantity == 1;
     ok @entry[3].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[3].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[3].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[3].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(101, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[3].posting[1].decinc eqv DecInc::DEC;
     ok @entry[3].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[3].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 2);
@@ -770,7 +770,7 @@ subtest
     ok @entry[4].posting[0].amount.asset-quantity == 1;
     ok @entry[4].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[4].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[4].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[4].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(51, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[4].posting[0].decinc eqv DecInc::INC;
     ok @entry[4].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[4].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 3);
@@ -859,7 +859,7 @@ subtest
     ok @entry[6].posting[1].amount.asset-quantity == 1;
     ok @entry[6].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[6].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[6].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[6].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(51, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[6].posting[1].decinc eqv DecInc::DEC;
     ok @entry[6].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[6].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 5);
@@ -881,7 +881,7 @@ subtest
     ok @entry[7].posting[0].amount.asset-quantity == 1;
     ok @entry[7].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[7].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[7].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[7].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(103, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[7].posting[0].decinc eqv DecInc::INC;
     ok @entry[7].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[7].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 6);
@@ -970,7 +970,7 @@ subtest
     ok @entry[9].posting[1].amount.asset-quantity == 1;
     ok @entry[9].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[9].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[9].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[9].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(103, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[9].posting[1].decinc eqv DecInc::DEC;
     ok @entry[9].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[9].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 8);
@@ -992,7 +992,7 @@ subtest
     ok @entry[10].posting[0].amount.asset-quantity == 1;
     ok @entry[10].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[10].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[10].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(26, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[10].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(26, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[10].posting[0].decinc eqv DecInc::INC;
     ok @entry[10].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[10].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 0);
@@ -1081,7 +1081,7 @@ subtest
     ok @entry[12].posting[1].amount.asset-quantity == 1;
     ok @entry[12].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[12].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[12].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(26, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[12].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(26, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[12].posting[1].decinc eqv DecInc::DEC;
     ok @entry[12].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[12].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 2);
@@ -1103,7 +1103,7 @@ subtest
     ok @entry[13].posting[0].amount.asset-quantity == 1;
     ok @entry[13].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[13].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[13].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[13].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(21, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[13].posting[0].decinc eqv DecInc::INC;
     ok @entry[13].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[13].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 3);
@@ -1192,7 +1192,7 @@ subtest
     ok @entry[15].posting[1].amount.asset-quantity == 1;
     ok @entry[15].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[15].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[15].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[15].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(21, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[15].posting[1].decinc eqv DecInc::DEC;
     ok @entry[15].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[15].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 5);
@@ -1214,7 +1214,7 @@ subtest
     ok @entry[16].posting[0].amount.asset-quantity == 1;
     ok @entry[16].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[16].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[16].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[16].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(53, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[16].posting[0].decinc eqv DecInc::INC;
     ok @entry[16].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[16].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 6);
@@ -1303,7 +1303,7 @@ subtest
     ok @entry[18].posting[1].amount.asset-quantity == 1;
     ok @entry[18].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[18].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[18].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[18].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(53, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[18].posting[1].decinc eqv DecInc::DEC;
     ok @entry[18].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[18].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 8);
@@ -1325,7 +1325,7 @@ subtest
     ok @entry[19].posting[0].amount.asset-quantity == 1;
     ok @entry[19].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[19].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[19].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(107, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[19].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(107, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[19].posting[0].decinc eqv DecInc::INC;
     ok @entry[19].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[19].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 3, 0);
@@ -1414,7 +1414,7 @@ subtest
     ok @entry[21].posting[1].amount.asset-quantity == 1;
     ok @entry[21].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[21].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[21].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(107, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[21].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(107, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[21].posting[1].decinc eqv DecInc::DEC;
     ok @entry[21].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[21].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 3, 2);
@@ -1436,7 +1436,7 @@ subtest
     ok @entry[22].posting[0].amount.asset-quantity == 1;
     ok @entry[22].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[22].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[22].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(27, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[22].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(27, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[22].posting[0].decinc eqv DecInc::INC;
     ok @entry[22].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[22].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 3, 3);
@@ -1525,7 +1525,7 @@ subtest
     ok @entry[24].posting[1].amount.asset-quantity == 1;
     ok @entry[24].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[24].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[24].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(27, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[24].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(27, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[24].posting[1].decinc eqv DecInc::DEC;
     ok @entry[24].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[24].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 3, 5);
@@ -1547,7 +1547,7 @@ subtest
     ok @entry[25].posting[0].amount.asset-quantity == 1;
     ok @entry[25].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[25].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[25].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(109, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[25].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(109, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[25].posting[0].decinc eqv DecInc::INC;
     ok @entry[25].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[25].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 3, 6);
@@ -1636,7 +1636,7 @@ subtest
     ok @entry[27].posting[1].amount.asset-quantity == 1;
     ok @entry[27].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[27].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[27].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(109, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[27].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(109, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[27].posting[1].decinc eqv DecInc::DEC;
     ok @entry[27].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[27].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 3, 8);
@@ -1658,7 +1658,7 @@ subtest
     ok @entry[28].posting[0].amount.asset-quantity == 1;
     ok @entry[28].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[28].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[28].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(11, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[28].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(11, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[28].posting[0].decinc eqv DecInc::INC;
     ok @entry[28].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[28].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 4, 0);
@@ -1747,7 +1747,7 @@ subtest
     ok @entry[30].posting[1].amount.asset-quantity == 1;
     ok @entry[30].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[30].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[30].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(11, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[30].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(11, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[30].posting[1].decinc eqv DecInc::DEC;
     ok @entry[30].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[30].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 4, 2);
@@ -1769,7 +1769,7 @@ subtest
     ok @entry[31].posting[0].amount.asset-quantity == 1;
     ok @entry[31].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[31].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[31].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(111, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[31].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(111, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[31].posting[0].decinc eqv DecInc::INC;
     ok @entry[31].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[31].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 4, 3);
@@ -1858,7 +1858,7 @@ subtest
     ok @entry[33].posting[1].amount.asset-quantity == 1;
     ok @entry[33].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[33].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[33].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(111, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[33].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(111, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[33].posting[1].decinc eqv DecInc::DEC;
     ok @entry[33].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[33].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 4, 5);
@@ -1880,7 +1880,7 @@ subtest
     ok @entry[34].posting[0].amount.asset-quantity == 1;
     ok @entry[34].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[34].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[34].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(28, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[34].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(28, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[34].posting[0].decinc eqv DecInc::INC;
     ok @entry[34].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[34].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 4, 6);
@@ -1969,7 +1969,7 @@ subtest
     ok @entry[36].posting[1].amount.asset-quantity == 1;
     ok @entry[36].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[36].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[36].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(28, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[36].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(28, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[36].posting[1].decinc eqv DecInc::DEC;
     ok @entry[36].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[36].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 4, 8);
@@ -2028,7 +2028,7 @@ subtest
     ok @entry[38].posting[0].amount.asset-quantity == 1;
     ok @entry[38].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[38].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[38].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(201, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[38].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(201, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[38].posting[0].decinc eqv DecInc::INC;
     ok @entry[38].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[38].posting[0].id.entry-id.number eq Array[UInt:D].new(1, 1, 0);
@@ -2117,7 +2117,7 @@ subtest
     ok @entry[40].posting[1].amount.asset-quantity == 1;
     ok @entry[40].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[40].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[40].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(201, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[40].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(201, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[40].posting[1].decinc eqv DecInc::DEC;
     ok @entry[40].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[40].posting[1].id.entry-id.number eq Array[UInt:D].new(1, 1, 2);
@@ -2139,7 +2139,7 @@ subtest
     ok @entry[41].posting[0].amount.asset-quantity == 1;
     ok @entry[41].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[41].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[41].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[41].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(101, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[41].posting[0].decinc eqv DecInc::INC;
     ok @entry[41].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[41].posting[0].id.entry-id.number eq Array[UInt:D].new(1, 1, 3);
@@ -2228,7 +2228,7 @@ subtest
     ok @entry[43].posting[1].amount.asset-quantity == 1;
     ok @entry[43].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[43].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[43].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[43].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(101, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[43].posting[1].decinc eqv DecInc::DEC;
     ok @entry[43].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[43].posting[1].id.entry-id.number eq Array[UInt:D].new(1, 1, 5);
@@ -2250,7 +2250,7 @@ subtest
     ok @entry[44].posting[0].amount.asset-quantity == 1;
     ok @entry[44].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[44].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[44].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(203, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[44].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(203, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[44].posting[0].decinc eqv DecInc::INC;
     ok @entry[44].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[44].posting[0].id.entry-id.number eq Array[UInt:D].new(1, 1, 6);
@@ -2339,7 +2339,7 @@ subtest
     ok @entry[46].posting[1].amount.asset-quantity == 1;
     ok @entry[46].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[46].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[46].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(203, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[46].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(203, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[46].posting[1].decinc eqv DecInc::DEC;
     ok @entry[46].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[46].posting[1].id.entry-id.number eq Array[UInt:D].new(1, 1, 8);
@@ -2361,7 +2361,7 @@ subtest
     ok @entry[47].posting[0].amount.asset-quantity == 1;
     ok @entry[47].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[47].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[47].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[47].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(51, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[47].posting[0].decinc eqv DecInc::INC;
     ok @entry[47].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[47].posting[0].id.entry-id.number eq Array[UInt:D].new(1, 2, 0);
@@ -2450,7 +2450,7 @@ subtest
     ok @entry[49].posting[1].amount.asset-quantity == 1;
     ok @entry[49].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[49].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[49].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[49].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(51, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[49].posting[1].decinc eqv DecInc::DEC;
     ok @entry[49].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[49].posting[1].id.entry-id.number eq Array[UInt:D].new(1, 2, 2);
@@ -2472,7 +2472,7 @@ subtest
     ok @entry[50].posting[0].amount.asset-quantity == 1;
     ok @entry[50].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[50].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[50].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(41, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[50].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(41, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[50].posting[0].decinc eqv DecInc::INC;
     ok @entry[50].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[50].posting[0].id.entry-id.number eq Array[UInt:D].new(1, 2, 3);
@@ -2561,7 +2561,7 @@ subtest
     ok @entry[52].posting[1].amount.asset-quantity == 1;
     ok @entry[52].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[52].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[52].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(41, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[52].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(41, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[52].posting[1].decinc eqv DecInc::DEC;
     ok @entry[52].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[52].posting[1].id.entry-id.number eq Array[UInt:D].new(1, 2, 5);
@@ -2583,7 +2583,7 @@ subtest
     ok @entry[53].posting[0].amount.asset-quantity == 1;
     ok @entry[53].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[53].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[53].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[53].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(103, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[53].posting[0].decinc eqv DecInc::INC;
     ok @entry[53].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[53].posting[0].id.entry-id.number eq Array[UInt:D].new(1, 2, 6);
@@ -2672,7 +2672,7 @@ subtest
     ok @entry[55].posting[1].amount.asset-quantity == 1;
     ok @entry[55].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[55].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[55].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[55].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(103, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[55].posting[1].decinc eqv DecInc::DEC;
     ok @entry[55].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[55].posting[1].id.entry-id.number eq Array[UInt:D].new(1, 2, 8);
@@ -2694,7 +2694,7 @@ subtest
     ok @entry[56].posting[0].amount.asset-quantity == 1;
     ok @entry[56].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[56].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[56].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(207, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[56].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(207, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[56].posting[0].decinc eqv DecInc::INC;
     ok @entry[56].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[56].posting[0].id.entry-id.number eq Array[UInt:D].new(1, 3, 0);
@@ -2783,7 +2783,7 @@ subtest
     ok @entry[58].posting[1].amount.asset-quantity == 1;
     ok @entry[58].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[58].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[58].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(207, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[58].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(207, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[58].posting[1].decinc eqv DecInc::DEC;
     ok @entry[58].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[58].posting[1].id.entry-id.number eq Array[UInt:D].new(1, 3, 2);
@@ -2805,7 +2805,7 @@ subtest
     ok @entry[59].posting[0].amount.asset-quantity == 1;
     ok @entry[59].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[59].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[59].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(52, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[59].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(52, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[59].posting[0].decinc eqv DecInc::INC;
     ok @entry[59].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[59].posting[0].id.entry-id.number eq Array[UInt:D].new(1, 3, 3);
@@ -2894,7 +2894,7 @@ subtest
     ok @entry[61].posting[1].amount.asset-quantity == 1;
     ok @entry[61].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[61].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[61].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(52, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[61].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(52, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[61].posting[1].decinc eqv DecInc::DEC;
     ok @entry[61].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[61].posting[1].id.entry-id.number eq Array[UInt:D].new(1, 3, 5);
@@ -2916,7 +2916,7 @@ subtest
     ok @entry[62].posting[0].amount.asset-quantity == 1;
     ok @entry[62].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[62].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[62].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(209, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[62].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(209, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[62].posting[0].decinc eqv DecInc::INC;
     ok @entry[62].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[62].posting[0].id.entry-id.number eq Array[UInt:D].new(1, 3, 6);
@@ -3005,7 +3005,7 @@ subtest
     ok @entry[64].posting[1].amount.asset-quantity == 1;
     ok @entry[64].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[64].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[64].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(209, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[64].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(209, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[64].posting[1].decinc eqv DecInc::DEC;
     ok @entry[64].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[64].posting[1].id.entry-id.number eq Array[UInt:D].new(1, 3, 8);
@@ -3027,7 +3027,7 @@ subtest
     ok @entry[65].posting[0].amount.asset-quantity == 1;
     ok @entry[65].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[65].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[65].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[65].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(21, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[65].posting[0].decinc eqv DecInc::INC;
     ok @entry[65].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[65].posting[0].id.entry-id.number eq Array[UInt:D].new(1, 4, 0);
@@ -3116,7 +3116,7 @@ subtest
     ok @entry[67].posting[1].amount.asset-quantity == 1;
     ok @entry[67].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[67].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[67].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[67].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(21, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[67].posting[1].decinc eqv DecInc::DEC;
     ok @entry[67].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[67].posting[1].id.entry-id.number eq Array[UInt:D].new(1, 4, 2);
@@ -3138,7 +3138,7 @@ subtest
     ok @entry[68].posting[0].amount.asset-quantity == 1;
     ok @entry[68].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[68].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[68].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(211, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[68].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(211, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[68].posting[0].decinc eqv DecInc::INC;
     ok @entry[68].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[68].posting[0].id.entry-id.number eq Array[UInt:D].new(1, 4, 3);
@@ -3227,7 +3227,7 @@ subtest
     ok @entry[70].posting[1].amount.asset-quantity == 1;
     ok @entry[70].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[70].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[70].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(211, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[70].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(211, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[70].posting[1].decinc eqv DecInc::DEC;
     ok @entry[70].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[70].posting[1].id.entry-id.number eq Array[UInt:D].new(1, 4, 5);
@@ -3249,7 +3249,7 @@ subtest
     ok @entry[71].posting[0].amount.asset-quantity == 1;
     ok @entry[71].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[71].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[71].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[71].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(53, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[71].posting[0].decinc eqv DecInc::INC;
     ok @entry[71].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[71].posting[0].id.entry-id.number eq Array[UInt:D].new(1, 4, 6);
@@ -3338,7 +3338,7 @@ subtest
     ok @entry[73].posting[1].amount.asset-quantity == 1;
     ok @entry[73].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[73].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[73].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[73].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(53, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[73].posting[1].decinc eqv DecInc::DEC;
     ok @entry[73].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[73].posting[1].id.entry-id.number eq Array[UInt:D].new(1, 4, 8);
@@ -3397,7 +3397,7 @@ subtest
     ok @entry[75].posting[0].amount.asset-quantity == 1;
     ok @entry[75].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[75].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[75].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(301, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[75].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(301, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[75].posting[0].decinc eqv DecInc::INC;
     ok @entry[75].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[75].posting[0].id.entry-id.number eq Array[UInt:D].new(2, 1, 0);
@@ -3486,7 +3486,7 @@ subtest
     ok @entry[77].posting[1].amount.asset-quantity == 1;
     ok @entry[77].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[77].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[77].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(301, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[77].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(301, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[77].posting[1].decinc eqv DecInc::DEC;
     ok @entry[77].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[77].posting[1].id.entry-id.number eq Array[UInt:D].new(2, 1, 2);
@@ -3508,7 +3508,7 @@ subtest
     ok @entry[78].posting[0].amount.asset-quantity == 1;
     ok @entry[78].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[78].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[78].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(151, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[78].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(151, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[78].posting[0].decinc eqv DecInc::INC;
     ok @entry[78].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[78].posting[0].id.entry-id.number eq Array[UInt:D].new(2, 1, 3);
@@ -3597,7 +3597,7 @@ subtest
     ok @entry[80].posting[1].amount.asset-quantity == 1;
     ok @entry[80].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[80].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[80].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(151, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[80].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(151, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[80].posting[1].decinc eqv DecInc::DEC;
     ok @entry[80].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[80].posting[1].id.entry-id.number eq Array[UInt:D].new(2, 1, 5);
@@ -3619,7 +3619,7 @@ subtest
     ok @entry[81].posting[0].amount.asset-quantity == 1;
     ok @entry[81].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[81].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[81].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(303, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[81].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(303, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[81].posting[0].decinc eqv DecInc::INC;
     ok @entry[81].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[81].posting[0].id.entry-id.number eq Array[UInt:D].new(2, 1, 6);
@@ -3708,7 +3708,7 @@ subtest
     ok @entry[83].posting[1].amount.asset-quantity == 1;
     ok @entry[83].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[83].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[83].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(303, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[83].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(303, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[83].posting[1].decinc eqv DecInc::DEC;
     ok @entry[83].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[83].posting[1].id.entry-id.number eq Array[UInt:D].new(2, 1, 8);
@@ -3730,7 +3730,7 @@ subtest
     ok @entry[84].posting[0].amount.asset-quantity == 1;
     ok @entry[84].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[84].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[84].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(76, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[84].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(76, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[84].posting[0].decinc eqv DecInc::INC;
     ok @entry[84].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[84].posting[0].id.entry-id.number eq Array[UInt:D].new(2, 2, 0);
@@ -3819,7 +3819,7 @@ subtest
     ok @entry[86].posting[1].amount.asset-quantity == 1;
     ok @entry[86].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[86].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[86].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(76, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[86].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(76, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[86].posting[1].decinc eqv DecInc::DEC;
     ok @entry[86].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[86].posting[1].id.entry-id.number eq Array[UInt:D].new(2, 2, 2);
@@ -3841,7 +3841,7 @@ subtest
     ok @entry[87].posting[0].amount.asset-quantity == 1;
     ok @entry[87].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[87].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[87].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(61, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[87].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(61, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[87].posting[0].decinc eqv DecInc::INC;
     ok @entry[87].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[87].posting[0].id.entry-id.number eq Array[UInt:D].new(2, 2, 3);
@@ -3930,7 +3930,7 @@ subtest
     ok @entry[89].posting[1].amount.asset-quantity == 1;
     ok @entry[89].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[89].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[89].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(61, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[89].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(61, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[89].posting[1].decinc eqv DecInc::DEC;
     ok @entry[89].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[89].posting[1].id.entry-id.number eq Array[UInt:D].new(2, 2, 5);
@@ -3952,7 +3952,7 @@ subtest
     ok @entry[90].posting[0].amount.asset-quantity == 1;
     ok @entry[90].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[90].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[90].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(153, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[90].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(153, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[90].posting[0].decinc eqv DecInc::INC;
     ok @entry[90].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[90].posting[0].id.entry-id.number eq Array[UInt:D].new(2, 2, 6);
@@ -4041,7 +4041,7 @@ subtest
     ok @entry[92].posting[1].amount.asset-quantity == 1;
     ok @entry[92].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[92].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[92].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(153, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[92].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(153, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[92].posting[1].decinc eqv DecInc::DEC;
     ok @entry[92].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[92].posting[1].id.entry-id.number eq Array[UInt:D].new(2, 2, 8);
@@ -4063,7 +4063,7 @@ subtest
     ok @entry[93].posting[0].amount.asset-quantity == 1;
     ok @entry[93].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[93].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[93].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(307, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[93].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(307, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[93].posting[0].decinc eqv DecInc::INC;
     ok @entry[93].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[93].posting[0].id.entry-id.number eq Array[UInt:D].new(2, 3, 0);
@@ -4152,7 +4152,7 @@ subtest
     ok @entry[95].posting[1].amount.asset-quantity == 1;
     ok @entry[95].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[95].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[95].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(307, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[95].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(307, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[95].posting[1].decinc eqv DecInc::DEC;
     ok @entry[95].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[95].posting[1].id.entry-id.number eq Array[UInt:D].new(2, 3, 2);
@@ -4174,7 +4174,7 @@ subtest
     ok @entry[96].posting[0].amount.asset-quantity == 1;
     ok @entry[96].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[96].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[96].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(77, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[96].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(77, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[96].posting[0].decinc eqv DecInc::INC;
     ok @entry[96].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[96].posting[0].id.entry-id.number eq Array[UInt:D].new(2, 3, 3);
@@ -4263,7 +4263,7 @@ subtest
     ok @entry[98].posting[1].amount.asset-quantity == 1;
     ok @entry[98].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[98].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[98].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(77, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[98].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(77, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[98].posting[1].decinc eqv DecInc::DEC;
     ok @entry[98].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[98].posting[1].id.entry-id.number eq Array[UInt:D].new(2, 3, 5);
@@ -4285,7 +4285,7 @@ subtest
     ok @entry[99].posting[0].amount.asset-quantity == 1;
     ok @entry[99].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[99].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[99].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(309, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[99].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(309, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[99].posting[0].decinc eqv DecInc::INC;
     ok @entry[99].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[99].posting[0].id.entry-id.number eq Array[UInt:D].new(2, 3, 6);
@@ -4374,7 +4374,7 @@ subtest
     ok @entry[101].posting[1].amount.asset-quantity == 1;
     ok @entry[101].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[101].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[101].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(309, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[101].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(309, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[101].posting[1].decinc eqv DecInc::DEC;
     ok @entry[101].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[101].posting[1].id.entry-id.number eq Array[UInt:D].new(2, 3, 8);
@@ -4396,7 +4396,7 @@ subtest
     ok @entry[102].posting[0].amount.asset-quantity == 1;
     ok @entry[102].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[102].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[102].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(31, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[102].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(31, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[102].posting[0].decinc eqv DecInc::INC;
     ok @entry[102].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[102].posting[0].id.entry-id.number eq Array[UInt:D].new(2, 4, 0);
@@ -4485,7 +4485,7 @@ subtest
     ok @entry[104].posting[1].amount.asset-quantity == 1;
     ok @entry[104].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[104].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[104].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(31, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[104].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(31, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[104].posting[1].decinc eqv DecInc::DEC;
     ok @entry[104].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[104].posting[1].id.entry-id.number eq Array[UInt:D].new(2, 4, 2);
@@ -4507,7 +4507,7 @@ subtest
     ok @entry[105].posting[0].amount.asset-quantity == 1;
     ok @entry[105].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[105].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[105].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(311, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[105].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(311, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[105].posting[0].decinc eqv DecInc::INC;
     ok @entry[105].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[105].posting[0].id.entry-id.number eq Array[UInt:D].new(2, 4, 3);
@@ -4596,7 +4596,7 @@ subtest
     ok @entry[107].posting[1].amount.asset-quantity == 1;
     ok @entry[107].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[107].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[107].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(311, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[107].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(311, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[107].posting[1].decinc eqv DecInc::DEC;
     ok @entry[107].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[107].posting[1].id.entry-id.number eq Array[UInt:D].new(2, 4, 5);
@@ -4618,7 +4618,7 @@ subtest
     ok @entry[108].posting[0].amount.asset-quantity == 1;
     ok @entry[108].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[108].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[108].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(78, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[108].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(78, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[108].posting[0].decinc eqv DecInc::INC;
     ok @entry[108].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[108].posting[0].id.entry-id.number eq Array[UInt:D].new(2, 4, 6);
@@ -4707,7 +4707,7 @@ subtest
     ok @entry[110].posting[1].amount.asset-quantity == 1;
     ok @entry[110].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[110].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[110].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(78, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[110].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(78, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[110].posting[1].decinc eqv DecInc::DEC;
     ok @entry[110].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[110].posting[1].id.entry-id.number eq Array[UInt:D].new(2, 4, 8);
@@ -4814,7 +4814,7 @@ subtest
     ok @entry[1].posting[0].amount.asset-quantity == 1;
     ok @entry[1].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[1].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[1].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[1].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(101, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[1].posting[0].decinc eqv DecInc::INC;
     ok @entry[1].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[1].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 0, 1, 0);
@@ -4903,7 +4903,7 @@ subtest
     ok @entry[3].posting[1].amount.asset-quantity == 1;
     ok @entry[3].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[3].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[3].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[3].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(101, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[3].posting[1].decinc eqv DecInc::DEC;
     ok @entry[3].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[3].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 0, 1, 2);
@@ -4925,7 +4925,7 @@ subtest
     ok @entry[4].posting[0].amount.asset-quantity == 1;
     ok @entry[4].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[4].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[4].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[4].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(51, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[4].posting[0].decinc eqv DecInc::INC;
     ok @entry[4].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[4].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 0, 1, 3);
@@ -5014,7 +5014,7 @@ subtest
     ok @entry[6].posting[1].amount.asset-quantity == 1;
     ok @entry[6].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[6].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[6].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[6].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(51, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[6].posting[1].decinc eqv DecInc::DEC;
     ok @entry[6].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[6].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 0, 1, 5);
@@ -5036,7 +5036,7 @@ subtest
     ok @entry[7].posting[0].amount.asset-quantity == 1;
     ok @entry[7].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[7].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[7].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[7].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(103, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[7].posting[0].decinc eqv DecInc::INC;
     ok @entry[7].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[7].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 0, 1, 6);
@@ -5125,7 +5125,7 @@ subtest
     ok @entry[9].posting[1].amount.asset-quantity == 1;
     ok @entry[9].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[9].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[9].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[9].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(103, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[9].posting[1].decinc eqv DecInc::DEC;
     ok @entry[9].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[9].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 0, 1, 8);
@@ -5147,7 +5147,7 @@ subtest
     ok @entry[10].posting[0].amount.asset-quantity == 1;
     ok @entry[10].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[10].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[10].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(26, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[10].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(26, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[10].posting[0].decinc eqv DecInc::INC;
     ok @entry[10].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[10].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 0, 2, 0);
@@ -5236,7 +5236,7 @@ subtest
     ok @entry[12].posting[1].amount.asset-quantity == 1;
     ok @entry[12].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[12].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[12].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(26, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[12].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(26, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[12].posting[1].decinc eqv DecInc::DEC;
     ok @entry[12].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[12].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 0, 2, 2);
@@ -5258,7 +5258,7 @@ subtest
     ok @entry[13].posting[0].amount.asset-quantity == 1;
     ok @entry[13].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[13].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[13].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[13].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(21, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[13].posting[0].decinc eqv DecInc::INC;
     ok @entry[13].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[13].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 0, 2, 3);
@@ -5347,7 +5347,7 @@ subtest
     ok @entry[15].posting[1].amount.asset-quantity == 1;
     ok @entry[15].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[15].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[15].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[15].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(21, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[15].posting[1].decinc eqv DecInc::DEC;
     ok @entry[15].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[15].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 0, 2, 5);
@@ -5369,7 +5369,7 @@ subtest
     ok @entry[16].posting[0].amount.asset-quantity == 1;
     ok @entry[16].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[16].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[16].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[16].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(53, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[16].posting[0].decinc eqv DecInc::INC;
     ok @entry[16].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[16].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 0, 2, 6);
@@ -5458,7 +5458,7 @@ subtest
     ok @entry[18].posting[1].amount.asset-quantity == 1;
     ok @entry[18].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[18].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[18].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[18].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(53, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[18].posting[1].decinc eqv DecInc::DEC;
     ok @entry[18].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[18].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 0, 2, 8);
@@ -5480,7 +5480,7 @@ subtest
     ok @entry[19].posting[0].amount.asset-quantity == 1;
     ok @entry[19].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[19].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[19].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(107, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[19].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(107, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[19].posting[0].decinc eqv DecInc::INC;
     ok @entry[19].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[19].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 0, 3, 0);
@@ -5569,7 +5569,7 @@ subtest
     ok @entry[21].posting[1].amount.asset-quantity == 1;
     ok @entry[21].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[21].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[21].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(107, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[21].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(107, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[21].posting[1].decinc eqv DecInc::DEC;
     ok @entry[21].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[21].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 0, 3, 2);
@@ -5591,7 +5591,7 @@ subtest
     ok @entry[22].posting[0].amount.asset-quantity == 1;
     ok @entry[22].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[22].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[22].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(27, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[22].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(27, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[22].posting[0].decinc eqv DecInc::INC;
     ok @entry[22].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[22].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 0, 3, 3);
@@ -5680,7 +5680,7 @@ subtest
     ok @entry[24].posting[1].amount.asset-quantity == 1;
     ok @entry[24].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[24].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[24].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(27, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[24].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(27, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[24].posting[1].decinc eqv DecInc::DEC;
     ok @entry[24].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[24].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 0, 3, 5);
@@ -5702,7 +5702,7 @@ subtest
     ok @entry[25].posting[0].amount.asset-quantity == 1;
     ok @entry[25].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[25].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[25].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(109, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[25].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(109, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[25].posting[0].decinc eqv DecInc::INC;
     ok @entry[25].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[25].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 0, 3, 6);
@@ -5791,7 +5791,7 @@ subtest
     ok @entry[27].posting[1].amount.asset-quantity == 1;
     ok @entry[27].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[27].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[27].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(109, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[27].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(109, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[27].posting[1].decinc eqv DecInc::DEC;
     ok @entry[27].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[27].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 0, 3, 8);
@@ -5813,7 +5813,7 @@ subtest
     ok @entry[28].posting[0].amount.asset-quantity == 1;
     ok @entry[28].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[28].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[28].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(11, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[28].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(11, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[28].posting[0].decinc eqv DecInc::INC;
     ok @entry[28].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[28].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 0, 4, 0);
@@ -5902,7 +5902,7 @@ subtest
     ok @entry[30].posting[1].amount.asset-quantity == 1;
     ok @entry[30].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[30].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[30].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(11, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[30].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(11, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[30].posting[1].decinc eqv DecInc::DEC;
     ok @entry[30].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[30].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 0, 4, 2);
@@ -5924,7 +5924,7 @@ subtest
     ok @entry[31].posting[0].amount.asset-quantity == 1;
     ok @entry[31].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[31].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[31].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(111, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[31].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(111, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[31].posting[0].decinc eqv DecInc::INC;
     ok @entry[31].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[31].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 0, 4, 3);
@@ -6013,7 +6013,7 @@ subtest
     ok @entry[33].posting[1].amount.asset-quantity == 1;
     ok @entry[33].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[33].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[33].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(111, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[33].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(111, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[33].posting[1].decinc eqv DecInc::DEC;
     ok @entry[33].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[33].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 0, 4, 5);
@@ -6035,7 +6035,7 @@ subtest
     ok @entry[34].posting[0].amount.asset-quantity == 1;
     ok @entry[34].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[34].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[34].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(28, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[34].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(28, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[34].posting[0].decinc eqv DecInc::INC;
     ok @entry[34].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[34].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 0, 4, 6);
@@ -6124,7 +6124,7 @@ subtest
     ok @entry[36].posting[1].amount.asset-quantity == 1;
     ok @entry[36].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[36].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[36].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(28, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[36].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(28, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[36].posting[1].decinc eqv DecInc::DEC;
     ok @entry[36].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[36].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 0, 4, 8);
@@ -6183,7 +6183,7 @@ subtest
     ok @entry[38].posting[0].amount.asset-quantity == 1;
     ok @entry[38].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[38].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[38].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(201, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[38].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(201, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[38].posting[0].decinc eqv DecInc::INC;
     ok @entry[38].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[38].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 1, 0);
@@ -6272,7 +6272,7 @@ subtest
     ok @entry[40].posting[1].amount.asset-quantity == 1;
     ok @entry[40].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[40].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[40].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(201, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[40].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(201, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[40].posting[1].decinc eqv DecInc::DEC;
     ok @entry[40].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[40].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 1, 2);
@@ -6294,7 +6294,7 @@ subtest
     ok @entry[41].posting[0].amount.asset-quantity == 1;
     ok @entry[41].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[41].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[41].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[41].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(101, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[41].posting[0].decinc eqv DecInc::INC;
     ok @entry[41].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[41].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 1, 3);
@@ -6383,7 +6383,7 @@ subtest
     ok @entry[43].posting[1].amount.asset-quantity == 1;
     ok @entry[43].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[43].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[43].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(101, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[43].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(101, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[43].posting[1].decinc eqv DecInc::DEC;
     ok @entry[43].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[43].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 1, 5);
@@ -6405,7 +6405,7 @@ subtest
     ok @entry[44].posting[0].amount.asset-quantity == 1;
     ok @entry[44].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[44].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[44].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(203, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[44].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(203, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[44].posting[0].decinc eqv DecInc::INC;
     ok @entry[44].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[44].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 1, 6);
@@ -6494,7 +6494,7 @@ subtest
     ok @entry[46].posting[1].amount.asset-quantity == 1;
     ok @entry[46].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[46].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[46].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(203, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[46].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(203, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[46].posting[1].decinc eqv DecInc::DEC;
     ok @entry[46].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[46].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 1, 8);
@@ -6516,7 +6516,7 @@ subtest
     ok @entry[47].posting[0].amount.asset-quantity == 1;
     ok @entry[47].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[47].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[47].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[47].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(51, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[47].posting[0].decinc eqv DecInc::INC;
     ok @entry[47].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[47].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 2, 0);
@@ -6605,7 +6605,7 @@ subtest
     ok @entry[49].posting[1].amount.asset-quantity == 1;
     ok @entry[49].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[49].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[49].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(51, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[49].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(51, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[49].posting[1].decinc eqv DecInc::DEC;
     ok @entry[49].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[49].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 2, 2);
@@ -6627,7 +6627,7 @@ subtest
     ok @entry[50].posting[0].amount.asset-quantity == 1;
     ok @entry[50].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[50].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[50].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(41, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[50].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(41, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[50].posting[0].decinc eqv DecInc::INC;
     ok @entry[50].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[50].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 2, 3);
@@ -6716,7 +6716,7 @@ subtest
     ok @entry[52].posting[1].amount.asset-quantity == 1;
     ok @entry[52].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[52].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[52].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(41, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[52].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(41, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[52].posting[1].decinc eqv DecInc::DEC;
     ok @entry[52].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[52].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 2, 5);
@@ -6738,7 +6738,7 @@ subtest
     ok @entry[53].posting[0].amount.asset-quantity == 1;
     ok @entry[53].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[53].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[53].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[53].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(103, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[53].posting[0].decinc eqv DecInc::INC;
     ok @entry[53].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[53].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 2, 6);
@@ -6827,7 +6827,7 @@ subtest
     ok @entry[55].posting[1].amount.asset-quantity == 1;
     ok @entry[55].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[55].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[55].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(103, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[55].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(103, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[55].posting[1].decinc eqv DecInc::DEC;
     ok @entry[55].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[55].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 2, 8);
@@ -6849,7 +6849,7 @@ subtest
     ok @entry[56].posting[0].amount.asset-quantity == 1;
     ok @entry[56].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[56].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[56].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(207, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[56].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(207, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[56].posting[0].decinc eqv DecInc::INC;
     ok @entry[56].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[56].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 3, 0);
@@ -6938,7 +6938,7 @@ subtest
     ok @entry[58].posting[1].amount.asset-quantity == 1;
     ok @entry[58].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[58].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[58].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(207, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[58].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(207, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[58].posting[1].decinc eqv DecInc::DEC;
     ok @entry[58].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[58].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 3, 2);
@@ -6960,7 +6960,7 @@ subtest
     ok @entry[59].posting[0].amount.asset-quantity == 1;
     ok @entry[59].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[59].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[59].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(52, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[59].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(52, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[59].posting[0].decinc eqv DecInc::INC;
     ok @entry[59].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[59].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 3, 3);
@@ -7049,7 +7049,7 @@ subtest
     ok @entry[61].posting[1].amount.asset-quantity == 1;
     ok @entry[61].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[61].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[61].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(52, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[61].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(52, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[61].posting[1].decinc eqv DecInc::DEC;
     ok @entry[61].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[61].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 3, 5);
@@ -7071,7 +7071,7 @@ subtest
     ok @entry[62].posting[0].amount.asset-quantity == 1;
     ok @entry[62].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[62].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[62].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(209, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[62].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(209, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[62].posting[0].decinc eqv DecInc::INC;
     ok @entry[62].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[62].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 3, 6);
@@ -7160,7 +7160,7 @@ subtest
     ok @entry[64].posting[1].amount.asset-quantity == 1;
     ok @entry[64].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[64].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[64].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(209, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[64].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(209, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[64].posting[1].decinc eqv DecInc::DEC;
     ok @entry[64].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[64].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 3, 8);
@@ -7182,7 +7182,7 @@ subtest
     ok @entry[65].posting[0].amount.asset-quantity == 1;
     ok @entry[65].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[65].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[65].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[65].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(21, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[65].posting[0].decinc eqv DecInc::INC;
     ok @entry[65].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[65].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 4, 0);
@@ -7271,7 +7271,7 @@ subtest
     ok @entry[67].posting[1].amount.asset-quantity == 1;
     ok @entry[67].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[67].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[67].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(21, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[67].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(21, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[67].posting[1].decinc eqv DecInc::DEC;
     ok @entry[67].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[67].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 4, 2);
@@ -7293,7 +7293,7 @@ subtest
     ok @entry[68].posting[0].amount.asset-quantity == 1;
     ok @entry[68].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[68].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[68].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(211, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[68].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(211, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[68].posting[0].decinc eqv DecInc::INC;
     ok @entry[68].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[68].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 4, 3);
@@ -7382,7 +7382,7 @@ subtest
     ok @entry[70].posting[1].amount.asset-quantity == 1;
     ok @entry[70].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[70].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[70].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(211, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[70].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(211, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[70].posting[1].decinc eqv DecInc::DEC;
     ok @entry[70].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[70].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 4, 5);
@@ -7404,7 +7404,7 @@ subtest
     ok @entry[71].posting[0].amount.asset-quantity == 1;
     ok @entry[71].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[71].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[71].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[71].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(53, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[71].posting[0].decinc eqv DecInc::INC;
     ok @entry[71].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[71].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 1, 4, 6);
@@ -7493,7 +7493,7 @@ subtest
     ok @entry[73].posting[1].amount.asset-quantity == 1;
     ok @entry[73].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[73].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[73].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(53, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[73].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(53, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[73].posting[1].decinc eqv DecInc::DEC;
     ok @entry[73].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[73].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 1, 4, 8);
@@ -7552,7 +7552,7 @@ subtest
     ok @entry[75].posting[0].amount.asset-quantity == 1;
     ok @entry[75].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[75].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[75].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(301, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[75].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(301, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[75].posting[0].decinc eqv DecInc::INC;
     ok @entry[75].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[75].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 1, 0);
@@ -7641,7 +7641,7 @@ subtest
     ok @entry[77].posting[1].amount.asset-quantity == 1;
     ok @entry[77].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[77].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[77].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(301, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[77].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(301, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[77].posting[1].decinc eqv DecInc::DEC;
     ok @entry[77].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[77].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 1, 2);
@@ -7663,7 +7663,7 @@ subtest
     ok @entry[78].posting[0].amount.asset-quantity == 1;
     ok @entry[78].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[78].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[78].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(151, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[78].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(151, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[78].posting[0].decinc eqv DecInc::INC;
     ok @entry[78].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[78].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 1, 3);
@@ -7752,7 +7752,7 @@ subtest
     ok @entry[80].posting[1].amount.asset-quantity == 1;
     ok @entry[80].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[80].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[80].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(151, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[80].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(151, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[80].posting[1].decinc eqv DecInc::DEC;
     ok @entry[80].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[80].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 1, 5);
@@ -7774,7 +7774,7 @@ subtest
     ok @entry[81].posting[0].amount.asset-quantity == 1;
     ok @entry[81].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[81].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[81].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(303, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[81].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(303, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[81].posting[0].decinc eqv DecInc::INC;
     ok @entry[81].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[81].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 1, 6);
@@ -7863,7 +7863,7 @@ subtest
     ok @entry[83].posting[1].amount.asset-quantity == 1;
     ok @entry[83].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[83].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[83].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(303, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[83].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(303, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[83].posting[1].decinc eqv DecInc::DEC;
     ok @entry[83].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[83].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 1, 8);
@@ -7885,7 +7885,7 @@ subtest
     ok @entry[84].posting[0].amount.asset-quantity == 1;
     ok @entry[84].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[84].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[84].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(76, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[84].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(76, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[84].posting[0].decinc eqv DecInc::INC;
     ok @entry[84].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[84].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 2, 0);
@@ -7974,7 +7974,7 @@ subtest
     ok @entry[86].posting[1].amount.asset-quantity == 1;
     ok @entry[86].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[86].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[86].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(76, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[86].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(76, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[86].posting[1].decinc eqv DecInc::DEC;
     ok @entry[86].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[86].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 2, 2);
@@ -7996,7 +7996,7 @@ subtest
     ok @entry[87].posting[0].amount.asset-quantity == 1;
     ok @entry[87].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[87].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[87].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(61, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[87].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(61, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[87].posting[0].decinc eqv DecInc::INC;
     ok @entry[87].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[87].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 2, 3);
@@ -8085,7 +8085,7 @@ subtest
     ok @entry[89].posting[1].amount.asset-quantity == 1;
     ok @entry[89].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[89].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[89].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(61, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[89].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(61, 20), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[89].posting[1].decinc eqv DecInc::DEC;
     ok @entry[89].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[89].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 2, 5);
@@ -8107,7 +8107,7 @@ subtest
     ok @entry[90].posting[0].amount.asset-quantity == 1;
     ok @entry[90].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[90].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[90].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(153, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[90].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(153, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[90].posting[0].decinc eqv DecInc::INC;
     ok @entry[90].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[90].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 2, 6);
@@ -8196,7 +8196,7 @@ subtest
     ok @entry[92].posting[1].amount.asset-quantity == 1;
     ok @entry[92].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[92].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[92].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(153, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[92].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(153, 50), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[92].posting[1].decinc eqv DecInc::DEC;
     ok @entry[92].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[92].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 2, 8);
@@ -8218,7 +8218,7 @@ subtest
     ok @entry[93].posting[0].amount.asset-quantity == 1;
     ok @entry[93].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[93].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[93].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(307, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[93].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(307, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[93].posting[0].decinc eqv DecInc::INC;
     ok @entry[93].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[93].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 3, 0);
@@ -8307,7 +8307,7 @@ subtest
     ok @entry[95].posting[1].amount.asset-quantity == 1;
     ok @entry[95].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[95].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[95].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(307, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[95].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(307, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[95].posting[1].decinc eqv DecInc::DEC;
     ok @entry[95].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[95].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 3, 2);
@@ -8329,7 +8329,7 @@ subtest
     ok @entry[96].posting[0].amount.asset-quantity == 1;
     ok @entry[96].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[96].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[96].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(77, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[96].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(77, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[96].posting[0].decinc eqv DecInc::INC;
     ok @entry[96].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[96].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 3, 3);
@@ -8418,7 +8418,7 @@ subtest
     ok @entry[98].posting[1].amount.asset-quantity == 1;
     ok @entry[98].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[98].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[98].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(77, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[98].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(77, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[98].posting[1].decinc eqv DecInc::DEC;
     ok @entry[98].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[98].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 3, 5);
@@ -8440,7 +8440,7 @@ subtest
     ok @entry[99].posting[0].amount.asset-quantity == 1;
     ok @entry[99].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[99].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[99].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(309, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[99].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(309, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[99].posting[0].decinc eqv DecInc::INC;
     ok @entry[99].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[99].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 3, 6);
@@ -8529,7 +8529,7 @@ subtest
     ok @entry[101].posting[1].amount.asset-quantity == 1;
     ok @entry[101].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[101].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[101].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(309, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[101].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(309, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[101].posting[1].decinc eqv DecInc::DEC;
     ok @entry[101].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[101].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 3, 8);
@@ -8551,7 +8551,7 @@ subtest
     ok @entry[102].posting[0].amount.asset-quantity == 1;
     ok @entry[102].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[102].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[102].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(31, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[102].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(31, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[102].posting[0].decinc eqv DecInc::INC;
     ok @entry[102].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[102].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 4, 0);
@@ -8640,7 +8640,7 @@ subtest
     ok @entry[104].posting[1].amount.asset-quantity == 1;
     ok @entry[104].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[104].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[104].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(31, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[104].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(31, 10), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[104].posting[1].decinc eqv DecInc::DEC;
     ok @entry[104].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[104].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 4, 2);
@@ -8662,7 +8662,7 @@ subtest
     ok @entry[105].posting[0].amount.asset-quantity == 1;
     ok @entry[105].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[105].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[105].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(311, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[105].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(311, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[105].posting[0].decinc eqv DecInc::INC;
     ok @entry[105].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[105].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 4, 3);
@@ -8751,7 +8751,7 @@ subtest
     ok @entry[107].posting[1].amount.asset-quantity == 1;
     ok @entry[107].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[107].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[107].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(311, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[107].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(311, 100), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[107].posting[1].decinc eqv DecInc::DEC;
     ok @entry[107].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[107].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 4, 5);
@@ -8773,7 +8773,7 @@ subtest
     ok @entry[108].posting[0].amount.asset-quantity == 1;
     ok @entry[108].posting[0].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[108].posting[0].amount.plus-or-minus eqv TXN::Parser::Types::PlusMinus;
-    ok @entry[108].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(78, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[108].posting[0].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(78, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[108].posting[0].decinc eqv DecInc::INC;
     ok @entry[108].posting[0].drcr eqv DrCr::DEBIT;
     ok @entry[108].posting[0].id.entry-id.number eq Array[UInt:D].new(0, 2, 4, 6);
@@ -8862,7 +8862,7 @@ subtest
     ok @entry[110].posting[1].amount.asset-quantity == 1;
     ok @entry[110].posting[1].amount.asset-symbol eqv TXN::Parser::Types::AssetSymbol;
     ok @entry[110].posting[1].amount.plus-or-minus eqv "-";
-    ok @entry[110].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-quantity => FatRat.new(78, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
+    ok @entry[110].posting[1].annot eqv TXN::Parser::AST::Entry::Posting::Annot.new(inherit => TXN::Parser::AST::Entry::Posting::Annot::Inherit, lot => TXN::Parser::AST::Entry::Posting::Annot::Lot, xe => TXN::Parser::AST::Entry::Posting::Annot::XE.new(asset-code => "USD", asset-price => FatRat.new(78, 25), asset-symbol => TXN::Parser::Types::AssetSymbol));
     ok @entry[110].posting[1].decinc eqv DecInc::DEC;
     ok @entry[110].posting[1].drcr eqv DrCr::CREDIT;
     ok @entry[110].posting[1].id.entry-id.number eq Array[UInt:D].new(0, 2, 4, 8);

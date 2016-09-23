@@ -577,6 +577,16 @@ method asset-quantity:float ($/)
     make $<float-unsigned>.made;
 }
 
+method asset-price:integer ($/)
+{
+    make $<integer-unsigned>.made;
+}
+
+method asset-price:float ($/)
+{
+    make $<float-unsigned>.made;
+}
+
 method amount($/)
 {
     my %amount;
@@ -614,11 +624,11 @@ method xe-rate($/)
     my %xe-rate;
 
     my AssetCode:D $asset-code = $<asset-code>.made;
-    my Quantity:D $asset-quantity = $<asset-quantity>.made;
+    my Price:D $asset-price = $<asset-price>.made;
     my AssetSymbol:D $asset-symbol = $<asset-symbol>.made if $<asset-symbol>;
 
     %xe-rate<asset-code> = $asset-code;
-    %xe-rate<asset-quantity> = $asset-quantity;
+    %xe-rate<asset-price> = $asset-price;
     %xe-rate<asset-symbol> = $asset-symbol if $asset-symbol;
 
     make %xe-rate;
@@ -915,7 +925,7 @@ multi sub gen-xe(
     Quantity:D $amount-asset-quantity,
     :%xe! (
         AssetCode:D :$asset-code!,
-        Quantity:D :$asset-quantity!,
+        Price:D :$asset-price!,
         XERateType:D :$rate-type!,
         Str :$asset-symbol
     )
@@ -924,9 +934,9 @@ multi sub gen-xe(
     my %xe-rate;
 
     %xe-rate<asset-code> = $asset-code;
-    %xe-rate<asset-quantity> = $rate-type ~~ IN-TOTAL
-        ?? ($asset-quantity / $amount-asset-quantity)
-        !! $asset-quantity;
+    %xe-rate<asset-price> = $rate-type ~~ IN-TOTAL
+        ?? ($asset-price / $amount-asset-quantity)
+        !! $asset-price;
     %xe-rate<asset-symbol> = $asset-symbol if $asset-symbol;
 
     my TXN::Parser::AST::Entry::Posting::Annot::XE:D $xe =
@@ -937,7 +947,7 @@ multi sub gen-xe(
     Quantity:D $amount-asset-quantity,
     :%inherit! (
         AssetCode:D :$asset-code!,
-        Quantity:D :$asset-quantity!,
+        Price:D :$asset-price!,
         XERateType:D :$rate-type!,
         Str :$asset-symbol
     )
@@ -946,9 +956,9 @@ multi sub gen-xe(
     my %inherit-rate;
 
     %inherit-rate<asset-code> = $asset-code;
-    %inherit-rate<asset-quantity> = $rate-type ~~ IN-TOTAL
-        ?? ($asset-quantity / $amount-asset-quantity)
-        !! $asset-quantity;
+    %inherit-rate<asset-price> = $rate-type ~~ IN-TOTAL
+        ?? ($asset-price / $amount-asset-quantity)
+        !! $asset-price;
     %inherit-rate<asset-symbol> = $asset-symbol if $asset-symbol;
 
     my TXN::Parser::AST::Entry::Posting::Annot::Inherit:D $inherit =
