@@ -1,6 +1,30 @@
 use v6;
 unit module X::TXN::Parser;
 
+# X::TXN::Parser::Annot::Inherit::BadSilo {{{
+
+class Annot::Inherit::BadSilo is Exception
+{
+    method message() returns Str:D
+    {
+        "Sorry, inherit annotation is only allowed from assets silo.";
+    }
+}
+
+# end X::TXN::Parser::Annot::Inherit::BadSilo }}}
+
+# X::TXN::Parser::Annot::Lot::BadSilo {{{
+
+class Annot::Lot::BadSilo is Exception
+{
+    method message() returns Str:D
+    {
+        "Sorry, lot sales annotation is only allowed from assets silo.";
+    }
+}
+
+# end X::TXN::Parser::Annot::Lot::BadSilo }}}
+
 # X::TXN::Parser::AssetQuantityIsZero {{{
 
 class AssetQuantityIsZero is Exception

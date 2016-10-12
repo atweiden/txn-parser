@@ -2,6 +2,10 @@ use v6;
 use X::TXN::Parser;
 unit grammar TXN::Parser::Grammar;
 
+# track silo
+my enum Silo <ASSETS EXPENSES INCOME LIABILITIES EQUITY>;
+my Silo $silo;
+
 # disposable grammar {{{
 
 proto token gap {*}
@@ -545,26 +549,31 @@ proto token silo {*}
 token silo:assets
 {
     :i asset[s]?
+    { $silo = ASSETS }
 }
 
 token silo:expenses
 {
     :i expense[s]?
+    { $silo = EXPENSES }
 }
 
 token silo:income
 {
     :i income | revenue[s]?
+    { $silo = INCOME }
 }
 
 token silo:liabilities
 {
     :i liabilit[y|ies]
+    { $silo = LIABILITIES }
 }
 
 token silo:equity
 {
     :i equit[y|ies]
+    { $silo = EQUITY }
 }
 
 # accounts can be separated by a colon (:) or period (.)
@@ -714,6 +723,9 @@ token asset-price:integer { <integer-unsigned> }
 token inherit
 {
     <inherit-symbol> \h+ <inherit-rate=xe-rate>
+    {
+        die X::TXN::Parser::Annot::Inherit::BadSilo.new unless $silo == ASSETS
+    }
 }
 
 proto token inherit-symbol {*}
@@ -733,12 +745,18 @@ proto token lot {*}
 token lot:acquisition
 {
     <lot-acquisition-symbol> \h+ <lot-name>
+    {
+        die X::TXN::Parser::Annot::Lot::BadSilo.new unless $silo == ASSETS
+    }
 }
 
 # lot sales (disposition)
 token lot:disposition
 {
     <lot-disposition-symbol> \h+ <lot-name>
+    {
+        die X::TXN::Parser::Annot::Lot::BadSilo.new unless $silo == ASSETS
+    }
 }
 
 proto token lot-acquisition-symbol {*}
