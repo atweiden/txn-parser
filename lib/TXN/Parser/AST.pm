@@ -294,7 +294,8 @@ class Entry
 
     method hash(::?CLASS:D: --> Hash:D)
     {
-        %(:header($.header.hash), :id($.id.hash), :posting(@.posting».hash));
+        my @posting = @.posting.map({ .hash });
+        %(:header($.header.hash), :id($.id.hash), :@posting);
     }
 
     # end method hash }}}
