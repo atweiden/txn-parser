@@ -186,11 +186,11 @@ class Entry::Posting
 
     method new(
         *%opts (
-            Entry::Posting::Account:D :$account!,
-            Entry::Posting::Amount:D :$amount!,
-            Entry::Posting::ID:D :$id!,
-            DecInc:D :$decinc!,
-            Entry::Posting::Annot :$annot
+            Entry::Posting::Account:D :account($)!,
+            Entry::Posting::Amount:D :amount($)!,
+            Entry::Posting::ID:D :id($)!,
+            DecInc:D :decinc($)!,
+            Entry::Posting::Annot :annot($)
         )
         --> Entry::Posting:D
     )
@@ -263,7 +263,7 @@ class Entry
     method new(
         *%opts (
             Entry::ID:D :$id!,
-            Entry::Header:D :$header!,
+            Entry::Header:D :header($)!,
             Entry::Posting:D :@posting!
         )
         --> Entry:D
