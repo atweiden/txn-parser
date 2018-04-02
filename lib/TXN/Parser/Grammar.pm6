@@ -96,9 +96,10 @@ token escape:sym<backslash> { \\ }
 token escape:sym<u> { <sym> <hex> ** 4 }
 token escape:sym<U> { <sym> <hex> ** 8 }
 
+# Hex values are case insensitive.
 token hex
 {
-    <[0..9A..F]>
+    :i <[0..9A..F]>
 }
 
 token string-basic-multiline
