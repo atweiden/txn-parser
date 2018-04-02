@@ -26,7 +26,7 @@ has Str:D $.file = '.';
 # private types {{{
 
 # to aid with building exchange rates (@ and @@, « and ««)
-enum XERateType <PER-UNIT IN-TOTAL>;
+my enum XERateType <PER-UNIT IN-TOTAL>;
 
 # end private types }}}
 

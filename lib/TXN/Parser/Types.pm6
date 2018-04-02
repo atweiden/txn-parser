@@ -24,7 +24,7 @@ multi sub is-asset-code(
     True;
 }
 
-multi sub is-asset-code($s --> Bool:D)
+multi sub is-asset-code($ --> Bool:D)
 {
     False;
 }
@@ -95,7 +95,7 @@ multi sub is-var-name(
     True;
 }
 
-multi sub is-var-name($s --> Bool:D)
+multi sub is-var-name($ --> Bool:D)
 {
     False;
 }
@@ -107,7 +107,7 @@ multi sub is-var-name($s --> Bool:D)
 
 subset VarNameBare of Str is export where
 {
-    TXN::Parser::Grammar.parse($_, :rule<var-name:bare>)
+    TXN::Parser::Grammar.parse($_, :rule<var-name:bare>);
 }
 
 # end VarNameBare }}}
