@@ -448,12 +448,12 @@ token full-time
 
 token date-time
 {
-    <full-date> <[Tt]> <full-time>
+    <full-date> <[Tt\h]> <full-time>
 }
 
 token date-time-omit-local-offset
 {
-    <full-date> <[Tt]> <partial-time>
+    <full-date> <[Tt\h]> <partial-time>
 }
 
 # end datetime grammar }}}
