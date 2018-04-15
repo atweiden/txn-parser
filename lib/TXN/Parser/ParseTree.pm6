@@ -1,9 +1,8 @@
 use v6;
 use TXN::Parser::Types;
 use X::TXN::Parser;
-unit class TXN::Parser::AST;
 
-# TXN::Parser::AST::Entry::ID {{{
+# Entry::ID {{{
 
 class Entry::ID
 {
@@ -28,8 +27,8 @@ class Entry::ID
     }
 }
 
-# end TXN::Parser::AST::Entry::ID }}}
-# TXN::Parser::AST::Entry::Header {{{
+# end Entry::ID }}}
+# Entry::Header {{{
 
 class Entry::Header
 {
@@ -48,8 +47,8 @@ class Entry::Header
     }
 }
 
-# end TXN::Parser::AST::Entry::Header }}}
-# TXN::Parser::AST::Entry::Posting::Account {{{
+# end Entry::Header }}}
+# Entry::Posting::Account {{{
 
 class Entry::Posting::Account
 {
@@ -66,8 +65,8 @@ class Entry::Posting::Account
     }
 }
 
-# end TXN::Parser::AST::Entry::Posting::Account }}}
-# TXN::Parser::AST::Entry::Posting::Amount {{{
+# end Entry::Posting::Account }}}
+# Entry::Posting::Amount {{{
 
 class Entry::Posting::Amount
 {
@@ -90,8 +89,8 @@ class Entry::Posting::Amount
     }
 }
 
-# end TXN::Parser::AST::Entry::Posting::Amount }}}
-# TXN::Parser::AST::Entry::Posting::Annot::XE {{{
+# end Entry::Posting::Amount }}}
+# Entry::Posting::Annot::XE {{{
 
 class Entry::Posting::Annot::XE
 {
@@ -108,13 +107,13 @@ class Entry::Posting::Annot::XE
     }
 }
 
-# end TXN::Parser::AST::Entry::Posting::Annot::XE }}}
-# TXN::Parser::AST::Entry::Posting::Annot::Inherit {{{
+# end Entry::Posting::Annot::XE }}}
+# Entry::Posting::Annot::Inherit {{{
 
 class Entry::Posting::Annot::Inherit is Entry::Posting::Annot::XE {*}
 
-# end TXN::Parser::AST::Entry::Posting::Annot::Inherit }}}
-# TXN::Parser::AST::Entry::Posting::Annot::Lot {{{
+# end Entry::Posting::Annot::Inherit }}}
+# Entry::Posting::Annot::Lot {{{
 
 class Entry::Posting::Annot::Lot
 {
@@ -131,8 +130,8 @@ class Entry::Posting::Annot::Lot
     }
 }
 
-# end TXN::Parser::AST::Entry::Posting::Annot::Lot }}}
-# TXN::Parser::AST::Entry::Posting::Annot {{{
+# end Entry::Posting::Annot::Lot }}}
+# Entry::Posting::Annot {{{
 
 class Entry::Posting::Annot
 {
@@ -149,8 +148,8 @@ class Entry::Posting::Annot
     }
 }
 
-# end TXN::Parser::AST::Entry::Posting::Annot }}}
-# TXN::Parser::AST::Entry::Posting::ID {{{
+# end Entry::Posting::Annot }}}
+# Entry::Posting::ID {{{
 
 class Entry::Posting::ID
 {
@@ -181,8 +180,8 @@ class Entry::Posting::ID
     }
 }
 
-# end TXN::Parser::AST::Entry::Posting::ID }}}
-# TXN::Parser::AST::Entry::Posting {{{
+# end Entry::Posting::ID }}}
+# Entry::Posting {{{
 
 class Entry::Posting
 {
@@ -265,8 +264,8 @@ class Entry::Posting
     # --- end sub gen-drcr }}}
 }
 
-# end TXN::Parser::AST::Entry::Posting }}}
-# TXN::Parser::AST::Entry {{{
+# end Entry::Posting }}}
+# Entry {{{
 
 class Entry
 {
@@ -322,6 +321,6 @@ class Entry
     # --- end method hash }}}
 }
 
-# end TXN::Parser::AST::Entry }}}
+# end Entry }}}
 
 # vim: set filetype=perl6 foldmethod=marker foldlevel=0:
