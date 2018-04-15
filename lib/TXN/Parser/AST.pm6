@@ -15,12 +15,16 @@ class Entry::ID
 
     method canonical(::?CLASS:D: --> Str:D)
     {
-        $.number ~ ':' ~ $.xxhash;
+        my Str:D $canonical =
+            sprintf(Q{[%s]:%s}, @.number.join(' '), $.xxhash);
     }
 
     method hash(::?CLASS:D: --> Hash:D)
     {
-        %(:@.number, :$.text, :$.xxhash);
+        my @number = @.number;
+        my $text = $.text;
+        my $xxhash = $.xxhash;
+        my %hash = :@number, :$text, :$xxhash;
     }
 }
 
@@ -36,7 +40,11 @@ class Entry::Header
 
     method hash(::?CLASS:D: --> Hash:D)
     {
-        %(:date(~$.date), :$.description, :$.important, :@.tag);
+        my $date = ~$.date;
+        my $description = $.description ?? $.description !! Nil;
+        my $important = $.important;
+        my @tag = @.tag ?? @.tag !! Nil;
+        my %hash = :$date, :$description, :$important, :@tag;
     }
 }
 
@@ -51,7 +59,10 @@ class Entry::Posting::Account
 
     method hash(::?CLASS:D: --> Hash:D)
     {
-        %(:$.entity, :@.path, :silo($.silo.gist));
+        my $entity = $.entity;
+        my @path = @.path ?? @.path !! Nil;
+        my $silo = $.silo.gist;
+        my %hash = :$entity, :@path, :$silo;
     }
 }
 
@@ -67,7 +78,15 @@ class Entry::Posting::Amount
 
     method hash(::?CLASS:D: --> Hash:D)
     {
-        %(:$.asset-code, :$.asset-quantity, :$.asset-symbol, :$.plus-or-minus);
+        my $asset-code = $.asset-code;
+        my $asset-quantity = $.asset-quantity;
+        my $asset-symbol = $.asset-symbol ?? $.asset-symbol !! Nil;
+        my $plus-or-minus = $.plus-or-minus ?? $.plus-or-minus !! Nil;
+        my %hash =
+            :$asset-code,
+            :$asset-quantity,
+            :$asset-symbol,
+            :$plus-or-minus;
     }
 }
 
@@ -82,7 +101,10 @@ class Entry::Posting::Annot::XE
 
     method hash(::?CLASS:D: --> Hash:D)
     {
-        %(:$.asset-code, :$.asset-price, :$.asset-symbol);
+        my $asset-code = $.asset-code;
+        my $asset-price = $.asset-price;
+        my $asset-symbol = $.asset-symbol ?? $.asset-symbol !! Nil;
+        my %hash = :$asset-code, :$asset-price, :$asset-symbol;
     }
 }
 
@@ -103,7 +125,9 @@ class Entry::Posting::Annot::Lot
 
     method hash(::?CLASS:D: --> Hash:D)
     {
-        %(:decinc($.decinc.gist), :$.name);
+        my $decinc = $.decinc.gist;
+        my $name = $.name;
+        my %hash = :$decinc, :$name;
     }
 }
 
@@ -118,11 +142,10 @@ class Entry::Posting::Annot
 
     method hash(::?CLASS:D: --> Hash:D)
     {
-        my %h;
-        %h<inherit> = $.inherit ?? $.inherit.hash !! Nil;
-        %h<lot> = $.lot ?? $.lot.hash !! Nil;
-        %h<xe> = $.xe ?? $.xe.hash !! Nil;
-        %h;
+        my %inherit = $.inherit ?? $.inherit.hash !! Nil;
+        my %lot = $.lot ?? $.lot.hash !! Nil;
+        my %xe = $.xe ?? $.xe.hash !! Nil;
+        my %hash = :%inherit, :%lot, :%xe;
     }
 }
 
@@ -144,12 +167,17 @@ class Entry::Posting::ID
 
     method canonical(::?CLASS:D: --> Str:D)
     {
-        $.number ~ ':' ~ $.xxhash;
+        my Str:D $canonical =
+            sprintf(Q{%s|%s:%s}, $.entry-id.canonical, $.number, $.xxhash);
     }
 
     method hash(::?CLASS:D: --> Hash:D)
     {
-        %(:entry-id($.entry-id.hash), :$.number, :$.text, :$.xxhash);
+        my %entry-id = $.entry-id.hash;
+        my $number = $.number;
+        my $text = $.text;
+        my $xxhash = $.xxhash;
+        my %hash = :%entry-id, :$number, :$text, :$xxhash;
     }
 }
 
@@ -166,7 +194,7 @@ class Entry::Posting
 
     has Entry::Posting::Annot $.annot;
 
-    # submethod BUILD {{{
+    # --- submethod BUILD {{{
 
     submethod BUILD(
         Entry::Posting::Account:D :$!account!,
@@ -181,8 +209,8 @@ class Entry::Posting
         $!drcr = gen-drcr($!account.silo, $!decinc);
     }
 
-    # end submethod BUILD }}}
-    # method new {{{
+    # --- end submethod BUILD }}}
+    # --- method new {{{
 
     method new(
         *%opts (
@@ -198,25 +226,24 @@ class Entry::Posting
         self.bless(|%opts);
     }
 
-    # end method new }}}
+    # --- end method new }}}
 
-    # method hash {{{
+    # --- method hash {{{
 
     method hash(::?CLASS:D: --> Hash:D)
     {
-        my %h;
-        %h<id> = $.id.hash;
-        %h<account> = $.account.hash;
-        %h<amount> = $.amount.hash;
-        %h<decinc> = $.decinc.gist;
-        %h<drcr> = $.drcr.gist;
-        %h<annot> = $.annot ?? $.annot.hash !! Nil;
-        %h;
+        my %id = $.id.hash;
+        my %account = $.account.hash;
+        my %amount = $.amount.hash;
+        my $decinc = $.decinc.gist;
+        my $drcr = $.drcr.gist;
+        my %annot = $.annot ?? $.annot.hash !! Nil;
+        my %hash = :%id, :%account, :%amount, :$decinc, :$drcr, :%annot;
     }
 
-    # end method hash }}}
+    # --- end method hash }}}
 
-    # sub gen-drcr {{{
+    # --- sub gen-drcr {{{
 
     # assets and expenses increase on the debit side
     # +assets/expenses
@@ -235,7 +262,7 @@ class Entry::Posting
     multi sub gen-drcr(LIABILITIES, DEC --> DrCr:D) { DEBIT }
     multi sub gen-drcr(EQUITY,      DEC --> DrCr:D) { DEBIT }
 
-    # end sub gen-drcr }}}
+    # --- end sub gen-drcr }}}
 }
 
 # end TXN::Parser::AST::Entry::Posting }}}
@@ -247,7 +274,7 @@ class Entry
     has Entry::Header:D $.header is required;
     has Entry::Posting:D @.posting is required;
 
-    # submethod BUILD {{{
+    # --- submethod BUILD {{{
 
     submethod BUILD(
         Entry::ID:D :$!id!,
@@ -257,8 +284,8 @@ class Entry
     )
     {*}
 
-    # end submethod BUILD }}}
-    # method new {{{
+    # --- end submethod BUILD }}}
+    # --- method new {{{
 
     method new(
         *%opts (
@@ -272,28 +299,27 @@ class Entry
         # verify entry is limited to one entity
         my UInt:D $number-entities =
             @posting.map({ .account.entity }).unique.elems;
-        $number-entities == 1
-            or die(
-                X::TXN::Parser::Entry::MultipleEntities.new(
-                    :$number-entities,
-                    :entry-text($id.text)
-                )
-            );
-
+        $number-entities == 1 or do {
+            my Exception:U $exception-type =
+                X::TXN::Parser::Entry::MultipleEntities;
+            die($exception-type.new(:$number-entities, :entry-text($id.text)));
+        }
         self.bless(|%opts);
     }
 
-    # end method new }}}
+    # --- end method new }}}
 
-    # method hash {{{
+    # --- method hash {{{
 
     method hash(::?CLASS:D: --> Hash:D)
     {
+        my %header = $.header.hash;
+        my %id = $.id.hash;
         my @posting = @.posting.map({ .hash });
-        %(:header($.header.hash), :id($.id.hash), :@posting);
+        my %hash = :%header, :%id, :@posting;
     }
 
-    # end method hash }}}
+    # --- end method hash }}}
 }
 
 # end TXN::Parser::AST::Entry }}}
