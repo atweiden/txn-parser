@@ -60,12 +60,12 @@ subset PlusMinus of Str is export where
 # end PlusMinus }}}
 # Price {{{
 
-subset Price of FatRat is export where * >= 0;
+subset Price of Rat is export where * >= 0;
 
 # end Price }}}
 # Quantity {{{
 
-subset Quantity of FatRat is export where * > 0;
+subset Quantity of Rat is export where * > 0;
 
 # end Quantity }}}
 # Silo {{{
