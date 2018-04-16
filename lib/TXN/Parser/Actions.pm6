@@ -797,7 +797,7 @@ method posting-line($/ --> Nil)
 
 method postings($/ --> Nil)
 {
-    my @made = @<posting-line>.hyper.map({ .made }).grep(Hash:D);
+    my @made = @<posting-line>.map({ .made }).grep(Hash:D);
     make(@made);
 }
 
