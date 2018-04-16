@@ -96,7 +96,7 @@ method string-basic-char:escape-sequence ($/ --> Nil)
 
 method string-basic-text($/ --> Nil)
 {
-    make(@<string-basic-char>.map({ .made }).join);
+    make(@<string-basic-char>.hyper.map({ .made }).join);
 }
 
 multi method string-basic($/ where $<string-basic-text>.so --> Nil)
@@ -142,7 +142,7 @@ multi method string-basic-multiline-char:escape-sequence (
 
 method string-basic-multiline-text($/ --> Nil)
 {
-    make(@<string-basic-multiline-char>.map({ .made }).join);
+    make(@<string-basic-multiline-char>.hyper.map({ .made }).join);
 }
 
 multi method string-basic-multiline(
@@ -173,7 +173,7 @@ method string-literal-char:backslash ($/ --> Nil)
 
 method string-literal-text($/ --> Nil)
 {
-    make(@<string-literal-char>.map({ .made }).join);
+    make(@<string-literal-char>.hyper.map({ .made }).join);
 }
 
 multi method string-literal($/ where $<string-literal-text>.so --> Nil)
@@ -198,7 +198,7 @@ method string-literal-multiline-char:backslash ($/ --> Nil)
 
 method string-literal-multiline-text($/ --> Nil)
 {
-    make(@<string-literal-multiline-char>.map({ .made }).join);
+    make(@<string-literal-multiline-char>.hyper.map({ .made }).join);
 }
 
 multi method string-literal-multiline(
@@ -277,7 +277,7 @@ method txnlib-string-char:path-divisor ($/ --> Nil)
 
 method txnlib-string-text($/ --> Nil)
 {
-    make(@<txnlib-string-char>.map({ .made }).join);
+    make(@<txnlib-string-char>.hyper.map({ .made }).join);
 }
 
 method txnlib-string($/ --> Nil)
@@ -512,7 +512,7 @@ method meta:tag ($/ --> Nil)
 
 method metainfo($/ --> Nil)
 {
-    my @made = @<meta>.map({ .made });
+    my @made = @<meta>.hyper.map({ .made });
     make(@made);
 }
 
@@ -530,7 +530,7 @@ method header($/ --> Nil)
     my UInt:D $important = 0;
     my VarName:D @tag;
 
-    @<metainfo>.map({ .made }).map(-> @metainfo {
+    @<metainfo>.hyper.map({ .made }).map(-> @metainfo {
         $important +=
             [+] @metainfo
                     .grep({ .keys eq 'important' })
@@ -560,7 +560,7 @@ method header($/ --> Nil)
 
 method account-name($/ --> Nil)
 {
-    my @made = @<var-name>.map({ .made });
+    my @made = @<var-name>.hyper.map({ .made });
     make(@made);
 }
 
@@ -797,7 +797,7 @@ method posting-line($/ --> Nil)
 
 method postings($/ --> Nil)
 {
-    my @made = @<posting-line>.map({ .made }).grep(Hash:D);
+    my @made = @<posting-line>.hyper.map({ .made }).hyper.grep(Hash:D);
     make(@made);
 }
 
@@ -813,7 +813,7 @@ method entry($/ --> Nil)
     my XXHash:D $xxhash = xxHash32($text);
     my Entry::ID:D $entry-id =
         Entry::ID.new(
-            :number(@.entry-number.deepmap(*.clone)),
+            :number(@.entry-number.hyper.deepmap(*.clone)),
             :$xxhash,
             :$text
         );
@@ -821,7 +821,7 @@ method entry($/ --> Nil)
     # insert Posting::ID derived from Entry::ID
     my UInt:D $posting-number = 0;
     my Entry::Posting:D @posting =
-        @postings.map({
+        @postings.hyper.map({
             my Entry::Posting::ID:D $posting-id =
                 Entry::Posting::ID.new(
                     :$entry-id,
@@ -869,7 +869,7 @@ method include:filename ($match --> Nil)
     $filename.IO.e && $filename.IO.r && $filename.IO.f
         or die(X::TXN::Parser::Include.new(:$filename));
 
-    my UInt:D @entry-number = |@.entry-number.deepmap(*.clone), 0;
+    my UInt:D @entry-number = |@.entry-number.hyper.deepmap(*.clone), 0;
     my TXN::Parser::Actions:D $actions =
         TXN::Parser::Actions.new(
             :@entry-number,
@@ -892,7 +892,7 @@ method include:txnlib ($match --> Nil)
     $filename.IO.e && $filename.IO.r && $filename.IO.f
         or die(X::TXN::Parser::Include.new(:$filename));
 
-    my UInt:D @entry-number = |@.entry-number.deepmap(*.clone), 0;
+    my UInt:D @entry-number = |@.entry-number.hyper.deepmap(*.clone), 0;
     my TXN::Parser::Actions:D $actions =
         TXN::Parser::Actions.new(
             :@entry-number,

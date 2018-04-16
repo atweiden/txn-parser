@@ -297,7 +297,7 @@ class Entry
     {
         # verify entry is limited to one entity
         my UInt:D $number-entities =
-            @posting.map({ .account.entity }).unique.elems;
+            @posting.hyper.map({ .account.entity }).unique.elems;
         $number-entities == 1 or do {
             my Exception:U $exception-type =
                 X::TXN::Parser::Entry::MultipleEntities;
@@ -314,7 +314,7 @@ class Entry
     {
         my %header = $.header.hash;
         my %id = $.id.hash;
-        my @posting = @.posting.map({ .hash });
+        my @posting = @.posting.hyper.map({ .hash });
         my %hash = :%header, :%id, :@posting;
     }
 
