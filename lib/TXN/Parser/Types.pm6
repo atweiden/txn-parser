@@ -13,7 +13,7 @@ multi sub is-asset-code(
     --> Bool:D
 )
 {
-    True;
+    my Bool:D $is-asset-code = True;
 }
 
 multi sub is-asset-code(
@@ -21,12 +21,12 @@ multi sub is-asset-code(
     --> Bool:D
 )
 {
-    True;
+    my Bool:D $is-asset-code = True;
 }
 
 multi sub is-asset-code($ --> Bool:D)
 {
-    False;
+    my Bool:D $is-asset-code = False;
 }
 
 # --- end sub is-asset-code }}}
@@ -84,7 +84,7 @@ multi sub is-var-name(
     --> Bool:D
 )
 {
-    True;
+    my Bool:D $is-var-name = True;
 }
 
 multi sub is-var-name(
@@ -92,12 +92,12 @@ multi sub is-var-name(
     --> Bool:D
 )
 {
-    True;
+    my Bool:D $is-var-name = True;
 }
 
 multi sub is-var-name($ --> Bool:D)
 {
-    False;
+    my Bool:D $is-var-name = False;
 }
 
 # --- end sub is-var-name }}}
