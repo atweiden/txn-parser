@@ -296,5 +296,20 @@ class Entry
 }
 
 # end Entry }}}
+# Ledger {{{
+
+class Ledger
+{
+    has Entry:D @.entry is required;
+
+    method hash(::?CLASS:D: --> Hash:D)
+    {
+        my %hash;
+        %hash<entry> = @.entry.hyper.map({ .hash }).Array;
+        %hash;
+    }
+}
+
+# end Ledger }}}
 
 # vim: set filetype=perl6 foldmethod=marker foldlevel=0:
