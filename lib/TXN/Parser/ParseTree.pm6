@@ -210,7 +210,9 @@ class Entry::Posting
             Entry::Posting::Amount:D :amount($)!,
             Entry::Posting::ID:D :id($)!,
             DecInc:D :decinc($)!,
-            Entry::Posting::Annot :annot($)
+            Entry::Posting::Annot :annot($),
+            # ignore potential drcr key for C<TXN::Remarshal>
+            *%
         )
         --> Entry::Posting:D
     )
