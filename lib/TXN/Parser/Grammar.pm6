@@ -593,7 +593,15 @@ token account-name
 # --- --- end posting account grammar }}}
 # --- --- posting amount grammar {{{
 
-token amount
+proto token amount {*}
+
+token amount:commodity
+{
+    # -42 oz·Au
+    <plus-or-minus>? <asset-quantity> \h+ <unit-of-measure> <asset-code>
+}
+
+token amount:asset
 {
     # -$100.00 USD
     | <plus-or-minus>? <asset-symbol>? <asset-quantity> \h+ <asset-code>
@@ -629,6 +637,46 @@ token asset-quantity:integer
 {
     <integer-unsigned>
     { +$/ !== 0 or die(X::TXN::Parser::AssetQuantityIsZero.new(:text(~$/))) }
+}
+
+token unit-of-measure
+{
+    # square kilometers of
+    | <unit-of-measure-words> \h+ of \h+
+    # oz ·
+    | <unit-of-measure-words> \h* <of> \h*
+}
+
+token unit-of-measure-words
+{
+    <unit-of-measure-word> [ \h+ <unit-of-measure-word> ]*
+}
+
+# anything but whitespace, C<'of'> and text containing C<token <of>>
+token unit-of-measure-word
+{
+    <!before 'of'> <unit-of-measure-word-char>+
+}
+
+token unit-of-measure-word-char
+{
+    <+[\H] -of>
+}
+
+token of
+{
+    # bullet operator (u+2219)
+    | '∙'
+    # dot operator (u+22c5)
+    | '⋅'
+    # greek ano teleia (u+0387)
+    | '·'
+    # hyphenation point (u+2027)
+    | '‧'
+    # middle dot (u+00b7)
+    | '·'
+    # runic single punctuation (u+16eb)
+    | '᛫'
 }
 
 # --- --- end posting amount grammar }}}
