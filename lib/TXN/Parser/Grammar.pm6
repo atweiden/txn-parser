@@ -724,7 +724,7 @@ token unit-of-measure
     | 'ct'
     # pounds
     | 'lb' | 'lbs'
-    # tons  | tonnes
+    # tons  | tonnes (metric tons)
     | 'ton' | 't'
     # cubic "
     | 'ton³' | 't³'
@@ -750,8 +750,6 @@ token of
     | '‧'
     # middle dot (u+00b7)
     | '·'
-    # runic single punctuation (u+16eb)
-    | '᛫'
 }
 
 # --- --- end posting amount grammar }}}
