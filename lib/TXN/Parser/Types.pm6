@@ -82,7 +82,7 @@ enum Silo is export <ASSETS EXPENSES INCOME LIABILITIES EQUITY>;
 
 subset UnitOfMeasure of Str is export where
 {
-    TXN::Parser::Grammar.parse($_, :rule<unit-of-measure-words>);
+    TXN::Parser::Grammar.parse($_, :rule<unit-of-measure>);
 }
 
 # end UnitOfMeasure }}}

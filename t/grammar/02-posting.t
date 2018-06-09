@@ -218,16 +218,9 @@ subtest({
 
 subtest({
     my Str @unit-of-measure =
-        Q{cups of },
-        Q{c of },
-        Q{c·},
-        Q{c ·},
-        Q{c · },
-        Q{fluid ounces of },
-        Q{fl.oz of },
-        Q{fl.oz·},
-        Q{fl.oz ·},
-        Q{fl.oz · };
+        Q{cup},
+        Q{c},
+        Q{floz};
 
     ok(
         @unit-of-measure
@@ -355,10 +348,10 @@ subtest({
         Q{BTC +฿100.00},
         Q{BTC +฿1_0_0.0_0},
         Q{1 floz·sprite},
-        Q{1.5 fl.oz·sprite},
-        Q{15_000.0 fl.oz·sprite},
-        Q{1 fl oz · sprite},
-        Q{1 fl oz of sprite};
+        Q{1.5 floz·sprite},
+        Q{15_000.0 floz·sprite},
+        Q{1 floz · sprite},
+        Q{1 floz of sprite};
 
     ok(
         @amount.grep({ .&is-valid-amount }).elems == @amount.elems,
@@ -384,7 +377,7 @@ subtest({
         Q{Assets:Personal:FirstBank +฿1_000_000.00 USD},
         Q{Expenses:Business:Cats:Food      Ł5.99 LTC},
         Q{Liabilities:Xray      1 floz·sprite},
-        Q{Equity:Yankee 1.06 fluid ounces of sprite @ 0.05 USD},
+        Q{Equity:Yankee 1.06 floz of sprite @ 0.05 USD},
         Q{Assets:Zero -42 oz·Au};
 
     ok(

@@ -598,7 +598,15 @@ proto token amount {*}
 token amount:commodity
 {
     # -42 oz·Au
-    <plus-or-minus>? <asset-quantity> \h+ <unit-of-measure> <asset-code>
+    | [
+        <plus-or-minus>? <asset-quantity> \h+
+            <unit-of-measure> \h* <of> \h* <asset-code>
+    ]
+    # -42 oz of Au
+    | [
+        <plus-or-minus>? <asset-quantity> \h+
+            <unit-of-measure> \h+ of \h+ <asset-code>
+    ]
 }
 
 token amount:asset
@@ -641,26 +649,65 @@ token asset-quantity:integer
 
 token unit-of-measure
 {
-    # square kilometers of
-    | <unit-of-measure-words> \h+ of \h+
-    # oz ·
-    | <unit-of-measure-words> \h* <of> \h*
-}
-
-token unit-of-measure-words
-{
-    <unit-of-measure-word> [ \h+ <unit-of-measure-word> ]*
-}
-
-# anything but whitespace, C<'of'> and text containing C<token <of>>
-token unit-of-measure-word
-{
-    <!before 'of'> <unit-of-measure-word-char>+
-}
-
-token unit-of-measure-word-char
-{
-    <+[\H] -of>
+    # meters
+    | 'm'  | 'nm'  | 'mm'  | 'cm'  | 'dc'  | 'km'
+    # square meters
+    | 'm²' | 'nm²' | 'mm²' | 'cm²' | 'dc²' | 'km²'
+    # cubic meters
+    | 'm³' | 'nm³' | 'mm³' | 'cm³' | 'dc³' | 'km³'
+    # inches/feet/yards/miles/nautical miles
+    | 'in'  | 'ft'  | 'yd'  | 'mi'  | 'sm'
+    # square "
+    | 'in²' | 'ft²' | 'yd²' | 'mi²' | 'sm²'
+    # cubic "
+    | 'in³' | 'ft³' | 'yd³' | 'mi³' | 'sm³'
+    # acres
+    | 'acre' | 'are' | 'ha' | 'hectare'
+    # liters
+    | 'l' | 'nl' | 'ml' | 'cl' | 'dl' | 'hl'
+    | 'L' | 'nL' | 'mL' | 'cL' | 'dL' | 'hL'
+    # teaspoons
+    | 'tsp' | 'tspn'
+    # tablespoons
+    | 'tbsp' | 'tbspn'
+    # cups
+    | 'c' | 'cup'
+    # pints
+    | 'pt' | 'pint'
+    # quarts
+    | 'qt'
+    # gallons
+    | 'gal'
+    # US gallons
+    | 'usgal' | 'USgal'
+    # imperial gallons
+    | 'impgal'
+    # fluid ounces
+    | 'floz' | 'ozfl'
+    # grams
+    | 'g' | 'mg' | 'cg' | 'dg' | 'kg'
+    # grains
+    | 'gr'
+    # pennyweights
+    | 'dwt'
+    # ounces
+    | 'oz'
+    # troy ounces
+    | 'toz' | 'ozt'
+    # carats
+    | 'ct'
+    # pounds
+    | 'lb' | 'lbs'
+    # tons/tonnes
+    | 'ton' | 't'
+    # cubic tons/tonnes
+    | 'ton³' | 't³'
+    # twenty-foot equivalent unit
+    | 'teu' | 'TEU'
+    # cords
+    | 'cord'
+    # brass
+    | 'brass'
 }
 
 token of
