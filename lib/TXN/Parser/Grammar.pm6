@@ -649,23 +649,49 @@ token asset-quantity:integer
 
 token unit-of-measure
 {
-    # meters
-    | 'm'  | 'nm'  | 'mm'  | 'cm'  | 'dc'  | 'km'
-    # square meters
-    | 'm²' | 'nm²' | 'mm²' | 'cm²' | 'dc²' | 'km²'
-    # cubic meters
-    | 'm³' | 'nm³' | 'mm³' | 'cm³' | 'dc³' | 'km³'
-    # inches/feet/yards/miles/nautical miles
-    | 'in'  | 'ft'  | 'yd'  | 'mi'  | 'sm'
+    # --- --- --- digital units of measure {{{
+
+    # see: https://physics.nist.gov/cuu/Units/binary.html
+
+    #                      | bits      | bytes
+                           | b  | bit  | B
+    # kibibytes | kibibits | kilobits  | kilobytes
+    | KiB       | Kib      | kb | kbit | kB
+    # mebibytes | mebibits | megabits  | megabytes
+    | MiB       | Mib      | Mb | Mbit | MB
+    # gibibytes | gibibits | gigabits  | gigabytes
+    | GiB       | Gib      | Gb | Gbit | GB
+    # tebibytes | tebibits | terabits  | terabytes
+    | TiB       | Tib      | Tb | Tbit | TB
+    # pebibytes | pebibits | petabits  | petabytes
+    | PiB       | Pib      | Pb | Pbit | PB
+    # exbibytes | exbibits | exabits   | exabytes
+    | EiB       | Eib      | Eb | Ebit | EB
+    # zebibytes | zebibits | zettabits | zettabytes
+    | ZiB       | Zib      | Zb | Zbit | ZB
+    # yobibytes | yobibits | yottabits | yottabytes
+    | YiB       | Yib      | Yb | Ybit | YB
+
+    # --- --- --- end digital units of measure }}}
+    # --- --- --- physical units of measure {{{
+
+    # meters | nanometers | millimeters | centimeters | decimeters | kilometers
+    | 'm'    | 'nm'       | 'mm'        | 'cm'        | 'dc'       | 'km'
     # square "
-    | 'in²' | 'ft²' | 'yd²' | 'mi²' | 'sm²'
+    | 'm²'   | 'nm²'      | 'mm²'       | 'cm²'       | 'dc²'      | 'km²'
     # cubic "
-    | 'in³' | 'ft³' | 'yd³' | 'mi³' | 'sm³'
-    # acres
+    | 'm³'   | 'nm³'      | 'mm³'       | 'cm³'       | 'dc³'      | 'km³'
+    # inches | feet  | yards | miles | nautical miles
+    | 'in'   | 'ft'  | 'yd'  | 'mi'  | 'sm'
+    # square "
+    | 'in²'  | 'ft²' | 'yd²' | 'mi²' | 'sm²'
+    # cubic "
+    | 'in³'  | 'ft³' | 'yd³' | 'mi³' | 'sm³'
+    # acres  | ares  | hectares
     | 'acre' | 'are' | 'ha' | 'hectare'
-    # liters
-    | 'l' | 'nl' | 'ml' | 'cl' | 'dl' | 'hl'
-    | 'L' | 'nL' | 'mL' | 'cL' | 'dL' | 'hL'
+    # liters | nanoliters | milliliters | centiliters | deciliters | kiloliters
+    | 'l'    | 'nl'       | 'ml'        | 'cl'        | 'dl'       | 'kl'
+    | 'L'    | 'nL'       | 'mL'        | 'cL'        | 'dL'       | 'kL'
     # teaspoons
     | 'tsp' | 'tspn'
     # tablespoons
@@ -684,8 +710,8 @@ token unit-of-measure
     | 'impgal'
     # fluid ounces
     | 'floz' | 'ozfl'
-    # grams
-    | 'g' | 'mg' | 'cg' | 'dg' | 'kg'
+    # grams | nanograms | milligrams | centigrams | decigrams | kilograms
+    | 'g'   | 'ng'      | 'mg'       | 'cg'       | 'dg'      | 'kg'
     # grains
     | 'gr'
     # pennyweights
@@ -698,9 +724,9 @@ token unit-of-measure
     | 'ct'
     # pounds
     | 'lb' | 'lbs'
-    # tons/tonnes
+    # tons  | tonnes
     | 'ton' | 't'
-    # cubic tons/tonnes
+    # cubic "
     | 'ton³' | 't³'
     # twenty-foot equivalent unit
     | 'teu' | 'TEU'
@@ -708,6 +734,8 @@ token unit-of-measure
     | 'cord'
     # brass
     | 'brass'
+
+    # --- --- --- end physical units of measure }}}
 }
 
 token of
