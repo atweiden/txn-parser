@@ -128,7 +128,10 @@ class Entry::Posting::Annot::XE
 # end Entry::Posting::Annot::XE }}}
 # Entry::Posting::Annot::Inherit {{{
 
-class Entry::Posting::Annot::Inherit is Entry::Posting::Annot::XE {*}
+class Entry::Posting::Annot::Inherit
+{
+    also is Entry::Posting::Annot::XE;
+}
 
 # end Entry::Posting::Annot::Inherit }}}
 # Entry::Posting::Annot::Lot {{{
