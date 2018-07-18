@@ -1007,7 +1007,7 @@ sub gen-annot(
     %annot<inherit> = $inherit if $inherit;
     %annot<lot> = $lot if $lot;
 
-    my Entry::Posting::Annot:D $annot = Entry::Posting::Annot.new(|%annot);
+    my Entry::Posting::Annot $annot .= new(|%annot);
 }
 
 multi sub gen-xe(
@@ -1030,8 +1030,7 @@ multi sub gen-xe(
             !! $asset-price;
     %xe-rate<asset-symbol> = $asset-symbol if $asset-symbol;
 
-    my Entry::Posting::Annot::XE:D $xe =
-        Entry::Posting::Annot::XE.new(|%xe-rate);
+    my Entry::Posting::Annot::XE $xe .= new(|%xe-rate);
 }
 
 multi sub gen-xe(
@@ -1054,8 +1053,7 @@ multi sub gen-xe(
             !! $asset-price;
     %inherit-rate<asset-symbol> = $asset-symbol if $asset-symbol;
 
-    my Entry::Posting::Annot::Inherit:D $inherit =
-        Entry::Posting::Annot::Inherit.new(|%inherit-rate);
+    my Entry::Posting::Annot::Inherit $inherit .= new(|%inherit-rate);
 }
 
 # end helper functions }}}

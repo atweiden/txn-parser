@@ -13,7 +13,7 @@ method parse(
     --> Match:D
 )
 {
-    my TXN::Parser::Actions:D $actions = TXN::Parser::Actions.new(|%opts);
+    my TXN::Parser::Actions $actions .= new(|%opts);
     TXN::Parser::Grammar.parse($content, :$actions)
         or die(X::TXN::Parser::ParseFailed.new(:$content));
 }
@@ -27,8 +27,7 @@ method parsefile(
     --> Match:D
 )
 {
-    my TXN::Parser::Actions:D $actions =
-        TXN::Parser::Actions.new(:$file, |%opts);
+    my TXN::Parser::Actions $actions .= new(:$file, |%opts);
     TXN::Parser::Grammar.parsefile($file, :$actions)
         or die(X::TXN::Parser::ParsefileFailed.new(:$file));
 }
