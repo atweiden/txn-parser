@@ -34,6 +34,11 @@ my Ledger $ledger = TXN::Parser.parsefile($file).made;
 
 - [Peru](https://github.com/buildinspace/peru)
 
+Install it using
+
+	pip install peru
+
+
 To run the tests:
 
 ```
