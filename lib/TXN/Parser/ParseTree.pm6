@@ -299,7 +299,7 @@ class Entry
     {
         # verify entry is limited to one entity
         my UInt:D $number-entities =
-            @posting.hyper.map({ .account.entity }).unique.elems;
+            @posting.map({ .account.entity }).unique.elems;
         $number-entities == 1 or do {
             my Exception:U $exception-type =
                 X::TXN::Parser::Entry::MultipleEntities;
@@ -313,7 +313,7 @@ class Entry
         my %hash;
         %hash<header> = $.header.hash;
         %hash<id> = $.id.hash;
-        %hash<posting> = @.posting.hyper.map({ .hash }).Array;
+        %hash<posting> = @.posting.map({ .hash }).Array;
         %hash;
     }
 }
@@ -328,7 +328,7 @@ class Ledger
     method hash(::?CLASS:D: --> Hash:D)
     {
         my %hash;
-        %hash<entry> = @.entry.hyper.map({ .hash }).Array;
+        %hash<entry> = @.entry.map({ .hash }).Array;
         %hash;
     }
 }
