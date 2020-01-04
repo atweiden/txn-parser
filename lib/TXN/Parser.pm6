@@ -32,4 +32,4 @@ method parsefile(
         or die(X::TXN::Parser::ParsefileFailed.new(:$file));
 }
 
-# vim: set filetype=perl6 foldmethod=marker foldlevel=0:
+# vim: set filetype=raku foldmethod=marker foldlevel=0:

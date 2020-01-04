@@ -27,7 +27,7 @@ my Ledger $ledger = TXN::Parser.parsefile($file).made;
 
 ### Dependencies
 
-- Rakudo Perl 6
+- Raku
 - [Digest::xxHash](https://github.com/atweiden/digest-xxhash)
 
 ### Test Dependencies

@@ -86,4 +86,4 @@ sub is-valid-unit-of-measure(Str:D $unit-of-measure --> Bool:D) is export
         TXN::Parser::Grammar.parse($unit-of-measure, :rule<unit-of-measure>).so;
 }
 
-# vim: set filetype=perl6 foldmethod=marker foldlevel=0:
+# vim: set filetype=raku foldmethod=marker foldlevel=0:

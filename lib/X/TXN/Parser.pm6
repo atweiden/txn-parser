@@ -155,4 +155,4 @@ class X::TXN::Parser::TXNLibAbsolute
 
 # end X::TXN::Parser::TXNLibAbsolute }}}
 
-# vim: set filetype=perl6 foldmethod=marker foldlevel=0:
+# vim: set filetype=raku foldmethod=marker foldlevel=0:
