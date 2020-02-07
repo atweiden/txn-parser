@@ -5,7 +5,7 @@ Double-entry accounting ledger parser
 
 ## Synopsis
 
-```perl6
+```raku
 use TXN::Parser;
 use TXN::Parser::ParseTree;
 
@@ -39,7 +39,7 @@ To run the tests:
 ```
 $ git clone https://github.com/atweiden/txn-parser && cd txn-parser
 $ peru --file=.peru.yml --sync-dir="$PWD" sync
-$ PERL6LIB=lib prove -r -e perl6
+$ PERL6LIB=lib prove -r -e raku
 ```
 
 
