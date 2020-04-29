@@ -39,7 +39,7 @@ To run the tests:
 ```
 $ git clone https://github.com/atweiden/txn-parser && cd txn-parser
 $ peru --file=.peru.yml --sync-dir="$PWD" sync
-$ PERL6LIB=lib prove -r -e raku
+$ RAKUDOLIB=lib prove -r -e raku
 ```
 
 
